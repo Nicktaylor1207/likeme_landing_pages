@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}doctype 5
+html
+	head
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+		script(src='/bootstrap/js/bootstrap.min.js')
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+	body
+		div#myCarousel(class="carousel slide")
+			div(class="carousel-inner")
+				div(class="item active")
+					img.landing-bg(src="images/store2.jpg", alt="")
+				div(class="item")
+					img.landing-bg(src="images/store1.jpg", alt="")
+				div(class="item")
+					img.landing-bg(src="images/store6.jpg", alt="")
+				div(class="item")
+					img.landing-bg(src="images/store9.jpg", alt="")
+				div(class="item")
+					img.landing-bg(src="images/store14.jpg", alt="")
+		a(class="left carousel-control", href="#myCarousel", data-slide="prev") &lsaquo;
+		a(class="right carousel-control", href="#myCarousel", data-slide="next") &rsaquo;
+		div#landing-page-intro-wrap
+			h2#landing-header Welcome to Village Muze
+			p#landing-sub-header A photographic catalog of retail interiors for small business owners
+			//p Name is a photographic catalog of store interiors.
+			div#landing-content
+				p Check out stores to find inspiration, ideas, professionals and supplies to help you design your store.
+				p Sign up to be notified when the catalog is ready to view.
+			input#landing-email-input(type="text", placeholder="Enter your email address")
+			div
+				button#landing-sign-up.btn.btn-large.btn-primary(onclick="$('#landing-signup').toggle()") Sign up
+			div#landing-signup.hide()	
+				div.modal-footer
+					button.btn.btn-large.btn-primary Submit
+		//
+			script
+				!function ($) {
+					$(function(){
+						// carousel demo
+						$('#myCarousel').carousel()
+					})
+				}(window.jQuery)

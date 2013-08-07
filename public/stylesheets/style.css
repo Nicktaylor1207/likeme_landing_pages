@@ -1,0 +1,71 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Landing Page */
+
+img.landing-bg {
+	min-height: 100%;
+	min-width: 1024px;
+	width: 100%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#landing-page-intro-wrap {
+	position: relative;
+	margin: 90px auto;
+	width: 450px;
+	padding: 20px;
+	background: rgba(247,247,247,.95);
+	border-radius: 4px;
+	box-shadow: 0 0 20px #000;
+}
+
+.btn.btn-primary.landing-action-btn {
+	display: inline-block;
+	font-size: 16px;
+	padding: 8px 24px;
+	margin-right: 10px;
+}
+
+#landing-header {
+	margin: -5px 0px 5px 0px;
+}
+
+#landing-sub-header {
+	font-size: 16px;
+	font-weight: 500;
+	margin: 10px 0px 10px 0px;
+}
+
+#landing-content {
+	font-size: 15px;
+}
+
+#landing-email-input {
+	margin: 5px 0px;
+}
+
+#landing-sign-up {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+/* Carousel */
+.carousel-control {
+  height: 80px;
+  margin-top: 0px !important;
+  font-size: 120px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  background-color: transparent;
+  border: 0;
+  z-index: 10;
+}
