@@ -23,7 +23,7 @@ module.exports = function(app) {
 		    }
 		    return;
 		  } else {
-		    res.render('index');
+		    res.render('index', {hide: true});
 		  }
 		});
 

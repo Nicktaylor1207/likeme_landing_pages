@@ -8,6 +8,8 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
 	body
+		script
+			var hide = !{JSON.stringify(hide)}
 		div#myCarousel(class="carousel slide")
 			div(class="carousel-inner")
 				div(class="item active")
@@ -23,23 +25,21 @@ html
 		a(class="left carousel-control", href="#myCarousel", data-slide="prev") &lsaquo;
 		a(class="right carousel-control", href="#myCarousel", data-slide="next") &rsaquo;
 		div#landing-page-intro-wrap
-			h2#landing-header Welcome to Seven Albums
-			p#landing-sub-header A photographic catalog of retail interiors for small business owners
-			//p Name is a photographic catalog of store interiors.
-			div#landing-content
-				p Check out stores to find inspiration, ideas, professionals and products to help you design your store.
-				p Sign up to be notified when the catalog is ready to view.
-			form(method="POST", action="/signup")
-				input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
-				div
-					button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
-					p#landing-btn-or or
-					a(href="learn-more") Learn more
-			//
-				script
-					!function ($) {
-						$(function(){
-							// carousel demo
-							$('#myCarousel').carousel()
-						})
-					}(window.jQuery)
+			div#landing-welcome
+				h2#landing-header Welcome to Seven Albums
+				p#landing-sub-header A photographic catalog of retail interiors for small business owners
+				//p Name is a photographic catalog of store interiors.
+				div#landing-content
+					p Check out stores to find inspiration, ideas, professionals and products to help you design your store.
+					// p Sign up to be notified when the catalog is ready to view.
+				form#landing-signup-form(method="POST", action="/signup")
+					input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+					div#landing-signup-container
+						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
+						p#landing-btn-or or
+						a(href="learn-more") Learn more
+			div#thanks-for-sign-up.hide()
+				h3#landing-header Thanks for signing up!
+				p We will notify you when our site launches, which will be very soon.
+				p In the meantime, please <a href="learn-more">contact us</a> or <a href="learn-more">learn more</a> about Seven Albums.
+		script(type="text/javascript", src="/javascripts/script.js")					
