@@ -16,7 +16,7 @@ a {
 }
 
 .body-inner-container {
-	width: 950px;
+	width: 990px;
 	margin: 0px auto 0px auto;;
 }
 
@@ -34,19 +34,12 @@ img.landing-bg {
 
 #landing-page-intro-wrap {
 	position: relative;
-	margin: 90px auto;
+	margin: 150px auto;
 	width: 450px;
 	padding: 20px;
 	background: rgba(247,247,247,.95);
 	border-radius: 4px;
 	box-shadow: 0 0 20px #000;
-}
-
-.btn.btn-primary.landing-action-btn {
-	display: inline-block;
-	font-size: 16px;
-	padding: 8px 24px;
-	margin-right: 10px;
 }
 
 #landing-header {
@@ -64,12 +57,15 @@ img.landing-bg {
 }
 
 #landing-email-input {
-	margin: 5px 0px;
+	margin: 0px;
+}
+
+#landing-signup-container {
+	margin-top: 10px;
 }
 
 #landing-sign-up {
 	display: inline-block;
-	margin-top: 10px;
 }
 
 #landing-btn-or {
@@ -86,4 +82,45 @@ img.landing-bg {
   background-color: transparent;
   border: 0;
   z-index: 10;
+}
+
+/* Learn more page */
+.about {
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+#back-to-index {
+	margin-top: 20px;
+}
+
+#about-right-container {
+	padding-left: 60px;
+}
+
+#contact-message {
+	width: 410px;
+}
+
+#contact-first {
+	margin-top: -7px;
+}
+
+#contact-send {
+	float: right;
+	margin-top: 10px;
+}
+
+#contact-send-link {
+	margin-top: 5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#landing-signup-form {
+	margin-bottom: 0px;	
+}
+
+#about-sign-up-btn {
+	margin-top: 15px;
 }

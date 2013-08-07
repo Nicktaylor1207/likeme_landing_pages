@@ -3,6 +3,28 @@ extends layout
 block content
 	div.body-container
 		div.body-inner-container
-			h3 About Seven Albums
-			p Seven Albums is currently in development.
-			p 
+			div.row-fluid
+				div.span6
+					h3 About Seven Albums
+					p.about Seven Albums is currently in development. Our goal is to provide a platform for retail owners (boutiques, coffee shops, art/dance/yoga studios, specialty stores, etc...) to make design and remodelling decisions for their stores.
+					p.about We are compiling photos of store interiors accross the country. We believe photos hold abundant information. By browsing photos of other stores, owners can find inspiration, ideas and products.
+					p.about We are building a community of store owners, designers, architects and suppliers (hardware, fixtures, woodwork, art) to make it easier to find the ideas, products and people you need to design your store.
+					p.about We are so happy you visited our site. We are excited about this product and can't wait to launch very soon. Please share your insights, needs and feedback with us. Hearing from you will actually make our day.
+					form(method="POST", action="/signup")
+					input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+					div
+						button#about-sign-up-btn.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
+					div#back-to-index
+						a(href="/") back to home page
+				div.span6#about-right-container
+					h3 Contact Us
+					form#contact-first(method="POST")
+					label(for="message-subject") Email Address
+					input(name="email-address", type="text")
+					label(for="message-subject") Subject
+					input(name="message-subject", type="text")
+					label(for="message-subject") Message
+					textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message-subject")
+					div#contact-send-link
+						a(href="#") Send
+					// button#contact-send.btn-large.btn-primary(type="submit") Send
