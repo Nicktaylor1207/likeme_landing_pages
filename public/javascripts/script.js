@@ -1,5 +1,5 @@
 $(function(){
-  
+
 	if (hide == true) {
 		$('#landing-welcome').hide();
 		$('#thanks-for-sign-up').show();
