@@ -22,6 +22,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/learn-more', function(req, res) {
+	res.render('learn-more');
+});
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
