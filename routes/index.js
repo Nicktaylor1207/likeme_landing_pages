@@ -11,7 +11,7 @@ module.exports = function(app) {
 		Email.create(req.body, function(err) {
 		  if (err) {
 		    if (err.code === 11000) {
-		       res.redirect('/edit-profile1');
+		       res.send("Someone has already signed up with that email address.");
 		    } else {
 		      if (err.name === 'ValidationError') {
 		        return res.send(Object.keys(err.errors).map(function(errField) {
