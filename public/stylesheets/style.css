@@ -24,8 +24,7 @@ a {
 
 img.landing-bg {
 	min-height: 100%;
-	min-width: 1024px;
-	width: 100%;
+	min-width: 100%;
 	height: auto;
 	position: fixed;
 	top: 0;
@@ -47,7 +46,7 @@ img.landing-bg {
 }
 
 #landing-sub-header {
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: 500;
 	margin: 10px 0px 10px 0px;
 }
@@ -61,6 +60,7 @@ img.landing-bg {
 }
 
 #landing-signup-container {
+	font-size: 15px;
 	margin-top: 15px;
 }
 
