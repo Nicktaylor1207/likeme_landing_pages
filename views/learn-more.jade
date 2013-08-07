@@ -18,13 +18,13 @@ block content
 						a(href="/") back to home page
 				div.span6#about-right-container
 					h3 Contact Us
-					form#contact-first(method="POST")
-					label(for="message-subject") Email Address
-					input(name="email-address", type="text")
-					label(for="message-subject") Subject
-					input(name="message-subject", type="text")
-					label(for="message-subject") Message
-					textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message-subject")
-					div#contact-send-link
-						a(href="#") Send
+					form#contact-first(method="POST", action="/message")
+						label(for="email") Email Address
+						input(name="email", type="text")
+						label(for="Subject") Subject
+						input(name="Subject", type="text")
+						label(for="message") Message
+						textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message")
+						div#contact-send-link
+							a(href="#") Send
 					// button#contact-send.btn-large.btn-primary(type="submit") Send
