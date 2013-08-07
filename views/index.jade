@@ -29,19 +29,17 @@ html
 			div#landing-content
 				p Check out stores to find inspiration, ideas, professionals and products to help you design your store.
 				p Sign up to be notified when the catalog is ready to view.
-			input#landing-email-input(type="text", placeholder="Enter your email address")
-			div
-				button#landing-sign-up.btn.btn-large.btn-primary(onclick="$('#landing-signup').toggle()") Sign up
-				p#landing-btn-or or
-				a(href="#") Learn more
-			div#landing-signup.hide()	
-				div.modal-footer
-					button.btn.btn-large.btn-primary Submit
-		//
-			script
-				!function ($) {
-					$(function(){
-						// carousel demo
-						$('#myCarousel').carousel()
-					})
-				}(window.jQuery)
+			form(method="POST", action="/signup")
+				input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+				div
+					button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
+					p#landing-btn-or or
+					a(href="learn-more") Learn more
+			//
+				script
+					!function ($) {
+						$(function(){
+							// carousel demo
+							$('#myCarousel').carousel()
+						})
+					}(window.jQuery)
