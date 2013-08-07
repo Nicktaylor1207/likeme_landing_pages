@@ -1,14 +1,1 @@
-{
-  "name": "likeme-landing-page",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "3.2.6",
-    "jade": "*",
-    "mongoose": "3.6.11"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
-  }
-}
+web: node server.js
