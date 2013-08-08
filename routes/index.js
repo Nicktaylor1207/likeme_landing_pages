@@ -3,7 +3,8 @@ var Email = require('../data/models/emails');
 module.exports = function(app) {
   
 	app.get('/', function(req, res){
-		res.render('index');
+		var hide = false;
+		res.render('index', {hide: hide});
 	});
 
 	app.post('/signup', function(req, res){
@@ -23,7 +24,8 @@ module.exports = function(app) {
 		    }
 		    return;
 		  } else {
-		    res.render('index', {hide: true});
+		    var hide = true;
+		    res.render('index', {hide: hide});
 		  }
 		});
 
