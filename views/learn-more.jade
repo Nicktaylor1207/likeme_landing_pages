@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	script
+		var hide = !{JSON.stringify(hide)}
 	div.body-container
 		div.body-inner-container
 			div.row-fluid
@@ -26,3 +28,4 @@ block content
 						label(for="message") Message
 						textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message")
 						button#contact-send-btn.btn.btn-large(type="submit") Send
+	script(type="text/javascript", src="/javascripts/script.js")

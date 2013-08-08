@@ -3,7 +3,8 @@ var Message = require('../data/models/messages');
 module.exports = function(app) {
 
 	app.get('/learn-more', function(req, res) {
-		res.render('learn-more');
+		var hide = false;
+    res.render('learn-more', {hide: hide});
 	});
 
 	// app.post('/learn-more', function(req, res){
@@ -23,7 +24,8 @@ module.exports = function(app) {
         }
         return;
       } else {
-        res.render('learn-more');
+        var hide = false;
+        res.render('learn-more', {hide: hide});
       }
     });
 
