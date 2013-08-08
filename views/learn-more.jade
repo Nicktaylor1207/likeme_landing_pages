@@ -1,6 +1,10 @@
 extends layout
 
 block content
+	script
+		var hide = !{JSON.stringify(hide)}
+	script
+		var sent = !{JSON.stringify(sent)}
 	div.body-container
 		div.body-inner-container
 			div.row-fluid
@@ -17,12 +21,16 @@ block content
 					div#back-to-index
 						a(href="/") back to home page
 				div.span6#about-right-container
-					h3 Contact Us
-					form#contact-first(method="POST", action="/message")
-						label(for="email") Email Address
-						input(name="email", type="text")
-						label(for="Subject") Subject
-						input(name="Subject", type="text")
-						label(for="message") Message
-						textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message")
-						button#contact-send-btn.btn.btn-large(type="submit") Send
+					div#contact-content
+						h3 Contact Us
+						form#about-contact-form(method="POST", action="/message")
+							label(for="email") Email Address
+							input#contact-email(name="email", type="text")
+							label(for="Subject") Subject
+							input(name="Subject", type="text")
+							label(for="message") Message
+							textarea#contact-message(rows="7", type="textarea", placeholder="Type your message...", name="message")
+							button#contact-send-btn.btn.btn-large(type="submit") Send
+					div#message-sent-thanks.hide()
+						h4 Thanks for your message!
+	script(type="text/javascript", src="/javascripts/script.js")

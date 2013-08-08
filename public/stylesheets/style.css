@@ -25,10 +25,17 @@ a {
 img.landing-bg {
 	min-height: 100%;
 	min-width: 100%;
-	height: auto;
 	position: fixed;
 	top: 0;
 	left: 0;
+}
+
+div#landing-bg1 {
+	background: url('/images/bonobos1.jpg') no-repeat center center;
+	background-size: cover;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
 }
 
 #landing-page-intro-wrap {
@@ -102,10 +109,6 @@ img.landing-bg {
 	width: 410px;
 }
 
-#contact-first {
-	margin-top: -7px;
-}
-
 #contact-send-link {
 	margin-top: 5px;
 	font-size: 18px;
@@ -126,4 +129,8 @@ img.landing-bg {
 
 #about-signup-form {
 	margin-top: 15px;
+}
+
+#message-sent-thanks {
+	margin-top: 20px;
 }
