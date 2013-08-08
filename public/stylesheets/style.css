@@ -109,10 +109,6 @@ div#landing-bg1 {
 	width: 410px;
 }
 
-#contact-first {
-	margin-top: -7px;
-}
-
 #contact-send-link {
 	margin-top: 5px;
 	font-size: 18px;
@@ -133,4 +129,8 @@ div#landing-bg1 {
 
 #about-signup-form {
 	margin-top: 15px;
+}
+
+#message-sent-thanks {
+	margin-top: 20px;
 }

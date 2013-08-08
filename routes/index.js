@@ -4,7 +4,8 @@ module.exports = function(app) {
   
 	app.get('/', function(req, res){
 		var hide = false;
-		res.render('index', {hide: hide});
+		var sent = false;
+		res.render('index', {hide: hide, sent: sent});
 	});
 
 	app.post('/signup', function(req, res){
@@ -25,7 +26,8 @@ module.exports = function(app) {
 		    return;
 		  } else {
 		    var hide = true;
-		    res.render('index', {hide: hide});
+		    var sent = false;
+		    res.render('index', {hide: hide, sent: sent});
 		  }
 		});
 
