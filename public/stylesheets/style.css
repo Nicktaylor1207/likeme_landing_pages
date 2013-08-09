@@ -158,16 +158,9 @@ div#landing-bg1 {
 }
 
 #profile-modal-large-container {
-	height: 550px;
+	height: 560px;
 	padding: 0px;
 	text-align: center;
-}
-
-button.close {
-	margin: -10px 0px 5px -12px;
-	opacity: 1;
-	position: relative;
-	color: #08C;
 }
 
 #profile-modal-large-img {
@@ -186,4 +179,27 @@ button.close {
 	left: 0;
 	z-index: 1040;
 	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#demo-star {
+	height: 35px;
+	width: 35px;
+	float: right;
+	margin-right: 5px;
+	opacity: .6;
+}
+
+.clicked {
+	opacity: 1 !important;
+} 
+
+#demo-star:hover {
+	cursor: pointer;
+}
+
+#corner-num {
+	float: right;
+	font-size: 16px;
+	margin-top: -15px;
+	margin-right: 5px;
 }
