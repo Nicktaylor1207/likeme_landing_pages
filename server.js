@@ -36,6 +36,7 @@ if ('development' == app.get('env')) {
 
 require('./routes/index')(app);
 require('./routes/learn-more')(app);
+require('./routes/demos')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
