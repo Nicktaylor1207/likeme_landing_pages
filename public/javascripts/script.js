@@ -2,7 +2,7 @@ $(function(){
 
 	if (hide == true) {
 		$('#landing-welcome').hide();
-		$('#thanks-for-sign-up').show();
+		$('#landing-pref-modal').show();
 	}
 
 	if (sent == true) {
@@ -66,7 +66,9 @@ $(function(){
 	  });
 	}).call(this)
 
-
+	$('img.landing-bg').on('click', function(){	
+		$('#myCarousel').carousel('next');
+	});
 
 	/* Start carousel */
 	// !function ($) {

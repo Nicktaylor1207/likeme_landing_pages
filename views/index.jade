@@ -48,8 +48,26 @@ html
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#landing-btn-or or
 						a(href="learn-more") Learn more
+			div#landing-pref-modal.hide()
+				h3#landing-header Thanks for signing up! Last step...
+				p#landing-pref-sub Please check all that apply so we know what photos to show you.
+				form#landing-pref-form
+					div.landing-pref-container
+						input.landing-pref-checkbox(type="checkbox", name="design")
+						p.landing-pref-checkbox-content I am looking for inspiration and ideas to design my store
+					div.landing-pref-container
+						input.landing-pref-checkbox(type="checkbox", name="#")
+						p.landing-pref-checkbox-content I want to see photos to stay on top of the market
+					div.landing-pref-container
+						input.landing-pref-checkbox(type="checkbox", name="#")
+						p.landing-pref-checkbox-content I want to see merchandise labels and vendor information
+					div.landing-pref-container
+						input.landing-pref-checkbox(type="checkbox", name="#")
+						p.landing-pref-checkbox-content I want to see profiles of boutique store owners and connect
+					button#landing-pref-submit-btn.btn.btn-large.btn-primary(type="submit") Submit Preferences
 			div#thanks-for-sign-up.hide()
-				h3#landing-header Thanks for signing up!
+				h3#landing-header Preferences Submitted!
+				p Thank you so much for joining!
 				p We will notify you when our site launches, which will be very soon.
 				p In the meantime, please <a href="learn-more">contact us</a> or <a href="learn-more">learn more</a> about Seven Albums.
 		script(type="text/javascript", src="/javascripts/script.js")

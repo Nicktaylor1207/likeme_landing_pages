@@ -81,15 +81,37 @@ div#landing-bg1 {
 	margin: 0px 10px;	
 }
 
-/* Carousel */
+/* Landing preferences modal */
+
+.landing-pref-container {
+	margin-bottom: 5px;
+}
+
+.landing-pref-checkbox-content {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.landing-pref-checkbox {
+	margin-top: -2px !important;
+}
+
+#landing-pref-sub {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+#landing-pref-submit-btn {
+
+}
+
+#landing-pref-form {
+	margin-bottom: 0px;
+}
+
+/* Landing Carousel */
 .carousel-control {
-  height: 80px;
   margin-top: -10px !important;
-  font-size: 120px;
-  text-shadow: 0 1px 1px rgba(0,0,0,.4);
-  background-color: transparent;
-  border: 0;
-  z-index: 10;
 }
 
 /* Learn more page */
