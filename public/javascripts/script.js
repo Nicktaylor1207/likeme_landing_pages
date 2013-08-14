@@ -14,7 +14,7 @@ $(function(){
 		$('#myCarousel').carousel('pause');
 	} else {
 		$('#myCarousel').carousel({
-  		interval: 3000
+  		interval: 4000
 		});
 	}
 
