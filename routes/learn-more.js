@@ -5,7 +5,8 @@ module.exports = function(app) {
 	app.get('/learn-more', function(req, res) {
 		var hide = false;
     var sent = false;
-    res.render('learn-more', {hide: hide, sent: sent});
+    var prefs_sent = false;
+    res.render('learn-more', {hide: hide, sent: sent, prefs_sent: prefs_sent});
 	});
 
 	// app.post('/learn-more', function(req, res){

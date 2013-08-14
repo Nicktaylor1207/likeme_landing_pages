@@ -3,12 +3,19 @@ $(function(){
 	if (hide == true) {
 		$('#landing-welcome').hide();
 		$('#landing-pref-modal').show();
-		$('#myCarousel').carousel('pause');
 	}
 
 	if (prefs_sent == true) {
 		$('#landing-pref-modal').hide();
 		$('#thanks-for-sign-up').show();
+	}
+
+	if (hide == true || prefs_sent == true) {
+		$('#myCarousel').carousel('pause');
+	} else {
+		$('#myCarousel').carousel({
+  		interval: 3000
+		});
 	}
 
 	if (sent == true) {
@@ -72,11 +79,11 @@ $(function(){
 	  });
 	}).call(this)
 
-	$('img.landing-bg').on('click', function(){	
-		$('#myCarousel').carousel('next');
-	});
+	// $('img.landing-bg').on('click', function(){	
+	// 	$('#myCarousel').carousel('next');
+	// });
 
 	/* Start carousel */
-	// $('#myCarousel').carousel();
+	
 
 });
