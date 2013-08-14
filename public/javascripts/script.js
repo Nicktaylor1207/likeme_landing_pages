@@ -14,7 +14,7 @@ $(function(){
 		$('#myCarousel').carousel('pause');
 	} else {
 		$('#myCarousel').carousel({
-  		interval: 4000
+  		interval: 3000
 		});
 	}
 
@@ -82,8 +82,6 @@ $(function(){
 	// $('img.landing-bg').on('click', function(){	
 	// 	$('#myCarousel').carousel('next');
 	// });
-
-	/* Start carousel */
 	
 
 });
