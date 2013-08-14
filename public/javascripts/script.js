@@ -4,7 +4,11 @@ $(function(){
 		$('#landing-welcome').hide();
 		$('#landing-pref-modal').show();
 		$('#myCarousel').carousel('pause');
-		$('')
+	}
+
+	if (prefs_sent == true) {
+		$('#landing-pref-modal').hide();
+		$('#thanks-for-sign-up').show();
 	}
 
 	if (sent == true) {
