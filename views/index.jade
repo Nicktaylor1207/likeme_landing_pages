@@ -51,18 +51,18 @@ html
 			div#landing-pref-modal.hide()
 				h3#landing-header Thanks for signing up! Last step...
 				p#landing-pref-sub Please check all that apply so we know what photos to show you.
-				form#landing-pref-form
+				form#landing-pref-form(method="POST", action="/prefs")
 					div.landing-pref-container
 						input.landing-pref-checkbox(type="checkbox", name="design")
 						p.landing-pref-checkbox-content I am looking for inspiration and ideas to design my store
 					div.landing-pref-container
-						input.landing-pref-checkbox(type="checkbox", name="#")
+						input.landing-pref-checkbox(type="checkbox", name="market")
 						p.landing-pref-checkbox-content I want to see other stores to stay on top of the market
 					div.landing-pref-container
-						input.landing-pref-checkbox(type="checkbox", name="#")
+						input.landing-pref-checkbox(type="checkbox", name="vendors")
 						p.landing-pref-checkbox-content I want to see merchandise labels and vendor information
 					div.landing-pref-container
-						input.landing-pref-checkbox(type="checkbox", name="#")
+						input.landing-pref-checkbox(type="checkbox", name="connect")
 						p.landing-pref-checkbox-content I want to see profiles of boutique stores and owners
 					button#landing-pref-submit-btn.btn.btn-large.btn-primary(type="submit") Submit Preferences
 			div#thanks-for-sign-up.hide()

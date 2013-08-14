@@ -1,4 +1,5 @@
 var Email = require('../data/models/emails');
+var Pref = require('../data/models/prefs');
 
 module.exports = function(app) {
   
@@ -30,8 +31,17 @@ module.exports = function(app) {
 		    res.render('index', {hide: hide, sent: sent});
 		  }
 		});
+	});
 
+	app.post('/prefs', function(req, res){
 
+		Pref.create(req.body, function(err) {
+		  if (!err) {
+		    var hide = true;
+		    var sent = false;
+		    res.render('index', {hide: hide, sent: sent});
+		  }
+		});
 	});
 
 };
