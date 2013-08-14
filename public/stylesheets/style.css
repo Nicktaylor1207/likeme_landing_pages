@@ -99,10 +99,11 @@ div#landing-bg1 {
 #landing-pref-sub {
 	font-size: 16px;
 	font-weight: 500;
+	margin-bottom: 15px;
 }
 
 #landing-pref-submit-btn {
-
+	margin-top: 5px;
 }
 
 #landing-pref-form {
@@ -111,6 +112,7 @@ div#landing-bg1 {
 
 /* Landing Carousel */
 .carousel-control {
+  position: fixed;
   margin-top: -10px !important;
 }
 

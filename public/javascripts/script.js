@@ -3,6 +3,8 @@ $(function(){
 	if (hide == true) {
 		$('#landing-welcome').hide();
 		$('#landing-pref-modal').show();
+		$('#myCarousel').carousel('pause');
+		$('')
 	}
 
 	if (sent == true) {
@@ -71,11 +73,6 @@ $(function(){
 	});
 
 	/* Start carousel */
-	// !function ($) {
-	// 	$(function(){
-	// 		// carousel demo
-	// 		$('#myCarousel').carousel()
-	// 	})
-	// }(window.jQuery)
+	// $('#myCarousel').carousel();
 
 });
