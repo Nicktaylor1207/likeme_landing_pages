@@ -9,14 +9,15 @@ a {
 
 .body-container {
 	width: 100%;
-	min-height: 650px;
 	margin: 0px auto 0px auto;
-	padding: 40px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 .body-inner-container {
 	width: 990px;
-	margin: 0px auto 0px auto;
+	min-height: 650px;
+	margin: 0px auto;
+	padding: 40px 0px 0px 0px;
 	background-color: rgba(247, 247, 247, .8)
 }
 
