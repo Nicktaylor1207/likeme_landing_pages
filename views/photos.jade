@@ -1,0 +1,45 @@
+extends layout
+
+block content
+	div.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-inner
+				div.navbar-container
+					ul.nav
+						li
+							a#navbar-home(href="home") Home
+					ul.nav.pull-right
+						li
+							a(href="#") My Ideas
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown") My Account <b class="caret"></b>
+							ul.dropdown-menu
+								li
+									a(href="/profile") My Profile
+								li
+									a(href="/messages") Messages
+								li
+									a(href="#") Log out
+	div.body-container
+		div.body-inner-container
+			div.photo-page-container
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/store1.jpg")
+					div.photo-content-container.span3
+						div.photo-content-container-inner
+							h4 Add Comment
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/ian18.jpg")
+					div.photo-content-container.span3
+						div.photo-content-container-inner
+							h4 Add Comment
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/ian23.jpg")
+					div.photo-content-container.span3
+						div.photo-content-container-inner
+							h4 Add Comment

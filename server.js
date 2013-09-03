@@ -10,11 +10,11 @@ var express = require('express')
 
 var app = express();
 
-var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
-mongoose.connect(uri);
+// var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
+// mongoose.connect(uri);
 
-// var dbURL = 'mongodb://localhost/test';
-// var db = mongoose.connect(dbURL);
+var dbURL = 'mongodb://localhost/test';
+var db = mongoose.connect(dbURL);
 
 // all environments
 app.configure(function(){
@@ -37,6 +37,8 @@ if ('development' == app.get('env')) {
 require('./routes/index')(app);
 require('./routes/learn-more')(app);
 require('./routes/demos')(app);
+require('./routes/albums')(app);
+require('./routes/photos')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

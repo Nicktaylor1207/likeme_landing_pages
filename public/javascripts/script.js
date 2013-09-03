@@ -13,9 +13,9 @@ $(function(){
 	if (hide == true || prefs_sent == true) {
 		$('#myCarousel').carousel('pause');
 	} else {
-		$('#myCarousel').carousel({
-  		interval: 3000
-		});
+		// $('#myCarousel').carousel({
+  // 		interval: 3000
+		// });
 	}
 
 	if (sent == true) {
