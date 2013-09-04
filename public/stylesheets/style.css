@@ -396,7 +396,7 @@ div#landing-bg1 {
 
 .pro-album-pic {
 	height: 100%;
-	width: auto;
+	width: 100%;
 	border-radius: 2px;
 	position: absolute;
 }
