@@ -18,7 +18,7 @@ a {
 	min-height: 650px;
 	margin: 0px auto;
 	padding: 40px 0px 0px 0px;
-	background-color: rgba(247, 247, 247, .8)
+	background-color: rgba(247, 247, 247, .7)
 }
 
 /* Landing Page */
@@ -43,6 +43,7 @@ div#landing-bg1 {
 	position: relative;
 	margin: 170px auto;
 	width: 420px;
+	min-height: 200px;
 	padding: 20px;
 	background: rgba(247,247,247,.95);
 	border-radius: 4px;
@@ -82,6 +83,19 @@ div#landing-bg1 {
 	margin: 0px 10px;	
 }
 
+#preview-cta {
+	font-size: 18px;
+}
+
+#go-to-photos-link-container {
+	font-size: 16px;
+}
+
+#thanks-for-joining {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
 /* Landing preferences modal */
 
 .landing-pref-container {
@@ -117,7 +131,7 @@ div#landing-bg1 {
   margin-top: -10px !important;
 }
 
-/* Learn more page */
+/* About page */
 .about {
 	font-size: 14px;
 	margin-top: 15px;
@@ -127,12 +141,16 @@ div#landing-bg1 {
 	margin-top: 20px;
 }
 
-#about-right-container {
-	padding-left: 60px;
+#about-left-container {
+	padding-right: 20px;	
 }
 
-#contact-message {
-	width: 410px;
+#about-right-container {
+	padding-left: 0px;
+}
+
+#idea {
+	width: 370px;
 }
 
 #contact-send-link {
@@ -149,16 +167,38 @@ div#landing-bg1 {
 	margin-top: 15px;
 }
 
-#contact-send-btn {
-	margin-top: 5px;
-}
-
 #about-signup-form {
 	margin-top: 15px;
 }
 
 #message-sent-thanks {
 	margin-top: 20px;
+}
+
+.about-outer-container {
+	background-color: rgba(247, 247, 247, .7);
+}
+
+.about-container {
+	width: 970px;
+	min-height: 650px;
+	margin: 0px auto;
+	padding: 20px 10px 20px 10px;
+}
+
+#zn-pic {
+	margin-top: 10px;
+	width: 500px;
+	height: auto;
+}
+
+#about-star {
+	height: 20px;
+	width: auto;
+}
+
+#about-star:hover {
+	cursor: pointer;
 }
 
 /* Demo Photo Modal */
@@ -289,6 +329,19 @@ div#landing-bg1 {
 	padding-left: 10px;
 }
 
+.brand {
+	/* color: white !important; */
+}
+
+.signup-nav {
+	font-size: 16px;
+}
+
+.nav-link {
+	font-size: 16px;
+	margin-left: -10px;
+}
+
 @media screen and (max-width: 1024px) {
 	.navbar-inner {
 		padding: 0px 20px 0px 0px !important;
@@ -303,7 +356,7 @@ div#landing-bg1 {
 /* ALBUMS */
 
 #pro-album-container {
-	margin: 30px 0px 0px 90px;
+	margin: 40px 0px 0px 103px;
 	padding: 0px 0px;
 }
 
@@ -338,10 +391,11 @@ div#landing-bg1 {
 	margin: 0px 40px 35px 0px;
 	overflow: hidden;
 	background-position: center center;
+	/* box-shadow: 0px 0px 5px #000; */
 }
 
 .pro-album-pic {
-	height: 350px;
+	height: 100%;
 	width: auto;
 	border-radius: 2px;
 	position: absolute;
@@ -381,8 +435,30 @@ div#landing-bg1 {
 	margin: 20px 0px 0px 0px;
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
+	padding: 10px 10px;
+	position: relative;
 }
 
-.photo-content-container-inner {
-	padding: 0px 10px;
+.ideabook-count {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.add-ideabook {
+	font-size: 16px;
+	font-weight: bold;	
+}
+
+.comment-container {
+	margin-top: 20px;
+}
+
+.add-comment {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.source {
+	position: absolute;
+	bottom: 10px;
 }

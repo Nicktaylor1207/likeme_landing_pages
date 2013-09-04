@@ -2,14 +2,14 @@ var Message = require('../data/models/messages');
 
 module.exports = function(app) {
 
-	app.get('/learn-more', function(req, res) {
+	app.get('/about', function(req, res) {
 		var hide = false;
     var sent = false;
     var prefs_sent = false;
-    res.render('learn-more', {hide: hide, sent: sent, prefs_sent: prefs_sent});
+    res.render('about', {hide: hide, sent: sent, prefs_sent: prefs_sent});
 	});
 
-	// app.post('/learn-more', function(req, res){
+	// app.post('/about', function(req, res){
 
 	// });
 
@@ -28,7 +28,7 @@ module.exports = function(app) {
       } else {
         var hide = false;
         var sent = true;
-        res.render('learn-more', {hide: hide, sent: sent});
+        res.render('about', {hide: hide, sent: sent});
       }
     });
 

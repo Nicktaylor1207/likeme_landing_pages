@@ -48,8 +48,8 @@ html
 					input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
-						// p#landing-btn-or or
-						// a(href="learn-more") Learn more
+						p#landing-btn-or or
+						a#preview-cta(href="albums") Preview Site
 			div#landing-pref-modal.hide()
 				h3#landing-header Thanks for signing up! Last step...
 				p#landing-pref-sub Please select your top two preferences so we know what photos to show you.
@@ -72,4 +72,11 @@ html
 				p Thank you so much for joining Seven Albums!
 				p We are finishing development of the site and will launch in September.
 				p In the meantime, please <a href="learn-more">contact us</a> or <a href="learn-more">learn more</a> about Seven Albums.
+			div#thanks-for-sign-up-no-pref.hide()
+				h3#landing-header Thanks for joining Seven Albums!
+				div#thanks-for-joining
+					p Thanks for being an early adopter of Seven Albums.
+					p We are delighted you joined and hope you enjoy the site.
+				div#go-to-photos-link-container
+					a(href="albums") Go to photos
 		script(type="text/javascript", src="/javascripts/script.js")

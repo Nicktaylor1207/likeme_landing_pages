@@ -2,13 +2,16 @@ $(function(){
 
 	if (hide == true) {
 		$('#landing-welcome').hide();
-		$('#landing-pref-modal').show();
+		$('#thanks-for-sign-up-no-pref').show();
+		// delete above line to revert to prefs
+		// $('#landing-pref-modal').show();
+
 	}
 
-	if (prefs_sent == true) {
-		$('#landing-pref-modal').hide();
-		$('#thanks-for-sign-up').show();
-	}
+	// if (prefs_sent == true) {
+	// 	$('#landing-pref-modal').hide();
+	// 	$('#thanks-for-sign-up').show();
+	// }
 
 	if (hide == true || prefs_sent == true) {
 		$('#myCarousel').carousel('pause');
@@ -85,3 +88,4 @@ $(function(){
 	
 
 });
+

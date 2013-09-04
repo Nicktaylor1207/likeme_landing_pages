@@ -1,13 +1,17 @@
 extends layout
 
 block content
+	script(type="text/javascript", src="/javascripts/photos.js")
 	div.navbar.navbar-inverse.navbar-fixed-top
-			div.navbar-inner
-				div.navbar-container
-					ul.nav
-						li
-							a#navbar-home(href="home") Home
-					ul.nav.pull-right
+		div.navbar-inner
+			div.navbar-container
+				a.brand(href="albums") Seven Albums
+				ul.nav.pull-right
+					li
+						a.nav-link(href="about") About us
+					li
+						a.nav-link(href="index") Sign up
+					//
 						li
 							a(href="#") My Ideas
 						li.dropdown
@@ -27,19 +31,31 @@ block content
 						a(href="#")
 							img.photo-img(src="images/store1.jpg")
 					div.photo-content-container.span3
-						div.photo-content-container-inner
-							h4 Add Comment
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
 				div.row-fluid.photo-display-container
 					div.photo-img-container.span9
 						a(href="#")
-							img.photo-img(src="images/ian18.jpg")
+							img.photo-img(src="images/ian42.jpg")
 					div.photo-content-container.span3
-						div.photo-content-container-inner
-							h4 Add Comment
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
 				div.row-fluid.photo-display-container
 					div.photo-img-container.span9
 						a(href="#")
 							img.photo-img(src="images/ian23.jpg")
 					div.photo-content-container.span3
-						div.photo-content-container-inner
-							h4 Add Comment
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
