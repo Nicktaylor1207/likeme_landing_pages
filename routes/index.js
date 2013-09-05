@@ -8,6 +8,7 @@ module.exports = function(app) {
 		var sent = false;
 		var prefs_sent = false;
 		res.render('index', {hide: hide, sent: sent, prefs_sent: prefs_sent});
+		console.log(req.session.email);
 	});
 
 	app.post('/signup', function(req, res){

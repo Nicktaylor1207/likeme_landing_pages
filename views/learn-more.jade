@@ -17,9 +17,13 @@ block content
 					p.about We are building a community of store owners, designers, architects and suppliers (hardware, fixtures, woodwork, art) to make it easier to find the ideas, products and people you need to design your store.
 					p.about We are so happy you visited our site. We are excited about this product and can't wait to launch very soon. Please share your insights, needs and feedback with us. Hearing from you will actually make our day.
 					form#about-signup-form(method="POST", action="/signup")
-						input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
-						div
-							button#about-sign-up-btn.btn.btn-large.btn-primary(type="submit") Sign up
+						p
+							input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+						p
+							label(for="password") Password
+							input(name="password", type="password")
+							div
+								button#about-sign-up-btn.btn.btn-large.btn-primary(type="submit") Sign up
 					div#back-to-index
 						a(href="/") back to home page
 				div.span6#about-right-container

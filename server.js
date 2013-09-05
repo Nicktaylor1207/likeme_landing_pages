@@ -25,6 +25,8 @@ app.configure(function(){
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
+	app.use(express.cookieParser('I love Red'));
+  app.use(express.cookieSession({ cookie: {maxAge: 60 * 60 * 1000}}));
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -37,6 +39,7 @@ if ('development' == app.get('env')) {
 require('./routes/index')(app);
 require('./routes/learn-more')(app);
 require('./routes/demos')(app);
+require('./routes/session')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

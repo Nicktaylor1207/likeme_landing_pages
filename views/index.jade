@@ -45,7 +45,11 @@ html
 				div#landing-content
 					p Sign up to view photos.
 				form#landing-signup-form(method="POST", action="/signup")
-					input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+					p
+						input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+					p
+						label(for="password") Password
+						input(name="password", type="password")
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#landing-btn-or or
