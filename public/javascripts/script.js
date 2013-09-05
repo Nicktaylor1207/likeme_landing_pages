@@ -2,20 +2,23 @@ $(function(){
 
 	if (hide == true) {
 		$('#landing-welcome').hide();
-		$('#landing-pref-modal').show();
+		$('#thanks-for-sign-up-no-pref').show();
+		// delete above line to revert to prefs
+		// $('#landing-pref-modal').show();
+
 	}
 
-	if (prefs_sent == true) {
-		$('#landing-pref-modal').hide();
-		$('#thanks-for-sign-up').show();
-	}
+	// if (prefs_sent == true) {
+	// 	$('#landing-pref-modal').hide();
+	// 	$('#thanks-for-sign-up').show();
+	// }
 
 	if (hide == true || prefs_sent == true) {
 		$('#myCarousel').carousel('pause');
 	} else {
-		$('#myCarousel').carousel({
-  		interval: 4000
-		});
+		// $('#myCarousel').carousel({
+  // 		interval: 3000
+		// });
 	}
 
 	if (sent == true) {
@@ -82,8 +85,7 @@ $(function(){
 	// $('img.landing-bg').on('click', function(){	
 	// 	$('#myCarousel').carousel('next');
 	// });
-
-	/* Start carousel */
 	
 
 });
+

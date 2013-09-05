@@ -1,0 +1,61 @@
+extends layout
+
+block content
+	script(type="text/javascript", src="/javascripts/photos.js")
+	div.navbar.navbar-inverse.navbar-fixed-top
+		div.navbar-inner
+			div.navbar-container
+				a.brand(href="albums") Seven Albums
+				ul.nav.pull-right
+					li
+						a.nav-link(href="about") About us
+					li
+						a.nav-link(href="index") Sign up
+					//
+						li
+							a(href="#") My Ideas
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown") My Account <b class="caret"></b>
+							ul.dropdown-menu
+								li
+									a(href="/profile") My Profile
+								li
+									a(href="/messages") Messages
+								li
+									a(href="#") Log out
+	div.body-container
+		div.body-inner-container
+			div.photo-page-container
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/store1.jpg")
+					div.photo-content-container.span3
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/ian42.jpg")
+					div.photo-content-container.span3
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
+				div.row-fluid.photo-display-container
+					div.photo-img-container.span9
+						a(href="#")
+							img.photo-img(src="images/ian23.jpg")
+					div.photo-content-container.span3
+						p.ideabook-count 0 Ideabooks
+						a.add-ideabook(href="#") + Add to Ideabook
+						div.comment-container
+							a.add-comment(href="#") + Add Comment
+						div.source-container
+							a.source(href="http://superfuture.com/supernews/london-a-p-c-store-relocation") http://superfuture.com/supernews/london-a-p-c-store-relocation
