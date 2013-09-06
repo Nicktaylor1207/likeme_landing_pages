@@ -201,6 +201,10 @@ div#landing-bg1 {
 	cursor: pointer;
 }
 
+.about-nav {
+	margin-left: 10px;
+}
+
 /* Demo Photo Modal */
 
 #pro-photo-modal {
@@ -455,6 +459,7 @@ div#landing-bg1 {
 .add-ideabook {
 	font-size: 16px;
 	font-weight: bold;	
+	color: #08B;
 }
 
 .comment-container {
@@ -464,6 +469,7 @@ div#landing-bg1 {
 .add-comment {
 	font-size: 16px;
 	font-weight: bold;
+	color: #08B;
 }
 
 .source {

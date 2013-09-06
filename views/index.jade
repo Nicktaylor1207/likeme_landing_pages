@@ -47,9 +47,10 @@ html
 				form#landing-signup-form(method="POST", action="/signup")
 					p
 						input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
-					p
-						label(for="password") Password
-						input(name="password", type="password")
+					//
+						p
+							label(for="password") Password
+							input(name="password", type="password")
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#landing-btn-or or

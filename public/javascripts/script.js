@@ -82,6 +82,10 @@ $(function(){
 	  });
 	}).call(this)
 
+	$('#about-star').on('click', function(){
+		alert("Thanks for your encouragement! It means a lot to us.")
+	});
+
 	// $('img.landing-bg').on('click', function(){	
 	// 	$('#myCarousel').carousel('next');
 	// });
