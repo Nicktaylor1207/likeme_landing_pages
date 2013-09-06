@@ -408,6 +408,14 @@ div#landing-bg1 {
 	background-size: cover;
 }
 
+.coming-soon {
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+	position: absolute;
+	bottom: 0px;
+	right: 10px;
+}
+
 /* MAIN PHOTO PAGE */
 
 .photo-page-container {

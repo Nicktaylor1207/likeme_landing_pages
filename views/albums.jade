@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	script(type="text/javascript", src="/javascripts/albums.js")
 	div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
@@ -26,26 +27,28 @@ block content
 		div.body-inner-container
 			div#pro-album-container
 				div.pro-album-cover
-					a(href="photos")
+					a(href="photos-ny")
 						img.pro-album-pic(src="images/rsz_ian18.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name New York
 				div.pro-album-cover
-					a(href="photos")
+					a(href="photos-bou")
 						img.pro-album-pic(src="images/rsz_boutiques3.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Boutiques
-				div.pro-album-cover
-					a(href="photos")
+				div.pro-album-cover#coming-soon-aut
+					a(href="#")
 						img.pro-album-pic(src="images/rsz_autumn3.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Autumn 2013
-				div.pro-album-cover
-					a(href="photos")
+								p.coming-soon Coming Soon
+				div.pro-album-cover#coming-soon-like
+					a(href="#")
 						img.pro-album-pic(src="images/rsz_butterhome1.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Stores Like Mine
+								p.coming-soon Coming Soon
