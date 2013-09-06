@@ -87,7 +87,7 @@ $(function(){
 	});
 
 	$('#idea-post-btn').on('click', function(){
-		alert("Thanks for the insights! We'll have the idea wall up and working shortly, in the meantime we really appreciate your input!");
+		alert("Thanks for your post! We'll have the idea wall up and working shortly, in the meantime we really appreciate your input!");
 	})
 
 	// $('img.landing-bg').on('click', function(){	
