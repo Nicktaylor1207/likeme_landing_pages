@@ -86,6 +86,10 @@ $(function(){
 		alert("Thanks for your encouragement! It means a lot to us.")
 	});
 
+	$('#idea-post-btn').on('click', function(){
+		alert('Not quite ready yet..sorry. Please send us an email with any comments. We would be delighted to hear from you.');
+	})
+
 	// $('img.landing-bg').on('click', function(){	
 	// 	$('#myCarousel').carousel('next');
 	// });
