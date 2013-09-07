@@ -8,6 +8,9 @@ var EmailSchema = new mongoose.Schema({
 	},
 	password: {
 	  type: String
+	},
+	notebook: {
+		photos: []
 	}
 });
 

@@ -21,8 +21,9 @@ block content
 								img.photo-img(src="images/aa/ny1.jpg")
 						div.photo-content-container.span3
 							p.notebook-count 0 Notebooks
-							button#about-sign-up-btn.btn.btn-large.btn-primary(type="submit") Sign up
-							p.add-notebook(href="#") + Add to Notebook
+							form(method="POST", action="/notebook")
+								input.hide()(name="image_url", value="images/aa/ny1.jpg")
+								input.add-notebook(type="submit", value="+ Add to Notebook") 
 							div.comment-container
 								p.add-comment(href="#") + Add Comment
 							//
