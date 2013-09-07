@@ -1,4 +1,4 @@
-var Message = require('../data/models/messages');
+var Idea = require('../data/models/ideas');
 
 module.exports = function(app) {
 
@@ -13,9 +13,9 @@ module.exports = function(app) {
 
 	// });
 
-	app.post('/message', function(req, res){
+	app.post('/idea', function(req, res){
 
-		Message.create(req.body, function(err) {      
+		Idea.create(req.body, function(err) {      
       if (err) {
         if (err.name === 'ValidationError') {
           return res.send(Object.keys(err.errors).map(function(errField) {
