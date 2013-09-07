@@ -433,14 +433,39 @@ div#landing-bg1 {
 .photo-img-container {
 	height: 500px;
 	margin: 20px -5px 0px 0px; 
-}
-
-.photo-img {
-	height: 100%;
-	width: 100%;
+	overflow: hidden;
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
 }
+
+.photo-img {
+	min-height: 100%;
+	min-width: 100%;
+	height: auto;
+}
+
+/* 
+.photo-img-container {
+	height: 500px;
+	margin: 20px 0px 0px 0px; 
+}
+
+.photo-img-bg {
+	min-height: 100%;
+	min-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	background-size: 100% 100% !important;
+}
+
+.photo-img {
+	min-height: 100%;
+	min-width: 100%;
+	height: auto;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+}
+*/
 
 .photo-content-container {
 	height: 500px;
