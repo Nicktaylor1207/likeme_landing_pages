@@ -14,7 +14,9 @@ $(function() {
         items: 50,
         itemsOnPage: 10,
         cssStyle: 'light-theme',
-        onPageClick: function(pageNumber){test(pageNumber)}
+        onPageClick: function(pageNumber){
+        	test(pageNumber);
+        }
     });
 
 		function test(pageNumber) {
@@ -22,4 +24,5 @@ $(function() {
 			$('.selection').hide()
 			$(page).show()
     }
+
 });
