@@ -2,27 +2,6 @@ extends layout
 
 block content
 	script(type="text/javascript", src="/javascripts/albums.js")
-	div.navbar.navbar-inverse.navbar-fixed-top
-			div.navbar-inner
-				div.navbar-container
-					a.brand(href="albums") Seven Albums
-					ul.nav.pull-right
-						li
-							a.nav-link(href="about") About us
-						li
-							a.nav-link(href="/") Sign up
-						//
-							li
-								a(href="#") My Ideas
-							li.dropdown
-								a.dropdown-toggle(href="#", data-toggle="dropdown") My Account <b class="caret"></b>
-								ul.dropdown-menu
-									li
-										a(href="/profile") My Profile
-									li
-										a(href="/messages") Messages
-									li
-										a(href="#") Log out
 	div.body-container
 		div.body-inner-container
 			div#pro-album-container

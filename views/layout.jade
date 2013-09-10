@@ -7,11 +7,11 @@ html
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 		script(src='/bootstrap/js/bootstrap.min.js')
 		script(type="text/javascript", src="flaviusmatis-simplePagination/jquery.simplePagination.js")
-		script(src="/socket.io/socket.io.js")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(type="text/css", rel="stylesheet", href="flaviusmatis-simplePagination/simplePagination.css")
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+		script(type="text/javascript", src="/javascripts/signin.js")
 		script.
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,4 +21,23 @@ html
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
+		div.navbar.navbar-inverse.navbar-fixed-top
+					div.navbar-inner
+						div.navbar-container
+							a.brand(href="albums") Seven Albums
+							div#not-signed-in
+								ul.nav.pull-right#nav-right-container
+									li
+										a.nav-link(href="about") About us
+									li
+										a.nav-link#loginButton(href="#") <span>Sign in</span>
+										div#loginBox
+											form#loginForm
+												fieldset
+													input(type="text", name="email", placeholder="Email Address")
+												fieldset
+													input(type="text", name="password", placeholder="Password")
+												button.btn.btn-primary#login(type="submit") Sign in
+												// label(for="checkbox")<input type="checkbox" id="checkbox" />Remember me</label>
+												// span <a href="#">Forgot your password?</a>
 		block content

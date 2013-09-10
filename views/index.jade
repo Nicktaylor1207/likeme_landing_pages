@@ -16,6 +16,31 @@ html
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-inner
+				div.navbar-container
+					a.brand(href="albums") Seven Albums
+					div#not-signed-in
+						ul.nav.pull-right#nav-right-container
+							li
+								a.nav-link(href="about") About us
+							li
+								a.nav-link#loginButton(href="#") <span>Sign in</span>
+								div#loginBox
+									form#loginForm
+										fieldset
+											input(type="text", name="email", placeholder="Email Address")
+										fieldset
+											input(type="text", name="password", placeholder="Password")
+										button.btn.btn-primary#login(type="submit") Sign in
+										// label(for="checkbox")<input type="checkbox" id="checkbox" />Remember me</label>
+										// span <a href="#">Forgot your password?</a>
+					div#signed-in.hide()
+						ul.nav.pull-right#nav-right-container
+							li
+								a.nav-link(href="about") About us
+							li
+								a.nav-link(href="/") Sign up
 		script.
 			var hide = !{JSON.stringify(hide)}
 		script.
@@ -46,10 +71,9 @@ html
 					p Sign up to view photos.
 				form#landing-signup-form(method="POST", action="/signup")
 					p
-						input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
+						input#landing-email-input(name="email", type="text", placeholder="Email Address")
 					p
-						label(for="password") Password
-						input(name="password", type="password")
+						input#landing-password-input(name="password", type="password", placeholder="Password")
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#landing-btn-or or
@@ -84,3 +108,4 @@ html
 				div#go-to-photos-link-container
 					a(href="albums") Go to photos
 		script(type="text/javascript", src="/javascripts/script.js")
+		script(type="text/javascript", src="/javascripts/signin.js")

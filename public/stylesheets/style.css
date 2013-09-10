@@ -69,6 +69,10 @@ div#landing-bg1 {
 	margin-bottom: 0px;
 }
 
+#landing-password-input {
+	margin: 5px 0px 0px 0px;	
+}
+
 #landing-signup-container {
 	font-size: 15px;
 	margin-top: 15px;
@@ -128,7 +132,7 @@ div#landing-bg1 {
 /* Landing Carousel */
 .carousel-control {
   position: fixed;
-  margin-top: -10px !important;
+  margin-top: 0px !important;
 }
 
 /* About page */
@@ -177,6 +181,7 @@ div#landing-bg1 {
 
 .about-outer-container {
 	background-color: rgba(247, 247, 247, .7);
+	margin-top: 0px;
 }
 
 .about-container {
@@ -320,7 +325,7 @@ div#landing-bg1 {
 }
 
 .navbar-container {
-	width: 1020px;
+	width: 990px;
 	margin: auto;
 }
 
@@ -333,8 +338,8 @@ div#landing-bg1 {
 	padding-left: 10px;
 }
 
-.brand {
-	/* color: white !important; */
+#nav-right-container {
+	margin-right: -5px;
 }
 
 .signup-nav {
@@ -344,6 +349,7 @@ div#landing-bg1 {
 .nav-link {
 	font-size: 16px;
 	margin-left: -10px;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
@@ -509,4 +515,29 @@ div#landing-bg1 {
 .source {
 	position: absolute;
 	bottom: 10px;
+}
+
+/* Login Form */
+#loginButton.active {
+  background: #C9C9C9;
+  color: #333;
+  text-shadow: none;
+  position:relative;
+  z-index: 30;
+}
+
+#loginForm {
+	margin-bottom: 0px;
+}
+
+#loginBox {
+	display: none;
+	position: absolute;
+	top: 34px;
+	right: 0px;
+	padding: 20px;
+	background: #C9C9C9;
+	border-radius: 4px;
+	box-shadow: 0 0 20px #000;
+	z-index:29;
 }
