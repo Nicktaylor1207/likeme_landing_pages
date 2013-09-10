@@ -18,6 +18,8 @@ html
 	body
 		script.
 			var navLogin = !{JSON.stringify(navLogin)}
+		script.
+			var hide = !{JSON.stringify(hide)}
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
@@ -43,12 +45,6 @@ html
 								a.nav-link(href="about") About us
 							li
 								a.nav-link(href="/") Sign up
-		script.
-			var hide = !{JSON.stringify(hide)}
-		script.
-			var sent = !{JSON.stringify(sent)}
-		script.
-			var prefs_sent = !{JSON.stringify(prefs_sent)}
 		div#myCarousel(class="carousel slide")
 			div(class="carousel-inner")
 				div(class="item active")

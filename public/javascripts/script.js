@@ -3,22 +3,6 @@ $(function(){
 	if (hide == true) {
 		$('#landing-welcome').hide();
 		$('#thanks-for-sign-up-no-pref').show();
-		// delete above line to revert to prefs
-		// $('#landing-pref-modal').show();
-
-	}
-
-	if (hide == true || prefs_sent == true) {
-		$('#myCarousel').carousel('pause');
-	} else {
-		// $('#myCarousel').carousel({
-  // 		interval: 3000
-		// });
-	}
-
-	if (sent == true) {
-		$('#contact-content').hide();
-		$('#message-sent-thanks').show();
 	}
 
 	(function(){

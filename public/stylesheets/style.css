@@ -568,3 +568,73 @@ div#landing-bg1 {
 	background-color: rgba(247, 247, 247, .7);
 	margin-top: 30px;
 }
+
+/* Notebook */
+
+#nb-header {
+	display: inline-block;
+	margin-top: 0px;
+}
+
+.nb-container {
+	margin-top: 30px;
+	padding: 0px 20px;
+}
+
+.nb-photos-container {
+	margin-top: 25px;
+
+}
+
+.nb-photo-row {
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 15px;
+	padding: 0px;
+}
+
+.nb-photo-img-container {
+	margin: 0px 20px 0px 0px;
+	height: 250px;
+	width: 300px;
+	box-shadow: 0 0 2px #000;
+	border-radius: 4px;
+	display: inline-block;
+	background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nb-photo-img-container#third {
+	margin: 0px 0px 0px 0px;
+}
+
+#nb-add-photos {
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: -12px;
+}
+
+#nb-add-photos-modal {
+	width: 500px;
+	top: 25%;
+	margin-left: -250px;
+}
+
+#nb-photos-modal-header {
+	margin: 0px 0px 15px 0px;
+}
+
+#nb-photos-modal-close {
+	margin-top: -10px;
+}
+
+#nb-photos-modal-input {
+	width: 400px;
+}
+
+#nb-photos-modal-cancel {
+	margin-right: 15px;
+	cursor: pointer;
+}
+
