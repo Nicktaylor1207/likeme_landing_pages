@@ -6,6 +6,7 @@ $(function() {
     button.on('click', function(login) {
         box.toggle();
         button.toggleClass('active');
+        $('#focus-login').focus();
     });
     form.mouseup(function() { 
         return false;

@@ -6,7 +6,6 @@ $(function(){
 			$(this).html($newLink);
 		} 
 	});
-
 });
 
 $(function() {
@@ -24,5 +23,13 @@ $(function() {
 			$('.selection').hide()
 			$(page).show()
     }
+});
 
+$(function(){
+	$('#add-notebook-form').submit(function(){
+		if (navLogin == false) {
+			alert("Must be logged in to add photos to Notebook. Please log in.");
+			return false;
+		}
+	});
 });
