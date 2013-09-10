@@ -10,7 +10,8 @@ module.exports = function(app) {
 				return next (err);
 			}
 			if (email) {
-				res.render('notebook', {photos: email.notebook.photos});
+				var navLogin = true;
+				res.render('notebook', {photos: email.notebook.photos, navLogin: navLogin});
 			}
 		});
 	});
