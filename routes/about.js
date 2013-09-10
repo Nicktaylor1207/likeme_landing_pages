@@ -10,9 +10,6 @@ module.exports = function(app) {
     res.render('about', {hide: hide, sent: sent, prefs_sent: prefs_sent, navLogin: req.body.navLogin});
 	});
 
-	// app.post('/about', function(req, res){
-
-	// });
 
 	app.post('/idea', selectNav, function(req, res){
 

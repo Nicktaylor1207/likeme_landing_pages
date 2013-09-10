@@ -1,5 +1,4 @@
 var Email = require('../data/models/emails');
-var Pref = require('../data/models/prefs');
 var selectNav = require('./middleware/select_nav');
 var loggedIn = require('./middleware/logged_in');
 
