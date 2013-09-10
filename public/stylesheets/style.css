@@ -175,7 +175,6 @@ div#landing-bg1 {
 
 .about-outer-container {
 	background-color: rgba(247, 247, 247, .7);
-	margin-top: 0px;
 }
 
 .about-container {
@@ -561,4 +560,11 @@ div#landing-bg1 {
 #login-failed-signup {
 	font-size: 18px;
 	font-weight: bold;
+}
+
+/* Contact Page */
+
+.contact-outer-container {
+	background-color: rgba(247, 247, 247, .7);
+	margin-top: 30px;
 }

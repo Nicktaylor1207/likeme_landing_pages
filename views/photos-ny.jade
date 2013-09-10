@@ -2,6 +2,8 @@ extends layout
 
 block content
 	script(type="text/javascript", src="/javascripts/photos.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div.photo-page-container
 			div.selection#page-1

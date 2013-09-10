@@ -12,6 +12,7 @@ html
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
 		script(type="text/javascript", src="/javascripts/signin.js")
+		script(type="text/javascript", src="/javascripts/layout.js")
 		script.
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,8 +22,6 @@ html
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
-		script.
-			var navLogin = !{JSON.stringify(navLogin)}
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container

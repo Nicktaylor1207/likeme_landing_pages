@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div#login-failed-container
 			p#login-error Log in failed. Please enter your email and password.

@@ -1,7 +1,9 @@
 extends layout
 
 block content
-	div.about-outer-container
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	div.contact-outer-container
 		div.about-container
 			h3 Contact Information
 			p Please contact us anytime for any reason.

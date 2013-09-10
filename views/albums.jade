@@ -2,6 +2,8 @@ extends layout
 
 block content
 	script(type="text/javascript", src="/javascripts/albums.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div#pro-album-container
 			div.pro-album-cover
