@@ -29,7 +29,7 @@ html
 							li
 								a.nav-link#loginButton(href="#") <span>Log in</span>
 								div#loginBox
-									form#loginForm
+									form#loginForm(method="POST", action="/session")
 										fieldset
 											input(type="text", name="email", placeholder="Email Address")
 										fieldset
