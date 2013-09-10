@@ -9,7 +9,7 @@ module.exports = function(app) {
 
 	app.get('/logout', function(req, res) {
 		req.session = null;
-		res.redirect('/albums');
+		res.redirect('/');
 	});
 
 	app.post('/session', function(req, res) {
