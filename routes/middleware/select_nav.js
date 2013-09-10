@@ -1,12 +1,10 @@
-function selectNav(req, res, callback) {
+function selectNav(req, res, next) {
 	if (!req.session.email) {
-		var isUser = false;
-		req.body.isUser = isUser;
-		callback();
+		req.body.navLogin = false;
+		next();
 	} else {
-		var isUser = true;
-		req.body.isUser = isUser;
-		callback();
+		req.body.navLogin = true;
+		next();
 	}
 }
 

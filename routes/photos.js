@@ -1,5 +1,6 @@
 var Email = require('../data/models/emails');
 var Photo = require('../data/models/photos');
+var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 

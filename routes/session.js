@@ -1,4 +1,5 @@
 var Email = require('../data/models/emails');
+var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
@@ -8,7 +9,7 @@ module.exports = function(app) {
 
 	app.get('/logout', function(req, res) {
 		req.session = null;
-		res.redirect('/');
+		res.redirect('/albums');
 	});
 
 	app.post('/session', function(req, res) {
@@ -18,7 +19,7 @@ module.exports = function(app) {
 			}
 			if (user) {
 				req.session.email = user;
-				res.send("You're now signed in");
+				res.redirect('/albums');
 			} else {
 				res.redirect('/login');
 			}
