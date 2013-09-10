@@ -1,15 +1,29 @@
 var Email = require('../data/models/emails');
 var Pref = require('../data/models/prefs');
+var selectNav = require('./middleware/select_nav');
+var selectNavTwo = require('./middleware/select_nav2');
 
 module.exports = function(app) {
-  
-	app.get('/', function(req, res){
-		var hide = false;
+
+	// app.get('/', function(req, res){
+	// 	selectNav(req, res, function(){
+	// 		if (req.body.isUser == true) {
+	// 			res.render('albums');
+	// 		} else {
+				// var hide = false;
+				// var sent = false;
+				// var prefs_sent = false;
+	// 			res.render('index', {hide: hide, sent: sent, prefs_sent: prefs_sent});
+	// 		}
+	// 	});
+	// });
+
+	app.get('/', selectNavTwo, function(req,res){
 		var sent = false;
 		var prefs_sent = false;
-		res.render('index', {hide: hide, sent: sent, prefs_sent: prefs_sent});
-		console.log(req.session.email);
-	});
+		res.render('index', {hide: req.body.isUser, sent: sent, prefs_sent: prefs_sent});
+	})
+
 
 	app.post('/signup', function(req, res){
 		
