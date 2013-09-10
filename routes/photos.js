@@ -4,17 +4,17 @@ var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
-	app.get('/photos-ny', function(req, res) {
+	app.get('/photos-ny', selectNav, function(req, res) {
 		Photo.find(function(err, results){
-			res.render('photos-ny', {photos: results});
+			res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
 		});
 	});
 
-	app.get('/photos-bou', function(req, res) {
-    res.render('photos-bou');
+	app.get('/photos-bou', selectNav, function(req, res) {
+    res.render('photos-bou', {navLogin: req.body.navLogin});
 	});
 
-	app.post('/notebook', function(req, res) {
+	app.post('/notebook', selectNav, function(req, res) {
 
 		Email.findOne({email: req.session.email.email}, function(err, email) {
 			if (err) {
@@ -32,7 +32,7 @@ module.exports = function(app) {
 
 				if (email.notebook.photos.some(checkPhotoDup) == true) {
 					Photo.find(function(err, results){
-						res.render('photos-ny', {photos: results});
+						res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
 					});
 				} else {
 					// do what we were doing before
@@ -46,7 +46,7 @@ module.exports = function(app) {
 								photo.liked = photo.liked + 1;
 								photo.save(function(){
 									Photo.find(function(err, results){
-										res.render('photos-ny', {photos: results});
+										res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
 									});
 								});
 							}
@@ -60,7 +60,7 @@ module.exports = function(app) {
 
 	});
 
-	app.post('/notebook1', function(req, res) {
+	app.post('/notebook1', selectNav, function(req, res) {
 
 		Email.findOne({email: req.session.email.email}, function(err, email) {
 			if (err) {
@@ -69,7 +69,7 @@ module.exports = function(app) {
 			if (email) {
 				email.notebook.photos.push(req.body.image_url);
 				email.save(function(){
-					res.render('photos-bou');
+					res.render('photos-bou', {navLogin: req.body.navLogin});
 				});
 			} else {
 				res.redirect('/login');
