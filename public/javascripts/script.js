@@ -8,11 +8,6 @@ $(function(){
 
 	}
 
-	// if (prefs_sent == true) {
-	// 	$('#landing-pref-modal').hide();
-	// 	$('#thanks-for-sign-up').show();
-	// }
-
 	if (hide == true || prefs_sent == true) {
 		$('#myCarousel').carousel('pause');
 	} else {
