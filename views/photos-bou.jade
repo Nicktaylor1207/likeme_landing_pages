@@ -9,10 +9,10 @@ block content
 			div.selection#page-1
 				div.row-fluid.photo-display-container
 					div.photo-img-container.span9
-						a(href="images/aa/bou52.jpg", target="_blank")
-							img.photo-img(src="images/aa/bou52.jpg")
+						a(href="#{photos[1].url}", target="_blank")
+							img.photo-img(src="#{photos[1].url}")
 					div.photo-content-container.span3
-						p.notebook-count 0 Notebooks
+						p.notebook-count #{photos[1].liked} Notebooks
 						form(method="POST", action="/notebook1")
 							input.hide()(name="image_url", value="images/aa/bou52.jpg")
 							input.add-notebook(type="submit", value="+ Add to Notebook")
