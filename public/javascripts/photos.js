@@ -8,25 +8,25 @@ $(function(){
 	});
 });
 
-$(function() {
-    $('#photos-pagination').pagination({
-        items: 50,
-        itemsOnPage: 10,
-        cssStyle: 'light-theme',
-        onPageClick: function(pageNumber){
-        	test(pageNumber);
-        }
-    });
+// $(function() {
+//     $('#photos-pagination').pagination({
+//         items: 50,
+//         itemsOnPage: 10,
+//         cssStyle: 'light-theme',
+//         onPageClick: function(pageNumber){
+//         	test(pageNumber);
+//         }
+//     });
 
-		function test(pageNumber) {
-			var page = "#page-"+pageNumber;
-			$('.selection').hide()
-			$(page).show()
-    }
-});
+// 		function test(pageNumber) {
+// 			var page = "#page-"+pageNumber;
+// 			$('.selection').hide()
+// 			$(page).show()
+//     }
+// });
 
 $(function(){
-	$('#add-notebook-form').submit(function(){
+	$('.add-notebook-form').submit(function(){
 		if (navLogin == false) {
 			alert("Must be logged in to add photos to Notebook. Please log in.");
 			return false;
