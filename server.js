@@ -13,7 +13,7 @@ var app = express();
 // var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
 // mongoose.connect(uri);
 
-var dbURL = 'mongodb://localhost/rabbit';
+var dbURL = 'mongodb://localhost/test';
 var db = mongoose.connect(dbURL);
 
 // all environments
