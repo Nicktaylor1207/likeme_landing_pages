@@ -629,7 +629,9 @@ div#landing-bg1 {
 	margin-top: -10px;
 }
 
-#nb-photos-modal-input {
+#nb-photos-modal-input { 
+	margin-left: 15px;
+	margin-bottom: 30px;
 	width: 400px;
 }
 
@@ -638,3 +640,16 @@ div#landing-bg1 {
 	cursor: pointer;
 }
 
+#nb-photos-modal-form {
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+#nb-photos-modal-form-container {
+	margin-top: 0px;
+	padding: 0px;
+}
+
+#nb-photos-modal-body {
+	padding-bottom: 0px;
+}

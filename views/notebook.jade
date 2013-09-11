@@ -30,10 +30,12 @@ block content
 					a(href="images/aa/bou3.jpg")
 						div.nb-photo-img-container#third(style="background-image: url('images/aa/bou9.jpg')")
 		div#nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
-			div.modal-body
+			div.modal-body#nb-photos-modal-body
 				button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 				h4#nb-photos-modal-header Add a photo from a website
-				input#nb-photos-modal-input(type="text", placeholder="Paste the link to the page containing the photo...")
-			div.modal-footer
-				a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
-				button.btn.btn-primary Add Photo
+			div#nb-photos-modal-form-container
+				form#nb-photos-modal-form(method="POST", action="/upload1")
+					input#nb-photos-modal-input(type="text", placeholder="Paste the link to the page containing the photo...", name="url")
+					div.modal-footer#nb-photos-modal-footer
+						a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
+						input.btn.btn-primary(type="submit", value="Add Photo")
