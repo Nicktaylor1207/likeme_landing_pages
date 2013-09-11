@@ -7,12 +7,6 @@ module.exports = function(app) {
 	app.get('/photos-ny', selectNav, function(req, res) {
 		Photo.find(function(err, results){
 			res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
-			// req.session.photos = results;
-			// var photos_length = results.length;
-			// var monkey = results;
-			// var page_1 = monkey.slice(0, 1);
-			// console.log(page_1);
-			// console.log(req.session.photos);
 		});
 	});
 

@@ -11,28 +11,6 @@ block content
 			h2#nb-header My Notebook
 			button.btn.btn-large.btn-primary#nb-add-photos(href="#nb-add-photos-modal", role="button", data-toggle="modal") Add Photos
 			div.nb-photos-container
-				//
-					div.nb-photo-row
-						a(href="#{photos[0]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[0]}')")
-						a(href="#{photos[1]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[1]}')")
-						a(href="#{photos[2]}")
-							div.nb-photo-img-container#third(style="background-image: url('#{photos[2]}')")
-					div.nb-photo-row
-						a(href="#{photos[0]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[3]}')")
-						a(href="#{photos[1]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[4]}')")
-						a(href="#{photos[2]}")
-							div.nb-photo-img-container#third(style="background-image: url('#{photos[5]}')")
-					div.nb-photo-row
-						a(href="#{photos[0]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[6]}')")
-						a(href="#{photos[1]}")
-							div.nb-photo-img-container(style="background-image: url('#{photos[7]}')")
-						a(href="#{photos[2]}")
-							div.nb-photo-img-container#third(style="background-image: url('#{photos[8]}')")
 		div#nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
 			div.modal-body#nb-photos-modal-body
 				button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
