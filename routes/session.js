@@ -12,6 +12,10 @@ module.exports = function(app) {
 		res.redirect('/');
 	});
 
+	app.get('/session1', function(req, res) {
+		res.redirect('/');
+	});
+
 	app.post('/session', function(req, res) {
 		Email.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
 			if (err) {
