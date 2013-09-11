@@ -6,6 +6,10 @@ var PhotoSchema = new mongoose.Schema({
 	liked: {
 		type: Number,
 		default: 0
+	},
+	from_web: {
+		type: Boolean,
+		default: false
 	}
 });
 
