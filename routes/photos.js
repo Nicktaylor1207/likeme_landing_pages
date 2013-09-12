@@ -4,21 +4,25 @@ var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
+	function sortByKey(array, key) {
+		return array.sort(function(a, b) {
+			var x = a[key]; var y = b[key];
+			return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		});
+	}
+
+
 	app.get('/photos-ny', selectNav, function(req, res) {
-		Photo.find(function(err, results){
-			res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
-			// req.session.photos = results;
-			// var photos_length = results.length;
-			// var monkey = results;
-			// var page_1 = monkey.slice(0, 1);
-			// console.log(page_1);
-			// console.log(req.session.photos);
+		Photo.find({ tag: 'NYC'}, function(err, results){
+			var sorted = sortByKey(results, 'position');
+			res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 		});
 	});
 
 	app.get('/photos-bou', selectNav, function(req, res) {
-    Photo.find(function(err, results){
-			res.render('photos-bou', {photos: results, navLogin: req.body.navLogin});
+    Photo.find({ tag: 'boutique'}, function(err, results){
+    	var sorted = sortByKey(results, 'position');
+			res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
 		});
 	});
 

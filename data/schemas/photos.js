@@ -10,7 +10,9 @@ var PhotoSchema = new mongoose.Schema({
 	from_web: {
 		type: Boolean,
 		default: false
-	}
+	},
+	tag: String,
+	position: Number
 });
 
 module.exports = PhotoSchema;

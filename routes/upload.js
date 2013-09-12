@@ -12,8 +12,8 @@ module.exports = function(app) {
   });
 
 	app.post('/upload', function(req, res){
-
-		Photo.create(req.body, function(err) {      
+    
+		Photo.create(req.body, function(err) {   
       if (err) {
         if (err.name === 'ValidationError') {
           return res.send(Object.keys(err.errors).map(function(errField) {
