@@ -7,7 +7,7 @@ var PhotoSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-	from_web: {
+	userg: {
 		type: Boolean,
 		default: false
 	},

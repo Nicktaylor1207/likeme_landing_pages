@@ -11,7 +11,6 @@ module.exports = function(app) {
 		});
 	}
 
-
 	app.get('/photos-ny', selectNav, function(req, res) {
 		Photo.find({ tag: 'NYC'}, function(err, results){
 			var sorted = sortByKey(results, 'position');
