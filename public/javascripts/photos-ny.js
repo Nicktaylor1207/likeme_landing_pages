@@ -1,6 +1,6 @@
 $(function(){	
 
-	if ( $.cookie("scroll-ny") !== null ) {
+  if ( $.cookie("scroll-ny") !== null ) {
 	  $(document).scrollTop( $.cookie("scroll-ny") );
 	}
 
@@ -10,31 +10,30 @@ $(function(){
 
 });
 
-$(function() {
-  $('#photos-pagination').pagination({
-      items: 50,
-      itemsOnPage: 10,
-      cssStyle: 'dark-theme',
-      onPageClick: function(pageNumber){
-      	setPage(pageNumber);
-      },
-      currentPage: $.cookie("currPageNY")
-  });
+// $(function() {
+//   $('#photos-pagination-ny').pagination({
+//       items: 50,
+//       itemsOnPage: 10,
+//       cssStyle: 'dark-theme',
+//       onPageClick: function(pageNumber){
+//       	setPage(pageNumber);
+//       },
+//       currentPage: $.cookie("currPageNY")
+//   });
 
-	function setPage(pageNumber) {
-		var page = "#page-" + pageNumber;
-		$('.selection').hide()
-		$(page).show()
-		$(document).scrollTop(0);
-  };
+// 	function setPage(pageNumber) {
+// 		var page = "#page-" + pageNumber;
+// 		$('.selection').hide()
+// 		$(page).show()
+//   };
 
-  var displayPage = "#page-" + $.cookie("currPageNY");
-  $('.selection').hide();
-  $(displayPage).show();
+//   var displayPage = "#page-" + $.cookie("currPageNY");
+//   $('.selection').hide();
+//   $(displayPage).show();
 
-  $(window).on('unload', function(){
-  	var currPage = $('#photos-pagination').pagination('getCurrentPage');
-  	$.cookie("currPageNY", currPage);
-  });
+//   $(window).on('unload', function(){
+//   	var currPage = $('#photos-pagination-ny').pagination('getCurrentPage');
+//   	$.cookie("currPageNY", currPage);
+//   });
 
-});
+// });
