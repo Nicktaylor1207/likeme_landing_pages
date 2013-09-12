@@ -86,7 +86,8 @@ div#landing-bg1 {
 }
 
 #go-to-photos-link-container {
-	font-size: 16px;
+	margin-top: 20px;
+	font-size: 20px;
 }
 
 #thanks-for-joining {
@@ -307,6 +308,11 @@ div#landing-bg1 {
 
 /* NAVBAR */
 
+#nav-left-container {
+	margin-top: 1px;
+	margin-left: -5px;
+}
+
 .navbar-fixed-top {
 	min-width: 1020px;
 	margin-bottom: 100px;
@@ -441,6 +447,8 @@ div#landing-bg1 {
 	min-height: 100%;
 	min-width: 100%;
 	height: auto;
+	cursor: -webkit-zoom-in;  
+	cursor: zoom-in;
 }
 
 /* 
@@ -652,4 +660,11 @@ div#landing-bg1 {
 
 #nb-photos-modal-body {
 	padding-bottom: 0px;
+}
+
+/* General */
+
+#photos-pagination {
+	display: inline-block;
+	margin: 5px 0px 20px 0px;
 }

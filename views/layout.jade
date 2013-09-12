@@ -7,6 +7,7 @@ html
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 		script(src='/bootstrap/js/bootstrap.min.js')
 		script(type="text/javascript", src="flaviusmatis-simplePagination/jquery.simplePagination.js")
+		script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(type="text/css", rel="stylesheet", href="flaviusmatis-simplePagination/simplePagination.css")
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
@@ -26,6 +27,9 @@ html
 			div.navbar-inner
 				div.navbar-container
 					a.brand(href="albums") Seven Albums
+					ul.nav#nav-left-container
+						li
+							a.nav-link(href="/") Home
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
