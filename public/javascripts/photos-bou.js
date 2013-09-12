@@ -17,9 +17,7 @@ $(function() {
       cssStyle: 'dark-theme',
       currentPage: $.cookie("currPageBou"),
       onPageClick: function(pageNumber){
-      	setPage(pageNumber, function(){
-          $(document).scrollTop(0); // not working
-        });
+      	setPage(pageNumber);
       }
   });
 
