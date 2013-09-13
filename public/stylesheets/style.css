@@ -11,7 +11,7 @@ a {
 	width: 990px;
 	min-height: 650px;
 	margin: 0px auto;
-	padding: 40px 0px 0px 0px;
+	padding: 40px 0px 50px 0px;
 	background-color: rgba(247, 247, 247, .7)
 }
 
@@ -95,6 +95,10 @@ div#landing-bg1 {
 	margin-bottom: 15px;
 }
 
+#signup-terms {
+	font-size: 12px;
+}
+
 /* Landing preferences modal */
 
 .landing-pref-container {
@@ -163,7 +167,7 @@ div#landing-bg1 {
 }
 
 #about-sign-up-btn {
-	margin-top: 15px;
+	margin-top: 25px;
 }
 
 #about-signup-form {
@@ -174,15 +178,8 @@ div#landing-bg1 {
 	margin-top: 20px;
 }
 
-.about-outer-container {
-	background-color: rgba(247, 247, 247, .7);
-}
-
 .about-container {
-	width: 970px;
-	min-height: 650px;
-	margin: 0px auto;
-	padding: 20px 10px 20px 10px;
+	padding: 10px 20px 20px 20px;
 }
 
 #zn-pic {
@@ -439,7 +436,7 @@ div#landing-bg1 {
 	height: 500px;
 	margin: 20px -5px 0px 0px; 
 	overflow: hidden;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 	border-radius: 4px;
 }
 
@@ -570,13 +567,6 @@ div#landing-bg1 {
 	font-weight: bold;
 }
 
-/* Contact Page */
-
-.contact-outer-container {
-	background-color: rgba(247, 247, 247, .7);
-	margin-top: 30px;
-}
-
 /* Notebook */
 
 #nb-header {
@@ -667,4 +657,35 @@ div#landing-bg1 {
 #photos-pagination {
 	display: inline-block;
 	margin: 5px 0px 20px 0px;
+}
+
+/* Footer */
+
+.footer {
+	width: 100%;
+}
+
+#footer-about {
+	background-color: rgba(247, 247, 247, .7);
+}
+
+#footer-about-inner {
+	background-color: none;
+}
+
+.footer-inner-container {
+	border-top: 1px solid #CACACA;
+	background-color: rgba(247, 247, 247, .7);
+	width: 990px;
+	margin: 0px auto 0px auto;
+	padding: 5px 0px;
+}
+
+.footer-links-list {
+			
+}
+
+.footer-li {
+	display: inline-block;
+	margin-right: 10px;
 }

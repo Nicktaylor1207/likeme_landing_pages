@@ -1,53 +1,31 @@
-doctype 5
-html
-	head
-		link(rel='stylesheet', href='/stylesheets/style.css')
-		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-		script(src='/bootstrap/js/bootstrap.min.js')
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		script.
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+extends layout
 
-			ga('create', 'UA-38419802-3', 'herokuapp.com');
-			ga('send', 'pageview');
-	body
-		script.
-			var hide = !{JSON.stringify(hide)}
-		script.
-			var navLogin = !{JSON.stringify(navLogin)}
-		div.about-outer-container
-			div.about-container
-				a(href="albums") Home
-				a.about-nav(href="contact") Contact
-				div.row-fluid
-					div.span7#about-left-container
-						h3 About Seven Albums
-						p Opening and running a store is an amazing opportunity to express yourself and share your creativity and personality with the world. It can also be an isolated and overwhelming experience. As first time entrepreneurs, we understand the challenges of starting something new. We also know how rewarding it can be.
-						p.about We want to make it easier and more fun to open and manage a store. We are working on features that provide inspiration, resources and community to boutiques.
-						p.about Our first priority is to compile a photographic catalogue of store interiors. We are visual people and suspect many of you are, too. We believe photographs hold an abundance of information. We hope these photos will provide ideas and inspiration to current and prospective store owners.
-						p.about Our true goal is to create a product and community that make life better. Please help us by telling us what you want and need from Seven Albums.
-						p.about Please share your thoughts on the Idea Wall, or click the star if this concept resonates with you. <img id="about-star" src="images/star.png"></img>
-						p.about Nick and Zach Taylor, co-founders
-						img#zn-pic(src="images/zn.jpg", alt="")
-						form#about-signup-form(method="POST", action="/signup")
-							input#landing-email-input(name="email", type="text", placeholder="Enter your email address")
-							div
-								button#about-sign-up-btn.btn.btn-large.btn-primary(type="submit") Sign up
-						div#back-to-index
-							a(href="albums") Home
-							a.about-nav(href="contact") Contact
-					div.span5#about-right-container
-						div#contact-content
-							h3 Idea Wall
-							form#about-contact-form(method="POST", action="/idea")
-								input#name(name="name", type="text", placeholder="Name")
-								textarea#idea(rows="3", type="textarea", placeholder="Post your idea...", name="idea")
-								button#idea-post-btn.btn.btn-medium(type="submit") Post
-						div#message-sent-thanks.hide()
-							h4 Thanks for your insight!
-			script(type="text/javascript", src="/javascripts/script.js")
+block content
+	script.
+		var hide = !{JSON.stringify(hide)}
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	div.body-inner-container
+		div.about-container
+			div.row-fluid
+				div.span7#about-left-container
+					h3 About Seven Albums
+					p Opening and running a store is an amazing opportunity to express yourself and share your creativity and personality with the world. It can also be an isolated and overwhelming experience. As first time entrepreneurs, we understand the challenges of starting something new. We also know how rewarding it can be.
+					p.about We want to make it easier and more fun to open and manage a store. We are working on features that provide inspiration, resources and community to boutiques.
+					p.about Our first priority is to compile a photographic catalogue of store interiors. We are visual people and suspect many of you are, too. We believe photographs hold an abundance of information. We hope these photos will provide ideas and inspiration to current and prospective store owners.
+					p.about Our true goal is to create a product and community that make life better. Please help us by telling us what you want and need from Seven Albums.
+					p.about Please share your thoughts on the Idea Wall, or click the star if this concept resonates with you. <img id="about-star" src="images/star.png"></img>
+					p.about Nick and Zach Taylor, co-founders
+					img#zn-pic(src="images/zn.jpg", alt="")
+					a(href="/")
+						button#about-sign-up-btn.btn.btn-large.btn-primary Sign up
+				div.span5#about-right-container
+					div#contact-content
+						h3 Idea Wall
+						form#about-contact-form(method="POST", action="/idea")
+							input#name(name="name", type="text", placeholder="Name")
+							textarea#idea(rows="3", type="textarea", placeholder="Post your idea...", name="idea")
+							button#idea-post-btn.btn.btn-medium(type="submit") Post
+					div#message-sent-thanks.hide()
+						h4 Thanks for your insight!
+		script(type="text/javascript", src="/javascripts/script.js")

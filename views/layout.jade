@@ -29,10 +29,10 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
-					a.brand(href="albums") Seven Albums
+					a.brand(href="/") Seven Albums
 					ul.nav#nav-left-container
 						li
-							a.nav-link(href="/albums") Home
+							a.nav-link(href="/") Home
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
@@ -59,3 +59,14 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 							li
 								a.nav-link(href="/logout") Log out
 		block content
+		div.footer
+			div.footer-inner-container
+				ul.footer-links-list
+					li.footer-li
+						a.footer-link(href="about") About us
+					li.footer-li
+						a.footer-link(href="contact") Contact
+					li.footer-li
+						a.footer-link(href="terms") Terms of Use
+					li.footer-li
+						a.footer-link(href="privacy") Privacy Policy

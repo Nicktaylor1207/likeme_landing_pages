@@ -71,10 +71,12 @@ html
 				div#landing-content
 					p Sign up to view photos.
 				form#landing-signup-form(method="POST", action="/signup")
-					p
-						input#landing-email-input(name="email", type="text", placeholder="Email Address")
-					p
-						input#landing-password-input(name="password", type="password", placeholder="Password")
+					div
+						p
+							input#landing-email-input(name="email", type="text", placeholder="Email Address")
+						p
+							input#landing-password-input(name="password", type="password", placeholder="Password")
+						p#signup-terms By clicking the button, you indicate that you have read and agreed to Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>.
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#or or
