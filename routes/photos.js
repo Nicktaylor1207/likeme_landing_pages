@@ -12,7 +12,7 @@ module.exports = function(app) {
 	}
 
 	app.get('/photos-ny', selectNav, function(req, res) {
-		Photo.find({ tag: 'NYC'}, function(err, results){
+		Photo.find({ tag: 'NYC' }, function(err, results){
 			var sorted = sortByKey(results, 'position');
 			res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 		});
@@ -42,7 +42,7 @@ module.exports = function(app) {
 				}
 
 				if (email.notebook.photos.some(checkPhotoDup) == true) {
-					Photo.find(function(err, results){
+					Photo.find({ tag: 'NYC' }, function(err, results){
 						var sorted = sortByKey(results, 'position');
 						res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 					});
@@ -56,7 +56,7 @@ module.exports = function(app) {
 							if (photo) {
 								photo.liked = photo.liked + 1;
 								photo.save(function(){
-									Photo.find(function(err, results){
+									Photo.find({ tag: 'NYC' }, function(err, results){
 										var sorted = sortByKey(results, 'position');
 										res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 									});
@@ -89,7 +89,7 @@ module.exports = function(app) {
 				}
 
 				if (email.notebook.photos.some(checkPhotoDup) == true) {
-					Photo.find(function(err, results){
+					Photo.find({ tag: 'boutique'}, function(err, results){
 						var sorted = sortByKey(results, 'position');
 						res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
 					});
@@ -103,7 +103,7 @@ module.exports = function(app) {
 							if (photo) {
 								photo.liked = photo.liked + 1;
 								photo.save(function(){
-									Photo.find(function(err, results){
+									Photo.find({ tag: 'boutique'}, function(err, results){
 										var sorted = sortByKey(results, 'position');
 										res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
 									});
