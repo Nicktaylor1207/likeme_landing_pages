@@ -43,7 +43,8 @@ module.exports = function(app) {
 
 				if (email.notebook.photos.some(checkPhotoDup) == true) {
 					Photo.find(function(err, results){
-						res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
+						var sorted = sortByKey(results, 'position');
+						res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 					});
 				} else {
 					email.notebook.photos.push(req.body.image_url);
@@ -89,7 +90,8 @@ module.exports = function(app) {
 
 				if (email.notebook.photos.some(checkPhotoDup) == true) {
 					Photo.find(function(err, results){
-						res.render('photos-bou', {photos: results, navLogin: req.body.navLogin});
+						var sorted = sortByKey(results, 'position');
+						res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
 					});
 				} else {
 					email.notebook.photos.push(req.body.image_url);
