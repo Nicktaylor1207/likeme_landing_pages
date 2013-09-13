@@ -56,7 +56,8 @@ module.exports = function(app) {
 								photo.liked = photo.liked + 1;
 								photo.save(function(){
 									Photo.find(function(err, results){
-										res.render('photos-ny', {photos: results, navLogin: req.body.navLogin});
+										var sorted = sortByKey(results, 'position');
+										res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
 									});
 								});
 							}
@@ -101,7 +102,8 @@ module.exports = function(app) {
 								photo.liked = photo.liked + 1;
 								photo.save(function(){
 									Photo.find(function(err, results){
-										res.render('photos-bou', {photos: results, navLogin: req.body.navLogin});
+										var sorted = sortByKey(results, 'position');
+										res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
 									});
 								});
 							}
