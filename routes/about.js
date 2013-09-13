@@ -1,4 +1,4 @@
-var Idea = require('../data/models/ideas');
+var Message = require('../data/models/messages');
 var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
@@ -8,9 +8,11 @@ module.exports = function(app) {
     res.render('about', {hide: hide, navLogin: req.body.navLogin});
 	});
 
-	app.post('/idea', selectNav, function(req, res){
-
-		Idea.create(req.body, function(err) {      
+	app.post('/message', selectNav, function(req, res){
+    if (req.session.email) {
+      req.body.email = req.session.email.email;
+    }
+		Message.create(req.body, function(err) {      
       if (err) {
         if (err.name === 'ValidationError') {
           return res.send(Object.keys(err.errors).map(function(errField) {

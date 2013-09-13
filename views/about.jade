@@ -21,11 +21,12 @@ block content
 						button#about-sign-up-btn.btn.btn-large.btn-primary Sign up
 				div.span5#about-right-container
 					div#contact-content
-						h3 Idea Wall
-						form#about-contact-form(method="POST", action="/idea")
+						h3 Send us a Message
+						p This website is still under development. If you have any problems with the site or any suggestions on how to improve your experience please send us a message below.
+						form#about-contact-form(method="POST", action="/message")
 							input#name(name="name", type="text", placeholder="Name")
-							textarea#idea(rows="3", type="textarea", placeholder="Post your idea...", name="idea")
-							button#idea-post-btn.btn.btn-medium(type="submit") Post
+							textarea#idea(rows="3", type="textarea", placeholder="Send us a message...", name="idea")
+							button#idea-post-btn.btn.btn-medium(type="submit") Send
 					div#message-sent-thanks.hide()
 						h4 Thanks for your insight!
 		script(type="text/javascript", src="/javascripts/script.js")
