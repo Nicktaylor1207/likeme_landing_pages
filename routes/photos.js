@@ -25,7 +25,7 @@ module.exports = function(app) {
 		});
 	});
 
-	app.post('/notebook', selectNav, function(req, res) {
+	app.post('/notebook2', selectNav, function(req, res) {
 
 		Email.findOne({email: req.session.email.email}, function(err, email) {
 			if (err) {
