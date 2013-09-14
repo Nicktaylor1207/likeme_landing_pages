@@ -5,8 +5,11 @@ html
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+		script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 		script(src='/bootstrap/js/bootstrap.min.js')
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		script(type="text/javascript", src="/javascripts/script.js")
+		script(type="text/javascript", src="/javascripts/signin.js")
 		script.
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,8 +19,6 @@ html
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
-		script.
-			var navLogin = !{JSON.stringify(navLogin)}
 		script.
 			var hide = !{JSON.stringify(hide)}
 		div.navbar.navbar-inverse.navbar-fixed-top
@@ -69,14 +70,14 @@ html
 				h2#landing-header Welcome to Seven Albums
 				p#landing-sub-header A photographic catalog of retail store interiors
 				div#landing-content
-					p Sign up to view photos.
+					p Sign up to view photos
 				form#landing-signup-form(method="POST", action="/signup")
 					div
 						p
 							input#landing-email-input(name="email", type="text", placeholder="Email Address")
 						p
 							input#landing-password-input(name="password", type="password", placeholder="Password")
-						p#signup-terms By signing up, I accept Seven albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>.
+						p#signup-terms By signing up, I accept Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>
 					div#landing-signup-container
 						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
 						p#or or
@@ -88,5 +89,4 @@ html
 					p We are delighted you joined and hope you enjoy the site.
 				div#go-to-photos-link-container
 					a(href="albums") Go to photos
-		script(type="text/javascript", src="/javascripts/script.js")
-		script(type="text/javascript", src="/javascripts/signin.js")
+		

@@ -17,6 +17,11 @@ $(function(){
 	      return failValidation('Please enter your email address to sign up.');
 	    }
 
+	    var password = $('#landing-password-input');
+	    if (password.val() == "") {
+	      return failValidation('Please enter a password to sign up.');
+	    }
+
 	    return true;
 	    return false; // prevent form submitting anyway - remove this in your environment
 	  });

@@ -8,10 +8,8 @@ module.exports = function(app) {
 	app.get('/', selectNav, function(req,res){
 		if (req.body.navLogin == true) {
 			res.render('albums', {navLogin: req.body.navLogin});
-		} else {	
-			var sent = false;
-			var prefs_sent = false;
-			res.render('index', {hide: req.body.navLogin, sent: sent, prefs_sent: prefs_sent});
+		} else {
+			res.render('index', {hide: req.body.navLogin});
 		}
 	});
 
@@ -45,11 +43,9 @@ module.exports = function(app) {
 			}
 			if (user) {
 				req.session.email = user;
-				var sent = false;
-				var prefs_sent = false;
 				var hide = true;
 				var navLogin = true;
-				res.render('index', {hide: hide, sent: sent, prefs_sent: prefs_sent, navLogin: navLogin});
+				res.render('index', {hide: hide, navLogin: navLogin});
 			} else {
 				res.redirect('/login');
 			}
