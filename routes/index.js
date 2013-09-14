@@ -24,7 +24,7 @@ module.exports = function(app) {
 		       res.send("Someone has already signed up with that email address.");
 		    } else {
 		      if (err.name === 'ValidationError') {
-		      	res.send('Sorry you need to enter a valid email and password');
+		      	res.send('Sorry, when signing up you need to enter a valid email and password');
 		        // return res.send(Object.keys(err.errors).map(function(errField) {
 		        //   return err.errors[errField].message;
 		        // }).join('. '), 406);
