@@ -38,7 +38,7 @@ module.exports = function(app) {
     } else {
       var sourceIndex = findIndex.index + 4;
       req.body.source = url.slice(0, sourceIndex);
-      req.body.from_web = true;
+      req.body.userg = true;
       req.body.liked = 1;
       Photo.create(req.body, function(err) {      
         if (err) {
