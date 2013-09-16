@@ -702,3 +702,9 @@ div#landing-bg1 {
 	display: inline-block;
 	margin-right: 10px;
 }
+
+/* Terms of Use */
+
+.terms-container {
+	padding: 15px 20px 0px 20px;
+}
