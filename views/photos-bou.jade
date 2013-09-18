@@ -1,12 +1,6 @@
 extends layout
 
 block content
-	script(type="text/javascript", src="/javascripts/photos.js")
-	script(type="text/javascript", src="/javascripts/photos-bou.js")
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
-	script.
-		var photos = !{JSON.stringify(photos)}
 	div.body-inner-container
 		div.photo-page-container
 			div.selection#page-1
@@ -788,3 +782,15 @@ block content
 							// p.add-comment(href="#") + Add Comment
 
 			// div#photos-pagination
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/photos.js")
+	script(type="text/javascript", src="/javascripts/photos-bou.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var photos = !{JSON.stringify(photos)}

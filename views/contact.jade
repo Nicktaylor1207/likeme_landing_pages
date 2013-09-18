@@ -1,8 +1,6 @@
 extends layout
 
 block content
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div.about-container
 			h3 Contact Information
@@ -10,3 +8,11 @@ block content
 			p Email: nick@sevenalbums.com
 			p Phone: 781.307.7431
 			a(href="albums") Home
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}

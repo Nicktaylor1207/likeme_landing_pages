@@ -1,10 +1,6 @@
 extends layout
 
 block content
-	script.
-		var hide = !{JSON.stringify(hide)}
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div.about-container
 			div.row-fluid
@@ -29,4 +25,14 @@ block content
 							button#idea-post-btn.btn.btn-medium(type="submit") Send
 					div#message-sent-thanks.hide()
 						h4 Thanks for your insight!
-		script(type="text/javascript", src="/javascripts/script.js")
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/about.js")
+	script.
+		var hide = !{JSON.stringify(hide)}
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}

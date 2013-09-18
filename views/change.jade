@@ -1,13 +1,12 @@
-block content
-	form(method="POST", action="/change")
-		p
-			label(for="email") Email:
-			input(type="text", name="email")
-		p
-			label(for="old_password") Old Password:
-			input(type="password", name="old_password")
-		p
-			label(for="new_password") New Password:
-			input(type="password", name="new_password")
-		p
-			input(type="submit", value="Submit")
+form(method="POST", action="/change")
+	p
+		label(for="email") Email:
+		input(type="text", name="email")
+	p
+		label(for="old_password") Old Password:
+		input(type="password", name="old_password")
+	p
+		label(for="new_password") New Password:
+		input(type="password", name="new_password")
+	p
+		input(type="submit", value="Submit")

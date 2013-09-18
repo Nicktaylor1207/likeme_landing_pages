@@ -1,8 +1,6 @@
 extends layout
 
 block content
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div.terms-container
 			h3 Terms of Use Agreement
@@ -88,3 +86,11 @@ block content
 			p Seven Albums LLC
 			| Effective September 16, 2013 </br>
 			| Last modified as of September 16, 2013
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}

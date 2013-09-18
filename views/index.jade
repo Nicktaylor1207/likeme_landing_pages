@@ -4,12 +4,7 @@ html
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-		script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
-		script(src='/bootstrap/js/bootstrap.min.js')
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		script(type="text/javascript", src="/javascripts/script.js")
-		script(type="text/javascript", src="/javascripts/signin.js")
 		script.
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -19,8 +14,6 @@ html
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
-		script.
-			var hide = !{JSON.stringify(hide)}
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
@@ -89,4 +82,12 @@ html
 					p We are delighted you joined and hope you enjoy the site.
 				div#go-to-photos-link-container
 					a(href="albums") Go to photos
-		
+	script.
+			var hide = !{JSON.stringify(hide)}
+	script(type="text/javascript", src="/javascripts/index.js")
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
