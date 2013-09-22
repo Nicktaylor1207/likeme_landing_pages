@@ -18,9 +18,10 @@ html
 			div.navbar-inner
 				div.navbar-container
 					a.brand(href="albums") Seven Albums
-					ul.nav#nav-left-container
-						li
-							a.nav-link(href="/albums") Home
+					//
+						ul.nav#nav-left-container
+							li
+								a.nav-link(href="/albums") Home
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
@@ -41,11 +42,11 @@ html
 							li
 								a.nav-link(href="about") About us
 							li
-								a.nav-link(href="/") Sign up
+								a.nav-link(href="signup") Sign up
 		div#myCarousel(class="carousel slide")
 			div(class="carousel-inner")
 				div(class="item active")
-					img.landing-bg(src="images/bonobos1.jpg", alt="")
+					img.landing-bg(src="images/aa/ny60.jpg", alt="")
 				div(class="item")
 					img.landing-bg(src="images/store1.jpg", alt="")
 				div(class="item")
@@ -60,34 +61,23 @@ html
 		a(class="right carousel-control", href="#myCarousel", data-slide="next") &rsaquo;
 		div#landing-page-intro-wrap
 			div#landing-welcome
-				h2#landing-header Welcome to Seven Albums
-				p#landing-sub-header A photographic catalog of retail store interiors
-				div#landing-content
-					p Sign up to view photos
-				form#landing-signup-form(method="POST", action="/signup")
-					div
-						p
-							input#landing-email-input(name="email", type="text", placeholder="Email Address")
-						p
-							input#landing-password-input(name="password", type="password", placeholder="Password")
-						p#signup-terms By signing up, I accept Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>
-					div#landing-signup-container
-						button#landing-sign-up.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Sign up
-						p#or or
-						a#preview-cta(href="albums") Preview Site
-			div#thanks-for-sign-up-no-pref.hide()
-				h3#landing-header Thanks for joining Seven Albums!
-				div#thanks-for-joining
-					p Thanks for being an early adopter of Seven Albums.
-					p We are delighted you joined and hope you enjoy the site.
-				div#go-to-photos-link-container
-					a(href="albums") Go to photos
+				h1#landing-header Seven Albums
+				p#landing-sub-header Find ideas and inspiration for your store
+			div#landing-content
+				h3#signup-free-sub Sign up for your free account
+				a(href="signup")
+					button.btn-large.btn-primary#signup-modal-btn Sign up
+				div.signup-modal-footer
+					p Already have an account? <a href="login">Log in now</a>
+		div#preview-site-container
+			a#preview-site-link(href="albums")
+				h1#preview-site-header Preview Seven Albums <span id="preview-arrow">&rsaquo;</span>
 	script.
-			var hide = !{JSON.stringify(hide)}
-	script(type="text/javascript", src="/javascripts/index.js")
+		var navLogin = !{JSON.stringify(navLogin)}
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")
 	script(type="text/javascript", src="/javascripts/loggedin.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/index.js")

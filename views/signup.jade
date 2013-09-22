@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	div.body-inner-container
+		// img.landing-bg(src="images/aa/ny60.jpg", alt="")
+		div#signup-body-container
+			form#landing-signup-form(method="POST", action="/signup")
+				div.signup-center-container
+					h1#signup-join-header Sign up
+				div
+					p
+						label.signup-label(for="name") Name
+						input.signup-input#signup-name-input(name="name", type="text")
+					p
+						label.signup-label(for="name") Email Address
+						input.signup-input#signup-email-input(name="email", type="text")
+					p
+						label.signup-label(for="name") Password
+						input.signup-input#signup-password-input(name="password", type="password")
+					p#signup-terms By creating an account, I accept Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>
+					div.signup-center-container
+						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Create my account
+					div#thanks-for-sign-up-no-pref.hide()
+						h3#landing-header Thanks for joining Seven Albums!
+						div#thanks-for-joining
+							p Thanks for being an early adopter of Seven Albums.
+							p We are delighted you joined and hope you enjoy the site.
+						div#go-to-photos-link-container
+							a(href="albums") Go to photos
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/signup.js")

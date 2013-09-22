@@ -46,6 +46,7 @@ require('./routes/contact')(app);
 require('./routes/upload')(app);
 require('./routes/notebook')(app);
 require('./routes/terms')(app);
+require('./routes/signup')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
