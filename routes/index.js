@@ -8,7 +8,7 @@ module.exports = function(app) {
 		if (req.body.navLogin == true) {
 			res.render('albums', {navLogin: req.body.navLogin});
 		} else {
-			res.render('index', {hide: req.body.navLogin});
+			res.render('index', {navLogin: req.body.navLogin});
 		}
 	});
 

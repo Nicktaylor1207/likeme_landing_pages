@@ -1,9 +1,4 @@
 $(function(){
-	
-	if (hide == true) {
-		$('#signup-body-container').hide();
-		$('#welcome-page').show();
-	}
 	  
 	(function(){
 	  $('#landing-signup-form').submit(function() {

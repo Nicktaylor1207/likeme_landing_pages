@@ -41,9 +41,7 @@ module.exports = function(app) {
 			}
 			if (user) {
 				req.session.email = user;
-				var hide = true;
-				var navLogin = true;
-				res.render('signup', {hide: hide, navLogin: navLogin});
+				res.redirect('/intro');
 			} else {
 				res.redirect('/login');
 			}
