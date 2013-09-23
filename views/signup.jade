@@ -8,9 +8,12 @@ block content
 				div.signup-center-container
 					h1#signup-join-header Sign up
 				div
-					p
-						label.signup-label(for="name") Name
-						input.signup-input#signup-name-input(name="name", type="text")
+					p#first-name
+						label.signup-label(for="firstName") First Name
+						input.signup-input#signup-first-name-input(name="firstName", type="text")
+					p#last-name
+						label.signup-label(for="lastName") Last Name
+						input.signup-input#signup-last-name-input(name="lastName", type="text")
 					p
 						label.signup-label(for="name") Email Address
 						input.signup-input#signup-email-input(name="email", type="text")
@@ -20,15 +23,28 @@ block content
 					p#signup-terms By creating an account, I accept Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>
 					div.signup-center-container
 						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Create my account
-					div#thanks-for-sign-up-no-pref.hide()
-						h3#landing-header Thanks for joining Seven Albums!
-						div#thanks-for-joining
-							p Thanks for being an early adopter of Seven Albums.
-							p We are delighted you joined and hope you enjoy the site.
-						div#go-to-photos-link-container
-							a(href="albums") Go to photos
+		div#welcome-page.hide()
+			h2 Welcome to Seven Albums
+			div#welcome-sub-container
+				p.welcome-sub To start viewing photos, <a href="albums">click here to go to Albums.</a>
+				p.welcome-sub To learn a little more about how the site works, read the introduction below.
+			h3#welcome-intro Intro to Seven Albums
+			div#welcome-container
+				p Currently, Seven Albums allows you to view, share and save photos of shops.
+				p The site was launched just last month and there will be frequent changes (we hope improvements). If you have any feedback or questions, please <a href="contact">contact us</a>.
+			h3 Viewing photos
+			p To view photos, click <a href="albums">Albums</a> in the navigation bar in the top left of your screen.
+			p Then, select which album to view by clicking on the album cover (for example, <a href="photos-bou">Boutiques</a> or <a href="photos-ny">New York</a>).
+			h3 Saving photos
+			p To save photos, click the "+ Note it" button in the bottom right corner of the photo. This will add the photo to your notebook, which you can access at any time.
+			p To view your notebook, click <a href="notebook">My Notebook</a> in the navigation bar in the top right of your screen.
+			h3 Adding photos
+			p To add photos to Seven Albums, select the "Add Photos" button in your <a href="notebook">notebook</a> and provide the link to the image.
+			p If you would like to add photos of your own store, you can use the same approach or you can <a href="mailto:team@sevenalbums.com">email us</a> photos and we will upload them.
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var hide = !{JSON.stringify(hide)}
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")

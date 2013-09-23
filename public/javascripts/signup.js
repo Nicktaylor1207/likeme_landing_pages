@@ -1,4 +1,9 @@
 $(function(){
+	
+	if (hide == true) {
+		$('#signup-body-container').hide();
+		$('#welcome-page').show();
+	}
 	  
 	(function(){
 	  $('#landing-signup-form').submit(function() {
@@ -7,9 +12,14 @@ $(function(){
 	      return false;
 	    };
 
-	    var name = $('#signup-name-input');
-	    if (name.val() == "") {
-	      return failValidation('Please enter your name to sign up.');
+	    var firstName = $('#signup-first-name-input');
+	    if (firstName.val() == "") {
+	      return failValidation('Please enter your first name to sign up.');
+	    }
+
+	    var lastName = $('#signup-last-name-input');
+	    if (lastName.val() == "") {
+	      return failValidation('Please enter your last name to sign up.');
 	    }
 
 	    var email = $('#signup-email-input');

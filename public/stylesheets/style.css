@@ -29,17 +29,11 @@ img.landing-bg {
 	left: 0;
 }
 
-div#landing-bg1 {
-	background: url('/images/bonobos1.jpg') no-repeat center center;
-	background-size: cover;
-		-webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-}
-
 #landing-page-intro-wrap {
-	position: relative;
-	margin: 140px auto;
+	position: fixed;
+	left: 50%;
+	top: 22%;
+	margin-left: -245px;
 	width: 450px;
 	min-height: 200px;
 	padding: 20px;
@@ -903,8 +897,8 @@ div#landing-bg1 {
 
 #signup-body-container {
 	position: relative;
-	margin: 45px auto;
-	width: 350px;
+	margin: 30px auto;
+	width: 450px;
 	min-height: 200px;
 	padding: 20px;
 	border-radius: 4px;
@@ -917,8 +911,9 @@ div#landing-bg1 {
 }
 
 .signup-input {
-	width: 320px;
-	height: 25px !important;
+	width: 400px;
+	height: 35px !important;
+	font-size: 18px !important;
 }
 
 #signup-join-header {
@@ -927,10 +922,52 @@ div#landing-bg1 {
 
 #signup-sign-up-btn {
 	margin: 10px 0px 15px 0px;
-	padding: 16px 45px;
+	padding: 16px 50px;
 	font-size: 24px;
 }
 
 .signup-center-container {
 	/* text-align: center; */
+}
+
+#first-name {
+	display: inline-block;
+}
+
+#signup-first-name-input {
+	width: 188px;
+	margin-right: 10px;
+}
+
+#signup-last-name-input {
+	width: 188px;
+}
+
+#last-name {
+	display: inline-block;
+}
+
+/* Welcome page */
+
+#welcome-page {
+	margin-top: 30px;
+	padding: 0px 20px;
+}
+
+#welcome-container {
+	font-size: 14px;
+}
+
+#welcome-sub-container {
+	margin-top: 20px;
+	font-size: 18px;
+	border-bottom: 1px solid gray;
+}
+
+.welcome-sub {
+	margin-bottom: 20px;
+}
+
+#welcome-intro {
+	margin-top: 20px;
 }
