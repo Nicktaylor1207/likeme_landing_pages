@@ -17,7 +17,7 @@ module.exports = function(app) {
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
-						res.render('photos-ny', {user: false, photos: sorted, navLogin: req.body.navLogin});
+						return next (err);
 					}
 					if (user) {
 						res.render('photos-ny', {user: user, photos: sorted, navLogin: req.body.navLogin});
@@ -35,7 +35,7 @@ module.exports = function(app) {
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
-						res.render('photos-bou', {user: false, photos: sorted, navLogin: req.body.navLogin});
+						return next (err);
 					}
 					if (user) {
 						res.render('photos-bou', {user: user, photos: sorted, navLogin: req.body.navLogin});
