@@ -41,6 +41,7 @@ img.landing-bg {
 	border-radius: 4px;
 	box-shadow: 0 0 20px #000;
 	text-align: center;
+	z-index: 5;
 }
 
 #landing-header {
@@ -119,6 +120,7 @@ img.landing-bg {
 	position: absolute;
 	bottom: 20px;
 	right: 30px;
+	z-index: 5;
 }
 
 #preview-site-link {
@@ -176,6 +178,7 @@ img.landing-bg {
 .carousel-control {
   position: fixed;
   margin-top: 0px !important;
+  z-index: 5;
 }
 
 /* About page */
@@ -196,7 +199,7 @@ img.landing-bg {
 	padding-left: 0px;
 }
 
-#idea {
+#message {
 	width: 370px;
 }
 
@@ -768,6 +771,18 @@ img.landing-bg {
 
 /* General */
 
+.item {
+	-webkit-transition: opacity ease-in-out 1s !important;
+		 -moz-transition: opacity ease-in-out 1s !important;
+			-ms-transition: opacity ease-in-out 1s !important;
+		 	 -o-transition: opacity ease-in-out 1s !important;
+					transition: opacity ease-in-out 1s !important;
+}
+
+.carousel .active.left {left:0;opacity:0;z-index:2;}
+
+.carousel .active.right {right:0;opacity:0;z-index:2;}
+
 #photos-pagination {
 	display: inline-block;
 	margin: 5px 0px 20px 0px;
@@ -782,18 +797,12 @@ img.landing-bg {
 }
 
 .added-btn-alt {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	font-weight: bold;
-	font-size: 18px;
+	/* Need if you change javascript to addClass instead of disabling btn */	
 }
 
 .note-plus {
 	font-size: 18px;
 }
-
-
 
 /* Sign up modals */
 
