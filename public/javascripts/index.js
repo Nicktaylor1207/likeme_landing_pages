@@ -2,7 +2,7 @@ $(function(){
 
 	$('#myCarousel').carousel({
 		interval: 4000,
-		// pause: "false"
+		pause: "false"
 	});
 
 	$('img.landing-bg').on('click', function(){	
