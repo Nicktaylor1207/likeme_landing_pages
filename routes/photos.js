@@ -12,16 +12,30 @@ module.exports = function(app) {
 	}
 
 	app.get('/photos-ny', selectNav, function(req, res) {
-		Photo.find({ tag: 'NYC' }, function(err, results){
-			var sorted = sortByKey(results, 'position');
-			res.render('photos-ny', {photos: sorted, navLogin: req.body.navLogin});
+    Photo.find({ tag: 'NYC' }, function(err, results){
+    	var sorted = sortByKey(results, 'position');
+    	Email.findOne({email: req.session.email.email}, function(err, user) {
+				if (err) {
+					res.render('photos-ny', {user: false, photos: sorted, navLogin: req.body.navLogin});
+				}
+				if (user) {
+					res.render('photos-ny', {user: user, photos: sorted, navLogin: req.body.navLogin});
+				}
+			});	
 		});
 	});
 
 	app.get('/photos-bou', selectNav, function(req, res) {
     Photo.find({ tag: 'boutique'}, function(err, results){
     	var sorted = sortByKey(results, 'position');
-			res.render('photos-bou', {photos: sorted, navLogin: req.body.navLogin});
+    	Email.findOne({email: req.session.email.email}, function(err, user) {
+				if (err) {
+					res.render('photos-bou', {user: false, photos: sorted, navLogin: req.body.navLogin});
+				}
+				if (user) {
+					res.render('photos-bou', {user: user, photos: sorted, navLogin: req.body.navLogin});
+				}
+			});	
 		});
 	});
 

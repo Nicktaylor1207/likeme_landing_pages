@@ -18,9 +18,9 @@ block content
 						h3 Send us a Message
 						p This website is still under development. If you have any problems with the site or any suggestions on how to improve your experience please send us a message below.
 						form#about-contact-form(method="POST", action="/message")
-							input#name(name="name", type="text", placeholder="Name")
-							textarea#idea(rows="10", type="textarea", placeholder="Send us a message...", name="idea")
-							button#idea-post-btn.btn.btn-medium(type="submit") Send
+							input#email(name="email", type="text", placeholder="Your email address")
+							textarea#message(rows="10", type="textarea", placeholder="Send us a message...", name="message")
+							button#message-post-btn.btn.btn-medium(type="submit") Send
 					div#message-sent-thanks.hide()
 						h4 Thanks for your insight!
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')

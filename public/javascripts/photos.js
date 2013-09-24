@@ -68,6 +68,26 @@ $(function(){
 
 })
 
+$(function(){
+	
+	var userPhotos = user.notebook.photos;
+
+	$('.add-notebook-form').each(function(i, form){
+		var photoUrl = $(form).find('#img-url').val();
+		var noteBtn = $(form).find('.add-to-nb-btn');
+		var dup = false;
+
+		$.each(userPhotos, function(index, object){
+			if (object == photoUrl) {
+				noteBtn.attr('disabled','disabled');
+				noteBtn.val('Noted');
+				return false;
+			}
+		});
+	});
+
+});
+
 // $(function(){
 
 // 	$('.add-to-nb-btn').on('click', function(){
@@ -75,3 +95,26 @@ $(function(){
 // 	})
 
 // })
+
+// $(function(){
+// 	$('.add-notebook-form').submit(function(){
+// 		var photoUrl = $(this).find('#img-url').val();
+// 		var userPhotos = user.notebook.photos;
+// 		var dup = false;
+
+// 		function checkDup(){
+// 			$.each(userPhotos, function(index, object){
+// 				if (object == photoUrl) {
+// 					dup = true;
+// 					return false;
+// 				}
+// 			});
+// 		}
+
+// 		checkDup();
+// 		if (dup == true) {
+// 			return false;	
+// 		}
+
+// 	});
+// });
