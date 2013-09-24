@@ -8,15 +8,8 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-		script(src='/bootstrap/js/bootstrap.min.js')
-		script(type="text/javascript", src="flaviusmatis-simplePagination/jquery.simplePagination.js")
-		script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
-		link(type="text/css", rel="stylesheet", href="flaviusmatis-simplePagination/simplePagination.css")
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-		script(type="text/javascript", src="/javascripts/signin.js")
-		script(type="text/javascript", src="/javascripts/layout.js")
 		script.
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -32,13 +25,13 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 					a.brand(href="/") Seven Albums
 					ul.nav#nav-left-container
 						li
-							a.nav-link(href="/") Home
+							a.nav-link(href="albums") Albums
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
 								a.nav-link(href="about") About us
 							li
-								a.nav-link(href="/") Sign up
+								a.nav-link(href="signup") Sign up
 							li
 								a.nav-link#loginButton(href="#") <span>Log in</span>
 								div#loginBox

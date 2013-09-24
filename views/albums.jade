@@ -1,14 +1,11 @@
 extends layout
 
 block content
-	script(type="text/javascript", src="/javascripts/albums.js")
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
 	div.albums-outer-container
 		div#pro-album-container
 			div.pro-album-cover
 				a(href="photos-ny")
-					img.pro-album-pic(src="images/rsz_ian18.jpg")
+					img.pro-album-pic(src="images/aa/ny59.jpg")
 					div.pro-album-label-container
 						div.pro-album-label
 							p.search-pic-name New York
@@ -32,3 +29,14 @@ block content
 						div.pro-album-label
 							p.search-pic-name Stores Like Mine
 							p.coming-soon Coming Soon
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/albums.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	
+	

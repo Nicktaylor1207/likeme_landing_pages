@@ -1,10 +1,6 @@
 extends layout
 
 block content
-	script.
-		var hide = !{JSON.stringify(hide)}
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
 	div.body-inner-container
 		div.about-container
 			div.row-fluid
@@ -14,19 +10,27 @@ block content
 					p.about We want to make it easier and more fun to open and manage a store. We are working on features that provide inspiration, resources and community to boutiques.
 					p.about Our first priority is to compile a photographic catalogue of store interiors. We are visual people and suspect many of you are, too. We believe photographs hold an abundance of information. We hope these photos will provide ideas and inspiration to current and prospective store owners.
 					p.about Our true goal is to create a product and community that make life better. Please help us by telling us what you want and need from Seven Albums.
-					p.about Please share your thoughts on the Idea Wall, or click the star if this concept resonates with you. <img id="about-star" src="images/star.png"></img>
+					p.about Please click the star if this concept resonates with you. <img id="about-star" src="images/star.png"></img>
 					p.about Nick and Zach Taylor, co-founders
 					img#zn-pic(src="images/zn.jpg", alt="")
-					a(href="/")
-						button#about-sign-up-btn.btn.btn-large.btn-primary Sign up
 				div.span5#about-right-container
 					div#contact-content
 						h3 Send us a Message
 						p This website is still under development. If you have any problems with the site or any suggestions on how to improve your experience please send us a message below.
 						form#about-contact-form(method="POST", action="/message")
 							input#name(name="name", type="text", placeholder="Name")
-							textarea#idea(rows="3", type="textarea", placeholder="Send us a message...", name="idea")
+							textarea#idea(rows="10", type="textarea", placeholder="Send us a message...", name="idea")
 							button#idea-post-btn.btn.btn-medium(type="submit") Send
 					div#message-sent-thanks.hide()
 						h4 Thanks for your insight!
-		script(type="text/javascript", src="/javascripts/script.js")
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/about.js")
+	script.
+		var hide = !{JSON.stringify(hide)}
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}

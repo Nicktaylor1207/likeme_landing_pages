@@ -1,11 +1,6 @@
 extends layout
 
 block content
-	script(type="text/javascript", src="/javascripts/notebook.js")
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
-	script.
-		var photos = !{JSON.stringify(photos)}
 	div.body-inner-container
 		div.nb-container
 			h2#nb-header My Notebook
@@ -21,3 +16,14 @@ block content
 					div.modal-footer#nb-photos-modal-footer
 						a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
 						input.btn.btn-primary(type="submit", value="Add Photo")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var photos = !{JSON.stringify(photos)}
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/notebook.js")

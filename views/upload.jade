@@ -1,16 +1,15 @@
-block content
-	form(method="POST", action="/upload")
-		p
-			label(for="url") Url:
-			input(type="text", name="url")
-		p
-			label(for="source") Source:
-			input(type="source", name="source")
-		p
-			label(for="position") Position:
-			input(type="text", name="position")
-		p
-			label(for="tag") Tag:
-			input(type="text", name="tag")
-		p
-			input(type="submit", value="Upload")
+form(method="POST", action="/upload")
+	p
+		label(for="url") Url:
+		input(type="text", name="url")
+	p
+		label(for="source") Source:
+		input(type="source", name="source")
+	p
+		label(for="position") Position:
+		input(type="text", name="position")
+	p
+		label(for="tag") Tag:
+		input(type="text", name="tag")
+	p
+		input(type="submit", value="Upload")
