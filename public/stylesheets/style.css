@@ -947,7 +947,7 @@ img.landing-bg {
 	display: inline-block;
 }
 
-/* Welcome page */
+/* Welcome/Intro page */
 
 #welcome-page {
 	margin-top: 30px;
@@ -959,8 +959,8 @@ img.landing-bg {
 }
 
 #welcome-sub-container {
-	margin-top: 20px;
-	font-size: 18px;
+	margin-top: 10px;
+	font-size: 16px;
 	border-bottom: 1px solid gray;
 }
 
@@ -970,4 +970,21 @@ img.landing-bg {
 
 #welcome-intro {
 	margin-top: 20px;
+}
+
+#intro-notebook-img {
+	margin-top: 20px;
+	box-shadow: 0 0 15px #000;
+}
+
+#noteit-img {
+	box-shadow: 0 0 5px #000;
+	margin: 0px 5px;
+}
+
+#addphotos-img {
+	height: 25px;
+	width: auto;
+	box-shadow: 0 0 3px #000;
+	margin: 0px 5px;
 }
