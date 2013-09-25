@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	div.body-inner-container
+		div#login-alt-container
+			h3 Please update your account
+			p.login-alt-sub Since you joined Seven Albums, we have added names and passwords for users. Please provide your name and create a password below.
+			form#alt-signup-form(method="POST", action="/update")
+				div
+					p
+						label.alt-signup-label(for="name") Email Address
+						input.alt-signup-input#signup-email-input(name="email", type="text", value="#{user.email}")
+					p.alt-name
+						label.alt-signup-label(for="firstName") First Name
+						input.alt-signup-input#signup-first-name-input(name="firstName", type="text")
+					p.alt-name
+						label.alt-signup-label(for="lastName") Last Name
+						input.alt-signup-input#signup-last-name-input(name="lastName", type="text")
+					p
+						label.alt-signup-label(for="name") New Password
+						input.alt-signup-input#signup-password-input(name="password", type="password")
+					button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update account
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/loginalt.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}
