@@ -1,0 +1,5 @@
+$(function(){
+
+	$('#photo-modal').modal();
+
+});

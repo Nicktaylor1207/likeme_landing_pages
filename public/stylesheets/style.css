@@ -203,6 +203,10 @@ img.landing-bg {
 	width: 370px;
 }
 
+.contact {
+	font-size: 16px;
+}
+
 #contact-send-link {
 	margin-top: 5px;
 	font-size: 18px;
@@ -609,6 +613,7 @@ img.landing-bg {
 }
 
 #loginBox {
+	width: 225px;
 	display: none;
 	position: absolute;
 	top: 34px;
@@ -618,6 +623,20 @@ img.landing-bg {
 	border-radius: 4px;
 	box-shadow: 0 0 20px #000;
 	z-index:29;
+}
+
+#login-modal-forgot-pass {
+	display: inline-block;
+	margin-left: 10px;
+	
+}
+
+#login-btn {
+	display: inline-block;
+}
+
+#login-form-btn-cnt {
+	line-height: 30px;
 }
 
 /* Login Failed */
@@ -663,21 +682,35 @@ img.landing-bg {
 	margin-top: 5px;
 }
 
-#forgot-password {
-	margin-top: 20px;
-}
-
 #forgot-password-link {
 	font-size: 16px;
 }
 
 #forgot-password {
 	font-size: 18px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 #forgot-password-submit-btn {
 	margin-top: 10px;
+}
+
+#forgot-pass-err {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	color: red;	
+}
+
+#forgot-pass-success {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+#still-trouble {
+	margin-top: 20px;
 }
 
 /* Notebook */
@@ -1055,4 +1088,54 @@ img.landing-bg {
 
 #login-alt-container {
 	margin: 30px 30px 0px 30px;
+}
+
+/* Photo modal */
+
+#photo-modal {
+	top: 0%;
+	left: 0%;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: #303030;
+	border-radius: 0;
+	position: relative;
+}
+
+#pm-ctn {
+	height: 90%;
+	width: 95%;
+	margin: auto;
+	/* border: 1px solid gray; */
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#pm-left-ctn {
+	height: 100%;
+	width: 70%;
+	position: absolute;
+	border: 1px solid gray;
+}
+
+#pm-photo {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#pm-right-ctn {
+	height: 100%;
+	width: 28%;
+	position: absolute;
+	right: 0;
+	margin: 0;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+#pm-right-ctn-inner {
+	padding: 20px;
 }

@@ -7,10 +7,6 @@ module.exports = function(app) {
 		res.render('login');
 	});
 
-	app.get('/forgot-password', function(req, res){
-		res.render('forgot-password');
-	});
-
 	app.get('/loginAlt', selectNav, function(req, res){
 		Email.findOne({email: req.session.email.email}, function(err, user){
 			if (err) {
@@ -20,6 +16,10 @@ module.exports = function(app) {
 			}
 		});		
 	});
+
+	app.get('/loginAlt2', selectNav, function(req, res){
+		res.render('loginAlt2', {navLogin: req.body.navLogin});
+	});	
 
 	app.get('/logout', function(req, res) {
 		req.session = null;
