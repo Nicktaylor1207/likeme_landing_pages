@@ -1098,25 +1098,26 @@ img.landing-bg {
 	margin: 0px;
 	height: 100%;
 	width: 100%;
-	background-color: #303030;
+	/* background-color: #303030; */
+	background-color: #161616;
 	border-radius: 0;
 	position: relative;
 }
 
 #pm-ctn {
-	height: 90%;
+	height: 92%;
 	width: 95%;
 	margin: auto;
-	/* border: 1px solid gray; */
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
 }
 
 #pm-left-ctn {
 	height: 100%;
-	width: 70%;
+	width: 72%;
 	position: absolute;
-	border: 1px solid gray;
+	/* background-color: #161616; */
+	background-color: black;
 }
 
 #pm-photo {
@@ -1129,7 +1130,7 @@ img.landing-bg {
 
 #pm-right-ctn {
 	height: 100%;
-	width: 28%;
+	width: 26%;
 	position: absolute;
 	right: 0;
 	margin: 0;
@@ -1138,4 +1139,9 @@ img.landing-bg {
 
 #pm-right-ctn-inner {
 	padding: 20px;
+}
+
+#photo-modal-close {
+	position: absolute;
+	right: 5px;
 }
