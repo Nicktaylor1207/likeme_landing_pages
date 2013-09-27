@@ -1,3 +1,4 @@
+// Calls to action for non-user
 $(function(){
 
 	if (navLogin == false) { 
@@ -41,18 +42,17 @@ $(function(){
 
 });
 
+// Set "note it" btns and notebook plural to override HTML on page 
 $(function(){
 	
+	/* Handle notebook count plurals */
 	$('.notebook-count').each(function(i, obj){
 		if ($(obj).html() == "1 Notebooks") {
 			$(obj).html('1 Notebook');
 		}	
-	})
+	});
 
-})
-
-$(function(){
-	
+	/* Disable noted buttons */
 	var userPhotos = user.notebook.photos;
 
 	$('.add-notebook-form').each(function(i, form){
@@ -69,33 +69,44 @@ $(function(){
 		});
 	});
 
-});
+	// Refactor - this should go away if it is handled on update
 
+})
+
+// Handle photo modal display on '.photo-img' click
 $(function(){
 	
 	var photoModal = $('#photo-modal');
 
 	$('.photo-img').on('click', function(){
-		/* set modal photo */
-
+		
+		/* Set modal photo and attributes*/
 		var displayPhotoURL = this.src;
 		var displayPhotoFinder = $(this).attr('finder');
 		$('#pm-photo').attr('src', displayPhotoURL);
 		$('#pm-photo').attr('finder', displayPhotoFinder);
 
-		/* Set attr of "+ Note it" btn */
-		var userPhotos = user.notebook.photos;
-		$.each(userPhotos, function(index, object){
-			if (displayPhotoURL.indexOf(object) != -1) {
-				$('#add-to-nb-btn-pm').attr('disabled','disabled');
-				$('#add-to-nb-btn-pm').val('Noted');
-				return false;
-			} else {
-				$('#add-to-nb-btn-pm').removeAttr('disabled');
-				$('#add-to-nb-btn-pm').val('+ Note it');
-			}
-		})
+		/* Set modal "+ Note it" btn  attributes */
+		var finder = $(this).attr('finder');
+	 	var formID = "#" + finder;
+	 	var containerDiv = $(formID);
+	 	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
 
+	 	var modalNoteBtn = $('#add-to-nb-btn-pm');
+	 	if (noteBtnFind.val() == "Noted") {
+			modalNoteBtn.attr('disabled','disabled');
+			modalNoteBtn.val('Noted');
+		}
+
+		/* Set img url for form input */
+		var photoObj = photos[displayPhotoFinder];
+		$('#pm-img-url').val(photoObj.url);
+		console.log($('#pm-img-url').val());
+
+		/* Set notebook count HTML */
+		var notebookHTML = containerDiv.find('.notebook-count').html();
+		$('#pm-notebook-count').html(notebookHTML);
+		console.log($('#pm-notebook-count').html());
 
 	});
 
@@ -106,45 +117,7 @@ $(function(){
 			opacity: "1"
 		};
 		$('.modal-backdrop').css(styles);		
-
 	});
 
 });
 
-$(function(){
-	
-	$('.photo-img').on('click', function(){	
-		var finder = $(this).attr("finder");
-		var photoObj = photos[finder];
-		
-		/* set modal photo */
-		$('#pm-photo').attr('src', photoObj.url);
-		
-		/* set attr of "+ Note it" btn */
-		var userPhotos = user.notebook.photos;
-		$.each(userPhotos, function(i, obj){
-			if (photoObj.url == obj) {
-				$('#add-to-nb-btn-pm').attr('disabled','disabled');
-				$('#add-to-nb-btn-pm').val('Noted');
-				return false;
-			} else {
-				$('#add-to-nb-btn-pm').removeAttr('disabled');
-				$('#add-to-nb-btn-pm').val('+ Note it');
-			}
-		});
-
-		/* set form input url property and Notebooks count*/
-		$('#pm-img-url').val(photoObj.url);
-
-		(function(){
-			var nbCount = $('#pm-notebook-count');
-			if (photoObj.liked == 1) {
-				nbCount.html(photoObj.liked + " " + "Notebook");
-			} else {
-				nbCount.html(photoObj.liked + " " + "Notebooks");
-			}
-		}).call(this);
-
-	});
-
-});

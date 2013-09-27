@@ -73,14 +73,10 @@ $(function(){
 });
 
 $('#add-notebook-form-pm').submit(function(){
-	  var photoURL = $('#pm-photo').attr('finder');
-	 	var formID = "#" + photoURL.match(/\d+/).toString();
+	  var finder = $('#pm-photo').attr('finder');
+	 	var formID = "#" + finder;
 	 	var containerDiv = $(formID);
 	 	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
-
-	 	console.log(photoURL);
-	 	console.log(formID);
-	 	console.log(containerDiv);
 
 	 	/* Set btn to noted */
 		noteBtnFind.attr('disabled','disabled');

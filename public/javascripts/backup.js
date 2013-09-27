@@ -85,3 +85,32 @@
 
 /* END Photos-bou pagination */
 
+/* Photo modal photos.js */
+
+		// $(function(){
+	
+		// 	$('.photo-img').on('click', function(){	
+		// 		// var finder = $(this).attr("finder");
+		// 		// var photoObj = photos[finder];
+				
+		// 		// /* set modal photo */
+		// 		// $('#pm-photo').attr('src', photoObj.url);
+
+		// 		/* set form input url property and Notebooks count*/
+		// 		$('#pm-img-url').val(photoObj.url);
+
+		// 		(function(){
+		// 			var nbCount = $('#pm-notebook-count');
+		// 			if (photoObj.liked == 1) {
+		// 				nbCount.html(photoObj.liked + " " + "Notebook");
+		// 			} else {
+		// 				nbCount.html(photoObj.liked + " " + "Notebooks");
+		// 			}
+		// 		}).call(this);
+
+		// 	});
+
+		// });
+
+/* END Photo modal photos.js */
+
