@@ -1,21 +1,4 @@
-// $(function(){
-// 	$('.source').each(function(i, obj){
-// 		var $source = $(this).html();
-// 		if ($source.length > 30) {
-// 			var $newLink = $source.slice(0,29) + "...";
-// 			$(this).html($newLink);
-// 		} 
-// 	});
-// });
-
 $(function(){
-	
-	// $('.add-notebook-form').submit(function(){
-	// 	if (navLogin == false) {
-	// 		alert("Must be logged in to add photos to Notebook. Please log in.");
-	// 		return false;
-	// 	}
-	// });
 
 	if (navLogin == false) { 
 
@@ -88,33 +71,80 @@ $(function(){
 
 });
 
-// $(function(){
+$(function(){
+	
+	var photoModal = $('#photo-modal');
 
-// 	$('.add-to-nb-btn').on('click', function(){
-// 		$(this).val('Noted');
-// 	})
+	$('.photo-img').on('click', function(){
+		/* set modal photo */
 
-// })
+		var displayPhotoURL = this.src;
+		var displayPhotoFinder = $(this).attr('finder');
+		$('#pm-photo').attr('src', displayPhotoURL);
+		$('#pm-photo').attr('finder', displayPhotoFinder);
 
-// $(function(){
-// 	$('.add-notebook-form').submit(function(){
-// 		var photoUrl = $(this).find('#img-url').val();
-// 		var userPhotos = user.notebook.photos;
-// 		var dup = false;
+		/* Set attr of "+ Note it" btn */
+		var userPhotos = user.notebook.photos;
+		$.each(userPhotos, function(index, object){
+			if (displayPhotoURL.indexOf(object) != -1) {
+				$('#add-to-nb-btn-pm').attr('disabled','disabled');
+				$('#add-to-nb-btn-pm').val('Noted');
+				return false;
+			} else {
+				$('#add-to-nb-btn-pm').removeAttr('disabled');
+				$('#add-to-nb-btn-pm').val('+ Note it');
+			}
+		})
 
-// 		function checkDup(){
-// 			$.each(userPhotos, function(index, object){
-// 				if (object == photoUrl) {
-// 					dup = true;
-// 					return false;
-// 				}
-// 			});
-// 		}
 
-// 		checkDup();
-// 		if (dup == true) {
-// 			return false;	
-// 		}
+	});
 
-// 	});
-// });
+	photoModal.on('shown', function(){
+		/* Set style modal css */
+		var styles = {
+			backgroundColor: "#161616",
+			opacity: "1"
+		};
+		$('.modal-backdrop').css(styles);		
+
+	});
+
+});
+
+$(function(){
+	
+	$('.photo-img').on('click', function(){	
+		var finder = $(this).attr("finder");
+		var photoObj = photos[finder];
+		
+		/* set modal photo */
+		$('#pm-photo').attr('src', photoObj.url);
+		
+		/* set attr of "+ Note it" btn */
+		var userPhotos = user.notebook.photos;
+		$.each(userPhotos, function(i, obj){
+			if (photoObj.url == obj) {
+				$('#add-to-nb-btn-pm').attr('disabled','disabled');
+				$('#add-to-nb-btn-pm').val('Noted');
+				return false;
+			} else {
+				$('#add-to-nb-btn-pm').removeAttr('disabled');
+				$('#add-to-nb-btn-pm').val('+ Note it');
+			}
+		});
+
+		/* set form input url property and Notebooks count*/
+		$('#pm-img-url').val(photoObj.url);
+
+		(function(){
+			var nbCount = $('#pm-notebook-count');
+			if (photoObj.liked == 1) {
+				nbCount.html(photoObj.liked + " " + "Notebook");
+			} else {
+				nbCount.html(photoObj.liked + " " + "Notebooks");
+			}
+		}).call(this);
+
+	});
+
+});

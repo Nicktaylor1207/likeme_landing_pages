@@ -20,12 +20,12 @@ $(function(){
 	  noteBtn.attr('disabled','disabled');
 	  noteBtn.val('Noted');
 
-	  var notebookText = form.parent().siblings().first().children().first();
+	  var notebookText = form.parent().siblings().first().children().first(); // Refactor replace with selector
 	  var notebookHTML = notebookText.html();
-	  var notebookCount = parseInt(notebookHTML) + 1;
-	  
-	  if (notebookHTML.indexOf("0") == 0) {
-	  	notebookText.html(notebookCount + " " + "Notebook");
+	  var notebookCount = parseInt(notebookHTML, 10) + 1;
+
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
 	  } else {
 	  	notebookText.html(notebookCount + " " + "Notebooks");
 	  }
@@ -41,34 +41,62 @@ $(function(){
 	
 });
 
-// $(function() {
-//   $('#photos-pagination').pagination({
-//       items: 50,
-//       itemsOnPage: 10,
-//       cssStyle: 'dark-theme',
-//       currentPage: $.cookie("currPageBou"),
-//       onPageClick: function(pageNumber){
-//       	setPage(pageNumber, function(){
-//           $(document).scrollTop(0); // not working
-//         });
-//       }
-//   });
+$(function(){
 
-// 	function setPage(pageNumber, callback) {
-//     var page = "#page-" + pageNumber;
-// 		$('.selection').hide();
-// 		$(page).show();
-//     callback();
-//   };
+	$('#add-notebook-form-pm').submit(function(){
+	  var url = "/notebook1"; // the script where you handle the form input.
+	  var form = $(this);
+	  var noteBtn = form.find('#add-to-nb-btn-pm');
+	  
+	  noteBtn.attr('disabled','disabled');
+	  noteBtn.val('Noted');
 
-//   var displayPage = "#page-" + $.cookie("currPageBou");
-//   $('.selection').hide();
-//   $(displayPage).show();
+	  var notebookText = form.parents('#photo-modal').find('#pm-notebook-count');
+	  var notebookHTML = notebookText.html();
+	  var notebookCount = parseInt(notebookHTML, 10) + 1;
 
-//   $(window).on('unload', function(){
-//   	var currPage = $('#photos-pagination').pagination('getCurrentPage');
-//   	$.cookie("currPageBou", currPage);
-//   });
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
+	  } else {
+	  	notebookText.html(notebookCount + " " + "Notebooks");
+	  }
 
-// });
+	  $.ajax({
+	    type: "POST",
+	    url: url,
+	    data: form.serialize(), // serializes the form's elements.
+	  });
 
+	  return false; // avoid to execute the actual submit of the form.
+	});
+	
+});
+
+$('#add-notebook-form-pm').submit(function(){
+	  var photoURL = $('#pm-photo').attr('finder');
+	 	var formID = "#" + photoURL.match(/\d+/).toString();
+	 	var containerDiv = $(formID);
+	 	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
+
+	 	console.log(photoURL);
+	 	console.log(formID);
+	 	console.log(containerDiv);
+
+	 	/* Set btn to noted */
+		noteBtnFind.attr('disabled','disabled');
+	  noteBtnFind.val('Noted');
+
+	  /* Set notebook counter correctly */
+	  var notebookText = containerDiv.find('.notebook-count');
+	  var notebookHTML = notebookText.html();
+	  var notebookCount = parseInt(notebookHTML) + 1;
+
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
+	  } else {
+	  	notebookText.html(notebookCount + " " + "Notebooks");
+	  }
+
+	  return false;
+	
+});
