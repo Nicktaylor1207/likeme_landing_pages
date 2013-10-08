@@ -1219,3 +1219,13 @@ img.landing-bg {
 #eval-next {
 	padding: 5px 15px;
 }
+
+#eval-no-form {
+	display: inline-block !important;
+	margin: 0px !important;
+}
+
+#eval-yes-form {
+	display: inline-block !important;
+	margin: 0px !important;
+}

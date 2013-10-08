@@ -1,34 +1,53 @@
 $(function(){
 
-	$('#platform-img').attr('src', 'images/aa/ny59.jpg');
+	$('#platform-img').attr('src', photos[0].url);
 
 	var urlCounter = 0;
 
 	$('div#eval').on('click', function(e){
-		var eval = e.target.id;
+		
+		/* Flip to next photo */
 		urlCounter += 1;
-		var newURL = "images/aa/bou" + urlCounter + ".jpg";
+		var currPhoto = photos[urlCounter - 1];
+		var newPhoto = photos[urlCounter];
+		var newURL = newPhoto.url;
 		$('#platform-img').attr('src', newURL);
-		var stateObj = { imgState: newURL };
+		
+		/* Set state variables handle navigation */
+		var stateObj = { imgState: newURL, urlCount: urlCounter };
 		window.history.pushState(stateObj, '', urlCounter)
-		window.onpopstate = function(event) {
-			console.log(event);
-			if (window.history.state != null) {
-				$('#platform-img').attr('src', window.history.state.imgState);
-			} else {
-				$('#platform-img').attr('src', 'images/aa/ny59.jpg')
+
+		/* Record votes */
+		var eval = e.target.id;
+		var formData = {photoURL: currPhoto.url};
+		if (eval == "eval-no" || eval == "eval-yes") {
+			if (eval == "eval-no") {
+				var url = '/platform1';
+			} else if (eval == "eval-yes") {
+				var url = '/platform2';
 			}
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: formData,
+				success: function(){
+		   		console.log("SUCCESS!");
+			  }
+			});	
+			return false; // avoid executing actual submit of form
 		}
 	});
 
-});
+	/* Handle back button navigation */
+	window.onpopstate = function(event) {
+		console.log(event);
+		if (window.history.state != null) {
+			$('#platform-img').attr('src', window.history.state.imgState);
+			urlCounter = window.history.state.urlCount;
+			// setting the url counter to handle form submit after back btn
+		} else {
+			$('#platform-img').attr('src', photos[0].url);
+		}
+	}
 
-// $('div#eval').on('click', function(e){
-// 	var eval = e.target.id;
-// 	var photoSRC = $('#platform').css('background-image');
-// 	var photoURL = photoSRC.slice(photoSRC.indexOf("/images"), -1)
-// 	urlCounter += 1;
-// 	var newURL = "url('/images/aa/bou" + urlCounter + ".jpg')"
-// 	$('#platform').addClass('.no-flick');
-// 	$('#platform').css("background", newURL + " no-repeat center center");
-// });
+});

@@ -45,12 +45,19 @@ html
 		div#platform
 			img#platform-img(src="")
 		div#eval
-			button#eval-no
+			form#eval-no-form(method="POST", action="/platform1")
+				input#eval-no(type="submit", value="")
 			button.btn#eval-next Next
-			button#eval-yes
+			form#eval-yes-form(method="POST", action="/platform2")
+				input#eval-yes(type="submit", value="")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var photos = !{JSON.stringify(photos)}
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	// script(src="//balupton.github.io/jquery-scrollto/lib/jquery-scrollto.js")
+	// script(src="//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js")
+	// script(src="//rawgithub.com/browserstate/ajaxify/master/ajaxify-html5.js")
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")
 	script(type="text/javascript", src="/javascripts/loggedin.js")
