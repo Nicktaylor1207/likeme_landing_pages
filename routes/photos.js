@@ -11,6 +11,10 @@ module.exports = function(app) {
 		});
 	}
 
+	app.get('/pm', function(req, res) {
+		res.redirect('/photos-bou')
+	})
+
 	app.get('/photos-ny', selectNav, function(req, res) {
     Photo.find({ tag: 'NYC' }, function(err, results){
     	var sorted = sortByKey(results, 'position');

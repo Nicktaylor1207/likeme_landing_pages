@@ -364,6 +364,7 @@ img.landing-bg {
 .navbar-fixed-top {
 	min-width: 1020px;
 	margin-bottom: 100px;
+	z-index: 1000 !important;
 }
 
 .navbar-inner {
@@ -1164,4 +1165,57 @@ img.landing-bg {
 #pm-notebook-count {
 	font-size: 16px;
 	font-weight: bold;		
+}
+
+/* Platform */
+
+#platform {
+	height: 100%;
+	width: 100%;
+}
+
+#platform-img {
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	/*margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;*/
+}
+
+#eval {
+	position: fixed;
+	z-index: 1001;
+	top: 0px;
+	left: 50%;
+	width: 200px;
+	margin-left: -100px;
+	height: 40px;
+	border: 1px solid gray;
+	background-color: #1B1B1B;
+	text-align: center;
+	padding: 5px 0px;
+}
+
+#eval-no {
+	background-color: red;
+	height: 40px;
+	width: 40px;
+	border-radius: 25px;
+	border: none;
+	margin-right: 15px;
+}
+
+#eval-yes {
+	background-color: green;
+	height: 40px;
+	width: 40px;
+	border-radius: 25px;
+	border: none;
+	margin-left: 15px;
+}
+
+#eval-next {
+	padding: 5px 15px;
 }

@@ -71,7 +71,7 @@ $(function(){
 
 	// Refactor - this should go away if it is handled on update
 
-})
+});
 
 // Handle photo modal display on '.photo-img' click
 $(function(){
@@ -96,17 +96,18 @@ $(function(){
 	 	if (noteBtnFind.val() == "Noted") {
 			modalNoteBtn.attr('disabled','disabled');
 			modalNoteBtn.val('Noted');
-		}
+		} else {
+			modalNoteBtn.removeAttr('disabled');
+			modalNoteBtn.val('+ Note it');
+		};
 
 		/* Set img url for form input */
 		var photoObj = photos[displayPhotoFinder];
 		$('#pm-img-url').val(photoObj.url);
-		console.log($('#pm-img-url').val());
 
 		/* Set notebook count HTML */
 		var notebookHTML = containerDiv.find('.notebook-count').html();
 		$('#pm-notebook-count').html(notebookHTML);
-		console.log($('#pm-notebook-count').html());
 
 	});
 
@@ -116,7 +117,23 @@ $(function(){
 			backgroundColor: "#161616",
 			opacity: "1"
 		};
-		$('.modal-backdrop').css(styles);		
+		$('.modal-backdrop').css(styles);	
+
+		/* Set history and modal esc navigation */
+		window.history.pushState({path:'pm'},'','pm');
+
+		photoModal.on('hidden', function(){
+			if (location.href.indexOf('pm') != -1) {
+				window.history.back();	
+			}
+		});
+
+		window.onpopstate = function(e){
+			if (JSON.stringify(e.state) == "null") {
+				photoModal.modal('hide');
+			}
+		};
+
 	});
 
 });

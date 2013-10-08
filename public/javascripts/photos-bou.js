@@ -96,3 +96,10 @@ $('#add-notebook-form-pm').submit(function(){
 	  return false;
 	
 });
+
+$(function(){
+	console.log("Pop it")
+	window.onpopstate = function(e){
+		// AJAX get request for noted property
+	};
+})
