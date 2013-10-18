@@ -4,7 +4,7 @@ var Photo = require('../data/models/photos');
 module.exports = function(app) {
 
 	app.get('/platform', selectNav, function(req, res) {
-    Photo.find({ tag: 'boutique' }, function(err, results){
+    Photo.find({ tag: 'NYC' }, function(err, results){
     	var photos = results;
     	res.render('platform', {navLogin: req.body.navLogin, photos: photos});
     });

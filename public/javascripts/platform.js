@@ -2,6 +2,8 @@ $(function(){
 
 	$('#platform-img').attr('src', photos[0].url);
 
+	window.scrollTo(0, 0);
+
 	var urlCounter = 0;
 
 	$('div#eval').on('click', function(e){
@@ -15,7 +17,7 @@ $(function(){
 		
 		/* Set state variables handle navigation */
 		var stateObj = { imgState: newURL, urlCount: urlCounter };
-		window.history.pushState(stateObj, '', urlCounter)
+		window.history.pushState(stateObj, '', 'platform?' + urlCounter)
 
 		/* Record votes */
 		var eval = e.target.id;
@@ -40,7 +42,7 @@ $(function(){
 
 	/* Handle back button navigation */
 	window.onpopstate = function(event) {
-		console.log(event);
+		window.scrollTo(0, 0);
 		if (window.history.state != null) {
 			$('#platform-img').attr('src', window.history.state.imgState);
 			urlCounter = window.history.state.urlCount;

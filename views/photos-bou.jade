@@ -883,6 +883,10 @@ block content
 			form#add-notebook-form-pm(method="POST", action="/notebook1")
 				input#pm-img-url.hide()(name="image_url", value="")
 				input.btn#add-to-nb-btn-pm(type="submit", value="+ Note it")
+			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+			// div.pm-arrow-ctn#pm-arrow-left &lsaquo;
+			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+			i.icon-fullscreen.icon-large.icon-white
 		div#pm-right-ctn
 			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#pm-right-ctn-inner
@@ -895,6 +899,7 @@ block content
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/photos.js")
 	script(type="text/javascript", src="/javascripts/photos-bou.js")
+	script(type="text/javascript", src="/javascripts/photos-modal.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.

@@ -510,6 +510,7 @@ img.landing-bg {
 	height: auto;
 	cursor: -webkit-zoom-in;  
 	cursor: zoom-in;
+	cursor: -moz-zoom-in;
 	opacity: 1;
 }
 
@@ -1119,6 +1120,10 @@ img.landing-bg {
 	position: absolute;
 	/* background-color: #161616; */
 	background-color: black;
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+   	 -moz-user-select: none; /* mozilla browsers */
+   -khtml-user-select: none; /* webkit (konqueror) browsers */
+    	-ms-user-select: none; /* IE10+ */
 }
 
 #pm-photo {
@@ -1150,6 +1155,12 @@ img.landing-bg {
 	line-height: 25px;
 }
 
+.icon-fullscreen {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
 /*.modal-backdrop {
 	background-color: #161616 !important;
 	opacity: 1 !important;
@@ -1164,14 +1175,38 @@ img.landing-bg {
 
 #pm-notebook-count {
 	font-size: 16px;
-	font-weight: bold;		
+	font-weight: bold;
+}
+
+.pm-arrow-ctn {
+	position: absolute;
+	margin-top: -20px;
+	right: 0;
+	top: 50%;
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+   	 -moz-user-select: none; /* mozilla browsers */
+   -khtml-user-select: none; /* webkit (konqueror) browsers */
+    	-ms-user-select: none; /* IE10+ */
+}
+
+.pm-arrow {
+	font-size: 150px;
+	font-weight: 100;
+	color: white;
+	cursor: pointer;
+	text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+}
+
+
+#pm-arrow-left-ctn {
+	left: 0 !important;
 }
 
 /* Platform */
 
 #platform {
-	height: 100%;
-	width: 100%;
+	min-height: 100%;
+	min-width: 100%;
 }
 
 #platform-img {
@@ -1182,6 +1217,9 @@ img.landing-bg {
 	/*margin: auto;
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;*/
+	/*cursor: -webkit-zoom-in;  
+	cursor: zoom-in;
+	cursor: -moz-zoom-in;*/
 }
 
 #eval {
