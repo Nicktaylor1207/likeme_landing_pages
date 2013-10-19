@@ -42,33 +42,69 @@ $(function(){
 
 });
 
+/* Set noted property and handle notebook plurals */
 $(function(){
 
-	var photoModal = $('#photo-modal');
+	var userPhotos = user.notebook.photos;
 
-	photoModal.on('shown', function(){
-		/* Set style modal css */
-		var styles = {
-			backgroundColor: "#161616",
-			opacity: "1"
-		};
-		$('.modal-backdrop').css(styles);	
+	$.each(userPhotos, function(index, userPhoto){
+		$('.add-notebook-form').each(function(index, form){
+			var photoUrl = $(form).find('#img-url').val();
+			if (photoUrl == userPhoto) {
+				var noteBtn = $(form).find('.btn');	  
+			  noteBtn.attr('disabled', true);
+			  noteBtn.val('Noted');
 
-		/* Set history and modal esc navigation */
-		window.history.pushState({path:'pm'},'','pm');
-
-		photoModal.on('hidden', function(){
-			if (location.href.indexOf('pm') != -1) {
-				window.history.back();	
+			  /* Set noted property of photo to true to pass to modals */
+			  var photoFinder = $(form).next().find('.photo-img').attr('finder');
+			  photos[photoFinder].noted = true;
+				return false;
 			}
 		});
-
-		window.onpopstate = function(e){
-			if (JSON.stringify(e.state) == "null") {
-				photoModal.modal('hide');
-			}
-		};
-
 	});
 
-})
+	/* Handle notebook count plurals */
+	$('.notebook-count').each(function(i, obj){
+		if ($(obj).html() == "1 Notebooks") {
+			$(obj).html('1 Notebook');
+		}	
+	});
+
+});
+
+/* Handle noting photos */
+$(function(){
+
+	$('.add-notebook-form').submit(function(){
+	  var url = "/notebook1"; // the script where you handle the form input.
+	  var form = $(this);
+	  var noteBtn = form.find('.btn');
+	  
+	  noteBtn.attr('disabled', true);
+	  noteBtn.val('Noted');
+
+	  /* Set noted property of photo to true to pass to modals */
+	  var photoFinder = $(form).next().find('.photo-img').attr('finder');
+	  photos[photoFinder].noted = true;
+	  photos[photoFinder].newNote = true;
+	  
+	  var notebookText = form.parent().siblings().first().children().first(); // Refactor replace with selector
+	  var notebookHTML = notebookText.html();
+	  var notebookCount = parseInt(notebookHTML, 10) + 1;
+
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
+	  } else {
+	  	notebookText.html(notebookCount + " " + "Notebooks");
+	  }
+
+	  $.ajax({
+	    type: "POST",
+	    url: url,
+	    data: form.serialize(), // serializes the form's elements.
+	  });
+
+	  return false; // avoid to execute the actual submit of the form.
+	});
+	
+});

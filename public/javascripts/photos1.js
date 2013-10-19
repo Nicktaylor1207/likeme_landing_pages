@@ -14,7 +14,6 @@ $(function(){
 	$('.add-notebook-form').each(function(i, form){
 		var photoUrl = $(form).find('#img-url').val();
 		var noteBtn = $(form).find('.add-to-nb-btn');
-		var dup = false;
 
 		$.each(userPhotos, function(index, object){
 			if (object == photoUrl) {
@@ -25,23 +24,21 @@ $(function(){
 		});
 	});
 
-	// Refactor - this should go away if it is handled on update
-
 });
 
-// Handle photo modal display on '.photo-img' click
+Handle photo modal display on '.photo-img' click
 $(function(){
 
 	$('.photo-img').on('click', function(){
 		
 		/* Set modal photo and attributes*/
-		// var displayPhotoURL = this.src;
+		var displayPhotoURL = this.src;
 		var finder = $(this).attr('finder');
 		$('#pm-photo').attr('src', photos[finder].url);
 		/* This is for photos-bou.js -- refactor */
 		$('#pm-photo').attr('finder', finder);
 
-		// /* Set modal "+ Note it" btn  attributes */
+		/* Set modal "+ Note it" btn  attributes */
 	 	var formID = "#" + finder;
 	 	var containerDiv = $(formID);
 	 	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
@@ -59,23 +56,9 @@ $(function(){
 		var photoObj = photos[finder];
 		$('#pm-img-url').val(photoObj.url);
 
-		/* Set notebook count HTML */
+		 Set notebook count HTML 
 		var notebookHTML = containerDiv.find('.notebook-count').html();
 		$('#pm-notebook-count').html(notebookHTML);
-
-		/* Navigation for modal */
-		$('#pm-nav-right').on('click', function(){
-			if (photos[finder + 1]) {
-				photoObj = photos[finder++];
-			} else {
-				photoObj = photos[0];
-				alert(finder);
-				alert(photos[finder++]);
-			}
-			$('#pm-photo').attr('src', photoObj.url);
-			return false;
-		});
-
 
 	});
 
