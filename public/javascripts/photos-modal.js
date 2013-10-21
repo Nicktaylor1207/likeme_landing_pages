@@ -1,4 +1,32 @@
 $(function(){
+	
+	function setNotedBtn(photo) {
+		var noteBtn = $('#add-to-nb-btn-pm');
+		if (photo.noted == true) {
+			noteBtn.attr('disabled', true);
+			noteBtn.val('Noted');
+		} else {
+			noteBtn.attr('disabled', false);
+			noteBtn.val('+ Note it');
+		}
+	}
+
+	function setNotebookCount(photo){
+		var finder = parseInt($('#pm-photo').attr('finder'), 10);
+		var photoObj = photos[finder];
+		if (photo.newNote == true) {
+			var notebookCount = photoObj.liked + 1;
+		} else {
+			var notebookCount = photoObj.liked;
+		}
+		if (notebookCount == 1) {
+			var notebookHTML = notebookCount + " " + "Notebook"
+		} else {
+			var notebookHTML = notebookCount + " " + "Notebooks"
+		}
+		$('#pm-notebook-count').html(notebookHTML);
+	}
+
 	$('.photo-img').on('click', function(){
 		
 		/* Photo attributes should be set with photoObj and finder */
@@ -15,36 +43,18 @@ $(function(){
 		$('#pm-img-url').val(photoObj.url);
 
 		/* Set noted property of modal + Note it button */
-		var noteBtn = $('#add-to-nb-btn-pm');
-		function setNotedBtn(photo) {
-			if (photo.noted == true) {
-				noteBtn.attr('disabled', true);
-				noteBtn.val('Noted');
-			} else {
-				noteBtn.attr('disabled', false);
-				noteBtn.val('+ Note it');
-			}
-		}
 		setNotedBtn(photoObj);
 
 		/* Set notebook count HTML */
-		function setNotebookCount(photo){
-			if (photo.newNote == true) {
-				var notebookCount = photoObj.liked + 1;
-			} else {
-				var notebookCount = photoObj.liked;
-			}
-			if (notebookCount == 1) {
-				var notebookHTML = notebookCount + " " + "Notebook"
-			} else {
-				var notebookHTML = notebookCount + " " + "Notebooks"
-			}
-			$('#pm-notebook-count').html(notebookHTML);
-		}
 		setNotebookCount(photoObj);
 
-		/* Handle photo modal internal navigation */
+	});
+
+	/* Handle photo modal internal navigation */
+	(function(){
+
 		$('.pm-arrow').on('click', function(){
+			var finder = parseInt($('#pm-photo').attr('finder'), 10);
 			if (this.id == "pm-arrow-right") {
 				if (photos[finder + 1]) {
 					finder++
@@ -57,10 +67,9 @@ $(function(){
 				}
 			}
 			
-			photoObj = photos[finder];
-			var pmPhoto = $('#pm-photo');
-			pmPhoto.attr('src', photoObj.url);
-			pmPhoto.attr('finder', finder);
+			var photoObj = photos[finder];
+			$('#pm-photo').attr('src', photoObj.url);
+			$('#pm-photo').attr('finder', finder);
 			$('#pm-img-url').val(photoObj.url);
 			
 			setNotedBtn(photoObj);
@@ -69,65 +78,118 @@ $(function(){
 			return false;
 		});
 
-		/* Set modal style and handle history and esc navigation */
-		(function(){
-			var photoModal = $('#photo-modal');
+	}).call(this);
 
-			photoModal.on('shown', function(){
-				/* Set style modal css */
-				var styles = {
-					backgroundColor: "#161616",
-					opacity: "1"
-				};
-				$('.modal-backdrop').css(styles);	
+});
 
-				/* Set history and modal esc navigation */
-				window.history.pushState({path:'pm'},'','pm');
+$(function(){
+	/* Handle "+ Note it" form submit from modal */
+	$('#add-notebook-form-pm').submit(function(){
+	  var url = "/notebook1"; // the script where you handle the form input.
+	  var form = $(this);
+	  
+	  var noteBtn = $('#add-to-nb-btn-pm');
+	  noteBtn.attr('disabled', true);
+	  noteBtn.val('Noted');
 
-				photoModal.on('hidden', function(){
-					if (location.href.indexOf('pm') != -1) {
-						window.history.back();
-					}
-				});
+	  /* Update notebook count */
+	  var notebookText = $('#pm-notebook-count');
+	  var notebookHTML = notebookText.html();
+	  var notebookCount = parseInt(notebookHTML, 10) + 1;
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
+	  } else {
+	  	notebookText.html(notebookCount + " " + "Notebooks");
+	  }
 
-				window.onpopstate = function(e){
-					if (JSON.stringify(e.state) == "null") {
-						photoModal.modal('hide');
-					}
-				};
+    /* Set the corresponding button and notebook counts */
+    (function(){
+	    var formFinder = $('#pm-photo').attr('finder');
+	   	var divID = "#" + formFinder;
+	   	var containerDiv = $(divID);
+	   	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
 
-			});
-		}).call(this);
+	   	/* Set btn to noted */
+	  	noteBtnFind.attr('disabled','disabled');
+	    noteBtnFind.val('Noted');
 
-		/* Handle "+ Note it" form submit from modal */
-		$('#add-notebook-form-pm').submit(function(){
-		  var url = "/notebook1"; // the script where you handle the form input.
-		  var form = $(this);
-		  
-		  noteBtn.attr('disabled', true);
-		  noteBtn.val('Noted');
+	    /* Set notebook counter correctly */
+	    var notebookText = containerDiv.find('.notebook-count');
+	    var notebookHTML = notebookText.html();
+	    var notebookCount = parseInt(notebookHTML) + 1;
 
-		  /* Update notebook count */
-		  var notebookText = $('#pm-notebook-count');
-		  var notebookHTML = notebookText.html();
-		  var notebookCount = parseInt(notebookHTML, 10) + 1;
-		  if (notebookCount == 1) {
-		  	notebookText.html("1 Notebook");
-		  } else {
-		  	notebookText.html(notebookCount + " " + "Notebooks");
-		  }
+	    if (notebookCount == 1) {
+	    	notebookText.html("1 Notebook");
+	    } else {
+	    	notebookText.html(notebookCount + " " + "Notebooks");
+	    }
+  	}).call(this);
 
-		  // photoObj.noted = true;
-		  // photoObj.newNote = true;
+	  var finder = parseInt($('#pm-photo').attr('finder'), 10);
+		var photoObj = photos[finder];
+	  photoObj.noted = true;
+	  photoObj.newNote = true;
 
-		  $.ajax({
-		    type: "POST",
-		    url: url,
-		    data: form.serialize(), // serializes the form's elements.
-		  });
+	  $.ajax({
+	    type: "POST",
+	    url: url,
+	    data: form.serialize(), // serializes the form's elements.
+	  });
 
-		  return false; // avoid to execute the actual submit of the form.
+	  return false; // avoid to execute the actual submit of the form.
+	});
+
+});
+
+$(function(){
+
+	/* Set modal style and handle history and esc navigation */
+	(function(){
+		var photoModal = $('#photo-modal');
+
+		photoModal.on('shown', function(){
+			/* Set style modal css */
+			var styles = {
+				backgroundColor: "#161616",
+				opacity: "1"
+			};
+			$('.modal-backdrop').css(styles);	
+
+			/* Set history and modal esc navigation */
+			window.history.pushState({stateObj:'pm'},'','pm');
+
 		});
 
-	});
-});
+		photoModal.on('hidden', function(){
+			if (location.href.indexOf('pm') != -1) {
+				window.history.back();
+			}
+		});
+
+		window.onpopstate = function(e){
+			if (JSON.stringify(e.state) == "null") {
+				photoModal.modal('hide');
+
+				console.log("popping...");
+
+				$('.add-notebook-form').each(function(index, form){
+					var noteBtn = $(form).find('.add-to-nb-btn');
+				  if (photos[index].noted == true) {
+				  	console.log("YAY");
+				  	noteBtn.attr('disabled', true);
+				  	noteBtn.val('Noted');
+				  }
+				});
+
+				/* Handle notebook count plurals */
+				$('.notebook-count').each(function(i, obj){
+					if ($(obj).html() == "1 Notebooks") {
+						$(obj).html('1 Notebook');
+					}	
+				});
+
+			}
+		};
+	}).call(this);
+
+})

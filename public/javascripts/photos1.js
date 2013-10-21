@@ -56,7 +56,7 @@ $(function(){
 		var photoObj = photos[finder];
 		$('#pm-img-url').val(photoObj.url);
 
-		 Set notebook count HTML 
+		/* Set notebook count HTML */
 		var notebookHTML = containerDiv.find('.notebook-count').html();
 		$('#pm-notebook-count').html(notebookHTML);
 
