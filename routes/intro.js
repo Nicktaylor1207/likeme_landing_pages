@@ -14,4 +14,15 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/introAlt', selectNav, function(req, res) {
+    Email.findOne({email: req.session.email.email}, function(err, email) {
+			if (err) {
+				return next (err);
+			}
+			if (email) {
+				res.render('introAlt', {user: email, navLogin: req.body.navLogin});
+			}
+		});
+	});
+
 };

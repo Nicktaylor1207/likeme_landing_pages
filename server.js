@@ -6,7 +6,8 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , mongoose = require('mongoose')
-  , path = require('path');
+  , path = require('path')
+  , mailer = require('express-mailer');
 
 var app = express();
 
@@ -56,7 +57,23 @@ require('./routes/notebook')(app);
 require('./routes/terms')(app);
 require('./routes/signup')(app);
 require('./routes/intro')(app);
+require('./routes/email')(app);
+require('./routes/template')(app);
+require('./routes/platform')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+mailer.extend(app, {
+  from: 'team@sevenalbums.com', // still sends from auth address below ('zach@sevenalbums.com')
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  service: 'Gmail',
+  auth: {
+    user: 'zach@sevenalbums.com',
+    pass: 'Tyuhbn_85'
+  }
 });

@@ -40,9 +40,11 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 											input#focus-login(type="text", name="email", placeholder="Email Address")
 										fieldset
 											input(type="password", name="password", placeholder="Password")
-										button.btn.btn-primary#login(type="submit") Log in
+										div#login-form-btn-cnt
+											button.btn.btn-primary#login-btn(type="submit") Log in
+											a#login-modal-forgot-pass(href="forgot-password") Forgot your password?
 										// label(for="checkbox")<input type="checkbox" id="checkbox" />Remember me</label>
-										// span <a href="#">Forgot your password?</a>
+										
 					div#signed-in.hide()
 						ul.nav.pull-right#nav-right-container
 							li

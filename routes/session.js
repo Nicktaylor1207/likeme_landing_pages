@@ -7,6 +7,20 @@ module.exports = function(app) {
 		res.render('login');
 	});
 
+	app.get('/loginAlt', selectNav, function(req, res){
+		Email.findOne({email: req.session.email.email}, function(err, user){
+			if (err) {
+				return next (err);
+			} else {
+				res.render('loginAlt', {user: user, navLogin: req.body.navLogin});
+			}
+		});		
+	});
+
+	app.get('/loginAlt2', selectNav, function(req, res){
+		res.render('loginAlt2', {navLogin: req.body.navLogin});
+	});	
+
 	app.get('/logout', function(req, res) {
 		req.session = null;
 		res.redirect('/');
@@ -29,7 +43,17 @@ module.exports = function(app) {
 				req.session.email = user;
 				res.redirect('/albums');
 			} else {
-				res.redirect('/login');
+				Email.findOne({email: req.body.email}, function(err, user){
+					if (err) {
+						return next (err);
+					}
+					if (user && user.password == "password") {
+						req.session.email = user;
+						res.redirect('/loginAlt')
+					} else {
+						res.redirect('/login');
+					}
+				});
 			}
 		});
 	});
@@ -60,6 +84,18 @@ module.exports = function(app) {
 		} else {
 			res.send("Either the password or email does not match.");
 		}
+	});
+
+	app.post('/update', function(req, res){
+		Email.findOne({email: req.body.email}, function(err, user){
+			user.firstName = req.body.firstName;
+			user.lastName = req.body.lastName;
+			user.password = req.body.password;
+			user.save(function(){
+				req.session.email.password = req.body.password;
+				res.redirect('/introAlt')
+			})
+		});
 	});
 
 };

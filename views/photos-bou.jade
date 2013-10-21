@@ -4,727 +4,847 @@ block content
 	div.body-inner-container
 		div.photo-page-container
 			div.selection#page-1
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#0
 					div.photo-img-container.span9						
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[0].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[0].url}")
-							img.photo-img(src="#{photos[0].url}")
+						// a(href="#{photos[0].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[0].url}", finder="0")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[0].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#1
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[1].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[1].url}")
-							img.photo-img(src="#{photos[1].url}")
+						// a(href="#{photos[1].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[1].url}", finder="1")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[1].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#2
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[2].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[2].url}")
-							img.photo-img(src="#{photos[2].url}")
+						// a(href="#{photos[2].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[2].url}", finder="2")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[2].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#3
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[3].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[3].url}")
-							img.photo-img(src="#{photos[3].url}")
+						// a(href="#{photos[3].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[3].url}", finder="3")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[3].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#4
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[4].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[4].url}")
-							img.photo-img(src="#{photos[4].url}")
+						// a(href="#{photos[4].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[4].url}", finder="4")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[4].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#5
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[5].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[5].url}")
-							img.photo-img(src="#{photos[5].url}")
+						// a(href="#{photos[5].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[5].url}", finder="5")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[5].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#6
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[6].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[6].url}")
-							img.photo-img(src="#{photos[6].url}")
+						// a(href="#{photos[6].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[6].url}", finder="6")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[6].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#7
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[7].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[7].url}")
-							img.photo-img(src="#{photos[7].url}")
+						// a(href="#{photos[7].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[7].url}", finder="7")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[7].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#8
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[8].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[8].url}")
-							img.photo-img(src="#{photos[8].url}")
+						// a(href="#{photos[8].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[8].url}", finder="8")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[8].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#9
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[9].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[9].url}")
-							img.photo-img(src="#{photos[9].url}")
+						// a(href="#{photos[9].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[9].url}", finder="9")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[9].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
 			div.selection#page-2
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#10
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[10].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[10].url}")
-							img.photo-img(src="#{photos[10].url}")
+						// a(href="#{photos[10].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[10].url}", finder="10")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[10].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#11
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[11].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[11].url}")
-							img.photo-img(src="#{photos[11].url}")
+						// a(href="#{photos[11].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[11].url}", finder="11")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[11].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#12
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[12].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[12].url}")
-							img.photo-img(src="#{photos[12].url}")
+						// a(href="#{photos[12].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[12].url}", finder="12")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[12].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#13
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[13].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[13].url}")
-							img.photo-img(src="#{photos[13].url}")
+						// a(href="#{photos[13].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[13].url}", finder="13")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[13].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#14
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[14].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[14].url}")
-							img.photo-img(src="#{photos[14].url}")
+						// a(href="#{photos[14].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[14].url}", finder="14")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[14].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#15
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[15].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[15].url}")
-							img.photo-img(src="#{photos[15].url}")
+						// a(href="#{photos[15].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[15].url}", finder="15")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[15].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#16
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[16].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[16].url}")
-							img.photo-img(src="#{photos[16].url}")
+						// a(href="#{photos[16].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[16].url}", finder="16")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[16].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#17
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[17].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[17].url}")
-							img.photo-img(src="#{photos[17].url}")
+						// a(href="#{photos[17].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[17].url}", finder="17")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[17].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#18
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[18].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[18].url}")
-							img.photo-img(src="#{photos[18].url}")
+						// a(href="#{photos[18].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[18].url}", finder="18")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[18].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#19
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[19].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[19].url}")
-							img.photo-img(src="#{photos[19].url}")
+						// a(href="#{photos[19].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[19].url}", finder="19")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[19].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
 			div.selection#page-3
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#20
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[20].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[20].url}")
-							img.photo-img(src="#{photos[20].url}")
+						// a(href="#{photos[20].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[20].url}", finder="20")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[20].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#21
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[21].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[21].url}")
-							img.photo-img(src="#{photos[21].url}")
+						// a(href="#{photos[21].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[21].url}", finder="21")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[21].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#22
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[22].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[22].url}")
-							img.photo-img(src="#{photos[22].url}")
+						// a(href="#{photos[22].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[22].url}", finder="22")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[22].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#23
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[23].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[23].url}")
-							img.photo-img(src="#{photos[23].url}")
+						// a(href="#{photos[23].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[23].url}", finder="23")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[23].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#24
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[24].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[24].url}")
-							img.photo-img(src="#{photos[24].url}")
+						// a(href="#{photos[24].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[24].url}", finder="24")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[24].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#25
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[25].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[25].url}")
-							img.photo-img(src="#{photos[25].url}")
+						// a(href="#{photos[25].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[25].url}", finder="25")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[25].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#26
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[26].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[26].url}")
-							img.photo-img(src="#{photos[26].url}")
+						// a(href="#{photos[26].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[26].url}", finder="26")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[26].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#27
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[27].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[27].url}")
-							img.photo-img(src="#{photos[27].url}")
+						// a(href="#{photos[27].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[27].url}", finder="27")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[27].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#28
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[28].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[28].url}")
-							img.photo-img(src="#{photos[28].url}")
+						// a(href="#{photos[28].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[28].url}", finder="28")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[28].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#29
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[29].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[29].url}")
-							img.photo-img(src="#{photos[29].url}")
+						// a(href="#{photos[29].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[29].url}", finder="29")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[29].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
 			div.selection#page-4
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#30
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[30].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[30].url}")
-							img.photo-img(src="#{photos[30].url}")
+						// a(href="#{photos[30].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[30].url}", finder="30")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[30].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#31
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[31].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[31].url}")
-							img.photo-img(src="#{photos[31].url}")
+						// a(href="#{photos[31].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[31].url}", finder="31")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[31].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#32
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[32].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[32].url}")
-							img.photo-img(src="#{photos[32].url}")
+						// a(href="#{photos[32].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[32].url}", finder="32")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[32].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#33
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[33].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[33].url}")
-							img.photo-img(src="#{photos[33].url}")
+						// a(href="#{photos[33].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[33].url}", finder="33")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[33].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#34
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[34].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[34].url}")
-							img.photo-img(src="#{photos[34].url}")
+						// a(href="#{photos[34].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[34].url}", finder="34")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[34].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#35
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[35].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[35].url}")
-							img.photo-img(src="#{photos[35].url}")
+						// a(href="#{photos[35].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[35].url}", finder="35")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[35].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#36
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[36].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[36].url}")
-							img.photo-img(src="#{photos[36].url}")
+						// a(href="#{photos[36].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[36].url}", finder="36")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[36].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#37
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[37].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[37].url}")
-							img.photo-img(src="#{photos[37].url}")
+						// a(href="#{photos[37].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[37].url}", finder="37")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[37].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#38
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[38].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[38].url}")
-							img.photo-img(src="#{photos[38].url}")
+						// a(href="#{photos[38].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[38].url}", finder="38")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[38].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#39
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[39].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[39].url}")
-							img.photo-img(src="#{photos[39].url}")
+						// a(href="#{photos[39].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[39].url}", finder="39")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[39].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
 			div.selection#page-5
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#40
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[40].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[40].url}")
-							img.photo-img(src="#{photos[40].url}")
+						// a(href="#{photos[40].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[40].url}", finder="40")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[40].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#41
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[41].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[41].url}")
-							img.photo-img(src="#{photos[41].url}")
+						// a(href="#{photos[41].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[41].url}", finder="41")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[41].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#42
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[42].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[42].url}")
-							img.photo-img(src="#{photos[42].url}")
+						// a(href="#{photos[42].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[42].url}", finder="42")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[42].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#43
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[43].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[43].url}")
-							img.photo-img(src="#{photos[43].url}")
+						// a(href="#{photos[43].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[43].url}", finder="43")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[43].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#44
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[44].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[44].url}")
-							img.photo-img(src="#{photos[44].url}")
+						// a(href="#{photos[44].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[44].url}", finder="44")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[44].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#45
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[45].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[45].url}")
-							img.photo-img(src="#{photos[45].url}")
+						// a(href="#{photos[45].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[45].url}", finder="45")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[45].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#46
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[46].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[46].url}")
-							img.photo-img(src="#{photos[46].url}")
+						// a(href="#{photos[46].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[46].url}", finder="46")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[46].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#47
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[47].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[47].url}")
-							img.photo-img(src="#{photos[47].url}")
+						// a(href="#{photos[47].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[47].url}", finder="47")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[47].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#48
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[48].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[48].url}")
-							img.photo-img(src="#{photos[48].url}")
+						// a(href="#{photos[48].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[48].url}", finder="48")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[48].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#49
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[49].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[49].url}")
-							img.photo-img(src="#{photos[49].url}")
+						// a(href="#{photos[49].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[49].url}", finder="49")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[49].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
 			div.selection#page-6
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#50
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[50].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[50].url}")
-							img.photo-img(src="#{photos[50].url}")
+						// a(href="#{photos[50].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[50].url}", finder="50")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[50].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#51
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[51].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[51].url}")
-							img.photo-img(src="#{photos[51].url}")
+						// a(href="#{photos[51].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[51].url}", finder="51")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[51].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#52
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[52].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[52].url}")
-							img.photo-img(src="#{photos[52].url}")
+						// a(href="#{photos[52].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[52].url}", finder="52")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[52].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#53
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[53].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[53].url}")
-							img.photo-img(src="#{photos[53].url}")
+						// a(href="#{photos[53].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[53].url}", finder="53")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[53].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#54
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[54].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[54].url}")
-							img.photo-img(src="#{photos[54].url}")
+						// a(href="#{photos[54].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[54].url}", finder="54")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[54].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#55
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[55].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[55].url}")
-							img.photo-img(src="#{photos[55].url}")
+						// a(href="#{photos[55].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[55].url}", finder="55")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[55].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#56
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[56].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[56].url}")
-							img.photo-img(src="#{photos[56].url}")
+						// a(href="#{photos[56].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[56].url}", finder="56")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[56].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#57
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[57].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[57].url}")
-							img.photo-img(src="#{photos[57].url}")
+						// a(href="#{photos[57].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[57].url}", finder="57")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[57].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#58
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[58].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[58].url}")
-							img.photo-img(src="#{photos[58].url}")
+						// a(href="#{photos[58].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[58].url}", finder="58")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[58].liked} Notebooks
 						div.comment-container
 							// p.add-comment(href="#") + Add Comment
-				div.row-fluid.photo-display-container
+				div.row-fluid.photo-display-container#59
 					div.photo-img-container.span9
 						button.btn-large.btn-primary.save-btn.hide() Save
 						form.add-notebook-form(method="POST", action="/notebook1")
 							input#img-url.hide()(name="image_url", value="#{photos[59].url}")
 							input.btn.add-to-nb-btn(type="submit", value="+ Note it")
-						a(href="#{photos[59].url}")
-							img.photo-img(src="#{photos[59].url}")
+						// a(href="#{photos[59].url}")
+						div
+							a(href="#photo-modal", data-toggle="modal")
+								img.photo-img(src="#{photos[59].url}", finder="59")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[59].liked} Notebooks
 						div.comment-container
@@ -757,6 +877,19 @@ block content
 					button.btn-large.btn-primary#signup-modal-btn Sign up
 				div.signup-modal-footer
 					p Already have an account? <a href="login">Log in now</a>
+	div.modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
+		div#pm-left-ctn
+			img#pm-photo(src="#", finder="#")
+			form#add-notebook-form-pm(method="POST", action="/notebook1")
+				input#pm-img-url.hide()(name="image_url", value="")
+				input.btn#add-to-nb-btn-pm(type="submit", value="+ Note it")
+			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+			// i.icon-fullscreen.icon-large.icon-white
+		div#pm-right-ctn
+			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#pm-right-ctn-inner
+				p#pm-notebook-count
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")
@@ -765,6 +898,7 @@ block content
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/photos.js")
 	script(type="text/javascript", src="/javascripts/photos-bou.js")
+	script(type="text/javascript", src="/javascripts/photos-modal.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.

@@ -35,8 +35,7 @@ html
 										fieldset
 											input(type="password", name="password", placeholder="Password")
 										button.btn.btn-primary#login(type="submit") Log in
-										// label(for="checkbox")<input type="checkbox" id="checkbox" />Remember me</label>
-										// span <a href="#">Forgot your password?</a>
+										a#login-modal-forgot-pass(href="forgot-password") Forgot your password?
 					div#signed-in.hide()
 						ul.nav.pull-right#nav-right-container
 							li
@@ -44,16 +43,6 @@ html
 							li
 								a.nav-link(href="signup") Sign up
 		div#myCarousel(class="carousel slide")
-			ol.carousel-indicators
-				li(data-target="#myCarousel", data-slide-to="0", class="active")
-				li(data-target="#myCarousel", data-slide-to="1")
-				li(data-target="#myCarousel", data-slide-to="2")
-				li(data-target="#myCarousel", data-slide-to="3")
-				li(data-target="#myCarousel", data-slide-to="4")
-				li(data-target="#myCarousel", data-slide-to="5")
-				li(data-target="#myCarousel", data-slide-to="6")
-				li(data-target="#myCarousel", data-slide-to="7")
-				li(data-target="#myCarousel", data-slide-to="8")
 			div(class="carousel-inner")
 				div(class="item active")
 					img.landing-bg(src="images/aa/ny60.jpg", alt="")

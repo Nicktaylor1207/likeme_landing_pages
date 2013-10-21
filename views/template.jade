@@ -1,0 +1,30 @@
+doctype 5
+html
+	head
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-38419802-3', 'herokuapp.com');
+			ga('send', 'pageview');block content
+	body
+		div.modal#photo-modal(tabindex="-1", role="dialog", aria-hidden="true").hide()
+			div#pm-ctn
+				div#pm-left-ctn
+					img#pm-photo(src="images/aa/bou61.jpg")
+					input.btn.add-to-nb-btn(type="submit", value="+ Note it")
+				div#pm-right-ctn
+					button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+					div#pm-right-ctn-inner
+						p.notebook-count 17 Notebooks
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+		script(src='/bootstrap/js/bootstrap.min.js')
+		script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+		script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+		script(type="text/javascript", src="/javascripts/template.js")

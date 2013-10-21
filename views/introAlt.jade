@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	div.body-inner-container
+		div#welcome-page
+			h3 Thanks for updating your account, #{user.firstName}.
+			div#welcome-sub-container
+				p.welcome-sub To start viewing photos now, <a href="albums">click here to go to Albums.</a> To learn a little more about how the site works, read the introduction below.
+			h3#welcome-intro Introduction to Seven Albums
+			div#welcome-container
+				p Currently, Seven Albums allows you to view, share and save photos of shops. The site was launched just last month and there will be frequent changes (we hope improvements). If you have any feedback or questions, please <a href="contact">contact us</a>.
+			h3 Albums
+			p To view photos, click <a href="albums">Albums</a> in the navigation bar in the top left of your screen. Then, select which album to view by clicking on the album cover (for example, <a href="photos-bou">Boutiques</a> or <a href="photos-ny">New York</a>).
+			div.row-fluid
+				div.span5
+					h3 My Notebook
+					p To save a photo, click the <img id="noteit-img" src="images/noteit.png"></img> button in the bottom right corner of the photo. This will add the photo to your notebook, which you can access at any time.
+					p To view your notebook, click <a href="notebook">My Notebook</a> in the navigation bar in the top right of your screen.
+					h3 Adding photos
+					p To add photos to Seven Albums, select the <img id="addphotos-img" src="images/addphotos.png"></img> button in your <a href="notebook">notebook</a> and provide the link to the image.
+					p If you would like to add photos of your own store, you can use the same approach or you can <a href="mailto:team@sevenalbums.com">email us</a> photos and we will upload them.
+				div.span7
+					img#intro-notebook-img(src="images/notebook1.png")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')

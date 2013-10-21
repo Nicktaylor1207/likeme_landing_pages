@@ -1,21 +1,5 @@
-// $(function(){
-// 	$('.source').each(function(i, obj){
-// 		var $source = $(this).html();
-// 		if ($source.length > 30) {
-// 			var $newLink = $source.slice(0,29) + "...";
-// 			$(this).html($newLink);
-// 		} 
-// 	});
-// });
-
+// Calls to action for non-user
 $(function(){
-	
-	// $('.add-notebook-form').submit(function(){
-	// 	if (navLogin == false) {
-	// 		alert("Must be logged in to add photos to Notebook. Please log in.");
-	// 		return false;
-	// 	}
-	// });
 
 	if (navLogin == false) { 
 
@@ -58,63 +42,69 @@ $(function(){
 
 });
 
+/* Set noted property and handle notebook plurals */
 $(function(){
-	
-	$('.notebook-count').each(function(i, obj){
-		if ($(obj).html() == "1 Notebooks") {
-			$(obj).html('1 Notebook');
-		}	
-	})
 
-})
-
-$(function(){
-	
 	var userPhotos = user.notebook.photos;
 
-	$('.add-notebook-form').each(function(i, form){
-		var photoUrl = $(form).find('#img-url').val();
-		var noteBtn = $(form).find('.add-to-nb-btn');
-		var dup = false;
+	$.each(userPhotos, function(index, userPhoto){
+		$('.add-notebook-form').each(function(index, form){
+			var photoUrl = $(form).find('#img-url').val();
+			if (photoUrl == userPhoto) {
+				var noteBtn = $(form).find('.btn');	  
+			  noteBtn.attr('disabled', true);
+			  noteBtn.val('Noted');
 
-		$.each(userPhotos, function(index, object){
-			if (object == photoUrl) {
-				noteBtn.attr('disabled','disabled');
-				noteBtn.val('Noted');
+			  /* Set noted property of photo to true to pass to modals */
+			  var photoFinder = $(form).next().find('.photo-img').attr('finder');
+			  photos[photoFinder].noted = true;
 				return false;
 			}
 		});
 	});
 
+	/* Handle notebook count plurals */
+	$('.notebook-count').each(function(i, obj){
+		if ($(obj).html() == "1 Notebooks") {
+			$(obj).html('1 Notebook');
+		}	
+	});
+
 });
 
-// $(function(){
+/* Handle noting photos */
+$(function(){
 
-// 	$('.add-to-nb-btn').on('click', function(){
-// 		$(this).val('Noted');
-// 	})
+	$('.add-notebook-form').submit(function(){
+	  var url = "/notebook1"; // the script where you handle the form input.
+	  var form = $(this);
+	  var noteBtn = form.find('.btn');
+	  
+	  noteBtn.attr('disabled', true);
+	  noteBtn.val('Noted');
 
-// })
+	  /* Set noted property of photo to true to pass to modals */
+	  var photoFinder = $(form).next().find('.photo-img').attr('finder');
+	  photos[photoFinder].noted = true;
+	  photos[photoFinder].newNote = true;
+	  
+	  var notebookText = form.parent().siblings().first().children().first(); // Refactor replace with selector
+	  var notebookHTML = notebookText.html();
+	  var notebookCount = parseInt(notebookHTML, 10) + 1;
 
-// $(function(){
-// 	$('.add-notebook-form').submit(function(){
-// 		var photoUrl = $(this).find('#img-url').val();
-// 		var userPhotos = user.notebook.photos;
-// 		var dup = false;
+	  if (notebookCount == 1) {
+	  	notebookText.html("1 Notebook");
+	  } else {
+	  	notebookText.html(notebookCount + " " + "Notebooks");
+	  }
 
-// 		function checkDup(){
-// 			$.each(userPhotos, function(index, object){
-// 				if (object == photoUrl) {
-// 					dup = true;
-// 					return false;
-// 				}
-// 			});
-// 		}
+	  $.ajax({
+	    type: "POST",
+	    url: url,
+	    data: form.serialize(), // serializes the form's elements.
+	  });
 
-// 		checkDup();
-// 		if (dup == true) {
-// 			return false;	
-// 		}
-
-// 	});
-// });
+	  return false; // avoid to execute the actual submit of the form.
+	});
+	
+});
