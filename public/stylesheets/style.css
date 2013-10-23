@@ -1344,7 +1344,45 @@ a {
 	line-height: 25px;
 }
 
-#fullscreen {
-
+.arrow-bg {
+	background-color: #A0A0A0;
+	height: 28px;
+	width: 28px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	text-align: center;
 }
 
+#fullscreen {
+	cursor: pointer;
+	margin-top: 2px;
+	opacity: .5;
+	height: 24px;
+	width: 24px;
+}
+
+#arrow-bg:hover {
+	background-color: #D8D8D8;
+}
+
+#full-arrow-bg {
+	top: 10px;
+	right: 10px;
+	height: 29px;
+	width: 29px;
+}
+
+#full-arrow-bg:hover {
+	background-color: #D8D8D8;
+}
+
+#fullscreen-close {
+	position: absolute;
+	top: -1px;
+	left: 4px;
+	font-size: 35px;
+	line-height: 25px;
+	opacity: .5;
+	text-shadow: none !important;
+}

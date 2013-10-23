@@ -885,8 +885,10 @@ block content
 				input.btn#add-to-nb-btn-pm(type="submit", value="+ Note it")
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
-			i.icon-fullscreen.icon-large.icon-white#fullscreen
-			button.close#full-photo-modal-close.hide(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div.arrow-bg#arrow-bg
+				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='Enter full screen');
+			div.arrow-bg#full-arrow-bg.hide()
+				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
 		div#pm-right-ctn
 			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#pm-right-ctn-inner

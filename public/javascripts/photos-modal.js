@@ -198,6 +198,8 @@ $(function(){
 	var pmLeftCtn = $('#pm-left-ctn');
 	var fullScreen = $('#fullscreen');
 	var fullModalClose = $('#full-photo-modal-close');
+	var arrowBg = $('#arrow-bg');
+	var fullArrowBg = $('#full-arrow-bg');
 
 	$('#fullscreen').on('click', function(){
 		pmRightCtn.hide();
@@ -205,12 +207,16 @@ $(function(){
 		pmLeftCtn.addClass('full-pm-left-ctn');
 		fullScreen.hide();
 		fullModalClose.show();
+		arrowBg.hide()
+		fullArrowBg.show()
 		photoModal.on('hide', function(e){
 			pmRightCtn.show();
 			photoModal.removeClass('full-photo-modal');
 			pmLeftCtn.removeClass('full-pm-left-ctn');
 			fullScreen.show();
 			fullModalClose.hide();
+			arrowBg.show()
+			fullArrowBg.hide()
 			e.preventDefault();
 			photoModal.off('hide');
 		});
