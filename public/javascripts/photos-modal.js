@@ -157,7 +157,6 @@ $(function(){
 
 			/* Set history and modal esc navigation */
 			window.history.pushState({stateObj:'pm'},'','pm');
-
 		});
 
 		photoModal.on('hidden', function(){
@@ -170,12 +169,9 @@ $(function(){
 			if (JSON.stringify(e.state) == "null") {
 				photoModal.modal('hide');
 
-				console.log("popping...");
-
 				$('.add-notebook-form').each(function(index, form){
 					var noteBtn = $(form).find('.add-to-nb-btn');
 				  if (photos[index].noted == true) {
-				  	console.log("YAY");
 				  	noteBtn.attr('disabled', true);
 				  	noteBtn.val('Noted');
 				  }
@@ -191,5 +187,33 @@ $(function(){
 			}
 		};
 	}).call(this);
+
+});
+
+/* Handle full screen mode */
+$(function(){
+
+	var pmRightCtn = $('#pm-right-ctn');
+	var photoModal = $('#photo-modal');
+	var pmLeftCtn = $('#pm-left-ctn');
+	var fullScreen = $('#fullscreen');
+	var fullModalClose = $('#full-photo-modal-close');
+
+	$('#fullscreen').on('click', function(){
+		pmRightCtn.hide();
+		photoModal.addClass('full-photo-modal');
+		pmLeftCtn.addClass('full-pm-left-ctn');
+		fullScreen.hide();
+		fullModalClose.show();
+		photoModal.on('hide', function(e){
+			pmRightCtn.show();
+			photoModal.removeClass('full-photo-modal');
+			pmLeftCtn.removeClass('full-pm-left-ctn');
+			fullScreen.show();
+			fullModalClose.hide();
+			e.preventDefault();
+			photoModal.off('hide');
+		});
+	});
 
 })

@@ -23,9 +23,22 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 			div.navbar-inner
 				div.navbar-container
 					a.brand(href="/") Seven Albums
-					ul.nav#nav-left-container
-						li
-							a.nav-link(href="albums") Albums
+					ul.nav
+						li.dropdown
+							a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") Browse Stores
+							ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+								li.dropdown-submenu
+									a(tabindex="-1", href="#") By Style
+									ul.dropdown-menu
+										li <a tabindex="-1" href="#">Contemporary</a>
+										li <a tabindex="-1" href="#">Eccentric</a>
+										li <a tabindex="-1" href="#">Minimalist</a>
+										li <a tabindex="-1" href="#">Rustic</a>
+								li.dropdown-submenu
+									a(tabindex="-1", href="#") By Focus
+									ul.dropdown-menu
+										li <a tabindex="-1" href="#">Dispalys</a>
+										li <a tabindex="-1" href="#">Merchandising</a>
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li

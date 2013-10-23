@@ -18,10 +18,22 @@ html
 			div.navbar-inner
 				div.navbar-container
 					a.brand(href="albums") Seven Albums
-					//
-						ul.nav#nav-left-container
-							li
-								a.nav-link(href="/albums") Home
+					ul.nav
+						li.dropdown
+							a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") Browse Stores
+							ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+								li.dropdown-submenu
+									a(tabindex="-1", href="#") By Style
+									ul.dropdown-menu
+										li <a tabindex="-1" href="#">Contemporary</a>
+										li <a tabindex="-1" href="#">Eccentric</a>
+										li <a tabindex="-1" href="#">Minimalist</a>
+										li <a tabindex="-1" href="#">Rustic</a>
+								li.dropdown-submenu
+									a(tabindex="-1", href="#") By Focus
+									ul.dropdown-menu
+										li <a tabindex="-1" href="#">Dispalys</a>
+										li <a tabindex="-1" href="#">Merchandising</a>
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
@@ -42,7 +54,7 @@ html
 								a.nav-link(href="about") About us
 							li
 								a.nav-link(href="signup") Sign up
-		div#myCarousel(class="carousel slide")
+		div#myCarousel(class="carousel carousel-fade slide")
 			div(class="carousel-inner")
 				div(class="item active")
 					img.landing-bg(src="images/aa/ny60.jpg", alt="")
