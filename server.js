@@ -14,7 +14,7 @@ var app = express();
 var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
 mongoose.connect(uri);
 
-// var dbURL = 'mongodb://localhost/test';
+// var dbURL = 'mongodb://localhost/tester';
 // var db = mongoose.connect(dbURL);
 
 // all environments
@@ -36,6 +36,14 @@ app.configure(function(){
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+app.get('/*', function(req, res, next) {
+  if (req.headers.host.match(/^www/) !== null ) {
+    res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
+  } else {
+    next();     
+  }
+});
 
 require('./routes/index')(app);
 require('./routes/about')(app);

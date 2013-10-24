@@ -11,6 +11,35 @@ module.exports = function(app) {
     res.render('upload1');
   });
 
+  app.get('/upload2', function(req, res) {
+    res.render('upload2');
+  });
+
+  app.post('/upload2', function(req, res){
+    
+    var a = req.body.style;
+    var styles = a.split(" ");
+    req.body.style = styles;
+    var b = req.body.type;
+    var types = b.split(" ");
+    req.body.type = types;
+    Photo.create(req.body, function(err) {   
+      if (err) {
+        if (err.name === 'ValidationError') {
+          return res.send(Object.keys(err.errors).map(function(errField) {
+            return err.errors[errField].message;
+          }).join('. '), 406);
+        } else {
+        next(err);
+        }
+        return;
+      } else {
+        res.render('upload2');
+      }
+    });
+
+  });  
+
 	app.post('/upload', function(req, res){
     
 		Photo.create(req.body, function(err) {   
