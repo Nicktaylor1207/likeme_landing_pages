@@ -7,20 +7,11 @@ var PhotoSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-	userg: {
-		type: Boolean,
-		default: false
-	},
-	tag: String,
+	userg: String,
 	position: Number,
-	up: {
-		type: Number,
-		default: 0
-	},
-	down: {
-		type: Number,
-		default: 0
-	}
+	type: [],
+	style: [],
+	diy: Boolean
 });
 
 module.exports = PhotoSchema;
