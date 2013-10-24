@@ -16,4 +16,8 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/nb-pm', function(req, res) {
+		res.redirect('/notebook');
+	});
+
 };

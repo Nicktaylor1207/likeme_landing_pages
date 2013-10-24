@@ -7,7 +7,7 @@ $(function(){
 			noteBtn.val('Noted');
 		} else {
 			noteBtn.attr('disabled', false);
-			noteBtn.val('+ Note it');
+			noteBtn.val('Note');
 		}
 	}
 
@@ -42,7 +42,7 @@ $(function(){
 		/* Set img url for form input */
 		$('#pm-img-url').val(photoObj.url);
 
-		/* Set noted property of modal + Note it button */
+		/* Set noted property of modal Note button */
 		setNotedBtn(photoObj);
 
 		/* Set notebook count HTML */
@@ -64,6 +64,8 @@ $(function(){
 			} else {
 				if (photos[finder - 1]) {
 					finder--
+				} else {
+					finder = photos.length - 1;
 				}
 			}
 			
@@ -80,10 +82,36 @@ $(function(){
 
 	}).call(this);
 
+	/* Navigation on click of photo */
+	(function(){
+
+		$('#pm-left-ctn').on('click', function(e){
+			if (e.target.id == 'pm-left-ctn' || e.target.id == 'pm-photo') {
+				var finder = parseInt($('#pm-photo').attr('finder'), 10);
+				if (photos[finder + 1]) {
+					finder++
+				} else {
+					finder = 0;
+				}
+				
+				var photoObj = photos[finder];
+				$('#pm-photo').attr('src', photoObj.url);
+				$('#pm-photo').attr('finder', finder);
+				$('#pm-img-url').val(photoObj.url);
+				
+				setNotedBtn(photoObj);
+				setNotebookCount(photoObj);
+				
+				return false;
+			}
+		});
+
+	}).call(this);
+
 });
 
 $(function(){
-	/* Handle "+ Note it" form submit from modal */
+	/* Handle "Note" form submit from modal */
 	$('#add-notebook-form-pm').submit(function(){
 	  var url = "/notebook1"; // the script where you handle the form input.
 	  var form = $(this);
@@ -136,6 +164,8 @@ $(function(){
 	    data: form.serialize(), // serializes the form's elements.
 	  });
 
+	  $('#photo-modal').focus();
+
 	  return false; // avoid to execute the actual submit of the form.
 	});
 
@@ -156,11 +186,11 @@ $(function(){
 			$('.modal-backdrop').css(styles);	
 
 			/* Set history and modal esc navigation */
-			window.history.pushState({stateObj:'pm'},'','pm');
+			window.history.pushState({stateObj:'pm-cont'},'','pm-cont');
 		});
 
 		photoModal.on('hidden', function(){
-			if (location.href.indexOf('pm') != -1) {
+			if (location.href.indexOf('pm-cont') != -1) {
 				window.history.back();
 			}
 		});
@@ -222,4 +252,4 @@ $(function(){
 		});
 	});
 
-})
+});

@@ -1,1 +1,0 @@
-/* Put all of the not photo related js here */

@@ -16,6 +16,13 @@ block content
 					div.modal-footer#nb-photos-modal-footer
 						a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
 						input.btn.btn-primary(type="submit", value="Add Photo")
+	div.modal.full-photo-modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
+		div#pm-left-ctn.full-pm-left-ctn
+			img#pm-photo(src="#", finder="#")
+			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+			div.arrow-bg#full-arrow-bg
+				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.
@@ -27,3 +34,4 @@ block content
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/notebook.js")
+	script(type="text/javascript", src="/javascripts/notebook-modal.js")

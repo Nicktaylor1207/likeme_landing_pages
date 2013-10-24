@@ -38,7 +38,7 @@ $(function(){
 		/* This is for photos-bou.js -- refactor */
 		$('#pm-photo').attr('finder', finder);
 
-		/* Set modal "+ Note it" btn  attributes */
+		/* Set modal "Note" btn  attributes */
 	 	var formID = "#" + finder;
 	 	var containerDiv = $(formID);
 	 	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
@@ -49,7 +49,7 @@ $(function(){
 			modalNoteBtn.val('Noted');
 		} else {
 			modalNoteBtn.removeAttr('disabled');
-			modalNoteBtn.val('+ Note it');
+			modalNoteBtn.val('Note');
 		};
 
 		/* Set img url for form input */
