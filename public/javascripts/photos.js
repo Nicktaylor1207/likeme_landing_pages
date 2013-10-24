@@ -104,7 +104,9 @@ $(function(){
 	    data: form.serialize(), // serializes the form's elements.
 	  });
 
-	  return false; // avoid to execute the actual submit of the form.
+	  window.history.pushState({stateObj: 'noted'}, '', '?noted')
+
+	  return false; // avoid executing the actual submit of the form.
 	});
 	
 });

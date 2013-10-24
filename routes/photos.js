@@ -12,7 +12,11 @@ module.exports = function(app) {
 	}
 
 	app.get('/pm', function(req, res) {
-		res.redirect('/photos-bou')
+		res.redirect('/photos-bou');
+	});
+
+	app.get('/noted', function(req, res) {
+		res.redirect('/photos-bou');
 	})
 
 	app.get('/photos-ny', selectNav, function(req, res) {
