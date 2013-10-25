@@ -186,11 +186,11 @@ $(function(){
 			$('.modal-backdrop').css(styles);	
 
 			/* Set history and modal esc navigation */
-			window.history.pushState({stateObj:'pm-cont'},'','pm-cont');
+			window.history.pushState({stateObj: 'pm'},'','pm');
 		});
 
 		photoModal.on('hidden', function(){
-			if (location.href.indexOf('pm-cont') != -1) {
+			if (location.href.indexOf('pm') != -1) {
 				window.history.back();
 			}
 		});

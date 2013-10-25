@@ -11,13 +11,9 @@ module.exports = function(app) {
 		});
 	}
 
-	app.get('/pm-cont', function(req, res) {
-		res.redirect('/cont-photos');
+	app.get('/pm', function(req, res) {
+		res.redirect('/photos-' + req.session.tag);
 	});
-
-	app.get('/noted', function(req, res) {
-		res.redirect('/photos-bou');
-	})
 
 	app.post('/notebook1', selectNav, function(req, res) {
 

@@ -60,7 +60,7 @@ require('./routes/intro')(app);
 require('./routes/email')(app);
 require('./routes/template')(app);
 require('./routes/platform')(app);
-require('./routes/cont-photos')(app);
+require('./routes/photos-dynamic')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

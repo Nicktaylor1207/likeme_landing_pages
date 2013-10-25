@@ -30,7 +30,7 @@ block content
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
 			div.arrow-bg#arrow-bg
-				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='Enter full screen');
+				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='View full screen');
 			div.arrow-bg#full-arrow-bg.hide()
 				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
 		div#pm-right-ctn
@@ -43,7 +43,7 @@ block content
 	script(type="text/javascript", src="/javascripts/loggedin.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
-	script(type="text/javascript", src="/javascripts/cont-photos.js")
+	script(type="text/javascript", src="/javascripts/photos-dynamic.js")
 	script(type="text/javascript", src="/javascripts/photos.js")
 	script(type="text/javascript", src="/javascripts/photos-modal.js")
 	script.
@@ -52,3 +52,5 @@ block content
 		var photos = !{JSON.stringify(photos)}
 	script.
 		var user = !{JSON.stringify(user)}
+	script.
+		var tag = !{JSON.stringify(tag)}
