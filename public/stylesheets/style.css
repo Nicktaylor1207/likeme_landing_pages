@@ -510,17 +510,28 @@ a {
 }
 
 .photo-img {
-	min-height: 100%;
-	min-width: 100%;
-	height: auto;
+	height: 100%;
+	width: 100%;
+	/* height: auto; */
 	cursor: -webkit-zoom-in;  
 	cursor: zoom-in;
 	cursor: -moz-zoom-in;
-	opacity: 1;
+	/* opacity: 1; */
+	/* IE 8 */
+   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   /* IE 5-7 */
+   filter: alpha(opacity=0);
+   /* modern browsers */
+   opacity: 0;
 }
 
-.photo-img-hover {
-	opacity: 1;
+.center-cropped {
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* overflow: hidden; */
 }
 
 .save-btn {
@@ -529,7 +540,7 @@ a {
 	top: 10px !important;
 	padding: 18px 50px !important;
 	font-size: 20px !important;
-	z-index: 1000 !important;
+	z-index: 990 !important;
 }
 
 /* 
@@ -877,6 +888,7 @@ a {
 	bottom: 7px;
 	right: 7px;
 	font-weight: bold;
+	z-index: 990;
 }
 
 .added-btn-alt {

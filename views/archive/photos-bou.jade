@@ -13,7 +13,8 @@ block content
 						// a(href="#{photos[0].url}")
 						div
 							a(href="#photo-modal", data-toggle="modal")
-								img.photo-img(src="#{photos[0].url}", finder="0")
+								div.center-cropped
+									img.photo-img(src="#{photos[0].url}", finder="0")
 					div.photo-content-container.span3
 						p.notebook-count #{photos[0].liked} Notebooks
 						div.comment-container

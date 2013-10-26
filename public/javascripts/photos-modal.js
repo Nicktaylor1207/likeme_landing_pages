@@ -76,6 +76,8 @@ $(function(){
 			
 			setNotedBtn(photoObj);
 			setNotebookCount(photoObj);
+
+			// $.cookie("scroll", 6000, { expires: 1 } );
 			
 			return false;
 		});
@@ -190,12 +192,17 @@ $(function(){
 		});
 
 		photoModal.on('hidden', function(){
+			// if ( $.cookie("scroll") !== null ) {
+			//   $(document).scrollTop( $.cookie("scroll"));
+			//   console.log("scrollin homies..");
+			// }
 			if (location.href.indexOf('pm') != -1) {
 				window.history.back();
 			}
 		});
 
 		window.onpopstate = function(e){
+
 			if (JSON.stringify(e.state) == "null") {
 				photoModal.modal('hide');
 
@@ -213,7 +220,6 @@ $(function(){
 						$(obj).html('1 Notebook');
 					}	
 				});
-
 			}
 		};
 	}).call(this);

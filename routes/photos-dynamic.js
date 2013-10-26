@@ -52,76 +52,23 @@ module.exports = function(app) {
 		});
 	}
 
-	app.get('/photos-cont', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'cont');
-	});
+	var styleTags = ['cont', 'ecce', 'mini', 'rust', 'trad', 'hip', 'indu', 'cons'];
+	var typeTags = ['full', 'fron', 'shac', 'chan', 'disp', 'ligh', 'merc', 'mann'];
 
-	app.get('/photos-ecce', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'ecce');
-	});
+	for (var i = 0; i < styleTags.length; i++) {
+	  (function(index) {
+      app.get('/photos-' + styleTags[index], selectNav, function(req, res) {
+        getDynPhotos(req, res, styleTags[index]);
+      });
+	  })(i);
+	}
 
-	app.get('/photos-mini', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'mini');
-	});
-
-	app.get('/photos-rust', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'rust');
-	});
-
-	app.get('/photos-trad', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'trad');
-	});
-
-	app.get('/photos-hip', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'hip');
-	});
-
-	app.get('/photos-indu', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'indu');
-	});
-
-	app.get('/photos-cons', selectNav, function(req, res) {
-    getDynPhotos(req, res, 'cons');
-	});
-
-	app.get('/photos-full', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'full');
-	});
-
-	app.get('/photos-fron', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'fron');
-	});
-
-	app.get('/photos-shac', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'shac');
-	});
-
-	app.get('/photos-chan', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'chan');
-	});
-
-	app.get('/photos-disp', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'disp');
-	});
-
-	app.get('/photos-ligh', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'ligh');
-	});
-
-	app.get('/photos-merc', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'merc');
-	});
-
-	app.get('/photos-mann', selectNav, function(req, res) {
-    getDynPhotosType (req, res, 'mann');
-	});
-
-	// var styleTags = ['cont', 'ecce'];
-
-	// for (var i = 0; i < styleTags.length; i++) {
-	//   app.get('/photos-' + styleTags[i], selectNav, function(req, res) {
- //      getDynPhotos(req, res, styleTags[i]);
- //  	});
-	// }  
+	for (var i = 0; i < typeTags.length; i++) {
+	  (function(index) {
+      app.get('/photos-' + typeTags[index], selectNav, function(req, res) {
+        getDynPhotosType (req, res, typeTags[index]);
+      });
+	  })(i);
+	}
 
 };
