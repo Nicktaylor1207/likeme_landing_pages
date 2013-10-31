@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 	app.get('/', selectNav, function(req,res){
 		if (req.body.navLogin == true) {
-			res.render('albums', {navLogin: req.body.navLogin});
+			res.redirect('/albums');
 		} else {
 			res.render('index', {navLogin: req.body.navLogin});
 		}

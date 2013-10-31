@@ -1,37 +1,54 @@
 extends layout
 
 block content
-	div.albums-outer-container
-		div#pro-album-container
-			div.pro-album-cover
-				a(href="photos-mini")
-					img.pro-album-pic(src="images/aa/bou59.jpg")
-					div.pro-album-label-container
-						div.pro-album-label
-							p.search-pic-name Minimalist
-			div.pro-album-cover
-				a(href="photos-ecce")
-					img.pro-album-pic(src="images/rsz_boutiques3.jpg")
-					div.pro-album-label-container
-						div.pro-album-label
-							p.search-pic-name Eccentric
-			div.pro-album-cover#coming-soon-aut
-				a(href="photos-cont")
-					img.pro-album-pic(src="images/aa/bou77.jpg")
-					div.pro-album-label-container
-						div.pro-album-label
-							p.search-pic-name Contemporary
-			div.pro-album-cover#coming-soon-like
-				a(href="photos-rust")
-					img.pro-album-pic(src="images/rsz_butterhome1.jpg")
-					div.pro-album-label-container
-						div.pro-album-label
-							p.search-pic-name Rustic
+	div.body-inner-container
+		div.photo-page-container
+	div#signup-cta-modal-2.modal(tabindex="-1", role="dialog", aria-labelledby="signupCtaModal", aria-hidden="true")
+		div#signup-cta-modal-container-2
+			p#signup-cta-modal-sub-2 Sign up. It's free.
+			div#signup-cta-btn-container-2
+				a(href="signup")
+					button.btn-large.btn-primary#signup-cta-btn-2 Sign up
+	div#signup-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="signupModal", aria-hidden="true")
+		div.modal-body#signup-modal-container
+			button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#landing-welcome
+				h1#landing-header Seven Albums
+				p#landing-sub-header Find ideas and inspiration for your store
+			div#landing-content
+				h3#signup-free-sub Sign up for your free account
+				a(href="signup")
+					button.btn-large.btn-primary#signup-modal-btn Sign up
+				div.signup-modal-footer
+					p Already have an account? <a href="login">Log in now</a>
+	div.modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
+		div#pm-left-ctn
+			img#pm-photo(src="#", finder="#")
+			form#add-notebook-form-pm(method="POST", action="/notebook1")
+				input#pm-img-url.hide()(name="image_url", value="")
+				input.btn#add-to-nb-btn-pm(type="submit", value="Note")
+			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+			div.arrow-bg#arrow-bg
+				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='View full screen');
+			div.arrow-bg#full-arrow-bg.hide()
+				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
+		div#pm-right-ctn
+			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#pm-right-ctn-inner
+				p#pm-notebook-count
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")
 	script(type="text/javascript", src="/javascripts/loggedin.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/photos-dynamic.js")
+	script(type="text/javascript", src="/javascripts/photos.js")
+	script(type="text/javascript", src="/javascripts/photos-modal.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var photos = !{JSON.stringify(photos)}
+	script.
+		var user = !{JSON.stringify(user)}
