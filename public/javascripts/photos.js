@@ -64,11 +64,11 @@ $(function(){
 	});
 
 	/* Handle notebook count plurals */
-	$('.notebook-count').each(function(i, obj){
-		if ($(obj).html() == "1 Notebooks") {
-			$(obj).html('1 Notebook');
-		}	
-	});
+	// $('.notebook-count').each(function(i, obj){
+	// 	if ($(obj).html() == "1 Notebooks") {
+	// 		$(obj).html('1 Notebook');
+	// 	}	
+	// });
 
 });
 
@@ -88,15 +88,15 @@ $(function(){
 	  photos[photoFinder].noted = true;
 	  photos[photoFinder].newNote = true;
 	  
-	  var notebookText = form.parent().siblings().first().children().first(); // Refactor replace with selector
-	  var notebookHTML = notebookText.html();
-	  var notebookCount = parseInt(notebookHTML, 10) + 1;
+	  // var notebookText = form.parent().siblings().first().children().first(); // Refactor replace with selector
+	  // var notebookHTML = notebookText.html();
+	  // var notebookCount = parseInt(notebookHTML, 10) + 1;
 
-	  if (notebookCount == 1) {
-	  	notebookText.html("1 Notebook");
-	  } else {
-	  	notebookText.html(notebookCount + " " + "Notebooks");
-	  }
+	  // if (notebookCount == 1) {
+	  // 	notebookText.html("1 Notebook");
+	  // } else {
+	  // 	notebookText.html(notebookCount + " " + "Notebooks");
+	  // }
 
 	  $.ajax({
 	    type: "POST",

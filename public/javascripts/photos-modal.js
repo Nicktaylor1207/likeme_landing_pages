@@ -7,25 +7,25 @@ $(function(){
 			noteBtn.val('Noted');
 		} else {
 			noteBtn.attr('disabled', false);
-			noteBtn.val('Note');
+			noteBtn.val('Add to Notebook');
 		}
 	}
 
-	function setNotebookCount(photo){
-		var finder = parseInt($('#pm-photo').attr('finder'), 10);
-		var photoObj = photos[finder];
-		if (photo.newNote == true) {
-			var notebookCount = photoObj.liked + 1;
-		} else {
-			var notebookCount = photoObj.liked;
-		}
-		if (notebookCount == 1) {
-			var notebookHTML = notebookCount + " " + "Notebook"
-		} else {
-			var notebookHTML = notebookCount + " " + "Notebooks"
-		}
-		$('#pm-notebook-count').html(notebookHTML);
-	}
+	// function setNotebookCount(photo){
+	// 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	// 	var photoObj = photos[finder];
+	// 	if (photo.newNote == true) {
+	// 		var notebookCount = photoObj.liked + 1;
+	// 	} else {
+	// 		var notebookCount = photoObj.liked;
+	// 	}
+	// 	if (notebookCount == 1) {
+	// 		var notebookHTML = notebookCount + " " + "Notebook"
+	// 	} else {
+	// 		var notebookHTML = notebookCount + " " + "Notebooks"
+	// 	}
+	// 	$('#pm-notebook-count').html(notebookHTML);
+	// }
 
 	$('.photo-img').on('click', function(){
 		
@@ -46,7 +46,7 @@ $(function(){
 		setNotedBtn(photoObj);
 
 		/* Set notebook count HTML */
-		setNotebookCount(photoObj);
+		// setNotebookCount(photoObj);
 
 	});
 
@@ -75,7 +75,7 @@ $(function(){
 			$('#pm-img-url').val(photoObj.url);
 			
 			setNotedBtn(photoObj);
-			setNotebookCount(photoObj);
+			// setNotebookCount(photoObj);
 
 			// $.cookie("scroll", 6000, { expires: 1 } );
 			
@@ -102,7 +102,7 @@ $(function(){
 				$('#pm-img-url').val(photoObj.url);
 				
 				setNotedBtn(photoObj);
-				setNotebookCount(photoObj);
+				// setNotebookCount(photoObj);
 				
 				return false;
 			}
@@ -123,14 +123,14 @@ $(function(){
 	  noteBtn.val('Noted');
 
 	  /* Update notebook count */
-	  var notebookText = $('#pm-notebook-count');
-	  var notebookHTML = notebookText.html();
-	  var notebookCount = parseInt(notebookHTML, 10) + 1;
-	  if (notebookCount == 1) {
-	  	notebookText.html("1 Notebook");
-	  } else {
-	  	notebookText.html(notebookCount + " " + "Notebooks");
-	  }
+	  // var notebookText = $('#pm-notebook-count');
+	  // var notebookHTML = notebookText.html();
+	  // var notebookCount = parseInt(notebookHTML, 10) + 1;
+	  // if (notebookCount == 1) {
+	  // 	notebookText.html("1 Notebook");
+	  // } else {
+	  // 	notebookText.html(notebookCount + " " + "Notebooks");
+	  // }
 
     /* Set the corresponding button and notebook counts */
     (function(){
@@ -144,15 +144,15 @@ $(function(){
 	    noteBtnFind.val('Noted');
 
 	    /* Set notebook counter correctly */
-	    var notebookText = containerDiv.find('.notebook-count');
-	    var notebookHTML = notebookText.html();
-	    var notebookCount = parseInt(notebookHTML) + 1;
+	    // var notebookText = containerDiv.find('.notebook-count');
+	    // var notebookHTML = notebookText.html();
+	    // var notebookCount = parseInt(notebookHTML) + 1;
 
-	    if (notebookCount == 1) {
-	    	notebookText.html("1 Notebook");
-	    } else {
-	    	notebookText.html(notebookCount + " " + "Notebooks");
-	    }
+	    // if (notebookCount == 1) {
+	    // 	notebookText.html("1 Notebook");
+	    // } else {
+	    // 	notebookText.html(notebookCount + " " + "Notebooks");
+	    // }
   	}).call(this);
 
 	  var finder = parseInt($('#pm-photo').attr('finder'), 10);
@@ -215,11 +215,11 @@ $(function(){
 				});
 
 				/* Handle notebook count plurals */
-				$('.notebook-count').each(function(i, obj){
-					if ($(obj).html() == "1 Notebooks") {
-						$(obj).html('1 Notebook');
-					}	
-				});
+				// $('.notebook-count').each(function(i, obj){
+				// 	if ($(obj).html() == "1 Notebooks") {
+				// 		$(obj).html('1 Notebook');
+				// 	}	
+				// });
 			}
 		};
 	}).call(this);
@@ -257,5 +257,51 @@ $(function(){
 			photoModal.off('hide');
 		});
 	});
+
+});
+
+/* Set tags in modal */
+
+$(function(){
+
+	var styles = {'cont': 'Contemporary', 'ecce': 'Eccentric', 'indu': 'Industrial', 'mini': 'Minimalist', 'rust': 'Rustic', 'trad': 'Traditional'};
+	var types = {'disp': 'Displays', 'full': 'Full Store', 'ligh': 'Lighting', 'merc': 'Merchandising', 'mann': 'Mannequin', 'shac': 'Shoe & Accesories', 'fron': 'Store Front'};
+
+	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	var photoObj = photos[finder];
+		
+	/* Set style tags */
+	var photoStyle = photoObj.style;
+	if (photoStyle) {
+		if (photoStyle.length > 1) {
+			var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+			for (var i = 1; i < photoStyle.length; i++) {
+				styleTagString += ", <a href='photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
+			}
+		} else {
+			styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+		}
+		var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
+	} else var styleTag = "";
+	
+	/* Set type tags */
+	var photoType = photoObj.type;
+	if (photoType) {
+		if (photoType.length > 1) {
+			var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+			for (var i = 1; i < photoType.length; i++) {
+				typeTagString += ", <a href='photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
+			}
+		} else {
+			typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+		}
+		var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
+	} else var typeTag = "";
+
+	var contentRight = styleTag + typeTag;
+	
+	var photoUrl = photoObj.url;
+	var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' value=" + photoUrl + "></input><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook'></input></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";
+	$('.photo-page-container').append(photosHtml);
 
 });

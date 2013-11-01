@@ -40,9 +40,9 @@ html
 										li <a tabindex="-1" href="photos-disp">Displays</a>
 										li <a tabindex="-1" href="photos-full">Full Store</a>
 										li <a tabindex="-1" href="photos-ligh">Lighting</a>
-										li <a tabindex="-1" href="photos-merc">Merchandising</a>
 										li <a tabindex="-1" href="photos-mann">Mannequin</a>
-										li <a tabindex="-1" href="photos-shac">Shoes and Accessories</a>
+										li <a tabindex="-1" href="photos-merc">Merchandising</a>
+										li <a tabindex="-1" href="photos-shac">Shoes & Accessories</a>
 										li <a tabindex="-1" href="photos-fron">Store Front</a>
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
@@ -65,7 +65,7 @@ html
 							li
 								a.nav-link(href="signup") Sign up
 		div#myCarousel(class="carousel carousel-fade slide")
-			div(class="carousel-inner")
+			div#carousel-container(class="carousel-inner")
 				div(class="item active")
 					img.landing-bg(src="images/aa/ny60.jpg", alt="")
 				div(class="item")
@@ -82,6 +82,7 @@ html
 					img.landing-bg(src="images/aa/bou69.jpg", alt="")
 				div(class="item")
 					img.landing-bg(src="images/aa/bou56.jpg", alt="")
+		//
 		a(class="left carousel-control", href="#myCarousel", data-slide="prev") &lsaquo;
 		a(class="right carousel-control", href="#myCarousel", data-slide="next") &rsaquo;
 		div#landing-page-intro-wrap
@@ -97,6 +98,46 @@ html
 		div#preview-site-container
 			a#preview-site-link(href="albums")
 				h1#preview-site-header Preview Seven Albums <span id="preview-arrow">&rsaquo;</span>
+		div#landing-content-container
+			div#landing-content-container-inner
+				div#landing-content-header-wrap
+					h1#landing-content-header Browse photos of stores
+				div.cov-albums-outer-container
+					div#cov-pro-album-container
+						div.cov-pro-album-cover(style='background-image: url("images/rsz_bou59_400_270.jpg")')
+							a(href="photos-indu")
+								img.cov-pro-album-pic(src="images/rsz_bou59_400_270.jpg")
+								div.cov-pro-album-label-container
+									div.cov-pro-album-label
+										p.search-pic-name Industrial
+						div.cov-pro-album-cover(style='background-image: url("images/rsz_bou79_400_270.jpg")')
+							a(href="photos-ecce")
+								img.cov-pro-album-pic(src="images/rsz_bou79_400_270.jpg")
+								div.cov-pro-album-label-container
+									div.cov-pro-album-label
+										p.search-pic-name Eccentric
+				div#landing-content-header-wrap
+					h1#landing-content-header-2 Find ideas for your store
+				div.cov-albums-outer-container
+					div#cov-pro-album-container
+						div.cov-pro-album-cover(style='background-image: url("images/merc/1.jpg")')
+							a(href="photos-disp")
+								img.cov-pro-album-pic(src="images/merc/1.jpg")
+								div.cov-pro-album-label-container
+									div.cov-pro-album-label
+										p.search-pic-name DIY Displays
+						div.cov-pro-album-cover(style='background-image: url("images/displays/15.jpg")')
+							a(href="photos-merc")
+								img.cov-pro-album-pic(src="images/displays/15.jpg")
+								div.cov-pro-album-label-container
+									div.cov-pro-album-label
+										p.search-pic-name Merchandising
+				div#landing-content-header-wrap
+					h1#landing-content-header-2 Save ideas to your notebook
+				div.cov-albums-outer-container
+					div#landing-notebook-img-container
+						a(href="albums")
+							img#landing-notebook-img(src="images/notebook1.png")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
