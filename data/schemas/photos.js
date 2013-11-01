@@ -11,7 +11,12 @@ var PhotoSchema = new mongoose.Schema({
 	position: Number,
 	type: [],
 	style: [],
-	diy: Boolean
+	diy: Boolean,
+	used: Boolean,
+	date: { 
+		type: String, 
+		default: (new Date()).getTime()
+		}
 });
 
 module.exports = PhotoSchema;

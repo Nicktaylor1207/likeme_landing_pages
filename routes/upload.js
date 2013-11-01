@@ -23,6 +23,7 @@ module.exports = function(app) {
     var b = req.body.type;
     var types = b.split(" ");
     req.body.type = types;
+    req.body.used = true;
     Photo.create(req.body, function(err) {   
       if (err) {
         if (err.name === 'ValidationError') {
