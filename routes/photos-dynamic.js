@@ -16,7 +16,7 @@ module.exports = function(app) {
 
 	function getDynPhotos(req, res, style) {
 		req.session.tag = style;
-    Photo.find({ style: style}, function(err, results){
+    Photo.find({ style: style, used: true}, function(err, results){
     	var sorted = sortByKey(results, 'position'); // change to timestamp
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
@@ -35,7 +35,7 @@ module.exports = function(app) {
 
 	function getDynPhotosType (req, res, type) {
 		req.session.tag = type;
-    Photo.find({ type: type}, function(err, results){
+    Photo.find({ type: type, used: true}, function(err, results){
     	var sorted = sortByKey(results, 'position'); // change to timestamp
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
