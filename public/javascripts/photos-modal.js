@@ -77,6 +77,8 @@ $(function(){
 			setNotedBtn(photoObj);
 			// setNotebookCount(photoObj);
 
+			setTags();
+
 			// $.cookie("scroll", 6000, { expires: 1 } );
 			
 			return false;
@@ -103,6 +105,8 @@ $(function(){
 				
 				setNotedBtn(photoObj);
 				// setNotebookCount(photoObj);
+
+				setTags();
 				
 				return false;
 			}
@@ -261,11 +265,10 @@ $(function(){
 });
 
 /* Set tags in modal */
-
-$(function(){
+function setTags(){
 
 	var styles = {'cont': 'Contemporary', 'ecce': 'Eccentric', 'indu': 'Industrial', 'mini': 'Minimalist', 'rust': 'Rustic', 'trad': 'Traditional'};
-	var types = {'disp': 'Displays', 'full': 'Full Store', 'ligh': 'Lighting', 'merc': 'Merchandising', 'mann': 'Mannequin', 'shac': 'Shoe & Accesories', 'fron': 'Store Front'};
+	var types = {'disp': 'Displays', 'full': 'Full Store', 'ligh': 'Lighting', 'merc': 'Merchandising', 'mann': 'Mannequin', 'shac': 'Shoes & Accesories', 'fron': 'Store Front'};
 
 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
 	var photoObj = photos[finder];
@@ -301,7 +304,14 @@ $(function(){
 	var contentRight = styleTag + typeTag;
 	
 	var photoUrl = photoObj.url;
-	var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' value=" + photoUrl + "></input><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook'></input></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";
-	$('.photo-page-container').append(photosHtml);
+	var photosHtml = contentRight;
+	$('#pm-right-ctn-inner').html(photosHtml);
+};
+
+$(function(){
+	
+	$('#photo-modal').on('shown', function(){
+		setTags();
+	});
 
 });
