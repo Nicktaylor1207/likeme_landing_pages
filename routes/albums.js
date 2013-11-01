@@ -12,6 +12,7 @@ module.exports = function(app) {
 	}
 
 	app.get('/albums', selectNav, function(req, res) {
+	  req.session.tag = 'albums';
 	  Photo.find({ used: true}, function(err, results){
     	var sorted = sortByKey(results, 'position'); // change to timestamp
     	if (req.session.email) {

@@ -1250,7 +1250,7 @@ a {
 
 #pm-left-ctn {
 	height: 100%;
-	width: 72%;
+	width: 78.5%;
 	position: absolute;
 	/* background-color: #161616; */
 	background-color: black;
@@ -1270,7 +1270,7 @@ a {
 
 #pm-right-ctn {
 	height: 100%;
-	width: 26%;
+	width: 20%;
 	position: absolute;
 	right: 0;
 	margin: 0;
