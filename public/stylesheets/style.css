@@ -597,6 +597,8 @@ a {
 
 .photo-page-container {
 	padding: 20px 15px 20px 20px; /* to center with offset margin */
+	width: 800px;
+	display: inline-block;
 }
 
 .photo-display-container {
@@ -1501,4 +1503,17 @@ a {
 	line-height: 25px;
 	opacity: .5;
 	text-shadow: none !important;
+}
+
+/* Photo pages nav left */
+
+#photo-left-nav-container {
+	margin-top: 35px;
+	/*border: 1px solid rgba(0, 0, 0, 0.3);*/
+	width: 160px;
+	position: fixed;
+}
+
+.nav-header {
+	font-size: 13px !important;
 }
