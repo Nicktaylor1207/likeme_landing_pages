@@ -53,7 +53,7 @@ module.exports = function(app) {
 	}
 
 	var styleTags = ['cont', 'ecce', 'mini', 'rust', 'trad', 'hip', 'indu', 'cons'];
-	var typeTags = ['full', 'fron', 'shac', 'chan', 'disp', 'ligh', 'merc', 'mann'];
+	var typeTags = ['full', 'fron', 'shac', 'chan', 'disp', 'ligh', 'merc', 'mann', 'diy'];
 
 	for (var i = 0; i < styleTags.length; i++) {
 	  (function(index) {
