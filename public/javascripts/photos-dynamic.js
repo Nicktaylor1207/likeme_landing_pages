@@ -74,6 +74,10 @@ $(function(){
 /* Comment Handling */
 $(function(){
 
+	if (!user) {
+		$('.add-comment-header').hide();
+	}	
+
 	$('.add-comment-header').on('click', function(){
 		$(this).next('.add-comment-form').toggle();
 	});

@@ -94,7 +94,7 @@ module.exports = function(app) {
 				});	
 			} else {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
 				});
 			}
 		});
