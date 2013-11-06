@@ -45,7 +45,7 @@ $(function(){
 			commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
 		}
 
-		var commentsContent = "<div class='comment-container'><p class='add-comment-header'><a>Add Comment</a></p><form class='add-comment-form hide' method='POST' action='/comment'><input class='hide' name='user' value=" + user.email + "><input class='hide' name='firstName' value=" + user.firstName + "><input class='hide' name='lastName' value=" + user.lastName + "><input class='hide' name='photoUrl' value=" + photoUrl + "><textarea class='comments-box' rows='4' name='text'></textarea><input class='btn btn-primary add-comment-btn' type='submit' value='Submit'></form>" + commentsDynamic + "</div>";
+		var commentsContent = "<div class='comment-container'><p class='add-comment-header'><a>Add Comment</a></p><form class='add-comment-form hide' method='POST' action='/comment'><input class='hide' name='user' value=" + user.email + "><input class='hide' name='firstName' value=" + user.firstName + "><input class='hide' name='lastName' value=" + user.lastName + "><input class='hide' name='photoUrl' value=" + photoUrl + "><textarea class='comments-box' rows='4' name='text'></textarea><input class='btn btn-primary add-comment-btn' type='submit' value='Submit'></form><div class='comments-content-container'>" + commentsDynamic + "</div></div>";
 		var contentRight = styleTag + typeTag + commentsContent;
 
 		// <div class='comment-container'>
@@ -76,6 +76,44 @@ $(function(){
 
 	$('.add-comment-header').on('click', function(){
 		$(this).next('.add-comment-form').toggle();
+	});
+
+	$('#pm-add-comment-header').on('click', function(){
+		$(this).next('#pm-add-comment-form').toggle();
+	});
+
+});
+
+/* Handle comments on page */
+$(function(){
+
+	$('.add-comment-form').submit(function(){
+		var form = $(this);
+
+		// var commentBox = form.find('.comments-box');
+		var newComment = form.find('.comments-box').val();
+
+		/* Handle the new view for the page */
+		form.toggle()
+		var containerDiv = form.closest('.photo-display-container');
+		var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+		containerDiv.find('.comments-content-container').prepend(newCommentHTML);
+
+		// /* Handle the photos modal view */
+		var finder = containerDiv.attr('id');
+		if (photos[finder].newCommentHTML) {
+			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[finder].newCommentHTML;
+		} else {
+			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";	
+		};
+
+		$.ajax({
+		  type: "POST",
+		  url: 'comment',
+		  data: form.serialize(), // serializes the form's elements.
+		});
+
+		return false; // avoid to execute the actual submit of the form.
 	});
 
 });

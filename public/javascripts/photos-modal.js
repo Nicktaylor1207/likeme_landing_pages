@@ -103,8 +103,8 @@ $(function(){
 				
 				setNotedBtn(photoObj);
 				// setNotebookCount(photoObj);
-
 				setTags();
+				setComments();
 				
 				return false;
 			}
@@ -137,8 +137,7 @@ $(function(){
     /* Set the corresponding button and notebook counts */
     (function(){
 	    var formFinder = $('#pm-photo').attr('finder');
-	   	var divID = "#" + formFinder;
-	   	var containerDiv = $(divID);
+	   	var containerDiv = $("#" + formFinder);
 	   	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
 
 	   	/* Set btn to noted */
@@ -205,7 +204,7 @@ $(function(){
 
 		window.onpopstate = function(e){
 
-			if (JSON.stringify(e.state) == "null" && $.cookie('modal-cookie-finder') == null) {
+			if (JSON.stringify(e.state) == "null") {
 				photoModal.modal('hide');
 
 				$('.add-notebook-form').each(function(index, form){
@@ -327,6 +326,10 @@ function setComments(){
 		commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
 	}
 
+	if (photoObj.newCommentHTML) {
+		commentsDynamic = photoObj.newCommentHTML + commentsDynamic;
+	}
+
 	$('#pm-comment-container-inner').html(commentsDynamic)
 };
 
@@ -340,34 +343,66 @@ $(function(){
 });
 
 /* Handle comment form submit from modal */
-$(function(){
+// $(function(){
 
-	if ($.cookie('modal-cookie-finder')) {
+// 	if ($.cookie('modal-cookie-finder')) {
 
-		var finder = parseInt($.cookie('modal-cookie-finder'), 10);
-		var photoObj = photos[finder];
+// 		var finder = parseInt($.cookie('modal-cookie-finder'), 10);
+// 		var photoObj = photos[finder];
 
-		/* Set modal photo */
-		$('#pm-photo').attr('src', photoObj.url);
+// 		/* Set modal photo */
+// 		$('#pm-photo').attr('src', photoObj.url);
 
-		/* Set modal finder */
-		$('#pm-photo').attr('finder', finder);
+// 		/* Set modal finder */
+// 		$('#pm-photo').attr('finder', finder);
 
-		/* Set img url for form input */
-		$('#pm-img-url').attr('value', photoObj.url);
+// 		/* Set img url for form input */
+// 		$('#pm-img-url').attr('value', photoObj.url);
 
-		/* Set noted property of modal Note button */
-		setNotedBtn(photoObj);
+// 		/* Set noted property of modal Note button */
+// 		setNotedBtn(photoObj);
 
-		$('#photo-modal').modal('show');
+// 		$('#photo-modal').modal('show');
 
-	}
+// 	}
 
-	$('#pm-add-comment-form').submit(function(){
-		$.cookie('modal-cookie-finder', $('#pm-photo').attr('finder'));
+// 	$('#pm-add-comment-form').submit(function(){
+// 		$.cookie('modal-cookie-finder', $('#pm-photo').attr('finder'));
+// 	});
+
+// });
+
+/* Handle comments in modal */
+$('#pm-add-comment-form').submit(function(){
+	var form = $(this);
+
+	var newComment = $('#pm-comments-box').val();
+
+	/* Handle the new view for the modal */
+	$('#pm-add-comment-form').toggle()
+	var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+	$('#pm-comment-container-inner').prepend(newCommentHTML);
+
+	/* Handle the photos page view */
+	var formFinder = $('#pm-photo').attr('finder');
+	var containerDiv = $("#" + formFinder);
+	containerDiv.find('.comments-content-container').prepend(newCommentHTML);
+
+	/* Handle nav in modal */
+	if (photos[formFinder].newCommentHTML) {
+		photos[formFinder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[formFinder].newCommentHTML;
+	} else {
+		photos[formFinder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";	
+	};
+
+	$.ajax({
+	  type: "POST",
+	  url: 'comment',
+	  data: form.serialize(), // serializes the form's elements.
 	});
 
+	$('#photo-modal').focus();
 
-
+	return false; // avoid to execute the actual submit of the form.
 });
 
