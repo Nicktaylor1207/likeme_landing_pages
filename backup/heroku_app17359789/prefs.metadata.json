@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "heroku_app17359789.prefs", "name" : "_id_" } ] }

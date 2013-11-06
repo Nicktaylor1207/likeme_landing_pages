@@ -23,7 +23,8 @@ module.exports = function(app) {
     var b = req.body.type;
     var types = b.split(" ");
     req.body.type = types;
-    req.body.used = true;
+    var c = (new Date()).getTime();
+    req.body.date = c;
     Photo.create(req.body, function(err) {   
       if (err) {
         if (err.name === 'ValidationError') {
@@ -68,8 +69,10 @@ module.exports = function(app) {
     } else {
       var sourceIndex = findIndex.index + 4;
       req.body.source = url.slice(0, sourceIndex);
-      req.body.userg = true;
+      req.body.userg = req.session.email.email;
       req.body.liked = 1;
+      var c = (new Date()).getTime();
+      req.body.date = c;
       Photo.create(req.body, function(err) {      
         if (err) {
           if (err.name === 'ValidationError') {
