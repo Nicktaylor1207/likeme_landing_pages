@@ -77,4 +77,27 @@ module.exports = function(app) {
 	  })(i);
 	}
 
+	app.get('/albums', selectNav, function(req, res) {
+	  req.session.tag = 'albums';
+	  Photo.find({ used: true}, function(err, results){
+    	var sorted = sortByKey(results, 'date'); // change to timestamp
+    	if (req.session.email) {
+	    	Email.findOne({email: req.session.email.email}, function(err, user) {
+					if (err) {
+						return next (err);
+					}
+					if (user) {
+						Comment.find(function(err, results){
+							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});
+						});
+					}
+				});	
+			} else {
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});
+				});
+			}
+		});
+	});
+
 };

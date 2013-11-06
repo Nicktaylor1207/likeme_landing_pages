@@ -1540,6 +1540,11 @@ a {
 	position: relative;
 }
 
+#pm-add-comment-form {
+	position: relative;
+	margin-bottom: 0px;
+}
+
 .add-comment-btn {
 	position: absolute;
 	bottom: 0;
@@ -1568,6 +1573,17 @@ a {
 			 -moz-user-select: none;
 				-ms-user-select: none;
 						user-select: none;
+}
+
+#pm-add-comment-header {
+	font-weight: bold;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		 -khtml-user-select: none;
+			 -moz-user-select: none;
+				-ms-user-select: none;
+						user-select: none;	
 }
 
 /* PM comment container */

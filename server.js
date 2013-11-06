@@ -49,7 +49,6 @@ require('./routes/index')(app);
 require('./routes/about')(app);
 require('./routes/demos')(app);
 require('./routes/session')(app);
-require('./routes/albums')(app);
 require('./routes/photos')(app);
 require('./routes/contact')(app);
 require('./routes/upload')(app);
