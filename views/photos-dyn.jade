@@ -23,6 +23,35 @@ block content
 					li <a href='photos-shac'>Shoes & Accessories</a>
 					li <a href='photos-fron'>Store Front</a>
 			div.pull-right.photo-page-container
+				//
+					div.row-fluid.photo-display-container#0
+						div.photo-img-container.span9
+							button.btn-large.btn-primary.save-btn.hide Save
+							form.add-notebook-form(method='POST', action='/notebook1')
+								input#img-url.hide(name='image_url', value='images/merc/18.jpg')
+								input.btn.add-to-nb-btn(type='submit', value='Add to Notebook')
+							div
+								a(href='#photo-modal', data-toggle='modal')
+									div.center-cropped(style='background-image: url("images/merc/18.jpg")')
+										img.photo-img(src="images/merc/18.jpg", finder='0')
+						div.photo-content-container.span3
+							p.photo-right-content Style: <a href='photos-cont'>Contemporary</a>
+							p.photo-right-content Type: <a href='photos-merc'>Merchandising</a>
+							div.comment-container
+								p.add-comment-header <a href="#">Add Comment</a>
+								form.add-comment-form.hide(method='POST', action='/comment')
+									input.hide(name='user', value="zach@sevenalbums.com")
+									input.hide(name='userName', value="Zach Taylor")
+									input.hide(name='photoUrl', value="images/merc/18.jpg")
+									textarea.comments-box(rows='4', name='comment')
+									input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
+								div.comment-display-container
+									div.comment-text-container
+										p.comments-name Zach Taylor
+										p.comments-text This is a terrific display! What is the item in the top middle compartment and where is it from? I love it.
+									div.comment-text-container
+										p.comments-name Tamara Vernon
+										p.comments-text Are the shelves adjustable? Is this a custom piece built for Vero Moda or can it be purchased? Thanks.
 	div#signup-cta-modal-2.modal(tabindex="-1", role="dialog", aria-labelledby="signupCtaModal", aria-hidden="true")
 		div#signup-cta-modal-container-2
 			p#signup-cta-modal-sub-2 Sign up. It's free.
@@ -45,7 +74,7 @@ block content
 		div#pm-left-ctn
 			img#pm-photo(src="#", finder="#")
 			form#add-notebook-form-pm(method="POST", action="/notebook1")
-				input#pm-img-url.hide()(name="image_url", value="")
+				input#pm-img-url.hide(name="image_url", value="")
 				input.btn#add-to-nb-btn-pm(type="submit", value="Add to Notebook")
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
@@ -56,7 +85,16 @@ block content
 		div#pm-right-ctn
 			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#pm-right-ctn-inner
-				// p#pm-notebook-count
+			div#pm-comment-container
+				p.add-comment-header <a>Add Comment</a>
+				form#pm-add-comment-form.add-comment-form.hide(method='POST', action='/comment')
+					input#pm-user.hide(name='user', value="")
+					input#pm-userFirst.hide(name='firstName', value="")
+					input#pm-userLast.hide(name='lastName', value="")
+					input#pm-photoUrl.hide(name='photoUrl', value="")
+					textarea.comments-box(rows='4', name='text')
+					input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
+				div#pm-comment-container-inner
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/signin.js")
@@ -72,3 +110,5 @@ block content
 		var photos = !{JSON.stringify(photos)}
 	script.
 		var user = !{JSON.stringify(user)}
+	script.
+		var allComments = !{JSON.stringify(comments)}

@@ -1,6 +1,4 @@
-$(function(){
-	
-	function setNotedBtn(photo) {
+function setNotedBtn(photo) {
 		var noteBtn = $('#add-to-nb-btn-pm');
 		if (photo.noted == true) {
 			noteBtn.attr('disabled', true);
@@ -10,6 +8,8 @@ $(function(){
 			noteBtn.val('Add to Notebook');
 		}
 	}
+
+$(function(){	
 
 	// function setNotebookCount(photo){
 	// 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
@@ -40,7 +40,7 @@ $(function(){
 		$('#pm-photo').attr('finder', finder);
 
 		/* Set img url for form input */
-		$('#pm-img-url').val(photoObj.url);
+		$('#pm-img-url').attr('value', photoObj.url);
 
 		/* Set noted property of modal Note button */
 		setNotedBtn(photoObj);
@@ -76,10 +76,8 @@ $(function(){
 			
 			setNotedBtn(photoObj);
 			// setNotebookCount(photoObj);
-
 			setTags();
-
-			// $.cookie("scroll", 6000, { expires: 1 } );
+			setComments();
 			
 			return false;
 		});
@@ -207,7 +205,7 @@ $(function(){
 
 		window.onpopstate = function(e){
 
-			if (JSON.stringify(e.state) == "null") {
+			if (JSON.stringify(e.state) == "null" && $.cookie('modal-cookie-finder') == null) {
 				photoModal.modal('hide');
 
 				$('.add-notebook-form').each(function(index, form){
@@ -306,12 +304,70 @@ function setTags(){
 	var photoUrl = photoObj.url;
 	var photosHtml = contentRight;
 	$('#pm-right-ctn-inner').html(photosHtml);
+
+};
+
+/* Set comments in modal */
+function setComments(){
+	
+	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	var photoObj = photos[finder];
+	
+	$('#pm-user').attr('value', user.email);
+	$('#pm-userFirst').attr('value', user.firstName);
+	$('#pm-userLast').attr('value', user.lastName);
+	$('#pm-photoUrl').attr('value', photoObj.url);
+
+	var photoComments = photoObj.comments;
+	var commentsDynamic = "";
+
+	for (var i = photoComments.length - 1; i > -1; i--) {
+		var commentText = photoComments[i];
+		var comment = allComments.filter(function(commentFilter) {return commentFilter.text == commentText})[0];
+		commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
+	}
+
+	$('#pm-comment-container-inner').html(commentsDynamic)
 };
 
 $(function(){
 	
 	$('#photo-modal').on('shown', function(){
 		setTags();
+		setComments();
 	});
 
 });
+
+/* Handle comment form submit from modal */
+$(function(){
+
+	if ($.cookie('modal-cookie-finder')) {
+
+		var finder = parseInt($.cookie('modal-cookie-finder'), 10);
+		var photoObj = photos[finder];
+
+		/* Set modal photo */
+		$('#pm-photo').attr('src', photoObj.url);
+
+		/* Set modal finder */
+		$('#pm-photo').attr('finder', finder);
+
+		/* Set img url for form input */
+		$('#pm-img-url').attr('value', photoObj.url);
+
+		/* Set noted property of modal Note button */
+		setNotedBtn(photoObj);
+
+		$('#photo-modal').modal('show');
+
+	}
+
+	$('#pm-add-comment-form').submit(function(){
+		$.cookie('modal-cookie-finder', $('#pm-photo').attr('finder'));
+	});
+
+
+
+});
+
