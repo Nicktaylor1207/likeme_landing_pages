@@ -16,7 +16,8 @@ var PhotoSchema = new mongoose.Schema({
 	date: { 
 		type: String, 
 		default: (new Date()).getTime()
-		}
+	},
+	comments: []
 });
 
 module.exports = PhotoSchema;

@@ -1,5 +1,6 @@
 var Email = require('../data/models/emails');
 var Photo = require('../data/models/photos');
+var Comment = require('../data/models/comments');
 var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
@@ -11,24 +12,25 @@ module.exports = function(app) {
 		});
 	}
 
-	/* Refactor -- create array of tags and run an each function for below get routes */
-	/* Add ability to get by style and type */
-
 	function getDynPhotos(req, res, style) {
 		req.session.tag = style;
     Photo.find({ style: style, used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'position'); // change to timestamp
+    	var sorted = sortByKey(results, 'date'); // change to timestamp
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
 						return next (err);
 					}
 					if (user) {
-						res.render('photos-dyn', {user: user, photos: sorted, navLogin: req.body.navLogin});
+						Comment.find(function(err, results){
+							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+						});
 					}
 				});	
 			} else {
-				res.render('photos-dyn', {user: false, photos: sorted, navLogin: req.body.navLogin});
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+				});
 			}
 		});
 	}
@@ -36,18 +38,22 @@ module.exports = function(app) {
 	function getDynPhotosType (req, res, type) {
 		req.session.tag = type;
     Photo.find({ type: type, used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'position'); // change to timestamp
+    	var sorted = sortByKey(results, 'date'); // change to timestamp
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
 						return next (err);
 					}
 					if (user) {
-						res.render('photos-dyn', {user: user, photos: sorted, navLogin: req.body.navLogin});
+						Comment.find(function(err, results){
+							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+						});
 					}
 				});	
 			} else {
-				res.render('photos-dyn', {user: false, photos: sorted, navLogin: req.body.navLogin});
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+				});
 			}
 		});
 	}
