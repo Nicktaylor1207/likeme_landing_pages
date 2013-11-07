@@ -94,8 +94,8 @@ $(function(){
 	$('.add-comment-form').submit(function(){
 		var form = $(this);
 
-		// var commentBox = form.find('.comments-box');
-		var newComment = form.find('.comments-box').val();
+		var commentsBox = form.find('.comments-box'); 
+		var newComment = commentsBox.val();
 
 		/* Handle the new view for the page */
 		form.toggle()
@@ -115,7 +115,10 @@ $(function(){
 		  type: "POST",
 		  url: 'comment',
 		  data: form.serialize(), // serializes the form's elements.
-		});
+		})
+			.done(function() {
+	    	commentsBox.val('');
+	  	});
 
 		return false; // avoid to execute the actual submit of the form.
 	});

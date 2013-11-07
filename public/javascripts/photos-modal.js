@@ -78,6 +78,8 @@ $(function(){
 			// setNotebookCount(photoObj);
 			setTags();
 			setComments();
+
+			$('#pm-add-comment-form').hide()
 			
 			return false;
 		});
@@ -105,6 +107,8 @@ $(function(){
 				// setNotebookCount(photoObj);
 				setTags();
 				setComments();
+
+				$('#pm-add-comment-form').hide()
 				
 				return false;
 			}
@@ -200,6 +204,8 @@ $(function(){
 			if (location.href.indexOf('pm') != -1) {
 				window.history.back();
 			}
+
+			$('#pm-add-comment-form').hide()
 		});
 
 		window.onpopstate = function(e){
@@ -398,8 +404,11 @@ $('#pm-add-comment-form').submit(function(){
 	$.ajax({
 	  type: "POST",
 	  url: 'comment',
-	  data: form.serialize(), // serializes the form's elements.
-	});
+	  data: form.serialize()
+	})
+		.done(function() {
+    	$('#pm-comments-box').val('');
+  	});
 
 	$('#photo-modal').focus();
 

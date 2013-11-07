@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   app.post('/email', function (req, res, next) {
-    Email.findOne({email: req.body.email}, function(err, user){
+    Email.findOne({email: req.body.email.toLowerCase()}, function(err, user){
       if (err) {
         console.log(err);
         res.send("There was an error finding this email address");

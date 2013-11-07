@@ -35,7 +35,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/session1', function(req, res) {
-		Email.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
+		Email.findOne({email: req.body.email.toLowerCase(), password: req.body.password}, function(err, user) {
 			if (err) {
 				return next (err);
 			}
