@@ -45,6 +45,8 @@ $(function(){
 /* Set noted property and handle notebook plurals */
 $(function(){
 
+	if (user) {
+
 	var userPhotos = user.notebook.photos;
 
 	$.each(userPhotos, function(index, userPhoto){
@@ -62,6 +64,8 @@ $(function(){
 			}
 		});
 	});
+
+	}
 
 	/* Handle notebook count plurals */
 	// $('.notebook-count').each(function(i, obj){
