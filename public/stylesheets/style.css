@@ -1670,3 +1670,82 @@ a {
 
 /* Pro sign up */
 
+#create-profile-body-container {
+	padding-top: 30px;
+	width: 800px;
+	margin: 0px auto;
+}
+
+.create-profile-header {
+	margin-bottom: 25px;
+}
+
+.create-profile-label {
+	font-size: 18px;
+	font-weight: bold;	
+}
+
+.create-profile-input {
+	width: 420px;
+	height: 35px !important;
+	font-size: 16px !important;	
+}
+
+.create-profile-input-textarea {
+	width: 420px;
+	font-size: 18px !important;
+}
+
+#choose-file-container {
+	position: relative;
+	display: inline-block;
+	width: 133px;
+	height: 42px;
+}
+
+#choose-file-input {
+	position: absolute;
+	top: 0px;
+	left: -80px;
+	width: 213px;
+	height: 42px;
+	opacity: 0.0;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+#choose-file-btn {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#create-profile-photo-container {
+	margin-top: 15px;
+	height: 300px;
+	width: 250px;
+	background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#create-profile-photo-container-empty {
+	border: 1px dashed gray;
+	margin-top: 15px;
+	height: 300px;
+	width: 250px;
+	background-color: #ECECEC;
+}
+
+#create-profile-content-left {
+	width: 330px;
+}
+
+#create-profile-content-right {
+	width: 430px;
+}
+
+#create-profile-form {
+
+}
