@@ -4,13 +4,6 @@ var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
-	function sortByKey(array, key) {
-		return array.sort(function(a, b) {
-			var x = a[key]; var y = b[key];
-			return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-		});
-	}
-
 	app.get('/pm', function(req, res) {
 		if (req.session.tag == 'albums') {
 			res.redirect('/albums');	

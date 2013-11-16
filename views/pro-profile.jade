@@ -1,0 +1,66 @@
+extends layout
+
+block content
+	div.body-inner-container
+		div.profile-container
+			div.profile-content-container.row-fluid
+				div.profile-left-container.span4
+					div.profile-photo-container(style='background-image: url("images/jess.jpg")')
+						img.profile-photo(src="images/jess.jpg")
+				div.profile-middle-container.span6
+					div.profile-details-container
+						h4.profile-name Jessica Huyer
+						p.profile-title Junior Partner, MD Design
+						a.profile-website(href="#") www.jessicahuyer.com
+					div.profile-description-container
+						p.
+							I am a retail store designer with 5 years of experience 
+							designing stores. I have designed for clients such as 
+							Starbucks and Chanel, as well as a multitude of boutiques.
+						p.
+							I believe outstanding stores have an opinion and the 
+							the aesthetic should be a manifestation of that opinion.
+						p.
+							After graduating from the California School of Art with a
+							degree in visual design and a minor in merchandising, 
+							I was a buyer at
+					a(href="#") + more
+					p(class="hide").
+						Nordstrom's, where I was also responsible for dipslays and
+						merchandising in our kids section.
+				div.profile-right-container.span2
+					div.profile-contact-container
+						h4.profile-contact-header Contact Jessica
+						a.profile-contact-email(href="#") jessica.huyer@gmail.com
+						p.profile-contact-number 415-374-7263
+			div.profile-notebook-container
+				h2 Jessica's Notebook
+				div.profile-nb-container
+					div.nb-photos-container
+				div#nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
+					div.modal-body#nb-photos-modal-body
+						button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+						h4#nb-photos-modal-header Add a photo from a website
+					div#nb-photos-modal-form-container
+						form#nb-photos-modal-form(method="POST", action="/upload1")
+							input#nb-photos-modal-input(type="text", placeholder="Paste the link to the page containing the photo...", name="url")
+							div.modal-footer#nb-photos-modal-footer
+								a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
+								input.btn.btn-primary(type="submit", value="Add Photo")
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/signin.js")
+	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/notebook.js")
+	script(type="text/javascript", src="/javascripts/notebook-modal.js")
+	script(type="text/javascript", src="/javascripts/photos-dynamic.js")
+	script(type="text/javascript", src="/javascripts/photos.js")
+	script(type="text/javascript", src="/javascripts/photos-modal.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}
+	script.
+		var photos = !{JSON.stringify(photos)}

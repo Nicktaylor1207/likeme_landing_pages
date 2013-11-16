@@ -8,14 +8,14 @@ module.exports = function(app) {
 	function sortByKey(array, key) {
 		return array.sort(function(a, b) {
 			var x = a[key]; var y = b[key];
-			return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+			return ((x > y) ? -1 : ((x < y) ? 1 : 0));
 		});
 	}
 
 	function getDynPhotos(req, res, style) {
 		req.session.tag = style;
     Photo.find({ style: style, used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'date'); // change to timestamp
+    	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
@@ -38,7 +38,7 @@ module.exports = function(app) {
 	function getDynPhotosType (req, res, type) {
 		req.session.tag = type;
     Photo.find({ type: type, used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'date'); // change to timestamp
+    	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
@@ -80,7 +80,7 @@ module.exports = function(app) {
 	app.get('/albums', selectNav, function(req, res) {
 	  req.session.tag = 'albums';
 	  Photo.find({ used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'date'); // change to timestamp
+    	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 	    	Email.findOne({email: req.session.email.email}, function(err, user) {
 					if (err) {
