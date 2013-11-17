@@ -23,9 +23,12 @@ var EmailSchema = new mongoose.Schema({
 		photos: []
 	},
 	pro: Boolean,
-	description: String,
+	title: String,
 	website: String,
-	profilePic: String
+	description: String,
+	profilePic: String,
+	number: String,
+	address: String
 });
 
 module.exports = EmailSchema;

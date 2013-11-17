@@ -68,11 +68,6 @@ module.exports = function(app) {
 	});
 
 	app.post('/change', function(req, res){
-		console.log(req.body);
-		console.log(req.session.email.email);
-		console.log(req.body.email.toLowerCase());
-		console.log(req.session.email.password);
-		console.log(req.body.old_password);
 		if (req.session.email.email == req.body.email.toLowerCase() && req.session.email.password == req.body.old_password){
 			Email.findOne({ 'email' : req.body.email.toLowerCase() }, function(err, email){
 				email.password = req.body.new_password;

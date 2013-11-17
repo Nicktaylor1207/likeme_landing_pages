@@ -7,6 +7,7 @@ var express = require('express')
   , http = require('http')
   , mongoose = require('mongoose')
   , path = require('path')
+  , fs = require('fs')
   , mailer = require('express-mailer');
 
 var app = express();
@@ -24,7 +25,8 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
+	// app.use(express.bodyParser({uploadDir: __dirname + '/tmp_files'}));
+  app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('I love Red'));
   app.use(express.cookieSession({ cookie: {maxAge: 60 * 60 * 1000}}));
