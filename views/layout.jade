@@ -71,10 +71,13 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 										
 					div#signed-in.hide()
 						ul.nav.pull-right#nav-right-container
-							li
-								a.nav-link(href="notebook") My Notebook
-							li
-								a.nav-link(href="/logout") Log out
+							li.dropdown
+								a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") #{user.firstName}'s Account
+								ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+									li
+										a(href="notebook") My Notebook
+									li
+										a(href="/logout") Log out
 		block content
 		div.footer
 			div.footer-inner-container

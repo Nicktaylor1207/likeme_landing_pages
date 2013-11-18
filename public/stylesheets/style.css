@@ -292,6 +292,14 @@ a {
 	margin-left: 10px;
 }
 
+#pro-nav {
+	color: #5CFC5C;
+}
+
+#pro-nav:hover {
+	color: white;
+}
+
 /* Demo Photo Modal */
 
 #pro-photo-modal {
@@ -1072,7 +1080,13 @@ a {
 	font-size: 14px;
 }
 
-/**/
+#signup-radio {
+	margin-bottom: 20px;
+}
+
+#signup-radio label {
+	font-size: 14px;
+}
 
 #signup-cta-modal-2 {
 	top: -18px;
@@ -1745,8 +1759,4 @@ a {
 
 #create-profile-content-right {
 	width: 430px;
-}
-
-#create-profile-form {
-
 }

@@ -4,8 +4,8 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/about', selectNav, function(req, res) {
-		var hide = false;
-    res.render('about', {hide: hide, navLogin: req.body.navLogin});
+    var hide = false;
+    res.render('about', {hide: hide, navLogin: req.body.navLogin, user: sessionUser});
 	});
 
 	app.post('/message', selectNav, function(req, res){

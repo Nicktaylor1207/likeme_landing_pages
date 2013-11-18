@@ -20,6 +20,13 @@ block content
 					p
 						label.signup-label(for="name") Password
 						input.signup-input#signup-password-input(name="password", type="password")
+					p#signup-radio
+						label.radio
+							input(type="radio", name="pro", id="optionsRadios1", value="false", checked)
+							| I am a retail owner or manager
+						label.radio
+							input(type="radio", name="pro", id="optionsRadios2", value="true")
+							| I am an industry professional or vendor to retailers
 					p#signup-terms By creating an account, I accept Seven Albums' <a href="terms">Terms of Use</a> and <a href="privacy">Privacy Policy</a>
 					div.signup-center-container
 						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit", onclick="$('#landing-signup').toggle()") Create my account

@@ -5,13 +5,13 @@ block content
 		div.profile-container
 			div.profile-content-container.row-fluid
 				div.profile-left-container.span4
-					div.profile-photo-container(style='background-image: url("images/\jess.jpg")')
+					div.profile-photo-container(style='background-image: url("images/jess.jpg")')
 						img.profile-photo(src="images/jess.jpg")
 				div.profile-middle-container.span6
 					div.profile-details-container
 						h4.profile-name #{user.firstName} #{user.lastName}
 						p.profile-title #{user.title}
-						a.profile-website(href="http://" + user.website) #{user.website}
+						a.profile-website(href="http://" + user.website, target="_blank") #{user.website}
 					div#profile-description-container
 						p#user-description
 				div.profile-right-container.span2

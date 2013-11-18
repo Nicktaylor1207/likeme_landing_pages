@@ -41,7 +41,11 @@ module.exports = function(app) {
 			}
 			if (user) {
 				req.session.email = user;
-				res.redirect('/intro');
+				if (user.pro == true) {
+					res.redirect('/pro-profile-create')
+				} else {
+					res.redirect('/intro');
+				}
 			} else {
 				res.redirect('/login');
 			}
