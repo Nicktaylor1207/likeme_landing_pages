@@ -1,38 +1,44 @@
+/* Handle navbar */
 $(function(){
 
-	if (hide == true) {
-		$('#landing-welcome').hide();
-		$('#thanks-for-sign-up-no-pref').show();
+	if (navLogin == false) {
+		$('#signed-in').hide();
+		$('#not-signed-in').show();
+		$('#nav-username').html('')
 	}
 
-	(function(){
-	  $('#landing-signup-form').submit(function() {
-	    function failValidation(msg) {
-	      alert(msg); // just an alert for now but you can spice this up later
-	      return false;
-	    };
+});
 
-	    var email = $('#landing-email-input');
-	    if (email.val() == "") {
-	      return failValidation('Please enter your email address to sign up.');
-	    }
 
-	    var password = $('#landing-password-input');
-	    if (password.val() == "") {
-	      return failValidation('Please enter a password to sign up.');
-	    }
+/* Handle login modal */
+$(function() {
 
-	    return true;
-	    return false; // prevent form submitting anyway - remove this in your environment
-	  });
-	}).call(this);
-
-	$('#about-star').on('click', function(){
-		alert("Thanks for your encouragement! It means a lot to us.");
-	});
-
-	// $('img.landing-bg').on('click', function(){	
-	// 	$('#myCarousel').carousel('next');
-	// });
-
+    var button = $('#loginButton');
+    var button2 = $('#login-button2');
+    var box = $('#loginBox');
+    var form = $('#loginForm');
+    button.removeAttr('href');
+    button.on('click', function(login) {
+        box.toggle();
+        button.toggleClass('active');
+        $('#focus-login').focus();
+    });
+    
+    button2.on('click', function(login) {
+        box.toggle();
+        button.toggleClass('active');
+        $('#focus-login').focus();
+    });
+    
+    form.mouseup(function() { 
+        return false;
+    });
+    
+    $(this).mouseup(function(login) {
+        if(!($(login.target).parent('#loginButton').length > 0)) {
+            button.removeClass('active');
+            box.hide();
+        }
+    }); 
+    
 });

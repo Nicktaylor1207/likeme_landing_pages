@@ -25,8 +25,7 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
-	// app.use(express.bodyParser({uploadDir: __dirname + '/tmp_files'}));
-  app.use(express.bodyParser());
+	app.use(express.bodyParser({uploadDir: __dirname + '/tmp_files'}));
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('I love Red'));
   app.use(express.cookieSession({ cookie: {maxAge: 60 * 60 * 1000}}));
@@ -49,7 +48,6 @@ app.get('/*', function(req, res, next) {
 
 require('./routes/index')(app);
 require('./routes/about')(app);
-require('./routes/demos')(app);
 require('./routes/session')(app);
 require('./routes/photos')(app);
 require('./routes/contact')(app);
@@ -59,11 +57,10 @@ require('./routes/terms')(app);
 require('./routes/signup')(app);
 require('./routes/intro')(app);
 require('./routes/email')(app);
-require('./routes/template')(app);
-require('./routes/platform')(app);
 require('./routes/photos-dynamic')(app);
 require('./routes/comments')(app);
 require('./routes/profiles')(app);
+require('./routes/users')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

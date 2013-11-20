@@ -1,19 +1,11 @@
 var Email = require('../data/models/emails');
 var Photo = require('../data/models/photos');
-var loggedIn = require('./middleware/logged_in');
+var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
-	app.get('/notebook', loggedIn, function(req, res) {
-  	Email.findOne({email: req.session.email.email}, function(err, email) {
-			if (err) {
-				return next (err);
-			}
-			if (email) {
-				var navLogin = true;
-				res.render('notebook', {photos: email.notebook.photos, navLogin: navLogin});
-			}
-		});
+	app.get('/notebook', selectNav, function(req, res) {
+  	res.render('notebook', {photos: sessionUser.notebook.photos, navLogin: req.body.navLogin, user: sessionUser});
 	});
 
 	app.get('/nb-pm', function(req, res) {

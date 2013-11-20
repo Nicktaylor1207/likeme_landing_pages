@@ -300,89 +300,6 @@ a {
 	color: white;
 }
 
-/* Demo Photo Modal */
-
-#pro-photo-modal {
-	position: absolute;
-	top: 5%;
-	left: 50%;
-	z-index: 1050;
-	width: 950px;
-	margin-left: -485px;
-	padding: 10px;
-	background-color: rgba(220, 220, 220, 0.9);
-	background-color: rgba(247, 247, 247, 0.9);
-	outline: 0;
-	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-		 -moz-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
-		      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-	-webkit-background-clip: padding-box;
-		 -moz-background-clip: padding-box;
-		      background-clip: padding-box;
-	overflow-y: scroll;	
-}
-
-#profile-modal-large-container {
-	height: 560px;
-	padding: 0px;
-	text-align: center;
-}
-
-#profile-modal-large-img {
-	max-height: 100%;
-}
-
-#profile-modal-large-img:hover {
-	cursor: pointer;
-}
-
-#modal-backdrop-modifed {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1040;
-	background-color: rgba(0, 0, 0, 0.8);
-}
-
-#demo-star {
-	height: 35px;
-	width: 35px;
-	float: right;
-	margin-right: 5px;
-	opacity: .6;
-}
-
-.clicked {
-	opacity: 1 !important;
-} 
-
-#demo-star:hover {
-	cursor: pointer;
-}
-
-#corner-num {
-	float: right;
-	font-size: 16px;
-	margin-top: -15px;
-	margin-right: 5px;
-}
-
-/* RESPONSIVE DESIGN */
-
-@media all and (max-width: 1024px) {
-    /* styles for narrow desktop browsers and iPad landscape */
-}
-
-@media all and (max-width: 768px) {
-    /* styles for narrower desktop browsers and iPad portrait */
-}
-
-@media all and (max-width: 480px) {
-    /* styles for iPhone/Android landscape (and really narrow browser windows) */
-}
-
 @media all and (max-width: 320px) {
     .body-container {
     	width: 100%;
@@ -396,10 +313,6 @@ a {
     	width: 990px;
     	margin: 0px auto 0px auto;;
     }
-}
-
-@media all and (max-width: 240px) {
-    /* styles for smaller devices */
 }
 
 /* NAVBAR */
@@ -446,6 +359,16 @@ a {
 	font-size: 16px;
 	margin-left: -10px;
 	cursor: pointer;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+  margin: 0;
+}
+
+.nav-link b {
+	border-top-color: #999;
+	border-bottom-color: #999;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1734,6 +1657,7 @@ a {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	padding: 11px 18px;
 }
 
 #create-profile-photo-container {
@@ -1760,3 +1684,11 @@ a {
 #create-profile-content-right {
 	width: 430px;
 }
+
+
+
+#edit-profile-btn {
+	display: inline-block;
+	padding: 8px 18px;
+}
+

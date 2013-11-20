@@ -1,32 +1,31 @@
 var Email = require('../data/models/emails');
 var Photo = require('../data/models/photos');
 var Comment = require('../data/models/comments');
-var loggedIn = require('./middleware/logged_in');
+var selectNav = require('./middleware/select_nav');
 var fs = require('fs');
 var path = require('path');
 
 module.exports = function(app) {
 
-  app.get('/pro-profile', loggedIn, function(req, res) {
-    Email.findOne({email: req.session.email.email}, function(err, user) {
-	  if (err) {
-		return next (err);
+  function setTime() {
+    x = new Date();
+    y = x.getTime() - 1372395800000;
+    return y;
+  }
+
+
+  app.get('/pro-profile', selectNav, function(req, res) {
+	  if (sessionUser) {
+		  res.render('pro-profile', {user: sessionUser, photos: sessionUser.notebook.photos, navLogin: req.body.navLogin});
 	  }
-	  if (user) {
-		res.render('pro-profile', {user: user, photos: user.notebook.photos, navLogin: true});
-	  }
-	});
   });
 
-  app.get('/pro-profile-create', loggedIn, function(req, res) {
-    Email.findOne({email: req.session.email.email}, function(err, user) {
-      if (err) {
-	    return next (err);
-      }
-      if (user) {
-	    res.render('pro-profile-create', {user: user, navLogin: true});
-      }
-    });
+  app.get('/pro-profile-create', selectNav, function(req, res) {
+    if (sessionUser) {
+	    res.render('pro-profile-create', {user: sessionUser, navLogin: req.body.navLogin});
+    } else {
+      res.redirect("/");
+    }
   });
 
   function saveUser(req, res, user){
@@ -35,19 +34,37 @@ module.exports = function(app) {
     user.description = req.body.description;
     user.number = req.body.number;
     user.address = req.body.address;
-    user.profilePic = req.body.profilePic;
     user.save(function(){
       res.redirect('/pro-profile');
     });
   };
 
-  app.post('/create-pro-profile', function(req, res) {  
-    Email.findOne({email: req.session.email.email}, function(err, user) {
-	  if (err) {
-		return next
-	  }
-	  saveUser(req, res, user);
+  app.post('/create-pro-profile', selectNav, function(req, res) {  
+    
+    var tempPath = req.files.profilePic.path;
+    var extension = path.extname(req.files.profilePic.name).toLowerCase();
+    targetPath = 'public/images/profile_pics/image' + setTime() + extension;
+    
+    fs.readFile(tempPath, function(err, data){
+      if (err) throw err;
+      if (data != "") {
+        fs.rename(tempPath, targetPath, function(err) {
+          if (err) throw err;
+          sessionUser.profilePic = targetPath.slice(7);
+          saveUser(req, res, sessionUser);
+        });
+      } else {
+        saveUser(req, res, sessionUser);
+      }          
     });
+
   });
 
 };
+
+
+
+
+
+
+

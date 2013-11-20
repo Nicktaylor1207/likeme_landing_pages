@@ -5,11 +5,7 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/signup', selectNav, function(req,res){
-		if (req.body.navLogin == true) {
-			res.render('signup', {navLogin: req.body.navLogin, hide: true});
-		} else {
-			res.render('signup', {navLogin: req.body.navLogin, hide: false});
-		}
+		res.render('signup', {navLogin: req.body.navLogin, user: sessionUser, hide: true});
 	});
 
 	app.post('/signup', function(req, res){
@@ -35,7 +31,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/session1', function(req, res) {
-		Email.findOne({email: req.body.email.toLowerCase(), password: req.body.password}, function(err, user) {
+		Email.findOne({email: req.body.email.toLowerCase()}, function(err, user){
 			if (err) {
 				return next (err);
 			}

@@ -1,8 +1,9 @@
 $(function(){
 
-	if (navLogin == true) {
-		$('#not-signed-in').hide();	
-		$('#signed-in').show();
+	if (navLogin == false) {
+		$('#signed-in').hide();
+		$('#not-signed-in').show();
+		$('#nav-username').html('')
 	}
 	
 })

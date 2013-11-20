@@ -3,17 +3,17 @@ extends layout
 block content
 	div.body-inner-container
 		div#create-profile-body-container
-			h1.create-profile-header Create Profile
-			form#create-profile-form(method="POST", action="/create-pro-profile")
+			h1.create-profile-header Update Profile
+			form#create-profile-form(method="POST", action="/create-pro-profile", enctype="multipart/form-data")
 				div.row-fluid
 					div.span6#create-profile-content-left
 						h3 Upload Profile Picture
 						div#choose-file-container
-							btn.btn-primary.btn-large#choose-file-btn Choose File
+							btn.btn.btn-primary.btn-large#choose-file-btn Choose File
 							input#choose-file-input(name="profilePic", type="file")
-						div#create-profile-photo-container-empty
-						div#create-profile-photo-container.hide(style='background-image: url("images/jess.jpg")')
-							img.profile-photo(src="images/jess.jpg")
+						div#create-profile-photo-container-empty.hide
+						div#create-profile-photo-container(style='background-image: url(#{user.profilePic})')
+							img.profile-photo(src=user.profilePic)
 					div.span6#create-profile-content-right
 						h3 Profile Details <span class="create-profile-optional">(optional)</span>
 						p
@@ -34,11 +34,10 @@ block content
 							textarea.create-profile-input-textarea#address-ta(name="address", type="textarea", rows="3")
 						input.hide(name="pro", value="true")
 						div.signup-center-container
-							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Create My Profile
+							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update My Profile
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
-	script(type="text/javascript", src="/javascripts/signin.js")
-	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/profiles.js")

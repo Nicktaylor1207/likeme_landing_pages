@@ -17,16 +17,9 @@ module.exports = function(app) {
     Photo.find({ style: style, used: true}, function(err, results){
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
-	    	Email.findOne({email: req.session.email.email}, function(err, user) {
-					if (err) {
-						return next (err);
-					}
-					if (user) {
-						Comment.find(function(err, results){
-							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});	
-						});
-					}
-				});	
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+				});
 			} else {
 				Comment.find(function(err, results){
 					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
@@ -40,16 +33,9 @@ module.exports = function(app) {
     Photo.find({ type: type, used: true}, function(err, results){
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
-	    	Email.findOne({email: req.session.email.email}, function(err, user) {
-					if (err) {
-						return next (err);
-					}
-					if (user) {
-						Comment.find(function(err, results){
-							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});	
-						});
-					}
-				});	
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+				});
 			} else {
 				Comment.find(function(err, results){
 					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
@@ -82,16 +68,9 @@ module.exports = function(app) {
 	  Photo.find({ used: true}, function(err, results){
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
-	    	Email.findOne({email: req.session.email.email}, function(err, user) {
-					if (err) {
-						return next (err);
-					}
-					if (user) {
-						Comment.find(function(err, results){
-							res.render('photos-dyn', {user: user, photos: sorted, comments: results, navLogin: req.body.navLogin});
-						});
-					}
-				});	
+				Comment.find(function(err, results){
+					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});
+				});
 			} else {
 				Comment.find(function(err, results){
 					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});

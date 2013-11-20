@@ -25,7 +25,7 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 					a.brand(href="/") Seven Albums
 					ul.nav
 						li.dropdown
-							a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") Browse Stores
+							a.nav-link(href="#") Browse Stores <b class="caret"></b>
 							ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
 								li.dropdown-submenu
 									a(tabindex="-1", href="#") By Style
@@ -50,7 +50,7 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 										li <a tabindex="-1" href="photos-merc">Merchandising</a>
 										li <a tabindex="-1" href="photos-shac">Shoes & Accessories</a>
 										li <a tabindex="-1" href="photos-fron">Store Front</a>
-					div#not-signed-in
+					div#not-signed-in.hide()
 						ul.nav.pull-right#nav-right-container
 							li
 								a.nav-link(href="about") About us
@@ -68,12 +68,13 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 											button.btn.btn-primary#login-btn(type="submit") Log in
 											a#login-modal-forgot-pass(href="forgot-password") Forgot your password?
 										// label(for="checkbox")<input type="checkbox" id="checkbox" />Remember me</label>
-										
-					div#signed-in.hide()
+					div#signed-in
 						ul.nav.pull-right#nav-right-container
 							li.dropdown
-								a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") #{user.firstName}'s Account
+								a.nav-link#nav-username(href="#") #{user.firstName} #{user.lastName} <b class="caret"></b>
 								ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+									li
+										a(href="pro-profile") My Profile
 									li
 										a(href="notebook") My Notebook
 									li

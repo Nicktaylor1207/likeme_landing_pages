@@ -8,17 +8,11 @@ module.exports = function(app) {
 	});
 
 	app.get('/loginAlt', selectNav, function(req, res){
-		Email.findOne({email: req.session.email.email}, function(err, user){
-			if (err) {
-				return next (err);
-			} else {
-				res.render('loginAlt', {user: user, navLogin: req.body.navLogin});
-			}
-		});		
+		res.render('loginAlt', {user: sessionUser, navLogin: req.body.navLogin});
 	});
 
 	app.get('/loginAlt2', selectNav, function(req, res){
-		res.render('loginAlt2', {navLogin: req.body.navLogin});
+		res.render('loginAlt2', {user: sessionUser, navLogin: req.body.navLogin});
 	});	
 
 	app.get('/logout', function(req, res) {

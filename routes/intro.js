@@ -4,25 +4,11 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/intro', selectNav, function(req, res) {
-    Email.findOne({email: req.session.email.email}, function(err, email) {
-			if (err) {
-				return next (err);
-			}
-			if (email) {
-				res.render('intro', {user: email, navLogin: req.body.navLogin});
-			}
-		});
+		res.render('intro', {user: sessionUser, navLogin: req.body.navLogin});
 	});
 
 	app.get('/introAlt', selectNav, function(req, res) {
-    Email.findOne({email: req.session.email.email}, function(err, email) {
-			if (err) {
-				return next (err);
-			}
-			if (email) {
-				res.render('introAlt', {user: email, navLogin: req.body.navLogin});
-			}
-		});
+		res.render('introAlt', {user: sessionUser, navLogin: req.body.navLogin});
 	});
 
 };

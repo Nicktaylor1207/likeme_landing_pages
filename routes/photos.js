@@ -13,44 +13,37 @@ module.exports = function(app) {
 	});
 
 	app.post('/notebook1', selectNav, function(req, res) {
+		if (sessionUser) {
 
-		Email.findOne({email: req.session.email.email}, function(err, email) {
-			if (err) {
-				return next (err);
-			}
-			if (email) {
-
-				function checkPhotoDup(photo){
-					if (photo == req.body.image_url) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-
-				if (email.notebook.photos.some(checkPhotoDup) == true) {
-					res.redirect('back');
+			function checkPhotoDup(photo){
+				if (photo == req.body.image_url) {
+					return true;
 				} else {
-					email.notebook.photos.push(req.body.image_url);
-					email.save(function(){
-						Photo.findOne({url: req.body.image_url}, function(err, photo) {
-							if (err) {
-								return next (err);
-							}
-							if (photo) {
-								photo.liked = photo.liked + 1;
-								photo.save(function(){
-									res.redirect('back'); // This should receive a page parameter and redirect to the appropriate page instead of back. This is a shortcut for now.
-								});
-							}
-						});
-					});	
+					return false;
 				}
-			} else {
-				res.redirect('/login');
 			}
-		});
 
+			if (sessionUser.notebook.photos.some(checkPhotoDup) == true) {
+				res.redirect('back');
+			} else {
+				sessionUser.notebook.photos.push(req.body.image_url);
+				sessionUser.save(function(){
+					Photo.findOne({url: req.body.image_url}, function(err, photo) {
+						if (err) {
+							return next (err);
+						}
+						if (photo) {
+							photo.liked = photo.liked + 1;
+							photo.save(function(){
+								res.redirect('back'); // This should receive a page parameter and redirect to the appropriate page instead of back. This is a shortcut for now.
+							});
+						}
+					});
+				});	
+			}
+		} else {
+			res.redirect('/login');
+		}
 	});
 
 };

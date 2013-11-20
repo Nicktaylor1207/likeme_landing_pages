@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	div.body-inner-container
+		form(method="POST", action="/users", enctype="multipart/form-data")
+			h3#form-header-1 Profile
+			p
+				label(for="profile_picture") Profile Picture
+				div(style="position:relative;")
+					a.btn#form-profile-pic-btn(href='#') Choose File...
+						input#form-profile-pic(type="file", name="file", size="40",  onchange='$("#upload-file-info").html($(this).val());')
+					span(class='label label-info', id="upload-file-info")
+			button.btn.btn-primary#create-profile(type="submit") Create Profile
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/script.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}

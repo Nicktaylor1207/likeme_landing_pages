@@ -5,10 +5,13 @@ block content
 		div.profile-container
 			div.profile-content-container.row-fluid
 				div.profile-left-container.span4
-					div.profile-photo-container(style='background-image: url("images/jess.jpg")')
-						img.profile-photo(src="images/jess.jpg")
+					div.profile-photo-container(style='background-image: url(#{user.profilePic})')
+						img.profile-photo(src=user.profilePic)
 				div.profile-middle-container.span6
 					div.profile-details-container
+						div.pull-right
+							a(href="pro-profile-create")
+								btn.btn.btn-large.btn-primary#edit-profile-btn Edit Profile
 						h4.profile-name #{user.firstName} #{user.lastName}
 						p.profile-title #{user.title}
 						a.profile-website(href="http://" + user.website, target="_blank") #{user.website}
@@ -33,8 +36,7 @@ block content
 							button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
-	script(type="text/javascript", src="/javascripts/signin.js")
-	script(type="text/javascript", src="/javascripts/loggedin.js")
+	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type='text/javascript', src='Readmore.js-master/readmore.min.js')

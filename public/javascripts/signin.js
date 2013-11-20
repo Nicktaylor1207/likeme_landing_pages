@@ -1,4 +1,5 @@
 $(function() {
+
     var button = $('#loginButton');
     var button2 = $('#login-button2');
     var box = $('#loginBox');
@@ -25,8 +26,6 @@ $(function() {
             button.removeClass('active');
             box.hide();
         }
-    });
-
-    
+    }); 
     
 });
