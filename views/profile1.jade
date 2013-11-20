@@ -1,0 +1,51 @@
+extends layout
+
+block content
+	div.body-inner-container
+		div.profile-container
+			div.profile-content-container.row-fluid
+				div.profile-left-container.span4
+					div.profile-photo-container(style='background-image: url(#{user.profilePic})')
+						img.profile-photo(src=user.profilePic)
+				div.profile-middle-container.span6
+					div.profile-details-container
+						div.pull-right
+							a(href="pro-profile-create")
+								// btn.btn.btn-large.btn-primary#edit-profile-btn Edit Profile
+						h4.profile-name #{user.firstName} #{user.lastName}
+						p.profile-title #{user.title}
+						a.profile-website(href="http://" + user.website, target="_blank") #{user.website}
+					div#profile-description-container
+						p#user-description
+				div.profile-right-container.span2
+					div.profile-contact-container
+						h4.profile-contact-header Contact #{user.firstName}
+						a.profile-contact-email(href="mailto:" + user.email, target="_blank") #{user.email}
+						p.profile-contact-number #{user.number}
+						p.profile-contact-address #{user.address}
+			div.profile-notebook-container
+				h2 #{user.firstName}'s Notebook
+				div.profile-nb-container
+					div.nb-photos-container
+				div.modal.full-photo-modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
+					div#pm-left-ctn.full-pm-left-ctn
+						img#pm-photo(src="#", finder="#")
+						div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+						div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+						div.arrow-bg#full-arrow-bg
+							button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/script.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type='text/javascript', src='Readmore.js-master/readmore.min.js')
+	script(type="text/javascript", src="/javascripts/notebook.js")
+	script(type="text/javascript", src="/javascripts/notebook-modal.js")
+	script(type="text/javascript", src="/javascripts/profiles.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}
+	script.
+		var photos = !{JSON.stringify(photos)}

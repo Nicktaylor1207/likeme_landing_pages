@@ -3,7 +3,7 @@ extends layout
 block content
 	div.body-inner-container
 		div#create-profile-body-container
-			h1.create-profile-header Update Profile
+			h1.create-profile-header Create Profile
 			form#create-profile-form(method="POST", action="/create-pro-profile", enctype="multipart/form-data")
 				div.row-fluid
 					div.span6#create-profile-content-left
@@ -34,7 +34,7 @@ block content
 							textarea.create-profile-input-textarea#address-ta(name="address", type="textarea", rows="3")
 						input.hide(name="pro", value="true")
 						div.signup-center-container
-							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update My Profile
+							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update my profile
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
