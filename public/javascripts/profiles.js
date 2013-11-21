@@ -3,13 +3,13 @@ $(function(){
 	/* Add line breaks to descriptions */
 	if (user.description) {
 		var text = user.description;
-		text = text.replace(/\r?\n/g, '<br />');
+		text = text.replace(/\r?\n/g, '<p></p>');
 		$('#user-description').html(text);
 	}
 
 	/* Description More/Less */
-	if ($('#user-description').height() > 160) {
-		$('#user-description').readmore({maxHeight: 160, moreLink: '<a href="#">More</a>', lessLink: '<a href="#">Less</a>'})	
+	if ($('#user-description').height() > 110) {
+		$('#user-description').readmore({maxHeight: 110, moreLink: '<a id="profile-more" href="#">More</a>', lessLink: '<a id="profile-less" href="#">Less</a>'})	
 	}
 
 });
