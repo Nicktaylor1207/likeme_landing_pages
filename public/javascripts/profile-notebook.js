@@ -6,7 +6,7 @@ $(function(){
 			var photoDiv = "<div class='profile-nb-photo-img-container' finder=" + indexInArray + " style='background-image: url(" + photoUrl + ")'><div class='profile-album-label-container'><div class='profile-album-label'><p class='profile-search-pic-name'>Portfolio</p></div></div></div>"
 		}
 		var urlAnchor = "<a class='url' data-toggle='modal' href='#photo-modal'" + ">" + photoDiv + "</a>";
-		$('div.nb-photos-container').append("<div class='profile-nb-photo-row'>" + urlAnchor + "</div>");
+		$('div#profile-nb-photos-container').append("<div class='profile-nb-photo-row'>" + urlAnchor + "</div>");
 	});
 })
 

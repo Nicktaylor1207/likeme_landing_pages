@@ -791,7 +791,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .nb-photos-container {
 	margin-top: 25px;
-
 }
 
 .nb-photo-row {
@@ -1737,6 +1736,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 #notebook-header {
 	font-size: 26px;
+	margin-top: 5px;
 }
 
 .profile-nb-photo-row {
@@ -1751,7 +1751,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	height: 200px;
 	display: inline-block;
 	position: relative;
-	width: 213px;
+	width: 216px;
 	box-shadow: 0 0 2px #000;
 	border-radius: 4px;
 	display: inline-block;
@@ -1765,8 +1765,8 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 #profile-nb-container {
-	margin-top: 30px;
-	padding: 0px 10px;
+	margin-top: 23px;
+	padding: 0px 5px;
 }
 
 .profile-album-label-container {
