@@ -19,9 +19,8 @@ var EmailSchema = new mongoose.Schema({
 	  type: String,
 	  required: true
 	},
-	notebook: {
-		photos: []
-	},
+	notebooks: [],
+	photos: [],
 	pro: Boolean,
 	title: String,
 	website: String,

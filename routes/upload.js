@@ -91,7 +91,7 @@ module.exports = function(app) {
             if (email) {
               email.notebook.photos.push(req.body.url);
               email.save(function(){
-                res.redirect('/notebook');
+                res.redirect('/notebooks');
               });
             } else {
               res.redirect('/login');

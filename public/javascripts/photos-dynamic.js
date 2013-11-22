@@ -65,7 +65,7 @@ $(function(){
 		// </div>
 		// </div>
 		
-		var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' value=" + photoUrl + "><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook'></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";
+		var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' value=" + photoUrl + "><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook' href='#photos-add-photos-modal' data-toggle='modal'></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";
 		$('.photo-page-container').append(photosHtml);
 	});
 

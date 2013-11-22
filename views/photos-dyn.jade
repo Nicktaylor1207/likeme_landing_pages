@@ -66,6 +66,27 @@ block content
 					textarea#pm-comments-box.comments-box(rows='4', name='text')
 					input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
 				div#pm-comment-container-inner
+	div#photos-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="addPhotosModal", aria-hidden="true")
+		div.modal-body#nb-photos-modal-body
+			button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			h4#nb-photos-modal-header Add photo to your notebooks
+			form(method="POST", action="/notebook1")
+				input#add-photo-url(class='hide', name='photo_url', value="images/displays/64.jpg")
+				div.ap-modal-input-ctn
+					label#ap-modal-label Notebook:
+					input(type="text", name="name", value="Store Ideas")
+				div.ap-modal-input-ctn
+					label#ap-modal-label Add Note:
+					textarea(rows="3", name="comment")
+				div.modal-footer#nb-photos-modal-footer
+					input.btn.btn-primary(type="submit", value="Submit")
+		//
+			div#nb-photos-modal-form-container
+				form#nb-photos-modal-form(method="POST", action="/upload1")
+					input#nb-photos-modal-input(type="text", placeholder="Paste the link to the page containing the photo...", name="url")
+					div.modal-footer#nb-photos-modal-footer
+						a#nb-photos-modal-cancel(data-dismiss="modal", aria-hidden="true") Cancel
+								input.btn.btn-primary(type="submit", value="Add Photo")
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
