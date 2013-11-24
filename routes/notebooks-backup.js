@@ -18,43 +18,27 @@ module.exports = function(app) {
 		if (sessionUser) {
 			
 			/* Handle duplicate named notebooks */
-			function checkNotebookDup(notebook){
-				if (notebook == req.body.name) {
-					return true;
+
+			/* Create a new notebook */
+			Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
+				if (err) {
+					return;
 				} else {
-					return false;
-				}
-			}
+		  		name.photoArray.push(req.body.photo_url);
+		  		name.save(function(){
+		  			res.redirect('back');	
+		  		});
+		  	}
+			});
 
-			if (sessionUser.notebooks.some(checkNotebookDup) == false) {
-
-				/* Create a new notebook */
-				Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
-					if (err) {
-						return;
-					} else {
-			  		name.photoArray.push(req.body.photo_url);
-			  		name.save();
-			  	}
-				});
-
-				/* Add the notebook the user's notebooks array */				
-				sessionUser.notebooks.push(req.body.name);
-
-				/* Update Photo document with notebook reference */
-				Photo.findOne({url: req.body.photo_url}, function(err, photo){
-					photo.notebooks.push(req.body.name);
-					photo.save();
-				});
-				
-			};
-
-			/* Add the photo to the user's photos array */
+			/* Add the notebook and photo to the user's respective arrays */
+			sessionUser.notebooks.push(req.body.name);
 			sessionUser.photos.push(req.body.photo_url);
 			sessionUser.save();
 
-			/* Update Photo document with comment and create comment */
+			/* Update Photo document with notebook reference and comment and create comment */
 			Photo.findOne({url: req.body.photo_url}, function(err, photo){
+				photo.notebooks.push(req.body.name);
 				if (req.body.comment != "") {
 					photo.comments.push(req.body.comment);
 					Comment.create({text: req.body.comment, user: sessionUser.email, firstName: sessionUser.firstName, lastName: sessionUser.lastName, photoUrl: req.body.photo_url}, function(err, text){
@@ -64,7 +48,6 @@ module.exports = function(app) {
 					});
 				}
 				photo.save(function(){
-					res.redirect('back');	
 				});
 			});
 

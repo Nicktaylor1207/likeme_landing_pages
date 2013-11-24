@@ -3,7 +3,7 @@ html, body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
   -webkit-margin-collapse: separate;
-  /* background-color: rgba(247, 247, 247, .7) !important; */
+  /* background-color: #FAFAFA !important; */
 }
 
 a {
@@ -17,7 +17,7 @@ a {
 	min-height: 100%; /* real browsers */
 	margin: 0px auto;
 	padding: 40px 0px 50px 0px;
-	background-color: rgba(247, 247, 247, .7);
+	background-color: #FAFAFA;
 }
 
 .navbar-inner {
@@ -404,7 +404,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	height: 270px;
 	display: inline-block;
 	position: relative;
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: 1px solid #CACACA;
 	border-radius: 4px;
 	margin: 0px 35px 30px 0px;
 	background-position: center center;
@@ -461,7 +461,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	/* min-height: 100%; /* real browsers */
 	margin: 0px auto 0px auto;
 	padding: 50px 0px 40px 0px;
-	background-color: rgba(247, 247, 247, .7)
+	background-color: #FAFAFA
 }
 
 #pro-album-container {
@@ -495,7 +495,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	height: 250px;
 	display: inline-block;
 	position: relative;
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: 1px solid #CACACA;
 	border-radius: 4px;
 	margin: 0px 35px 30px 0px;
 	overflow: hidden;
@@ -626,7 +626,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	height: 500px;
 	width: 25% !important;
 	margin: 20px 0px 0px 0px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 	border-radius: 4px;
 	padding: 10px 10px;
 	position: relative;
@@ -832,7 +832,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	margin: 0px 0px 15px 0px;
 }
 
-#nb-photos-modal-close {
+.modal-close {
 	margin-top: -10px;
 }
 
@@ -868,7 +868,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 #footer-about {
-	background-color: rgba(247, 247, 247, .7);
+	background-color: #FAFAFA;
 }
 
 #footer-about-inner {
@@ -877,7 +877,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .footer-inner-container {
 	border-top: 1px solid #CACACA;
-	background-color: rgba(247, 247, 247, .7);
+	background-color: #FAFAFA;
 	width: 990px;
 	margin: 0px auto 0px auto;
 	padding: 5px 0px;
@@ -1359,7 +1359,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	min-height: 100%; /* real browsers */
 	margin: 0px auto 0px auto;
 	padding: 0px;
-	background-color: rgba(247, 247, 247, .7)
+	background-color: #FAFAFA
 }
 
 .pa-photo-display-container {
@@ -1369,7 +1369,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .pa-photo-content-container {
 	height: 500px;
 	margin: 20px 0px 0px 0px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 	border-radius: 4px;
 	padding: 10px 10px;
 	position: relative;	
@@ -1625,7 +1625,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .border-container {
 	padding: 2px;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 	background-color: white;
 }
 
@@ -1682,13 +1682,13 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .profile-details-container {
 	padding: 17px;
 	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 }
 
 .profile-contact-container {
 	padding: 12px;
 	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 }
 
 .profile-contact-email {
@@ -1731,7 +1731,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	padding: 12px;
 	background-color: white;
 	/* background-color: #CDE4D6; */
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border: 1px solid #CACACA;
 }
 
 #notebook-header {
@@ -1792,4 +1792,110 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .profile-search-pic-name {
 	font-size: 20px;	
+}
+
+/* Add photos to notebook modal */
+
+#photos-add-photos-modal {
+	padding: 0px;
+	position: fixed;
+	top: 15%;
+	width: 500px;
+	margin-left: -250px;
+}
+
+#ap-modal-body {
+	padding: 0px;
+	position: relative;
+}
+
+#ap-modal-header-ctn {
+	padding: 15px 15px 15px 15px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #CACACA; 
+}
+
+#ap-modal-header {
+	margin: 0px;
+	line-height: 20px !important; 
+	font-size: 20px;
+}
+
+#ap-modal-close {
+	position: absolute;
+	font-size: 30px;
+	line-height: 25px;
+	top: 8px;
+	right: 12px;
+}
+
+#ap-modal-form {
+	margin: 0px;
+}
+
+.ap-modal-input-ctn {
+	padding: 0px 15px 20px 20px;
+	display: inline-block;
+}
+
+.ap-modal-label {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#ap-modal-input {
+	margin-bottom: 0px;
+}
+
+.ap-modal-textarea {
+	width: 270px;
+	margin-bottom: 0px;
+}
+
+#select-notebook {
+	width: 285px;
+}
+
+#create-notebook-input-ctn {
+	position: absolute;
+	width: 270px;
+	padding: 10px;
+	top: 95px;
+	right: 50px;
+	background-color: #FAFAFA;
+	border: 1px solid #CACACA;
+	box-shadow: 0 0 5px #000;
+}
+
+#create-notebook-input {
+	width: 198px;
+	display: inline-block;
+	float: left;
+}
+
+#create-notebook-btn {
+	padding: 3.5px 8px;
+	margin-left: 5px;
+	float: left;
+	display: inline-block;
+}
+
+#select-notebook-options-ctn {
+	width: 270px;
+	background-color: #FAFAFA;
+}
+
+#select-notebook-btn-veil {
+	position: absolute;
+	right: 25px;
+	width: 285px;
+	z-index: 100;
+	padding-top: 10px;
+	opacity: 0;
+}
+
+#p-option-veil {
+	position: absolute;
+	right: 275px;
+	top: 75px;
 }

@@ -15,17 +15,17 @@ module.exports = function(app) {
 	// app.post('/notebook1', selectNav, function(req, res) {
 	// 	if (sessionUser) {
 
-	// 		function checkPhotoDup(photo){
-	// 			if (photo == req.body.image_url) {
-	// 				return true;
-	// 			} else {
-	// 				return false;
-	// 			}
-	// 		}
+			// function checkPhotoDup(photo){
+			// 	if (photo == req.body.image_url) {
+			// 		return true;
+			// 	} else {
+			// 		return false;
+			// 	}
+			// }
 
-	// 		if (sessionUser.notebook.photos.some(checkPhotoDup) == true) {
-	// 			res.redirect('back');
-	// 		} else {
+			// if (sessionUser.notebook.photos.some(checkPhotoDup) == true) {
+			// 	res.redirect('back');
+			// } else {
 	// 			sessionUser.notebook.photos.push(req.body.image_url);
 	// 			sessionUser.save(function(){
 	// 				Photo.findOne({url: req.body.image_url}, function(err, photo) {
