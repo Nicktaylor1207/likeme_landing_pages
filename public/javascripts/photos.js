@@ -47,7 +47,7 @@ $(function(){
 
 	if (user) {
 
-	var userPhotos = user.notebook.photos;
+	var userPhotos = user.photos;
 
 	$.each(userPhotos, function(index, userPhoto){
 		$('.add-notebook-form').each(function(index, form){

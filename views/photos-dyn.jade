@@ -45,8 +45,8 @@ block content
 		div#pm-left-ctn
 			img#pm-photo(src="#", finder="#")
 			form#add-notebook-form-pm(method="POST", action="/notebook1")
-				input#pm-img-url.hide(name="image_url", value="")
-				input.btn#add-to-nb-btn-pm(type="submit", value="Add to Notebook")
+				input#pm-img-url.hide(name="photo_url", value="")
+				input.btn#add-to-nb-btn-pm(type="submit", value="Add to Notebook", href='#photos-add-photos-modal', data-toggle='modal')
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
 			div.arrow-bg#arrow-bg
@@ -62,17 +62,17 @@ block content
 					input#pm-user.hide(name='user', value="")
 					input#pm-userFirst.hide(name='firstName', value="")
 					input#pm-userLast.hide(name='lastName', value="")
-					input#pm-photoUrl.hide(name='photoUrl', value="")
+					input#pm-photoUrl.hide(name='photo_url', value="")
 					textarea#pm-comments-box.comments-box(rows='4', name='text')
 					input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
 				div#pm-comment-container-inner
-	div#photos-add-photos-modal.modal(tabindex="-1", role="dialog", aria-labelledby="addPhotosModal", aria-hidden="true")
+	div#photos-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="addPhotosModal", aria-hidden="true")
 		div.modal-body#ap-modal-body
 			button.close#ap-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#ap-modal-header-ctn
 				h3#ap-modal-header Choose a notebook
 			form#ap-modal-form(method="POST", action="/notebook1")
-				input#add-photo-url.hide(class='hide', name='photo_url', value="images/displays/64.jpg")
+				input#add-photo-url.hide(class='hide', name='photo_url', value="")
 				div.row-fluid
 					div.span4.ap-modal-input-ctn
 						label.ap-modal-label Notebook:
@@ -88,9 +88,9 @@ block content
 					input.btn.btn-primary(type="submit", value="Submit")
 			div.modal#select-notebook-ctn.hide(tabindex="-1", role="dialog", aria-labelledby="selectNotbook", aria-hidden="true", data-backdrop="false")
 				div#create-notebook-input-ctn
-					input#create-notebook-input(type="text", name="name", placeholder="Create new notebook")
+					input#create-notebook-input(type="text", name="name", placeholder="Create New Notebook")
 					btn.btn.btn-primary.btn-small#create-notebook-btn Create
-					select#select-notebook-options-ctn(multiple="multiple", size="5", name="feet")
+					select#select-notebook-options-ctn(multiple="multiple", size="5")
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")

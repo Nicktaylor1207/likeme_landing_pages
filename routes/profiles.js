@@ -1,6 +1,7 @@
 var Email = require('../data/models/emails');
 var Photo = require('../data/models/photos');
 var Comment = require('../data/models/comments');
+var Notebook = require('../data/models/notebooks');
 var selectNav = require('./middleware/select_nav');
 var fs = require('fs');
 var path = require('path');
@@ -13,11 +14,23 @@ module.exports = function(app) {
     return y;
   }
 
-
   app.get('/pro-profile', selectNav, function(req, res) {
 	  if (sessionUser) {
-		  res.render('pro-profile', {user: sessionUser, photos: sessionUser.notebook.photos, navLogin: req.body.navLogin});
-	  }
+      var notebookNames = sessionUser.notebooks;
+      var notebooks = [];
+      Notebook.find({user: sessionUser.email}, function(err, notebooks){
+        if (err) {
+          return err;
+        }
+        res.render('pro-profile', {user: sessionUser, notebooks: notebooks, navLogin: req.body.navLogin});
+      });
+	  };
+  });
+
+  app.get('/profile', selectNav, function(req, res) {
+    if (sessionUser) {
+      res.render('profile', {user: sessionUser, navLogin: req.body.navLogin});
+    }
   });
 
   app.get('/pro-profile-create', selectNav, function(req, res) {

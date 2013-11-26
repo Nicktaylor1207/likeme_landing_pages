@@ -47,11 +47,35 @@ module.exports = function(app) {
 					photo.save();
 				});
 				
-			};
+			} else {
+
+				/* Add the photo to the notebook */
+				Notebook.findOne({name: req.body.name, user: sessionUser.email}, function(err, name){
+					if (err) {
+						return;
+					} else {
+			  		name.photoArray.push(req.body.photo_url);
+			  		name.save();
+			  	}
+				});
+
+			}
 
 			/* Add the photo to the user's photos array */
-			sessionUser.photos.push(req.body.photo_url);
-			sessionUser.save();
+			function checkPhotoDup(photo){
+				if (photo == req.body.photo_url) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			if (sessionUser.photos.some(checkPhotoDup) == false) {
+				sessionUser.photos.push(req.body.photo_url);
+				sessionUser.save();
+			} else {
+				console.log("Already added to user's photos");
+			}
 
 			/* Update Photo document with comment and create comment */
 			Photo.findOne({url: req.body.photo_url}, function(err, photo){

@@ -45,7 +45,7 @@ block content
 		div#pm-left-ctn
 			img#pm-photo(src="#", finder="#")
 			form#add-notebook-form-pm(method="POST", action="/notebook1")
-				input#pm-img-url.hide()(name="image_url", value="")
+				input#pm-img-url.hide(name="photo_url", value="")
 				input.btn#add-to-nb-btn-pm(type="submit", value="Add to Notebook")
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
@@ -56,7 +56,6 @@ block content
 		div#pm-right-ctn
 			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#pm-right-ctn-inner
-				// p#pm-notebook-count
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")

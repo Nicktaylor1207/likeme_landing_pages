@@ -9,16 +9,29 @@
 
 $(function(){
 
-	var notebooks = user.notebooks;
-	$('#select-notebook').html('<option>' + $(notebooks).last()[0] + '</option>');
+	$('.add-to-nb-btn').on('click', function(){
+		var photoUrl = $(this).prev('#img-url').val();
+		$('#add-photo-url').val(photoUrl);
+	})
+		
+	if (user.notebooks && user.notebooks.length > 0) {
+		
+		var notebooks = user.notebooks;
+		$('#select-notebook').html('<option>' + $(notebooks).last()[0] + '</option>');
+
+		var options = "";
+
+		$.each(notebooks, function(index, notebook){
+			options += '<option>' + notebook + '</option>';
+			$('#select-notebook-options-ctn').html(options);
+		});
+
+	} else {
+		
+		$('#select-notebook').html('<option>' + 'Create New Notebook' + '</option>');
 	
-	var options = "";
-
-	$.each(notebooks, function(index, notebook){
-		options += '<option>' + notebook + '</option>';
-		$('#select-notebook-options-ctn').html(options);
-	});
-
+	}
+	
 	$('#photos-add-photos-modal').on('hidden', function(){
 		$('#select-notebook-ctn').hide();
 	});
