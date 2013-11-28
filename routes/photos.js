@@ -12,6 +12,10 @@ module.exports = function(app) {
 		}
 	});
 
+	app.get('/nb-pm', function(req, res) {
+		res.redirect('back');
+	});
+
 	// app.post('/notebook1', selectNav, function(req, res) {
 	// 	if (sessionUser) {
 

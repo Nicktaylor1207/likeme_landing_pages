@@ -28,18 +28,69 @@ block content
 						h4#notebook-header #{user.firstName}'s Notebooks
 						div#profile-nb-container
 							div#profile-nb-photos-container
+	div.modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
+		div#pm-left-ctn
+			img#pm-photo(src="#", finder="#")
+			form#add-notebook-form-pm(method="POST", action="/notebook1")
+				input#pm-img-url.hide(name="photo_url", value="")
+				input.btn#add-to-nb-btn-pm(type="submit", value="Add to Notebook", href='#photos-add-photos-modal', data-toggle='modal')
+			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
+			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
+			div.arrow-bg#arrow-bg
+				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='View full screen');
+			div.arrow-bg#full-arrow-bg.hide()
+				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
+		div#pm-right-ctn
+			button.close#photo-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#pm-right-ctn-inner
+			div#pm-comment-container
+				p#pm-add-comment-header <a>Add Comment</a>
+				form#pm-add-comment-form.hide(method='POST', action='/comment')
+					input#pm-user.hide(name='user', value="")
+					input#pm-userFirst.hide(name='firstName', value="")
+					input#pm-userLast.hide(name='lastName', value="")
+					input#pm-photoUrl.hide(name='photo_url', value="")
+					textarea#pm-comments-box.comments-box(rows='4', name='text')
+					input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
+				div#pm-comment-container-inner
+	div#photos-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="photosAddPhotosModal", aria-hidden="true")
+		div.modal-body#ap-modal-body
+			button.close#ap-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#ap-modal-header-ctn
+				h3#ap-modal-header Choose a notebook
+			form#ap-modal-form(method="POST", action="/notebook1")
+				input#add-photo-url.hide(class='hide', name='photo_url', value="")
+				div.row-fluid
+					div.span4.ap-modal-input-ctn
+						label.ap-modal-label Notebook:
+					div.span8.ap-modal-input-ctn
+						select#select-notebook(name="name")
+						btn.btn-primary#select-notebook-btn-veil(href="#select-notebook-ctn", data-toggle="modal") Button Veil
+				div.row-fluid
+					div.span4.ap-modal-input-ctn
+						label.ap-modal-label Add Comment:
+					div.span8.ap-modal-input-ctn
+						textarea.ap-modal-textarea(rows="4", name="comment")
+				div.modal-footer#nb-photos-modal-footer
+					input.btn.btn-primary(type="submit", value="Submit")
+			div.modal#select-notebook-ctn.hide(tabindex="-1", role="dialog", aria-labelledby="selectNotbook", aria-hidden="true", data-backdrop="false")
+				div#create-notebook-input-ctn
+					input#create-notebook-input(type="text", name="name", placeholder="Create New Notebook")
+					btn.btn.btn-primary.btn-small#create-notebook-btn Create
+					select#select-notebook-options-ctn(multiple="multiple", size="5")
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type='text/javascript', src='Readmore.js-master/readmore.min.js')
-	script(type="text/javascript", src="/javascripts/notebook-modal.js")
 	script(type="text/javascript", src="/javascripts/profiles.js")
 	script(type="text/javascript", src="/javascripts/profile-notebook.js")
+	script(type="text/javascript", src="/javascripts/profile-nb-modal.js")
+	script(type="text/javascript", src="/javascripts/add-nb-modal-profile.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.
 		var user = !{JSON.stringify(user)}
 	script.
-		var notebooks = !{JSON.stringify(notebooks)}		
+		var notebooks = !{JSON.stringify(notebooks)}

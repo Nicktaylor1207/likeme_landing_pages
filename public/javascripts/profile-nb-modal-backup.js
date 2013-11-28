@@ -11,7 +11,41 @@ function setNotedBtn(photo) {
 
 $(function(){	
 
-	$('.photo-img').on('click', function(){
+	$('.profile-nb-photo-img-container').on('click', function(){
+			
+		function sortByKey(array, key) {
+		  return array.sort(function(a, b) {
+		    var x = a[key]; var y = b[key];
+		    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+		  });
+		}
+
+		/* Set the array of photos to be used per the notebook clicked */
+		var nbFinder = parseInt($(this).attr('finder'), 10);
+		var notebook = notebooks[nbFinder];
+		var nbPhotos = notebook.photoArray;
+		var coverPhoto = nbPhotos[nbPhotos.length - 1];
+
+		/* Set modal photo */
+		$('#pm-photo').attr('src', coverPhoto);
+
+		// /* Set modal finder */
+		// $('#pm-photo').attr('finder', finder);
+
+		/* Set img url for form input */
+		$('#pm-img-url').attr('value', coverPhoto);
+
+		/* Set noted property of modal Note button */
+		setNotedBtn(photoObj);
+
+	});
+
+});
+
+
+$(function(){	
+
+	$('.profile-nb-photo-img-container').on('click', function(){
 		
 		/* Photo attributes should be set with photoObj and finder */
 		var finder = parseInt($(this).attr('finder'), 10);
@@ -336,4 +370,3 @@ $('#pm-add-comment-form').submit(function(){
 
 	return false; // avoid to execute the actual submit of the form.
 });
-

@@ -1659,11 +1659,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   opacity: 0;
 }
 
-#profile-notebook-container {
-	
-	margin-top: 30px;
-}
-
 .profile-title {
 	margin-bottom: 5px;
 }
@@ -1754,7 +1749,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	width: 216px;
 	box-shadow: 0 0 2px #000;
 	border-radius: 4px;
-	display: inline-block;
 	background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1771,7 +1765,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .profile-album-label-container {
 	width: 100%;
-	height: 30px;
+	min-height: 30px;
 	background-color: rgba(27,27,27,.8);
 	z-index: 1;
 	position: absolute;
@@ -1792,6 +1786,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .profile-search-pic-name {
 	font-size: 20px;	
+	margin-bottom: 0px;
 }
 
 /* Add photos to notebook modal */

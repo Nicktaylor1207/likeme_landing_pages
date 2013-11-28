@@ -1,15 +1,31 @@
 function setNotedBtn(photo) {
-	var noteBtn = $('#add-to-nb-btn-pm');
-	if (photo.noted == true) {
-		noteBtn.attr('disabled', true);
-		noteBtn.val('Noted');
-	} else {
-		noteBtn.attr('disabled', false);
-		noteBtn.val('Add to Notebook');
+		var noteBtn = $('#add-to-nb-btn-pm');
+		if (photo.noted == true) {
+			noteBtn.attr('disabled', true);
+			noteBtn.val('Noted');
+		} else {
+			noteBtn.attr('disabled', false);
+			noteBtn.val('Add to Notebook');
+		}
 	}
-}
 
 $(function(){	
+
+	// function setNotebookCount(photo){
+	// 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	// 	var photoObj = photos[finder];
+	// 	if (photo.newNote == true) {
+	// 		var notebookCount = photoObj.liked + 1;
+	// 	} else {
+	// 		var notebookCount = photoObj.liked;
+	// 	}
+	// 	if (notebookCount == 1) {
+	// 		var notebookHTML = notebookCount + " " + "Notebook"
+	// 	} else {
+	// 		var notebookHTML = notebookCount + " " + "Notebooks"
+	// 	}
+	// 	$('#pm-notebook-count').html(notebookHTML);
+	// }
 
 	$('.photo-img').on('click', function(){
 		
@@ -28,6 +44,9 @@ $(function(){
 
 		/* Set noted property of modal Note button */
 		setNotedBtn(photoObj);
+
+		/* Set notebook count HTML */
+		// setNotebookCount(photoObj);
 
 	});
 
@@ -109,6 +128,16 @@ $(function(){
 	  noteBtn.attr('disabled', true);
 	  noteBtn.val('Noted');
 
+	  /* Update notebook count */
+	  // var notebookText = $('#pm-notebook-count');
+	  // var notebookHTML = notebookText.html();
+	  // var notebookCount = parseInt(notebookHTML, 10) + 1;
+	  // if (notebookCount == 1) {
+	  // 	notebookText.html("1 Notebook");
+	  // } else {
+	  // 	notebookText.html(notebookCount + " " + "Notebooks");
+	  // }
+
     /* Set the corresponding button and notebook counts */
     (function(){
 	    var formFinder = $('#pm-photo').attr('finder');
@@ -119,6 +148,16 @@ $(function(){
 	  	noteBtnFind.attr('disabled','disabled');
 	    noteBtnFind.val('Noted');
 
+	    /* Set notebook counter correctly */
+	    // var notebookText = containerDiv.find('.notebook-count');
+	    // var notebookHTML = notebookText.html();
+	    // var notebookCount = parseInt(notebookHTML) + 1;
+
+	    // if (notebookCount == 1) {
+	    // 	notebookText.html("1 Notebook");
+	    // } else {
+	    // 	notebookText.html(notebookCount + " " + "Notebooks");
+	    // }
   	}).call(this);
 
 	  var finder = parseInt($('#pm-photo').attr('finder'), 10);
@@ -158,7 +197,10 @@ $(function(){
 		});
 
 		photoModal.on('hidden', function(){
-			
+			// if ( $.cookie("scroll") !== null ) {
+			//   $(document).scrollTop( $.cookie("scroll"));
+			//   console.log("scrollin homies..");
+			// }
 			if (location.href.indexOf('pm') != -1) {
 				window.history.back();
 			}
@@ -179,6 +221,12 @@ $(function(){
 				  }
 				});
 
+				/* Handle notebook count plurals */
+				// $('.notebook-count').each(function(i, obj){
+				// 	if ($(obj).html() == "1 Notebooks") {
+				// 		$(obj).html('1 Notebook');
+				// 	}	
+				// });
 			}
 		};
 	}).call(this);
@@ -299,6 +347,36 @@ $(function(){
 	});
 
 });
+
+/* Handle comment form submit from modal */
+// $(function(){
+
+// 	if ($.cookie('modal-cookie-finder')) {
+
+// 		var finder = parseInt($.cookie('modal-cookie-finder'), 10);
+// 		var photoObj = photos[finder];
+
+// 		/* Set modal photo */
+// 		$('#pm-photo').attr('src', photoObj.url);
+
+// 		/* Set modal finder */
+// 		$('#pm-photo').attr('finder', finder);
+
+// 		/* Set img url for form input */
+// 		$('#pm-img-url').attr('value', photoObj.url);
+
+// 		/* Set noted property of modal Note button */
+// 		setNotedBtn(photoObj);
+
+// 		$('#photo-modal').modal('show');
+
+// 	}
+
+// 	$('#pm-add-comment-form').submit(function(){
+// 		$.cookie('modal-cookie-finder', $('#pm-photo').attr('finder'));
+// 	});
+
+// });
 
 /* Handle comments in modal */
 $('#pm-add-comment-form').submit(function(){

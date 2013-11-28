@@ -7,7 +7,7 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/notebook', selectNav, function(req, res) {
-  	res.render('notebook', {photos: sessionUser.notebook.photos, navLogin: req.body.navLogin, user: sessionUser});
+  	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser});
 	});
 
 	app.get('/nb-pm', function(req, res) {
