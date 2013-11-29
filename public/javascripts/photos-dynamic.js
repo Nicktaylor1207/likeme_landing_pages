@@ -47,23 +47,6 @@ $(function(){
 
 		var commentsContent = "<div class='comment-container'><p class='add-comment-header'><a>Add Comment</a></p><form class='add-comment-form hide' method='POST' action='/comment'><input class='hide' name='user' value=" + user.email + "><input class='hide' name='firstName' value=" + user.firstName + "><input class='hide' name='lastName' value=" + user.lastName + "><input class='hide' name='photoUrl' value=" + photoUrl + "><textarea class='comments-box' rows='4' name='text'></textarea><input class='btn btn-primary add-comment-btn' type='submit' value='Submit'></form><div class='comments-content-container'>" + commentsDynamic + "</div></div>";
 		var contentRight = styleTag + typeTag + commentsContent;
-
-		// <div class='comment-container'>
-		// 	<p class='add-comment-header'><a href='#'>Add Comment</a></p>
-		// 	<form class='add-comment-form hide' method='POST' action='/comment'>
-		// 		<input class='hide' name='user' value="zach@sevenalbums.com">
-		// 		<input class='hide' name='userName' value="Zach Taylor">
-		// 		<input class='hide' name='photoUrl' value="images/merc/18.jpg">
-		// 		<textarea class='comments-box' rows='4' name='comment'></textarea>
-		// 		<input class='btn btn-primary add-comment-btn' type='submit' value='Submit'>
-		// 	</form>
-		// <div class='comment-display-container'>
-		// 	<div class-'comment-text-container'>
-		// 		<p class='comments-name'>Zach Taylor</p>
-		// 		<p class='comments-text'>This is a terrific display! What is the item in the top middle compartment and where is it from? I love it.</p>
-		// 	</div>
-		// </div>
-		// </div>
 		
 		var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' value=" + photoUrl + "><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook' href='#photos-add-photos-modal' data-toggle='modal'></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";
 		$('.photo-page-container').append(photosHtml);

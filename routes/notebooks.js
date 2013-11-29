@@ -31,7 +31,7 @@ module.exports = function(app) {
 				/* Create a new notebook */
 				Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
 					if (err) {
-						return;
+						throw err;
 					} else {
 			  		name.photoArray.push(req.body.photo_url);
 			  		name.save();

@@ -103,37 +103,6 @@ $(function(){
 });
 
 // $(function(){
-// 	/* Handle "Note" form submit from modal */
-// 	$('#add-notebook-form-pm').submit(function(){
-// 	  var url = "/notebook1"; // POST form route
-// 	  var form = $(this);
-	  
-// 	  var noteBtn = $('#add-to-nb-btn-pm');
-// 	  noteBtn.attr('disabled', true);
-// 	  noteBtn.val('Noted');
-
-// 		var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
-// 		var nbPhotos = notebooks[nbFinder].photoObjects;
-// 		var finder = parseInt($('#pm-photo').attr('finder'), 10);
-// 		var photoObj = nbPhotos[finder];
-// 	  photoObj.noted = true;
-// 	  photoObj.newNote = true;
-
-// 	  $.ajax({
-// 	    type: "POST",
-// 	    url: url,
-// 	    data: form.serialize(), // serializes the form's elements.
-// 	  });
-
-// 	  $('#photo-modal').focus();
-
-// 	  return false; // avoid to execute the actual submit of the form.
-// 	});
-// });
-
-
-
-// $(function(){
 
 // 	/* Set modal style and handle history and esc navigation */
 // 	(function(){
