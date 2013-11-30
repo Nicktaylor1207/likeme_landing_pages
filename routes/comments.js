@@ -11,7 +11,7 @@ module.exports = function(app) {
 			if (err) {
 				return;
 			}
-			var photoUrl = req.body.photoUrl;
+			var photoUrl = req.body.photo_url;
 			Photo.findOne({'url': photoUrl}, function(err, photo){
 				photo.comments.push(req.body.text);
 				photo.save(function(){

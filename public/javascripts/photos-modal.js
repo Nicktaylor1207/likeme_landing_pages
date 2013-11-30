@@ -1,14 +1,3 @@
-function setNotedBtn(photo) {
-	var noteBtn = $('#add-to-nb-btn-pm');
-	if (photo.noted == true) {
-		noteBtn.attr('disabled', true);
-		noteBtn.val('Noted');
-	} else {
-		noteBtn.attr('disabled', false);
-		noteBtn.val('Add to Notebook');
-	}
-}
-
 $(function(){	
 
 	$('.photo-img').on('click', function(){
@@ -25,9 +14,6 @@ $(function(){
 
 		/* Set img url for form input */
 		$('#pm-img-url').attr('value', photoObj.url);
-
-		/* Set noted property of modal Note button */
-		setNotedBtn(photoObj);
 
 	});
 
@@ -55,8 +41,6 @@ $(function(){
 			$('#pm-photo').attr('finder', finder);
 			$('#pm-img-url').val(photoObj.url);
 			
-			setNotedBtn(photoObj);
-			// setNotebookCount(photoObj);
 			setTags();
 			setComments();
 
@@ -84,7 +68,6 @@ $(function(){
 				$('#pm-photo').attr('finder', finder);
 				$('#pm-img-url').val(photoObj.url);
 				
-				setNotedBtn(photoObj);
 				// setNotebookCount(photoObj);
 				setTags();
 				setComments();
@@ -104,27 +87,6 @@ $(function(){
 	$('#add-notebook-form-pm').submit(function(){
 	  var url = "/notebook1"; // the script where you handle the form input.
 	  var form = $(this);
-	  
-	  var noteBtn = $('#add-to-nb-btn-pm');
-	  noteBtn.attr('disabled', true);
-	  noteBtn.val('Noted');
-
-    /* Set the corresponding button and notebook counts */
-    (function(){
-	    var formFinder = $('#pm-photo').attr('finder');
-	   	var containerDiv = $("#" + formFinder);
-	   	var noteBtnFind = containerDiv.find('.add-to-nb-btn');
-
-	   	/* Set btn to noted */
-	  	noteBtnFind.attr('disabled','disabled');
-	    noteBtnFind.val('Noted');
-
-  	}).call(this);
-
-	  var finder = parseInt($('#pm-photo').attr('finder'), 10);
-		var photoObj = photos[finder];
-	  photoObj.noted = true;
-	  photoObj.newNote = true;
 
 	  $.ajax({
 	    type: "POST",
@@ -167,18 +129,8 @@ $(function(){
 		});
 
 		window.onpopstate = function(e){
-
 			if (JSON.stringify(e.state) == "null") {
 				photoModal.modal('hide');
-
-				$('.add-notebook-form').each(function(index, form){
-					var noteBtn = $(form).find('.add-to-nb-btn');
-				  if (photos[index].noted == true) {
-				  	noteBtn.attr('disabled', true);
-				  	noteBtn.val('Noted');
-				  }
-				});
-
 			}
 		};
 	}).call(this);
@@ -301,7 +253,7 @@ $(function(){
 });
 
 /* Handle comments in modal */
-$('#pm-add-comment-form').submit(function(){
+$('#pm-add-comment-form').on('submit', function(){
 	var form = $(this);
 
 	var newComment = $('#pm-comments-box').val();
@@ -336,4 +288,3 @@ $('#pm-add-comment-form').submit(function(){
 
 	return false; // avoid to execute the actual submit of the form.
 });
-

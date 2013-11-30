@@ -40,6 +40,7 @@ module.exports = function(app) {
 
 				/* Add the notebook the user's notebooks array */				
 				sessionUser.notebooks.push(req.body.name);
+				sessionUser.save();
 
 				/* Update Photo document with notebook reference */
 				Photo.findOne({url: req.body.photo_url}, function(err, photo){

@@ -1,17 +1,10 @@
-// $(function(){
-
-// 	$('.add-notebook-form').submit(function(){
-// 		var form = $(this);
-// 		var photoFinder = $(form).next().find('.photo-img').attr('finder');
-// 	});
-
-// });
-
 $(function(){
 
 	$('.add-to-nb-btn').on('click', function(){
 		var photoUrl = $(this).prev('#img-url').val();
+		var photoFinder = $(this).prev('#img-url').attr('finder');
 		$('#add-photo-url').val(photoUrl);
+		$('#add-photo-url').attr('finder', photoFinder);
 	})
 		
 	if (user.notebooks && user.notebooks.length > 0) {
@@ -48,4 +41,46 @@ $(function(){
 		$('#select-notebook-ctn').hide();
 	});
 
+});
+
+/* Handle adding photos to notebooks */
+$(function(){
+
+	$('#ap-modal-form').submit(function(){
+	  var url = "/notebook1"; // the script where you handle the form input.
+	  var form = $(this);
+	  
+	  $('#photos-add-photos-modal').modal('hide');
+
+	  /* Update comments on photos page */
+	  var commentsBox = form.find('.ap-modal-textarea'); 
+		var newComment = commentsBox.val();
+
+		/* Handle the new view for the page */
+		var finder = parseInt($('#add-photo-url').attr('finder'), 10);
+		var containerDiv = $('#' + finder);
+		var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+		containerDiv.find('.comments-content-container').prepend(newCommentHTML);
+
+		// /* Handle the photos modal view */
+		if (photos[finder].newCommentHTML) {
+			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[finder].newCommentHTML;
+		} else {
+			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";	
+		};
+
+	  $.ajax({
+	    type: "POST",
+	    url: url,
+	    data: form.serialize(), // serializes the form's elements.
+	  })
+			.done(function() {
+	    	commentsBox.val('');
+	  	});
+
+	  window.history.pushState({stateObj: 'noted'}, '', '?noted');
+
+	  return false; // avoid executing the actual submit of the form.
+	});
+	
 });
