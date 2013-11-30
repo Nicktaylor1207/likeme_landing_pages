@@ -1,8 +1,21 @@
+/* Allow for bootstrap modal within a modal */
+$(function(){
+	$.fn.modal.Constructor.prototype.enforceFocus = function () {};
+});
+
+/* Set add-notebook-modal */
 $(function(){
 
 	$('.add-to-nb-btn').on('click', function(){
 		var photoUrl = $(this).prev('#img-url').val();
 		var photoFinder = $(this).prev('#img-url').attr('finder');
+		$('#add-photo-url').val(photoUrl);
+		$('#add-photo-url').attr('finder', photoFinder);
+	})
+
+	$('#add-to-nb-btn-pm').on('click', function(){
+		var photoUrl = $('#pm-photo').attr('src');
+		var photoFinder = $('#pm-photo').attr('finder');
 		$('#add-photo-url').val(photoUrl);
 		$('#add-photo-url').attr('finder', photoFinder);
 	})
@@ -56,13 +69,30 @@ $(function(){
 	  var commentsBox = form.find('.ap-modal-textarea'); 
 		var newComment = commentsBox.val();
 
-		/* Handle the new view for the page */
+		/* Handle comments for the photos page */
 		var finder = parseInt($('#add-photo-url').attr('finder'), 10);
 		var containerDiv = $('#' + finder);
 		var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
 		containerDiv.find('.comments-content-container').prepend(newCommentHTML);
 
-		// /* Handle the photos modal view */
+		/* Handle creating a notebook */
+		var newNotebook = $('#select-notebook option').val();
+
+		function checkNotebook(notebook){
+			if (notebook == newNotebook) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		/* If the notebook does not already exist, then add it to options */
+		if (user.notebooks.some(checkNotebook) == false) {
+			$('#select-notebook-options-ctn').append('<option>' + newNotebook + '</option>');
+			$('#create-notebook-input').val("");
+		}
+
+		// /* Handle comments in photos modal view */
 		if (photos[finder].newCommentHTML) {
 			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[finder].newCommentHTML;
 		} else {

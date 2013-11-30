@@ -12,8 +12,8 @@ $(function(){
 		/* Set modal finder */
 		$('#pm-photo').attr('finder', finder);
 
-		/* Set img url for form input */
-		$('#pm-img-url').attr('value', photoObj.url);
+		/* Set img url for form input -- NEED??? */
+		// $('#pm-img-url').attr('value', photoObj.url);
 
 	});
 

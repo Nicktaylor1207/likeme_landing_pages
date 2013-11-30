@@ -1,3 +1,4 @@
+/* Allow for bootstrap modal within a modal */
 $(function(){
 	$.fn.modal.Constructor.prototype.enforceFocus = function () {};
 });
