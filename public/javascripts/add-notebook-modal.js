@@ -11,14 +11,14 @@ $(function(){
 		var photoFinder = $(this).prev('#img-url').attr('finder');
 		$('#add-photo-url').val(photoUrl);
 		$('#add-photo-url').attr('finder', photoFinder);
-	})
+	});
 
 	$('#add-to-nb-btn-pm').on('click', function(){
 		var photoUrl = $('#pm-photo').attr('src');
 		var photoFinder = $('#pm-photo').attr('finder');
 		$('#add-photo-url').val(photoUrl);
 		$('#add-photo-url').attr('finder', photoFinder);
-	})
+	});
 		
 	if (user.notebooks && user.notebooks.length > 0) {
 		
@@ -56,7 +56,7 @@ $(function(){
 
 });
 
-/* Handle adding photos to notebooks */
+/* Handle adding photos and comments to notebooks */
 $(function(){
 
 	$('#ap-modal-form').on('submit', function(){
@@ -65,15 +65,16 @@ $(function(){
 	  
 	  $('#photos-add-photos-modal').modal('hide');
 
-	  /* Update comments on photos page */
+	  /* Handle comments for the photos page */
 	  var commentsBox = form.find('.ap-modal-textarea'); 
 		var newComment = commentsBox.val();
 
-		/* Handle comments for the photos page */
-		var finder = parseInt($('#add-photo-url').attr('finder'), 10);
-		var containerDiv = $('#' + finder);
-		var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
-		containerDiv.find('.comments-content-container').prepend(newCommentHTML);
+		if (newComment != "") {
+			var finder = parseInt($('#add-photo-url').attr('finder'), 10);
+			var containerDiv = $('#' + finder);
+			var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+			containerDiv.find('.comments-content-container').prepend(newCommentHTML);	
+		}
 
 		/* Handle creating a notebook */
 		var newNotebook = $('#select-notebook option').val();
@@ -93,16 +94,15 @@ $(function(){
 		}
 
 		// /* Handle comments in photos modal view */
-		$('#pm-comment-container-inner').append(newCommentHTML);
-		if (photos[finder].newCommentHTML) {
-			photos[finder].newCommentHTML = newCommentHTML + photos[finder].newCommentHTML;
-		} else {
-			photos[finder].newCommentHTML = newCommentHTML;
-		};
+		if (newComment != "") {
+			$('#pm-comment-container-inner').prepend(newCommentHTML);
+			if (photos[finder].newCommentHTML) {
+				photos[finder].newCommentHTML = newCommentHTML + photos[finder].newCommentHTML;
+			} else {
+				photos[finder].newCommentHTML = newCommentHTML;
+			};
 
-				
-
-		$('.ap-modal-textarea').val()
+		}
 
 	  $.ajax({
 	    type: "POST",
@@ -111,6 +111,7 @@ $(function(){
 	  })
 			.done(function() {
 	    	commentsBox.val('');
+	    	$('.ap-modal-textarea').val('');
 	  	});
 
 	  window.history.pushState({stateObj: 'noted'}, '', '?noted');
@@ -119,4 +120,3 @@ $(function(){
 	});
 	
 });
-

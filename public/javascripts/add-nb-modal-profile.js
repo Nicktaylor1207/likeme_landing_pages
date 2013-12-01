@@ -6,9 +6,11 @@ $(function(){
 $(function(){
 
 	$('#add-to-nb-btn-pm').on('click', function(){
-		var photoUrl = $(this).prev('#pm-img-url').val();
+		var photoUrl = $('#pm-photo').attr('src');
+		var photoFinder = $('#pm-photo').attr('finder');
 		$('#add-photo-url').val(photoUrl);
-	})
+		$('#add-photo-url').attr('finder', photoFinder);
+	});
 		
 	if (user.notebooks && user.notebooks.length > 0) {
 		
@@ -46,31 +48,67 @@ $(function(){
 
 });
 
+/* Handle adding photos and comments to notebooks */
 $(function(){
-	/* Handle "Note" form submit from modal */
-	$('#ap-modal-form').submit(function(){
-	  var url = "/notebook1"; // POST form route
+
+	$('#ap-modal-form').on('submit', function(){
+	  var url = "/notebook1";
 	  var form = $(this);
 	  
-	  var noteBtn = $('#add-to-nb-btn-pm');
-	  noteBtn.attr('disabled', true);
-	  noteBtn.val('Noted');
+	  $('#photos-add-photos-modal').modal('hide');
 
-		var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
-		var nbPhotos = notebooks[nbFinder].photoObjects;
-		var finder = parseInt($('#pm-photo').attr('finder'), 10);
-		var photoObj = nbPhotos[finder];
-	  photoObj.noted = true;
-	  photoObj.newNote = true;
+		/* Handle creating a notebook */
+		var newNotebook = $('#select-notebook option').val();
+
+		function checkNotebook(notebook){
+			if (notebook == newNotebook) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		/* If the notebook does not already exist, then add it to options */
+		if (user.notebooks.some(checkNotebook) == false) {
+			$('#select-notebook-options-ctn').append('<option>' + newNotebook + '</option>');
+			$('#create-notebook-input').val("");
+		}
+
+		// /* Handle comments in photos modal view */
+		var commentsBox = form.find('.ap-modal-textarea'); 
+		var newComment = commentsBox.val();
+		
+		if (newComment != "") {
+			var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+			$('#pm-comment-container-inner').prepend(newCommentHTML);
+
+			var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
+			var photos = notebooks[nbFinder].photoObjects;
+			var finder = parseInt($('#pm-photo').attr('finder'), 10);
+
+			if (photos[finder].newCommentHTML) {
+				photos[finder].newCommentHTML = newCommentHTML + photos[finder].newCommentHTML;
+			} else {
+				photos[finder].newCommentHTML = newCommentHTML;
+			};
+
+		}
 
 	  $.ajax({
 	    type: "POST",
 	    url: url,
 	    data: form.serialize(), // serializes the form's elements.
-	  });
+	  })
+			.done(function() {
+	    	commentsBox.val('');
+	    	$('.ap-modal-textarea').val('');
+	  	});
 
 	  $('#photo-modal').focus();
 
-	  return false; // avoid to execute the actual submit of the form.
+	  window.history.pushState({stateObj: 'noted'}, '', '?noted');
+
+	  return false; // avoid executing the actual submit of the form.
 	});
+	
 });

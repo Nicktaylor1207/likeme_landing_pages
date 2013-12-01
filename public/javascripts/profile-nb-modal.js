@@ -1,23 +1,10 @@
-function setNotedBtn(photo) {
-	var noteBtn = $('#add-to-nb-btn-pm');
-	if (photo.noted == true) {
-		noteBtn.attr('disabled', true);
-		noteBtn.val('Noted');
-	} else {
-		noteBtn.attr('disabled', false);
-		noteBtn.val('Add to Notebook');
-	}
-}
-
 $(function(){	
 
 	$('.profile-nb-photo-img-container').on('click', function(){
 		
 		/* Find notebook via nbFinder attribute */
 		var nbFinder = parseInt($(this).attr('nbFinder'), 10);
-		$('#photo-modal').attr('nbFinder', nbFinder)
-
-		/* Photo attributes should be set with photoObj and finder */
+		$('#photo-modal').attr('nbFinder', nbFinder);
 		var photoObj = notebooks[nbFinder].photoObjects[0];
 
 		/* Set modal photo */
@@ -27,10 +14,7 @@ $(function(){
 		$('#pm-photo').attr('finder', 0);		
 
 		/* Set img url for form input */
-		$('#pm-img-url').attr('value', photoObj.url);
-
-		/* Set noted property of modal Note button */
-		setNotedBtn(photoObj);
+		$('#pm-img-url').val(photoObj.url);
 
 	});
 
@@ -61,10 +45,9 @@ $(function(){
 			$('#pm-photo').attr('src', photoObj.url);
 			$('#pm-photo').attr('finder', nbPhotoIndex);
 			$('#pm-img-url').val(photoObj.url);
-			
-			setNotedBtn(photoObj);
-			// setTags();
-			// setComments();
+
+			setTags();
+			setComments();
 
 			$('#pm-add-comment-form').hide()
 			
@@ -88,9 +71,8 @@ $(function(){
 				$('#pm-photo').attr('finder', nbPhotoIndex);
 				$('#pm-img-url').val(photoObj.url);
 				
-				setNotedBtn(photoObj);
-				// setTags();
-				// setComments();
+				setTags();
+				setComments();
 
 				$('#pm-add-comment-form').hide()
 				
@@ -102,201 +84,199 @@ $(function(){
 
 });
 
-// $(function(){
+$(function(){
 
-// 	/* Set modal style and handle history and esc navigation */
-// 	(function(){
-// 		var photoModal = $('#photo-modal');
+	/* Set modal style and handle history and esc navigation */
+	(function(){
+		var photoModal = $('#photo-modal');
 
-// 		photoModal.on('shown', function(){
-// 			/* Set style modal css */
-// 			var styles = {
-// 				backgroundColor: "#161616",
-// 				opacity: "1"
-// 			};
-// 			$('.modal-backdrop').css(styles);	
+		photoModal.on('shown', function(){
+			/* Set style modal css */
+			var styles = {
+				backgroundColor: "#161616",
+				opacity: "1"
+			};
+			$('.modal-backdrop').css(styles);	
 
-// 			/* Set history and modal esc navigation */
-// 			window.history.pushState({stateObj: 'nb-pm'},'','nb-pm');
-// 		});
+			/* Set history and modal esc navigation */
+			window.history.pushState({stateObj: 'nb-pm'},'','nb-pm');
+		});
 
-// 		photoModal.on('hidden', function(){
+		photoModal.on('hidden', function(){
 			
-// 			if (location.href.indexOf('nb-pm') != -1) {
-// 				window.history.back();
-// 			}
+			if (location.href.indexOf('nb-pm') != -1) {
+				window.history.back();
+			}
 
-// 			$('#pm-add-comment-form').hide()
-// 		});
+			$('#pm-add-comment-form').hide()
+		});
 
-// 		window.onpopstate = function(e){
+		window.onpopstate = function(e){
+			if (JSON.stringify(e.state) == "null") {
+				photoModal.modal('hide');
+			}
+		};
+	}).call(this);
 
-// 			if (JSON.stringify(e.state) == "null") {
-// 				photoModal.modal('hide');
+});
 
-// 				$('.add-notebook-form').each(function(index, form){
-// 					var noteBtn = $(form).find('.add-to-nb-btn');
-// 				  if (photos[index].noted == true) {
-// 				  	noteBtn.attr('disabled', true);
-// 				  	noteBtn.val('Noted');
-// 				  }
-// 				});
+/* Handle full screen mode */
+$(function(){
 
-// 			}
-// 		};
-// 	}).call(this);
+	var pmRightCtn = $('#pm-right-ctn');
+	var photoModal = $('#photo-modal');
+	var pmLeftCtn = $('#pm-left-ctn');
+	var fullScreen = $('#fullscreen');
+	var fullModalClose = $('#full-photo-modal-close');
+	var arrowBg = $('#arrow-bg');
+	var fullArrowBg = $('#full-arrow-bg');
 
-// });
+	$('#fullscreen').on('click', function(){
+		pmRightCtn.hide();
+		photoModal.addClass('full-photo-modal');
+		pmLeftCtn.addClass('full-pm-left-ctn');
+		fullScreen.hide();
+		fullModalClose.show();
+		arrowBg.hide()
+		fullArrowBg.show()
+		photoModal.on('hide', function(e){
+			pmRightCtn.show();
+			photoModal.removeClass('full-photo-modal');
+			pmLeftCtn.removeClass('full-pm-left-ctn');
+			fullScreen.show();
+			fullModalClose.hide();
+			arrowBg.show()
+			fullArrowBg.hide()
+			e.preventDefault();
+			photoModal.off('hide');
+		});
+	});
 
-// /* Handle full screen mode */
-// $(function(){
+});
 
-// 	var pmRightCtn = $('#pm-right-ctn');
-// 	var photoModal = $('#photo-modal');
-// 	var pmLeftCtn = $('#pm-left-ctn');
-// 	var fullScreen = $('#fullscreen');
-// 	var fullModalClose = $('#full-photo-modal-close');
-// 	var arrowBg = $('#arrow-bg');
-// 	var fullArrowBg = $('#full-arrow-bg');
+/* Set tags in modal */
+function setTags(){
 
-// 	$('#fullscreen').on('click', function(){
-// 		pmRightCtn.hide();
-// 		photoModal.addClass('full-photo-modal');
-// 		pmLeftCtn.addClass('full-pm-left-ctn');
-// 		fullScreen.hide();
-// 		fullModalClose.show();
-// 		arrowBg.hide()
-// 		fullArrowBg.show()
-// 		photoModal.on('hide', function(e){
-// 			pmRightCtn.show();
-// 			photoModal.removeClass('full-photo-modal');
-// 			pmLeftCtn.removeClass('full-pm-left-ctn');
-// 			fullScreen.show();
-// 			fullModalClose.hide();
-// 			arrowBg.show()
-// 			fullArrowBg.hide()
-// 			e.preventDefault();
-// 			photoModal.off('hide');
-// 		});
-// 	});
+	var styles = {'cont': 'Contemporary', 'ecce': 'Eccentric', 'indu': 'Industrial', 'mini': 'Minimalist', 'rust': 'Rustic', 'trad': 'Traditional'};
+	var types = {'disp': 'Displays', 'full': 'Full Store', 'ligh': 'Lighting', 'merc': 'Merchandising', 'mann': 'Mannequin', 'shac': 'Shoes & Accesories', 'fron': 'Store Front', 'diy': 'DIY'};
 
-// });
-
-// /* Set tags in modal */
-// function setTags(){
-
-// 	var styles = {'cont': 'Contemporary', 'ecce': 'Eccentric', 'indu': 'Industrial', 'mini': 'Minimalist', 'rust': 'Rustic', 'trad': 'Traditional'};
-// 	var types = {'disp': 'Displays', 'full': 'Full Store', 'ligh': 'Lighting', 'merc': 'Merchandising', 'mann': 'Mannequin', 'shac': 'Shoes & Accesories', 'fron': 'Store Front', 'diy': 'DIY'};
-
-// 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
-// 	var photoObj = photos[finder];
+	var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
+	var photos = notebooks[nbFinder].photoObjects;
+	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	var photoObj = photos[finder];
 		
-// 	/* Set style tags */
-// 	var photoStyle = photoObj.style;
-// 	if (photoStyle) {
-// 		if (photoStyle.length > 1) {
-// 			var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
-// 			for (var i = 1; i < photoStyle.length; i++) {
-// 				styleTagString += ", <a href='photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
-// 			}
-// 		} else {
-// 			styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
-// 		}
-// 		var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
-// 	} else var styleTag = "";
+	/* Set style tags */
+	var photoStyle = photoObj.style;
+	if (photoStyle) {
+		if (photoStyle.length > 1) {
+			var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+			for (var i = 1; i < photoStyle.length; i++) {
+				styleTagString += ", <a href='photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
+			}
+		} else {
+			styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+		}
+		var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
+	} else var styleTag = "";
 	
-// 	/* Set type tags */
-// 	var photoType = photoObj.type;
-// 	if (photoType) {
-// 		if (photoType.length > 1) {
-// 			var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
-// 			for (var i = 1; i < photoType.length; i++) {
-// 				typeTagString += ", <a href='photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
-// 			}
-// 		} else {
-// 			typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
-// 		}
-// 		var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
-// 	} else var typeTag = "";
+	/* Set type tags */
+	var photoType = photoObj.type;
+	if (photoType) {
+		if (photoType.length > 1) {
+			var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+			for (var i = 1; i < photoType.length; i++) {
+				typeTagString += ", <a href='photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
+			}
+		} else {
+			typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+		}
+		var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
+	} else var typeTag = "";
 
-// 	var contentRight = styleTag + typeTag;
+	var contentRight = styleTag + typeTag;
 	
-// 	var photoUrl = photoObj.url;
-// 	var photosHtml = contentRight;
-// 	$('#pm-right-ctn-inner').html(photosHtml);
+	var photoUrl = photoObj.url;
+	var photosHtml = contentRight;
+	$('#pm-right-ctn-inner').html(photosHtml);
 
-// };
+};
 
-// /* Set comments in modal */
-// function setComments(){
+/* Set comments in modal */
+function setComments(){
 	
-// 	var finder = parseInt($('#pm-photo').attr('finder'), 10);
-// 	var photoObj = photos[finder];
+	var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
+	var photos = notebooks[nbFinder].photoObjects;
+	var finder = parseInt($('#pm-photo').attr('finder'), 10);
+	var photoObj = photos[finder];
 	
-// 	$('#pm-user').attr('value', user.email);
-// 	$('#pm-userFirst').attr('value', user.firstName);
-// 	$('#pm-userLast').attr('value', user.lastName);
-// 	$('#pm-photoUrl').attr('value', photoObj.url);
+	$('#pm-user').attr('value', user.email);
+	$('#pm-userFirst').attr('value', user.firstName);
+	$('#pm-userLast').attr('value', user.lastName);
+	$('#pm-photoUrl').attr('value', photoObj.url);
 
-// 	var photoComments = photoObj.comments;
-// 	var commentsDynamic = "";
+	var photoComments = photoObj.comments;
+	var commentsDynamic = "";
 
-// 	for (var i = photoComments.length - 1; i > -1; i--) {
-// 		var commentText = photoComments[i];
-// 		var comment = allComments.filter(function(commentFilter) {return commentFilter.text == commentText})[0];
-// 		commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
-// 	}
+	for (var i = photoComments.length - 1; i > -1; i--) {
+		var commentText = photoComments[i];
+		var comment = allComments.filter(function(commentFilter) {return commentFilter.text == commentText})[0];
+		commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
+	}
 
-// 	if (photoObj.newCommentHTML) {
-// 		commentsDynamic = photoObj.newCommentHTML + commentsDynamic;
-// 	}
+	if (photoObj.newCommentHTML) {
+		commentsDynamic = photoObj.newCommentHTML + commentsDynamic;
+	}
 
-// 	$('#pm-comment-container-inner').html(commentsDynamic)
-// };
+	$('#pm-comment-container-inner').html(commentsDynamic)
+};
 
-// $(function(){
+$(function(){
 	
-// 	$('#photo-modal').on('shown', function(){
-// 		setTags();
-// 		setComments();
-// 	});
+	$('#photo-modal').on('shown', function(){
+		setTags();
+		setComments();
+	});
 
-// });
+});
 
-// /* Handle comments in modal */
-// $('#pm-add-comment-form').submit(function(){
-// 	var form = $(this);
+/* Handle comments in modal */
+$('#pm-add-comment-form').on('submit', function(){
+	var form = $(this);
 
-// 	var newComment = $('#pm-comments-box').val();
+	var newComment = $('#pm-comments-box').val();
 
-// 	/* Handle the new view for the modal */
-// 	$('#pm-add-comment-form').toggle()
-// 	var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
-// 	$('#pm-comment-container-inner').prepend(newCommentHTML);
+	/* Handle the new view for the modal */
+	$('#pm-add-comment-form').toggle()
+	var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+	$('#pm-comment-container-inner').prepend(newCommentHTML);
 
-// 	/* Handle the photos page view */
-// 	var formFinder = $('#pm-photo').attr('finder');
-// 	var containerDiv = $("#" + formFinder);
-// 	containerDiv.find('.comments-content-container').prepend(newCommentHTML);
+	/* Handle nav in modal */
+	var nbFinder = parseInt($('#photo-modal').attr('nbFinder'), 10);
+	var photos = notebooks[nbFinder].photoObjects;
+	var finder = parseInt($('#pm-photo').attr('finder'), 10);
 
-// 	/* Handle nav in modal */
-// 	if (photos[formFinder].newCommentHTML) {
-// 		photos[formFinder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[formFinder].newCommentHTML;
-// 	} else {
-// 		photos[formFinder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";	
-// 	};
+	if (photos[finder].newCommentHTML) {
+		photos[finder].newCommentHTML = newCommentHTML + photos[finder].newCommentHTML;
+	} else {
+		photos[finder].newCommentHTML = newCommentHTML;
+	};
 
-// 	$.ajax({
-// 	  type: "POST",
-// 	  url: 'comment',
-// 	  data: form.serialize()
-// 	})
-// 		.done(function() {
-//     	$('#pm-comments-box').val('');
-//   	});
+	$.ajax({
+	  type: "POST",
+	  url: 'comment',
+	  data: form.serialize()
+	})
+		.done(function() {
+    	$('#pm-comments-box').val('');
+  	});
 
-// 	$('#photo-modal').focus();
+	$('#photo-modal').focus();
 
-// 	return false; // avoid to execute the actual submit of the form.
-// });
+	return false; // avoid to execute the actual submit of the form.
+});
 
+$(function(){
+	$('#pm-add-comment-header').on('click', function(){
+		$(this).next('#pm-add-comment-form').toggle();
+	});
+});

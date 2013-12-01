@@ -10,10 +10,6 @@ module.exports = function(app) {
   	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser});
 	});
 
-	app.get('/nb-pm', function(req, res) {
-		res.redirect('/notebook');
-	});
-
 	app.post('/notebook1', selectNav, function(req, res) {
 		if (sessionUser) {
 			

@@ -1,8 +1,7 @@
 $(function(){	
 
 	$('.photo-img').on('click', function(){
-		
-		/* Photo attributes should be set with photoObj and finder */
+
 		var finder = parseInt($(this).attr('finder'), 10);
 		var photoObj = photos[finder];
 
@@ -12,8 +11,8 @@ $(function(){
 		/* Set modal finder */
 		$('#pm-photo').attr('finder', finder);
 
-		/* Set img url for form input -- NEED??? */
-		// $('#pm-img-url').attr('value', photoObj.url);
+		/* Set img url for form input */
+		$('#pm-img-url').val(photoObj.url);
 
 	});
 
@@ -82,24 +81,25 @@ $(function(){
 
 });
 
-$(function(){
-	/* Handle "Note" form submit from modal */
-	$('#add-notebook-form-pm').submit(function(){
-	  var url = "/notebook1"; // the script where you handle the form input.
-	  var form = $(this);
+/* DONT THINK NEED THIS NOW */
+// $(function(){
+// 	/* Handle "Note" form submit from modal */
+// 	$('#add-notebook-form-pm').submit(function(){
+// 	  var url = "/notebook1"; // the script where you handle the form input.
+// 	  var form = $(this);
 
-	  $.ajax({
-	    type: "POST",
-	    url: url,
-	    data: form.serialize(), // serializes the form's elements.
-	  });
+// 	  $.ajax({
+// 	    type: "POST",
+// 	    url: url,
+// 	    data: form.serialize(), // serializes the form's elements.
+// 	  });
 
-	  $('#photo-modal').focus();
+// 	  $('#photo-modal').focus();
 
-	  return false; // avoid to execute the actual submit of the form.
-	});
+// 	  return false; // avoid to execute the actual submit of the form.
+// 	});
 
-});
+// });
 
 $(function(){
 
@@ -288,4 +288,3 @@ $('#pm-add-comment-form').on('submit', function(){
 
 	return false; // avoid to execute the actual submit of the form.
 });
-
