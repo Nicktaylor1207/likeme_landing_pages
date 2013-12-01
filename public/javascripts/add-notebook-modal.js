@@ -59,7 +59,7 @@ $(function(){
 /* Handle adding photos to notebooks */
 $(function(){
 
-	$('#ap-modal-form').submit(function(){
+	$('#ap-modal-form').on('submit', function(){
 	  var url = "/notebook1"; // the script where you handle the form input.
 	  var form = $(this);
 	  
@@ -93,11 +93,16 @@ $(function(){
 		}
 
 		// /* Handle comments in photos modal view */
+		$('#pm-comment-container-inner').append(newCommentHTML);
 		if (photos[finder].newCommentHTML) {
-			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>" + photos[finder].newCommentHTML;
+			photos[finder].newCommentHTML = newCommentHTML + photos[finder].newCommentHTML;
 		} else {
-			photos[finder].newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";	
+			photos[finder].newCommentHTML = newCommentHTML;
 		};
+
+				
+
+		$('.ap-modal-textarea').val()
 
 	  $.ajax({
 	    type: "POST",
@@ -114,3 +119,4 @@ $(function(){
 	});
 	
 });
+
