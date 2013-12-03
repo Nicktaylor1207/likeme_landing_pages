@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 	app.get('/about', selectNav, function(req, res) {
     var hide = false;
-    res.render('about', {hide: hide, navLogin: req.body.navLogin, user: sessionUser});
+    res.render('about', {hide: hide, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
 	});
 
 	app.post('/message', selectNav, function(req, res){

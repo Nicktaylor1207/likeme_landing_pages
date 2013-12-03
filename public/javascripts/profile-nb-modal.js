@@ -8,7 +8,7 @@ $(function(){
 		var photoObj = notebooks[nbFinder].photoObjects[0];
 
 		/* Set modal photo */
-		$('#pm-photo').attr('src', photoObj.url);
+		$('#pm-photo').attr('src', '/' + photoObj.url);
 
 		/* Set modal photo finder attr */
 		$('#pm-photo').attr('finder', 0);		
@@ -42,7 +42,7 @@ $(function(){
 			}
 			
 			var photoObj = nbPhotos[nbPhotoIndex];
-			$('#pm-photo').attr('src', photoObj.url);
+			$('#pm-photo').attr('src', '/' + photoObj.url);
 			$('#pm-photo').attr('finder', nbPhotoIndex);
 			$('#pm-img-url').val(photoObj.url);
 
@@ -67,7 +67,7 @@ $(function(){
 				}
 				
 				var photoObj = nbPhotos[nbPhotoIndex];
-				$('#pm-photo').attr('src', photoObj.url);
+				$('#pm-photo').attr('src', '/' + photoObj.url);
 				$('#pm-photo').attr('finder', nbPhotoIndex);
 				$('#pm-img-url').val(photoObj.url);
 				

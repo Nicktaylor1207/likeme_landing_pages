@@ -24,14 +24,14 @@ block content
 							input.create-profile-input(name="website", type="text", value=user.website)
 						p
 							label.create-profile-label(for="description") Description
-							textarea.create-profile-input-textarea#description-ta(type="textarea", rows="6", name="description", placeholder="Enter a short bio...")
+							textarea.create-profile-input-textarea#description-ta(type="textarea", rows="6", name="description", placeholder="Enter a short bio...") #{user.description}
 						h3 Contact Info <span class="create-profile-optional">(optional)</span>
 						p
 							label.create-profile-label(for="number") Phone Number
 							input.create-profile-input(name="number", type="text", value=user.number)
 						p
 							label.create-profile-label(for="address") Address
-							textarea.create-profile-input-textarea#address-ta(name="address", type="textarea", rows="3")
+							textarea.create-profile-input-textarea#address-ta(name="address", type="textarea", rows="3") #{user.address}
 						input.hide(name="pro", value="true")
 						div.signup-center-container
 							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update my profile
@@ -45,3 +45,5 @@ block content
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.
 		var user = !{JSON.stringify(user)}
+	script.
+		var id = !{JSON.stringify(id)}

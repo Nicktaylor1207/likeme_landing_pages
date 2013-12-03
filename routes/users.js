@@ -13,7 +13,7 @@ module.exports = function(app) {
   }
 
   app.get('/users/new', selectNav, function(req, res) {
-    res.render('new', {user: sessionUser, navLogin: req.body.navLogin});
+    res.render('new', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
   });
 
   app.post('/users', function(req, res, next) {

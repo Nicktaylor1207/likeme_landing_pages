@@ -23,12 +23,6 @@ block content
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
 			div.arrow-bg#full-arrow-bg
 				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
-	script.
-		var navLogin = !{JSON.stringify(navLogin)}
-	script.
-		var user = !{JSON.stringify(user)}
-	script.
-		var photos = !{JSON.stringify(photos)}
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
@@ -36,3 +30,11 @@ block content
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/notebook.js")
 	script(type="text/javascript", src="/javascripts/notebook-modal.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}
+	script.
+		var id = !{JSON.stringify(id)}
+	script.
+		var photos = !{JSON.stringify(photos)}

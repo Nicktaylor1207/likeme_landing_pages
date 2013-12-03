@@ -8,11 +8,11 @@ module.exports = function(app) {
 	});
 
 	app.get('/loginAlt', selectNav, function(req, res){
-		res.render('loginAlt', {user: sessionUser, navLogin: req.body.navLogin});
+		res.render('loginAlt', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
 	});
 
 	app.get('/loginAlt2', selectNav, function(req, res){
-		res.render('loginAlt2', {user: sessionUser, navLogin: req.body.navLogin});
+		res.render('loginAlt2', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
 	});	
 
 	app.get('/logout', function(req, res) {

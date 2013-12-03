@@ -16,4 +16,8 @@ module.exports = function(app) {
 		res.redirect('/pro-profile');
 	});
 
+	app.get('/pro-profile-view/nb-pm', function(req, res) {
+		res.redirect('/pro-profile-view/' + req.session.idString);
+	});
+
 };

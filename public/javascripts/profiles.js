@@ -1,15 +1,15 @@
 $(function(){
 	
 	/* Add line breaks to descriptions */
-	if (user.description) {
-		var text = user.description;
+	if (id.description) {
+		var text = id.description;
 		text = text.replace(/\r?\n/g, '<p></p>');
 		$('#user-description').html(text);
 	}
 
 	/* Description More/Less */
-	if ($('#user-description').height() > 110) {
-		$('#user-description').readmore({maxHeight: 110, moreLink: '<a id="profile-more" href="#">More</a>', lessLink: '<a id="profile-less" href="#">Less</a>'})	
+	if ($('#user-description').height() > 120) {
+		$('#user-description').readmore({maxHeight: 120, moreLink: '<a id="profile-more" href="#">More</a>', lessLink: '<a id="profile-less" href="#">Less</a>'})	
 	}
 
 });
@@ -19,13 +19,13 @@ $(function(){
 $(function(){
 	
 	/* Set values of textareas in create/edit profile */
-	if (user.description) {
-		$('#description-ta').val(user.description);
-		$('#address-ta').val(user.address);
+	if (id.description) {
+		$('#description-ta').val(id.description);
+		$('#address-ta').val(id.address);
 	}
 
 	/* Set profile pic */
-	if (!user.profilePic) {
+	if (!id.profilePic) {
 		$('#create-profile-photo-container-empty').show();
 		$('#create-profile-photo-container').hide();
 	}

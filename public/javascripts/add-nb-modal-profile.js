@@ -6,7 +6,12 @@ $(function(){
 $(function(){
 
 	$('#add-to-nb-btn-pm').on('click', function(){
-		var photoUrl = $('#pm-photo').attr('src');
+		var pmSrc = $('#pm-photo').attr('src');
+		if (pmSrc[0] == '/') {
+			var photoUrl = pmSrc.slice(1);
+		} else {
+			var photoUrl = pmSrc;
+		}
 		var photoFinder = $('#pm-photo').attr('finder');
 		$('#add-photo-url').val(photoUrl);
 		$('#add-photo-url').attr('finder', photoFinder);

@@ -18,11 +18,11 @@ module.exports = function(app) {
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+					res.render('photos-dyn', {user: sessionUser, id: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
 				});
 			} else {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					res.render('photos-dyn', {user: false, id: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
 				});
 			}
 		});
@@ -34,11 +34,11 @@ module.exports = function(app) {
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
+					res.render('photos-dyn', {user: sessionUser, id: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});	
 				});
 			} else {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					res.render('photos-dyn', {user: false, id: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
 				});
 			}
 		});
@@ -69,11 +69,11 @@ module.exports = function(app) {
     	var sorted = sortByKey(results, 'date');
     	if (req.session.email) {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					res.render('photos-dyn', {user: sessionUser, id: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});
 				});
 			} else {
 				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					res.render('photos-dyn', {user: false, id: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
 				});
 			}
 		});

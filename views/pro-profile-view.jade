@@ -2,45 +2,32 @@ extends layout
 
 block content
 	div.body-inner-container
-		div.row-fluid
-			div#photo-left-nav-container
-				ul.nav.nav-list
-					li.nav-header Browse by Style
-					li <a href='photos-cont'>Contemporary</a>
-					li <a href='photos-ecce'>Eccentric</a>
-					li <a href='photos-indu'>Industrial</a>
-					li <a href='photos-mini'>Minimalist</a>
-					li <a href='photos-rust'>Rustic</a>
-					li <a href='photos-trad'>Traditional</a>
-				ul.nav.nav-list
-					li.nav-header Browse by Type
-					li <a href='photos-disp'>Displays</a>
-					li <a href='photos-diy'>DIY</a>
-					li <a href='photos-full'>Full Store</a>
-					li <a href='photos-ligh'>Lighting</a>
-					li <a href='photos-merc'>Merchandising</a>
-					li <a href='photos-mann'>Mannequin</a>
-					li <a href='photos-shac'>Shoes & Accessories</a>
-					li <a href='photos-fron'>Store Front</a>
-			div.pull-right.photo-page-container
-	div#signup-cta-modal-2.modal(tabindex="-1", role="dialog", aria-labelledby="signupCtaModal", aria-hidden="true")
-		div#signup-cta-modal-container-2
-			p#signup-cta-modal-sub-2 Sign up. It's free.
-			div#signup-cta-btn-container-2
-				a(href="signup")
-					button.btn-large.btn-primary#signup-cta-btn-2 Sign up
-	div#signup-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="signupModal", aria-hidden="true")
-		div.modal-body#signup-modal-container
-			button.close#nb-photos-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
-			div#landing-welcome
-				h1#landing-header Seven Albums
-				p#landing-sub-header Find ideas and inspiration for your store
-			div#landing-content
-				h3#signup-free-sub Sign up for your free account
-				a(href="signup")
-					button.btn-large.btn-primary#signup-modal-btn Sign up
-				div.signup-modal-footer
-					p Already have an account? <a href="login">Log in now</a>
+		div.profile-container
+			div.profile-content-container.row-fluid
+				div.profile-left-container.span4
+					div.border-container
+						div.profile-photo-container(style='background-image: url(/#{id.profilePic})')
+							img.profile-photo(src="../" + id.profilePic)
+				div#profile-right-container.span8
+					div.row-fluid
+						div#profile-right-container-left.span9
+							div.profile-details-container
+								div#profile-primary-details-container
+									h4.profile-name #{id.firstName} #{id.lastName}
+									p.profile-title #{id.title}
+									a.profile-website(href="http://" + id.website, target="_blank") #{id.website}
+								div#profile-description-container
+									div#user-description
+						div#profile-right-container-right.span3
+							div.profile-contact-container
+								h4.profile-contact-header Contact #{id.firstName}
+								a.profile-contact-email(href="mailto:" + id.email, target="_blank") #{id.email}
+								p.profile-contact-number #{id.number}
+								p.profile-contact-address #{id.address}
+					div#profile-notebook-container
+						h4#notebook-header #{id.firstName}'s Notebooks
+						div#profile-nb-container
+							div#profile-nb-photos-container
 	div.modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
 		div#pm-left-ctn
 			img#pm-photo(src="#", finder="#")
@@ -50,7 +37,7 @@ block content
 			div.pm-arrow-ctn#pm-arrow-left-ctn <span class="pm-arrow" id="pm-arrow-left">&lsaquo;</span>
 			div.pm-arrow-ctn <span class="pm-arrow" id="pm-arrow-right">&rsaquo;</span>
 			div.arrow-bg#arrow-bg
-				img.arrow-expand#fullscreen(src="images/arrow_expand.png", title='View full screen');
+				img.arrow-expand#fullscreen(src="../images/arrow_expand.png", title='View full screen');
 			div.arrow-bg#full-arrow-bg.hide()
 				button.close#fullscreen-close(type="button", data-dismiss="modal", aria-hidden="true", title='Exit full screen') ×
 		div#pm-right-ctn
@@ -66,13 +53,13 @@ block content
 					textarea#pm-comments-box.comments-box(rows='4', name='text')
 					input.btn.btn-primary.add-comment-btn(type='submit', value='Submit')
 				div#pm-comment-container-inner
-	div#photos-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="addPhotosModal", aria-hidden="true")
+	div#photos-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="photosAddPhotosModal", aria-hidden="true")
 		div.modal-body#ap-modal-body
 			button.close#ap-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
 			div#ap-modal-header-ctn
 				h3#ap-modal-header Choose a notebook
 			form#ap-modal-form(method="POST", action="/notebook1")
-				input#add-photo-url.hide(class='hide', name='photo_url', value="", finder="#")
+				input#add-photo-url.hide(class='hide', name='photo_url', value="")
 				div.row-fluid
 					div.span4.ap-modal-input-ctn
 						label.ap-modal-label Notebook:
@@ -94,19 +81,23 @@ block content
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
-	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
-	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
-	script(type="text/javascript", src="/javascripts/photos-dynamic.js")
-	script(type="text/javascript", src="/javascripts/photos.js")
-	script(type="text/javascript", src="/javascripts/photos-modal.js")
-	script(type="text/javascript", src="/javascripts/add-notebook-modal.js")
+	script(type="text/javascript", src="/jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='/jquery.html5-placeholder-shim.js')
+	script(type='text/javascript', src='/Readmore.js-master/readmore.min.js')
+	script(type="text/javascript", src="/javascripts/profiles.js")
+	script(type="text/javascript", src="/javascripts/profile-notebook.js")
+	script(type="text/javascript", src="/javascripts/profile-nb-modal.js")
+	script(type="text/javascript", src="/javascripts/add-nb-modal-profile.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.
-		var photos = !{JSON.stringify(photos)}
+		var id = !{JSON.stringify(id)}
 	script.
 		var user = !{JSON.stringify(user)}
 	script.
-		var id = !{JSON.stringify(id)}
+		var notebooks = !{JSON.stringify(notebooks)}
 	script.
 		var allComments = !{JSON.stringify(comments)}
+
+// Zack: 529bcdd2c633140000000001
+// Thomas: 529bce63c633140000000002

@@ -5,7 +5,7 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/signup', selectNav, function(req,res){
-		res.render('signup', {navLogin: req.body.navLogin, user: sessionUser, hide: true});
+		res.render('signup', {navLogin: req.body.navLogin, user: sessionUser, id: sessionUser, hide: true});
 	});
 
 	app.post('/signup', function(req, res){
