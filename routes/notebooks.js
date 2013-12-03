@@ -10,6 +10,8 @@ module.exports = function(app) {
   	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
 	});
 
+	
+
 	app.post('/notebook1', selectNav, function(req, res) {
 		if (sessionUser) {
 			

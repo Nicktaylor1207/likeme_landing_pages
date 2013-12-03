@@ -15,13 +15,17 @@ $(function(){
 });
 
 /* Create pro profile */
-
 $(function(){
 	
 	/* Set values of textareas in create/edit profile */
 	if (id.description) {
 		$('#description-ta').val(id.description);
 		$('#address-ta').val(id.address);
+	}
+
+	/* Set header */
+	if (user.profilePic != "" || user.title != "" || user.website != "" || user.description != "" || user.number != "" || user.address != "") {
+		$('#create-profile-header').html("Edit Profile");
 	}
 
 	/* Set profile pic */

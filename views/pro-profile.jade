@@ -8,9 +8,15 @@ block content
 					div.border-container
 						div.profile-photo-container(style='background-image: url(#{user.profilePic})')
 							img.profile-photo(src=user.profilePic)
+							div#profile-pic-edit-label-container.hide()
+								div#profile-pic-edit-label
+									a(href="pro-profile-create")
+										p#edit-profile-pic Edit Picture
 				div#profile-right-container.span8
 					div.row-fluid
 						div#profile-right-container-left.span9
+							a(href="/pro-profile-create")
+								btn.btn.btn-primary#profile-edit-profile-btn Edit Profile
 							div.profile-details-container
 								div#profile-primary-details-container
 									h4.profile-name #{user.firstName} #{user.lastName}
@@ -25,6 +31,8 @@ block content
 								p.profile-contact-number #{user.number}
 								p.profile-contact-address #{user.address}
 					div#profile-notebook-container
+						a(href="/notebooks/edit")
+							btn.btn.btn-primary#edit-notebooks-btn Edit Notebooks
 						h4#notebook-header #{user.firstName}'s Notebooks
 						div#profile-nb-container
 							div#profile-nb-photos-container
@@ -84,6 +92,7 @@ block content
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type='text/javascript', src='Readmore.js-master/readmore.min.js')
+	script(type="text/javascript", src="/javascripts/my-profile.js")
 	script(type="text/javascript", src="/javascripts/profiles.js")
 	script(type="text/javascript", src="/javascripts/profile-notebook.js")
 	script(type="text/javascript", src="/javascripts/profile-nb-modal.js")

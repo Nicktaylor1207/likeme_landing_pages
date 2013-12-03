@@ -1535,7 +1535,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	margin: 0px auto;
 }
 
-.create-profile-header {
+#create-profile-header {
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -1635,6 +1635,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 #profile-right-container {
@@ -1644,6 +1645,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 #profile-right-container-left {
 	width: 480px !important;
+	position: relative;
 }
 
 #profile-right-container-right {
@@ -1727,6 +1729,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	background-color: white;
 	/* background-color: #CDE4D6; */
 	border: 1px solid #CACACA;
+	position: relative;
 }
 
 #notebook-header {
@@ -1893,4 +1896,45 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	position: absolute;
 	right: 275px;
 	top: 75px;
+}
+
+/* General */
+#profile-pic-edit-label-container {
+	width: 100%;
+	min-height: 30px;
+	background-color: rgba(27,27,27,.8);
+	z-index: 1;
+	position: absolute;
+	bottom: 0px;
+	padding: 5px 0px;
+	font-size: 28px;
+	border-radius: 0px 0px 3px 3px;
+	text-align: left;
+	font-style: bold;
+}
+
+#profile-pic-edit-label {
+	margin-top: 5px;
+	margin-left: 10px;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, .8);
+	text-align: center;
+}
+
+#edit-profile-pic {
+	color: white !important;
+	font-size: 16px;	
+	margin-bottom: 0px;
+}
+
+#edit-notebooks-btn {
+	margin-right: 5px;
+	position: absolute;
+	top: 13px;
+	left: 235px;
+}
+
+#profile-edit-profile-btn {
+	position: absolute;
+	top: 15px;
+	right: 15px;
 }
