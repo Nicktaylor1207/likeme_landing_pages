@@ -52,6 +52,7 @@ require('./routes/session')(app);
 require('./routes/photos')(app);
 require('./routes/contact')(app);
 require('./routes/upload')(app);
+require('./routes/photo-upload')(app);
 require('./routes/notebooks')(app);
 require('./routes/terms')(app);
 require('./routes/signup')(app);

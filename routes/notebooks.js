@@ -4,13 +4,99 @@ var Notebook = require('../data/models/notebooks');
 var Comment = require('../data/models/comments');
 var selectNav = require('./middleware/select_nav');
 
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+  });
+}
+
 module.exports = function(app) {
 
 	app.get('/notebook', selectNav, function(req, res) {
   	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
 	});
 
-	
+	app.get('/notebooks-create', selectNav, function(req, res) {
+  	res.render('notebooks-create', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
+	});
+
+	app.get('/notebooks', selectNav, function(req, res) {
+	  if (sessionUser) {
+
+      Comment.find(function(err, comments){
+
+        if (sessionUser.notebooks.length > 0) {
+
+          Notebook.find({user: sessionUser.email}, function(err, results){
+
+            // For each notebook, iterate through the photos in the photoArray
+            // Find each photoObject and add it to a new array attribute called notebook.photoObjects
+            // Once all of the photos have been added, push notebook to a new array, newNotebooks
+            // Once newNotebooks has been updated, proceed to the next notebook
+            // Once all of the notebooks have been pushed to newNotebooks, render the page with notebooks: newNotebooks
+
+            var notebooks = sortByKey(results, 'date');
+            var newNotebooks = [];
+
+            // takes an array of photoUrls and returns an array of photoObjects
+            function addPhotos(photoUrls, callback){
+              var count = photoUrls.length;
+              var photoObjects = [];
+              photoUrls.forEach(function(url){
+                Photo.findOne({'url': url}, function(err, photoObj){
+                  if (err) {
+                    throw err;
+                  }
+                  photoObjects.push(photoObj); 
+                  count--;
+                  if (count == 0) {
+                    callback(err, photoObjects);
+                  }
+                })
+              })
+            }
+
+            function addNotebooks(notebooks, callback){
+              // not until each notebook has executed the code will it be rendered
+              var nbCount = notebooks.length;
+              
+              notebooks.forEach(function(result){
+                var notebook = result.toJSON();
+                var photoUrls = notebook.photoArray;
+                // not until each photo has been added to the notebook will we proceed to the next notebook
+                notebook.photoObjects = [];
+                addPhotos(photoUrls, function(err, photoObjects){
+                  if (err) {
+                    throw err;
+                  }
+                  notebook.photoObjects = photoObjects;
+                  newNotebooks.push(notebook);
+                  nbCount--;
+                  if (nbCount == 0) {
+                    callback();
+                  }
+                });
+              });
+            }
+
+            addNotebooks(notebooks, function(err){
+              res.render('notebooks', {user: sessionUser, id: sessionUser, notebooks: newNotebooks, comments: comments, navLogin: req.body.navLogin});
+            });
+
+          });
+
+        } else {
+          res.render('notebooks', {user: sessionUser, id: sessionUser, notebooks: [], comments: comments, navLogin: req.body.navLogin});
+        }
+
+      });
+    
+	  } else {
+      /* Replace with front-end validation */
+      res.redirect('/login')
+    }
+  });
 
 	app.post('/notebook1', selectNav, function(req, res) {
 		if (sessionUser) {

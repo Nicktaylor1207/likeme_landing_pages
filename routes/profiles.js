@@ -6,20 +6,20 @@ var selectNav = require('./middleware/select_nav');
 var fs = require('fs');
 var path = require('path');
 
+function setTime() {
+  x = new Date();
+  y = x.getTime() - 1372395800000;
+  return y;
+}
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+  });
+}
+
 module.exports = function(app) {
-
-  function setTime() {
-    x = new Date();
-    y = x.getTime() - 1372395800000;
-    return y;
-  }
-
-  function sortByKey(array, key) {
-    return array.sort(function(a, b) {
-      var x = a[key]; var y = b[key];
-      return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-    });
-  }
 
   app.get('/pro-profile', selectNav, function(req, res) {
 	  if (sessionUser) {

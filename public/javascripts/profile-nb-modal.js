@@ -272,7 +272,7 @@ $('#pm-add-comment-form').on('submit', function(){
 
 	$('#photo-modal').focus();
 
-	return false; // avoid to execute the actual submit of the form.
+	return false; // avoid executing submit of the form
 });
 
 $(function(){
