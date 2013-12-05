@@ -3,8 +3,8 @@ var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
-	app.get('/login', function(req, res){
-		res.render('login');
+	app.get('/login', selectNav, function(req, res){
+		res.render('login', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
 	});
 
 	app.get('/loginAlt', selectNav, function(req, res){
