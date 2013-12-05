@@ -1,44 +1,47 @@
 /* Handle navbar */
 $(function(){
-
+	
 	if (navLogin == false) {
 		$('#signed-in').hide();
 		$('#not-signed-in').show();
 		$('#nav-username').html('')
+	} else {
+		if (user.pro == false) {
+			$('#nav-my-profile').hide();
+		}	
 	}
 
 });
 
-
 /* Handle login modal */
 $(function() {
 
-    var button = $('#loginButton');
-    var button2 = $('#login-button2');
-    var box = $('#loginBox');
-    var form = $('#loginForm');
-    button.removeAttr('href');
-    button.on('click', function(login) {
-        box.toggle();
-        button.toggleClass('active');
-        $('#focus-login').focus();
-    });
-    
-    button2.on('click', function(login) {
-        box.toggle();
-        button.toggleClass('active');
-        $('#focus-login').focus();
-    });
-    
-    form.mouseup(function() { 
-        return false;
-    });
-    
-    $(this).mouseup(function(login) {
-        if(!($(login.target).parent('#loginButton').length > 0)) {
-            button.removeClass('active');
-            box.hide();
-        }
-    }); 
+	var button = $('#loginButton');
+	var button2 = $('#login-button2');
+	var box = $('#loginBox');
+	var form = $('#loginForm');
+	button.removeAttr('href');
+	button.on('click', function(login) {
+		box.toggle();
+		button.toggleClass('active');
+		$('#focus-login').focus();
+	});
+  
+	button2.on('click', function(login) {
+		box.toggle();
+		button.toggleClass('active');
+		$('#focus-login').focus();
+	});
+  
+	form.mouseup(function() { 
+		return false;
+	});
+  
+	$(this).mouseup(function(login) {
+		if(!($(login.target).parent('#loginButton').length > 0)) {
+			button.removeClass('active');
+			box.hide();
+		}
+	}); 
     
 });

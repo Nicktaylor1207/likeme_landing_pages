@@ -98,10 +98,14 @@ module.exports = function(app) {
     }
   });
 
+  app.get('/pro-profile/:name?', function(req, res){
+    res.redirect('/albums');
+  })
+
   app.get('/pro-profile-view/:id?', selectNav, function(req, res) {
 
-    if (sessionUser) {
-      Email.findById(req.params.id, function(err, id) {
+    function getUser(findID){
+      Email.findById(findID, function(err, id) {
         if (id._id.toString() === sessionUser._id.toString()) {
           res.redirect('/pro-profile');
         } else {
@@ -156,10 +160,16 @@ module.exports = function(app) {
           });    
         }
       });
+    };
+
+    if (parseInt(req.params.id)) {
+      getUser(req.params.id);
     } else {
-      /* Replace with front-end validation */
-      res.redirect('/login')
+      Email.findOne({email: req.params.id.toString()}, function(err, user){
+        res.redirect("/pro-profile-view/" + user._id);
+      });
     }
+
   });
 
   app.get('/profile', selectNav, function(req, res) {

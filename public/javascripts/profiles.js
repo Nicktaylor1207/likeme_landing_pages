@@ -1,4 +1,16 @@
 $(function(){
+
+	/* Hack for public profiles of non-pro users */
+	if (id.pro == false) {
+		$('.profile-left-container').hide();
+		$('#profile-right-container-right').hide();
+		$('#profile-edit-profile-btn').hide();
+		$('#edit-notebooks-btn').hide();
+	}
+
+});
+
+$(function(){
 	
 	/* Add line breaks to descriptions */
 	if (id.description) {

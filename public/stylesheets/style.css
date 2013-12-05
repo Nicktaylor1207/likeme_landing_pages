@@ -1960,7 +1960,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 #nb-add-notebook-text {
 	position: absolute;
 	top: 105px;
-	left: 75px;
+	left: 73px;
 	font-size: 24px;
 }
 
@@ -2125,4 +2125,8 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	border-radius: 0;
 	border: none !important;
 	box-shadow: none !important;
+}
+
+#start-using {
+	font-size: 18px;
 }
