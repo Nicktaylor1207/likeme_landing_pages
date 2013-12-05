@@ -4,7 +4,7 @@ block content
 	div.body-inner-container
 		div#create-nb-body-container
 			h1#create-nb-header Create Notebook
-			form#create-nb-form(method="POST", action="/notebook", enctype="multipart/form-data")
+			form#create-nb-form(method="POST", action="/create-notebook", enctype="multipart/form-data")
 				div
 					label.create-nb-label(for="name") Notebook Name
 					input.create-nb-input(name="name", type="text", placeholder="Choose Notebook Name")
@@ -13,8 +13,15 @@ block content
 					a(href="#create-nb-add-photos-modal", role="button", data-toggle="modal")
 						div#create-nb-add-photo-cta
 							p#create-nb-add-photo-text Add Photo
-					input.create-nb-photo-input.hide(name="photoLink", value="http://1.bp.blogspot.com/_Afm6-TcZ7Ho/S67FmmVW4eI/AAAAAAAAC6A/YqmRu7D1dcs/s400/bunny2.jpg")
+					input#photoCounter.hide(name="photoCounter", value="3");
+					input.create-nb-photo-input.hide(name="url1", value="http://1.bp.blogspot.com/_Afm6-TcZ7Ho/S67FmmVW4eI/AAAAAAAAC6A/YqmRu7D1dcs/s400/bunny2.jpg")
 					div.create-notebook-photo(style='background-image: url(http://1.bp.blogspot.com/_Afm6-TcZ7Ho/S67FmmVW4eI/AAAAAAAAC6A/YqmRu7D1dcs/s400/bunny2.jpg)')
+					input.create-nb-photo-input.hide(name="url2", value="http://washhumane.typepad.com/.a/6a00e54eed855d8834017ee9cf65f4970d-pi")
+					div.create-notebook-photo(style='background-image: url(http://washhumane.typepad.com/.a/6a00e54eed855d8834017ee9cf65f4970d-pi)')
+					input.create-nb-photo-input.hide(name="url3", value="http://2.bp.blogspot.com/-TltX5DwBl7o/UEulpNr4JuI/AAAAAAAAABI/lPg1R1GUbeM/s1600/bunny.jpg")
+					div.create-notebook-photo(style='background-image: url(http://2.bp.blogspot.com/-TltX5DwBl7o/UEulpNr4JuI/AAAAAAAAABI/lPg1R1GUbeM/s1600/bunny.jpg)')
+				div.signup-center-container
+						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Create Notebook
 	div#create-nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-hidden="true")
 		div.modal-body#create-nb-modal-body
 			button.close#create-nb-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
@@ -30,7 +37,7 @@ block content
 					div.span4.create-nb-modal-input-ctn
 						label.create-nb-modal-label Add photo from a website:
 					div.span8.create-nb-modal-input-ctn
-						input#photo-link(type="text", placeholder="Paste the link here...", name="photoLink")
+						input#photo-link(type="text", placeholder="Paste the link here...", name="url")
 				div.modal-footer#nb-photos-modal-footer
 					input.btn.btn-primary(type="submit", value="Submit")
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
