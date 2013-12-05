@@ -7,8 +7,15 @@ $(function(){
 		$('#photo-modal').attr('nbFinder', nbFinder);
 		var photoObj = notebooks[nbFinder].photoObjects[0];
 
+		var urlStart = photoObj.url;
+		if (urlStart.slice(0,6) == "images") {
+			var photoObjUrl = "/" + urlStart;
+		} else {
+			var photoObjUrl = urlStart;
+		}
+
 		/* Set modal photo */
-		$('#pm-photo').attr('src', '/' + photoObj.url);
+		$('#pm-photo').attr('src', photoObjUrl);
 
 		/* Set modal photo finder attr */
 		$('#pm-photo').attr('finder', 0);		
@@ -42,7 +49,13 @@ $(function(){
 			}
 			
 			var photoObj = nbPhotos[nbPhotoIndex];
-			$('#pm-photo').attr('src', '/' + photoObj.url);
+			var urlStart = photoObj.url;
+			if (urlStart.slice(0,6) == "images") {
+				var photoObjUrl = "/" + urlStart;
+			} else {
+				var photoObjUrl = urlStart;
+			}
+			$('#pm-photo').attr('src', photoObjUrl);
 			$('#pm-photo').attr('finder', nbPhotoIndex);
 			$('#pm-img-url').val(photoObj.url);
 
@@ -67,7 +80,13 @@ $(function(){
 				}
 				
 				var photoObj = nbPhotos[nbPhotoIndex];
-				$('#pm-photo').attr('src', '/' + photoObj.url);
+				var urlStart = photoObj.url;
+				if (urlStart.slice(0,6) == "images") {
+					var photoObjUrl = "/" + urlStart;
+				} else {
+					var photoObjUrl = urlStart;
+				}
+				$('#pm-photo').attr('src', photoObjUrl);
 				$('#pm-photo').attr('finder', nbPhotoIndex);
 				$('#pm-img-url').val(photoObj.url);
 				
