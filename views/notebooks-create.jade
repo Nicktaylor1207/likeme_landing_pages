@@ -13,13 +13,7 @@ block content
 					a(href="#create-nb-add-photos-modal", role="button", data-toggle="modal")
 						div#create-nb-add-photo-cta
 							p#create-nb-add-photo-text Add Photo
-					input#photoCounter.hide(name="photoCounter", value="3");
-					input.create-nb-photo-input.hide(name="url1", value="http://t1.gstatic.com/images?q=tbn:ANd9GcS1FszIgHwf9gCMiXGJwqsN3222Q_A4tR9LjVsCbrOpQg-tSZabBQ")
-					div.create-notebook-photo(style='background-image: url(http://t1.gstatic.com/images?q=tbn:ANd9GcS1FszIgHwf9gCMiXGJwqsN3222Q_A4tR9LjVsCbrOpQg-tSZabBQ)')
-					input.create-nb-photo-input.hide(name="url2", value="http://blog.constitutioncenter.org/wp-content/uploads/2013/11/Wild_turkey_eastern_us.jpg")
-					div.create-notebook-photo(style='background-image: url(http://blog.constitutioncenter.org/wp-content/uploads/2013/11/Wild_turkey_eastern_us.jpg)')
-					input.create-nb-photo-input.hide(name="url3", value="http://images.nationalgeographic.com/wpf/media-live/photos/000/007/cache/wild-turkey_765_600x450.jpg")
-					div.create-notebook-photo(style='background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/007/cache/wild-turkey_765_600x450.jpg)')
+					input#photoCounter.hide(name="photoCounter", value="0");
 				div.signup-center-container
 						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Create Notebook
 	div#create-nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-hidden="true")
@@ -28,11 +22,12 @@ block content
 			div#create-nb-modal-header-ctn
 				h3#create-nb-modal-header Choose a Photo
 			form#create-nb-modal-form(method="POST", action="/")
-				div.row-fluid
-					div.span4.create-nb-modal-input-ctn
-						label.create-nb-modal-label Upload photo:
-					div.span8.create-nb-modal-input-ctn
-						input#photo-upload(name="photoUpload", type="file")
+				//
+					div.row-fluid
+						div.span4.create-nb-modal-input-ctn
+							label.create-nb-modal-label Upload photo:
+						div.span8.create-nb-modal-input-ctn
+							input#photo-upload(name="photoUpload", type="file")
 				div.row-fluid
 					div.span4.create-nb-modal-input-ctn
 						label.create-nb-modal-label Add photo from a website:
