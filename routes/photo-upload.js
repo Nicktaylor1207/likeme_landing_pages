@@ -24,13 +24,16 @@ module.exports = function(app) {
         if (err) {
           throw err;
         } else {
+          /* Add the notebook name to the user's notebooks array */
+          sessionUser.notebooks.push(name.name);
+          sessionUser.save()
           /* Add the photoUrls to the notebook photoArray */
-          name.photoArray.push(req.body.photo_url);
-          name.save();
+          var notebook = name;
+          addPhotos(notebook);
         }
       });
 
-      function addPhotos(){
+      function addPhotos(notebook){
         /* counts how many photos are being added */
         var photoCounter = req.body.photoCounter;
         var reqArray = [req.body.url1, req.body.url2, req.body.url3, req.body.url4, req.body.url5, req.body.url6, req.body.url7, req.body.url8, req.body.url9, req.body.url10, req.body.url11];
@@ -59,9 +62,13 @@ module.exports = function(app) {
 
         function savePhoto(count, photo){
           photo.save(function(){
+            /* Add the photo url to the notebook's photoArray */
+            notebook.photoArray.push(photo.url);
             count++;
             if (count == photoCounter) {
-              res.redirect('/notebooks');
+              notebook.save(function(){
+                res.redirect('/albums');
+              });
             } else {
               createPhoto(count, savePhoto);
             }
