@@ -20,6 +20,16 @@ $(function(){
 		$('#add-photo-url').attr('finder', photoFinder);
 	});
 		
+	/* Set the height of notebooks options in notebook modal */
+	var selectNbOptions = $('#select-notebook-options-ctn');
+	if (user) {
+		if (user.notebooks.length == 0) {
+			selectNbOptions.hide();
+		} else {
+			selectNbOptions.attr('size', user.notebooks.length)
+		}
+	}
+
 	if (user.notebooks && user.notebooks.length > 0) {
 		
 		var notebooks = user.notebooks;
@@ -60,6 +70,8 @@ $(function(){
 $(function(){
 
 	$('#ap-modal-form').on('submit', function(){
+	  $('#select-notebook-options-ctn').show();
+
 	  var url = "/notebook1"; // the script where you handle the form input.
 	  var form = $(this);
 	  
@@ -72,7 +84,7 @@ $(function(){
 		if (newComment != "") {
 			var finder = parseInt($('#add-photo-url').attr('finder'), 10);
 			var containerDiv = $('#' + finder);
-			var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+			var newCommentHTML = "<div class='comment-text-container'><a href='/pro-profile-view/" + user.email + "'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p></a><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
 			containerDiv.find('.comments-content-container').prepend(newCommentHTML);	
 		}
 

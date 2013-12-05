@@ -7,8 +7,15 @@ $(function(){
 		$('#photo-modal').attr('nbFinder', nbFinder);
 		var photoObj = notebooks[nbFinder].photoObjects[0];
 
+		var urlStart = photoObj.url;
+		if (urlStart.slice(0,6) == "images") {
+			var photoObjUrl = "/" + urlStart;
+		} else {
+			var photoObjUrl = urlStart;
+		}
+
 		/* Set modal photo */
-		$('#pm-photo').attr('src', '/' + photoObj.url);
+		$('#pm-photo').attr('src', photoObjUrl);
 
 		/* Set modal photo finder attr */
 		$('#pm-photo').attr('finder', 0);		
@@ -42,7 +49,13 @@ $(function(){
 			}
 			
 			var photoObj = nbPhotos[nbPhotoIndex];
-			$('#pm-photo').attr('src', '/' + photoObj.url);
+			var urlStart = photoObj.url;
+			if (urlStart.slice(0,6) == "images") {
+				var photoObjUrl = "/" + urlStart;
+			} else {
+				var photoObjUrl = urlStart;
+			}
+			$('#pm-photo').attr('src', photoObjUrl);
 			$('#pm-photo').attr('finder', nbPhotoIndex);
 			$('#pm-img-url').val(photoObj.url);
 
@@ -67,7 +80,13 @@ $(function(){
 				}
 				
 				var photoObj = nbPhotos[nbPhotoIndex];
-				$('#pm-photo').attr('src', '/' + photoObj.url);
+				var urlStart = photoObj.url;
+				if (urlStart.slice(0,6) == "images") {
+					var photoObjUrl = "/" + urlStart;
+				} else {
+					var photoObjUrl = urlStart;
+				}
+				$('#pm-photo').attr('src', photoObjUrl);
 				$('#pm-photo').attr('finder', nbPhotoIndex);
 				$('#pm-img-url').val(photoObj.url);
 				
@@ -167,7 +186,7 @@ function setTags(){
 		
 	/* Set style tags */
 	var photoStyle = photoObj.style;
-	if (photoStyle) {
+	if (photoStyle != "") {
 		if (photoStyle.length > 1) {
 			var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 			for (var i = 1; i < photoStyle.length; i++) {
@@ -177,11 +196,11 @@ function setTags(){
 			styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 		}
 		var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
-	} else var styleTag = "";
+	} else var styleTag = "<p class='photo-right-content'>Style: no tag</p>";
 	
 	/* Set type tags */
 	var photoType = photoObj.type;
-	if (photoType) {
+	if (photoType  != "") {
 		if (photoType.length > 1) {
 			var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 			for (var i = 1; i < photoType.length; i++) {
@@ -191,7 +210,7 @@ function setTags(){
 			typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 		}
 		var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
-	} else var typeTag = "";
+	} else var typeTag = "<p class='photo-right-content'>Type: no tag</p>";
 
 	var contentRight = styleTag + typeTag;
 	
@@ -220,7 +239,7 @@ function setComments(){
 	for (var i = photoComments.length - 1; i > -1; i--) {
 		var commentText = photoComments[i];
 		var comment = allComments.filter(function(commentFilter) {return commentFilter.text == commentText})[0];
-		commentsDynamic += "<div class='comment-text-container'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
+		commentsDynamic += "<div class='comment-text-container'><a href='/pro-profile-view/" + user.email + "'><p class='comments-name'>" + comment.firstName + ' ' + comment.lastName + "</p></a><p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
 	}
 
 	if (photoObj.newCommentHTML) {
@@ -247,7 +266,7 @@ $('#pm-add-comment-form').on('submit', function(){
 
 	/* Handle the new view for the modal */
 	$('#pm-add-comment-form').toggle()
-	var newCommentHTML = "<div class='comment-text-container'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
+	var newCommentHTML = "<div class='comment-text-container'><a href='/pro-profile-view/" + user.email + "'><p class='comments-name'>" + user.firstName + ' ' + user.lastName + "</p></a><p class='comments-text'>" + newComment.replace(/\n/g,'<p>') + "</p></div>";
 	$('#pm-comment-container-inner').prepend(newCommentHTML);
 
 	/* Handle nav in modal */
@@ -263,7 +282,7 @@ $('#pm-add-comment-form').on('submit', function(){
 
 	$.ajax({
 	  type: "POST",
-	  url: 'comment',
+	  url: '/comment',
 	  data: form.serialize()
 	})
 		.done(function() {
@@ -272,7 +291,7 @@ $('#pm-add-comment-form').on('submit', function(){
 
 	$('#photo-modal').focus();
 
-	return false; // avoid to execute the actual submit of the form.
+	return false; // avoid executing submit of the form
 });
 
 $(function(){

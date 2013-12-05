@@ -1,4 +1,16 @@
 $(function(){
+
+	/* Hack for public profiles of non-pro users */
+	if (id.pro == false) {
+		$('.profile-left-container').hide();
+		$('#profile-right-container-right').hide();
+		$('#profile-edit-profile-btn').hide();
+		$('#edit-notebooks-btn').hide();
+	}
+
+});
+
+$(function(){
 	
 	/* Add line breaks to descriptions */
 	if (id.description) {
@@ -15,13 +27,17 @@ $(function(){
 });
 
 /* Create pro profile */
-
 $(function(){
 	
 	/* Set values of textareas in create/edit profile */
 	if (id.description) {
 		$('#description-ta').val(id.description);
 		$('#address-ta').val(id.address);
+	}
+
+	/* Set header */
+	if (user.profilePic != "" || user.title != "" || user.website != "" || user.description != "" || user.number != "" || user.address != "") {
+		$('#create-profile-header').html("Edit Profile");
 	}
 
 	/* Set profile pic */

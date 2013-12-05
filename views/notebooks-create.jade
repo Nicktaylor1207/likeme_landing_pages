@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	div.body-inner-container
+		div#create-nb-body-container
+			h1#create-nb-header Create Notebook
+			form#create-nb-form(method="POST", action="/create-notebook", enctype="multipart/form-data")
+				div
+					label.create-nb-label(for="name") Notebook Name
+					input.create-nb-input(name="name", type="text", placeholder="Choose Notebook Name")
+				h3 Add Photos
+				div#create-nb-add-photos-container
+					a(href="#create-nb-add-photos-modal", role="button", data-toggle="modal")
+						div#create-nb-add-photo-cta
+							p#create-nb-add-photo-text Add Photo
+					input#photoCounter.hide(name="photoCounter", value="0");
+				div.signup-center-container
+						button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Create Notebook
+	div#create-nb-add-photos-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-hidden="true")
+		div.modal-body#create-nb-modal-body
+			button.close#create-nb-modal-close(type="button", data-dismiss="modal", aria-hidden="true") ×
+			div#create-nb-modal-header-ctn
+				h3#create-nb-modal-header Choose a Photo
+			form#create-nb-modal-form(method="POST", action="/")
+				//
+					div.row-fluid
+						div.span4.create-nb-modal-input-ctn
+							label.create-nb-modal-label Upload photo:
+						div.span8.create-nb-modal-input-ctn
+							input#photo-upload(name="photoUpload", type="file")
+				div.row-fluid
+					div.span4.create-nb-modal-input-ctn
+						label.create-nb-modal-label Add photo from a website:
+					div.span8.create-nb-modal-input-ctn
+						input#photo-link(type="text", placeholder="Paste the link here...", name="url")
+				div.modal-footer#nb-photos-modal-footer
+					input.btn.btn-primary(type="submit", value="Submit")
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/script.js")
+	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
+	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/create-notebook.js")
+	script.
+		var navLogin = !{JSON.stringify(navLogin)}
+	script.
+		var user = !{JSON.stringify(user)}
+	script.
+		var id = !{JSON.stringify(id)}
