@@ -1846,7 +1846,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	margin-right: 5px;
 	position: absolute;
 	top: 13px;
-	left: 235px;
+	right: 10px;
 }
 
 #profile-edit-profile-btn {
@@ -1867,7 +1867,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	padding: 0px 20px;
 }
 
-.nb-notebooks-container {
+#nb-notebooks-container {
 	margin-top: 25px;
 }
 
@@ -1888,6 +1888,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .nb-notebook-img-container#third {
@@ -2086,4 +2087,42 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 #photo-link {
 	width: 280px;
+}
+
+.create-nb-album-label-container {
+	width: 100%;
+	min-height: 40px;
+	background-color: rgba(27,27,27,.8);
+	z-index: 1;
+	position: absolute;
+	bottom: 0px;
+	padding: 5px 0px;
+	border-radius: 0px 0px 3px 3px;
+	text-align: left;
+	font-style: bold;
+}
+
+.create-nb-album-label {
+	color: white;
+	margin-top: 10px;
+	margin-left: 10px;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, .8);
+}
+
+.create-nb-search-pic-name {
+	font-size: 24px;	
+	margin-bottom: 0px;
+}
+
+#notebook-modal {
+	height: 92%;
+	width: 95%;
+	margin: auto;
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+	/* background-color: #303030; */
+	background-color: #161616;
+	border-radius: 0;
+	border: none !important;
+	box-shadow: none !important;
 }

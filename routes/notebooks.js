@@ -17,6 +17,10 @@ module.exports = function(app) {
   	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
 	});
 
+	app.get('/create-nb-pm', function(req, res) {
+		res.redirect('/notebooks');
+	});
+
 	app.get('/notebooks-create', selectNav, function(req, res) {
   	res.render('notebooks-create', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
 	});

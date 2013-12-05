@@ -8,6 +8,13 @@ $(function(){
 		/* Update the photoCounter */
 		var photoCounter = $('#photoCounter');
 		var count = parseInt(photoCounter.val()) + 1;
+		
+		/* 11 photo max */
+		if (count > 10) {
+			alert("You've reached the max for uploading photos. Please create the notebook.");
+			$('#create-nb-add-photo-cta').hide();
+		}
+
 		photoCounter.attr('value', count);
 
 		/* Append the photo input */
@@ -24,10 +31,14 @@ $(function(){
 
 });
 
-$(function(){
-
-	// $('#create-nb-form').on('submit', function(){
-	// 	$('#photoCounter').val(0);
-	// });
-
-});
+/* Front-end photo validation */
+// $(function(){
+// 	$('#nb-notebooks-modal-form').submit(function(){
+// 		var form = $('#nb-notebooks-modal-input');
+// 		var form_val = form.val();
+// 		if (form_val.match(/\.jpg|\.jpeg|\.png|\.gif/) == null) {
+// 			alert("Oops! Not an image make sure the url is a .jpg, .jpeg, .png or .gif");
+// 			return false;
+// 		}
+// 	});
+// });

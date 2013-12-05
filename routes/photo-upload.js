@@ -67,7 +67,7 @@ module.exports = function(app) {
             count++;
             if (count == photoCounter) {
               notebook.save(function(){
-                res.redirect('/albums');
+                res.redirect('/notebooks');
               });
             } else {
               createPhoto(count, savePhoto);
