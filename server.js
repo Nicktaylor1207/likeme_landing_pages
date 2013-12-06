@@ -8,7 +8,7 @@ var express = require('express')
   , mongoose = require('mongoose')
   , path = require('path')
   , fs = require('fs')
-  // , mailer = require('express-mailer');
+  , mailer = require('express-mailer');
 
 var app = express();
 
@@ -67,15 +67,15 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-// mailer.extend(app, {
-//   from: 'team@sevenalbums.com', // still sends from auth address below ('zach@sevenalbums.com')
-//   host: 'smtp.gmail.com', // hostname
-//   secureConnection: true, // use SSL
-//   port: 465, // port for secure SMTP
-//   transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-//   service: 'Gmail',
-//   auth: {
-//     user: 'zach@sevenalbums.com',
-//     pass: 'Tyuhbn_85'
-//   }
-// });
+mailer.extend(app, {
+  from: 'team@sevenalbums.com', // still sends from auth address below ('zach@sevenalbums.com')
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  service: 'Gmail',
+  auth: {
+    user: 'zach@sevenalbums.com',
+    pass: 'Tyuhbn_85'
+  }
+});
