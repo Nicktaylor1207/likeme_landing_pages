@@ -19,9 +19,13 @@ html
 				div.navbar-container
 					a.brand(href="/albums") Seven Albums
 					ul.nav
+						li
+							a.nav-link(href="/about") About us
 						li.dropdown
-							a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") Browse Stores
+							a.nav-link(href="/albums") Browse Stores <b class="caret"></b>
 							ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+								li
+									a(href="/albums") All Photos
 								li.dropdown-submenu
 									a(tabindex="-1", href="#") By Style
 									ul.dropdown-menu
@@ -48,7 +52,7 @@ html
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
-								a.nav-link(href="/about") About us
+								a.nav-link(href="/signup") Sign up
 							li
 								a.nav-link#loginButton(href="#") <span>Log in</span>
 								div#loginBox
@@ -59,12 +63,6 @@ html
 											input(type="password", name="password", placeholder="Password")
 										button.btn.btn-primary#login(type="submit") Log in
 										a#login-modal-forgot-pass(href="/forgot-password") Forgot your password?
-					div#signed-in.hide()
-						ul.nav.pull-right#nav-right-container
-							li
-								a.nav-link(href="/about") About us
-							li
-								a.nav-link(href="/signup") Sign up
 		div#myCarousel(class="carousel carousel-fade slide")
 			div#carousel-container(class="carousel-inner")
 				div(class="item active")
