@@ -4,14 +4,10 @@ var selectNav = require('./middleware/select_nav');
 module.exports = function(app) {
 
 	app.get('/about', selectNav, function(req, res) {
-    var hide = false;
-    res.render('about', {hide: hide, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
+    res.render('about', {navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});
 	});
 
 	app.post('/message', selectNav, function(req, res){
-    if (req.session.email) {
-      req.body.email = req.session.email.email;
-    }
 		Message.create(req.body, function(err) {      
       if (err) {
         if (err.name === 'ValidationError') {
@@ -23,9 +19,7 @@ module.exports = function(app) {
         }
         return;
       } else {
-        var hide = false;
-        var sent = true;
-        res.render('about', {hide: hide, sent: sent, navLogin: req.body.navLogin});
+        res.redirect('/about');
       }
     });
 

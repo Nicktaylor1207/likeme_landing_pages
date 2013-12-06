@@ -2144,3 +2144,13 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	left: 43px;
 	font-size: 20px;	
 }
+
+#about-msg-from {
+	margin-top: 5px;
+	margin-right: 5px;
+	font-weight: bold;
+}
+
+#message-post-btn {
+	float: right;
+}

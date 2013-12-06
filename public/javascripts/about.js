@@ -1,8 +1,8 @@
 $(function(){
 
-	$('#about-star').on('click', function(){
-		alert("Thanks for your encouragement! It means a lot to us.");
-	});
+	if (user && user.email) {
+		$('#email').val(user.email);
+	}
 
 	$('#about-contact-form').on('submit', function(){
 
@@ -10,13 +10,13 @@ $(function(){
 			alert(msg);
 			return false;
 		}
-
+		
 		if ($('#email').val() == "") {
 			return failValidation("Please enter your email address.");
-		}
-
-		if ($('#message').val() == "") {
+		} else if ($('#message').val() == "") {
 			return failValidation("Please enter a message.");
+		} else {
+			alert("Thanks for your message!");
 		}
 
 	});
