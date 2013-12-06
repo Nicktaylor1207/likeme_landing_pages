@@ -79,7 +79,17 @@ module.exports = function(app) {
       };
 
     } else {
-      /* Create notebook without photos here */
+      Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
+        if (err) {
+          throw err;
+        } else {
+          /* Add the notebook name to the user's notebooks array */
+          sessionUser.notebooks.push(name.name);
+          sessionUser.save(function(){
+            res.redirect('/notebooks');
+          })
+        }
+      });
     }
 
   });

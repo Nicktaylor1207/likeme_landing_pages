@@ -13,11 +13,11 @@ block content
 					input.login-input(type="password", name="password", placeholder="Your password")
 				button.btn.btn-large.btn-primary#login-failed-btn(type="submit") Log in
 				p#login-failed-or not a user?
-				a#login-failed-signup(href="signup")
+				a#login-failed-signup(href="/signup")
 					button.btn.btn-large.btn-success#login-failed-btn Sign up
 				div#forgot-password
-					a#forgot-password-link(href="forgot-password") Forgot your password?
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+					a#forgot-password-link(href="/forgot-password") Forgot your password?
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

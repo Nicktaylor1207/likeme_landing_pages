@@ -12,7 +12,7 @@ block content
 							btn.btn.btn-primary.btn-large#choose-file-btn Choose File
 							input#choose-file-input(name="profilePic", type="file")
 						div#create-profile-photo-container-empty.hide
-						div#create-profile-photo-container(style='background-image: url(#{user.profilePic})')
+						div#create-profile-photo-container
 							img.profile-photo(src=user.profilePic)
 					div.span6#create-profile-content-right
 						h3 Profile Details <span class="create-profile-optional">(optional)</span>
@@ -35,7 +35,7 @@ block content
 						input.hide(name="pro", value="true")
 						div.signup-center-container
 							button#signup-sign-up-btn.btn.btn-large.btn-primary(type="submit") Update my profile
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

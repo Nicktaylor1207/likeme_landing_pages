@@ -67,6 +67,13 @@ $(function(){
 $(function(){
 
 	$('#ap-modal-form').on('submit', function(){
+	  /* Add validation that a notebook has been created */
+	  var newNotebook = $('#select-notebook option').val();
+	  if (newNotebook == "Create New Notebook") {
+	  	alert("Please add a name for the notebook.");
+	  	return false;
+	  }
+
 	  $('#select-notebook-options-ctn').show();
 
 	  var url = "/notebook1";
@@ -75,8 +82,6 @@ $(function(){
 	  $('#photos-add-photos-modal').modal('hide');
 
 		/* Handle creating a notebook */
-		var newNotebook = $('#select-notebook option').val();
-
 		function checkNotebook(notebook){
 			if (notebook == newNotebook) {
 				return true;

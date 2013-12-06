@@ -17,7 +17,7 @@ html
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
-					a.brand(href="albums") Seven Albums
+					a.brand(href="/albums") Seven Albums
 					ul.nav
 						li.dropdown
 							a.nav-link(href="#", class="dropdown-toggle", data-toggle="dropdown") Browse Stores
@@ -25,30 +25,30 @@ html
 								li.dropdown-submenu
 									a(tabindex="-1", href="#") By Style
 									ul.dropdown-menu
-										// li <a tabindex="-1" href="photos-cons">Consignment</a>
-										li <a tabindex="-1" href="photos-cont">Contemporary</a>
-										li <a tabindex="-1" href="photos-ecce">Eccentric</a>
-										// li <a tabindex="-1" href="photos-hip">Hip</a>
-										li <a tabindex="-1" href="photos-indu">Industrial</a>
-										li <a tabindex="-1" href="photos-mini">Minimalist</a>
-										li <a tabindex="-1" href="photos-rust">Rustic</a>
-										li <a tabindex="-1" href="photos-trad">Traditional</a>
+										// li <a tabindex="-1" href="/photos-cons">Consignment</a>
+										li <a tabindex="-1" href="/photos-cont">Contemporary</a>
+										li <a tabindex="-1" href="/photos-ecce">Eccentric</a>
+										// li <a tabindex="-1" href="/photos-hip">Hip</a>
+										li <a tabindex="-1" href="/photos-indu">Industrial</a>
+										li <a tabindex="-1" href="/photos-mini">Minimalist</a>
+										li <a tabindex="-1" href="/photos-rust">Rustic</a>
+										li <a tabindex="-1" href="/photos-trad">Traditional</a>
 								li.dropdown-submenu
 									a(tabindex="-1", href="#") By Category
 									ul.dropdown-menu
-										// li <a tabindex="-1" href="photos-chan">Changing room</a>
-										li <a tabindex="-1" href="photos-disp">Displays</a>
-										li <a tabindex="-1" href="photos-diy">DIY</a>
-										li <a tabindex="-1" href="photos-full">Full Store</a>
-										li <a tabindex="-1" href="photos-ligh">Lighting</a>
-										li <a tabindex="-1" href="photos-mann">Mannequin</a>
-										li <a tabindex="-1" href="photos-merc">Merchandising</a>
-										li <a tabindex="-1" href="photos-shac">Shoes & Accessories</a>
-										li <a tabindex="-1" href="photos-fron">Store Front</a>
+										// li <a tabindex="-1" href="/photos-chan">Changing room</a>
+										li <a tabindex="-1" href="/photos-disp">Displays</a>
+										li <a tabindex="-1" href="/photos-diy">DIY</a>
+										li <a tabindex="-1" href="/photos-full">Full Store</a>
+										li <a tabindex="-1" href="/photos-ligh">Lighting</a>
+										li <a tabindex="-1" href="/photos-mann">Mannequin</a>
+										li <a tabindex="-1" href="/photos-merc">Merchandising</a>
+										li <a tabindex="-1" href="/photos-shac">Shoes & Accessories</a>
+										li <a tabindex="-1" href="/photos-fron">Store Front</a>
 					div#not-signed-in
 						ul.nav.pull-right#nav-right-container
 							li
-								a.nav-link(href="about") About us
+								a.nav-link(href="/about") About us
 							li
 								a.nav-link#loginButton(href="#") <span>Log in</span>
 								div#loginBox
@@ -58,13 +58,13 @@ html
 										fieldset
 											input(type="password", name="password", placeholder="Password")
 										button.btn.btn-primary#login(type="submit") Log in
-										a#login-modal-forgot-pass(href="forgot-password") Forgot your password?
+										a#login-modal-forgot-pass(href="/forgot-password") Forgot your password?
 					div#signed-in.hide()
 						ul.nav.pull-right#nav-right-container
 							li
-								a.nav-link(href="about") About us
+								a.nav-link(href="/about") About us
 							li
-								a.nav-link(href="signup") Sign up
+								a.nav-link(href="/signup") Sign up
 		div#myCarousel(class="carousel carousel-fade slide")
 			div#carousel-container(class="carousel-inner")
 				div(class="item active")
@@ -90,12 +90,12 @@ html
 				p#landing-sub-header Find ideas and inspiration for your store
 			div#landing-content
 				h3#signup-free-sub Sign up for your free account
-				a(href="signup")
+				a(href="/signup")
 					button.btn-large.btn-primary#signup-modal-btn Sign up
 				div.signup-modal-footer
 					p Already have an account? <a href="#" id="login-button2">Log in now</a>
 		div#preview-site-container
-			a#preview-site-link(href="albums")
+			a#preview-site-link(href="/albums")
 				// h1#preview-site-header Preview Seven Albums <span id="preview-arrow">&rsaquo;</span>
 		div#landing-content-container
 			div#landing-content-container-inner
@@ -104,13 +104,13 @@ html
 				div.cov-albums-outer-container
 					div#cov-pro-album-container
 						div.cov-pro-album-cover(style='background-image: url("images/rsz_bou59_400_270.jpg")')
-							a(href="photos-indu")
+							a(href="/photos-indu")
 								img.cov-pro-album-pic(src="images/rsz_bou59_400_270.jpg")
 								div.cov-pro-album-label-container
 									div.cov-pro-album-label
 										p.search-pic-name Industrial
 						div.cov-pro-album-cover(style='background-image: url("images/rsz_bou79_400_270.jpg")')
-							a(href="photos-ecce")
+							a(href="/photos-ecce")
 								img.cov-pro-album-pic(src="images/rsz_bou79_400_270.jpg")
 								div.cov-pro-album-label-container
 									div.cov-pro-album-label
@@ -120,13 +120,13 @@ html
 				div.cov-albums-outer-container
 					div#cov-pro-album-container
 						div.cov-pro-album-cover(style='background-image: url("images/merc/1.jpg")')
-							a(href="photos-disp")
+							a(href="/photos-disp")
 								img.cov-pro-album-pic(src="images/merc/1.jpg")
 								div.cov-pro-album-label-container
 									div.cov-pro-album-label
 										p.search-pic-name DIY Displays
 						div.cov-pro-album-cover(style='background-image: url("images/displays/15.jpg")')
-							a(href="photos-merc")
+							a(href="/photos-merc")
 								img.cov-pro-album-pic(src="images/displays/15.jpg")
 								div.cov-pro-album-label-container
 									div.cov-pro-album-label
@@ -135,9 +135,9 @@ html
 					h1#landing-content-header-2 Save ideas to your notebook
 				div.cov-albums-outer-container
 					div#landing-notebook-img-container
-						a(href="albums")
+						a(href="/albums")
 							img#landing-notebook-img(src="images/notebook1.png")
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

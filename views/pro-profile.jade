@@ -6,11 +6,11 @@ block content
 			div.profile-content-container.row-fluid
 				div.profile-left-container.span4
 					div.border-container
-						div.profile-photo-container(style='background-image: url(#{user.profilePic})')
+						div.profile-photo-container
 							img.profile-photo(src=user.profilePic)
 							div#profile-pic-edit-label-container.hide()
 								div#profile-pic-edit-label
-									a(href="pro-profile-create")
+									a(href="/pro-profile-create")
 										p#edit-profile-pic Edit Picture
 				div#profile-right-container.span8
 					div.row-fluid
@@ -78,7 +78,7 @@ block content
 					div.span4.ap-modal-input-ctn
 						label.ap-modal-label Add Comment:
 					div.span8.ap-modal-input-ctn
-						textarea.ap-modal-textarea(rows="4", name="comment")
+						textarea.ap-modal-textarea(rows="4", name="comment", placeholder="Comment on the photo...")
 				div.modal-footer#nb-photos-modal-footer
 					input.btn.btn-primary(type="submit", value="Submit")
 			div.modal#select-notebook-ctn.hide(tabindex="-1", role="dialog", aria-labelledby="selectNotbook", aria-hidden="true", data-backdrop="false")
@@ -86,7 +86,7 @@ block content
 					input#create-notebook-input(type="text", name="name", placeholder="Create New Notebook")
 					btn.btn.btn-primary.btn-small#create-notebook-btn Create
 					select#select-notebook-options-ctn(multiple="multiple", size="5")
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

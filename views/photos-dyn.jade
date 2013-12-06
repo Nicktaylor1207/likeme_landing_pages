@@ -6,28 +6,28 @@ block content
 			div#photo-left-nav-container
 				ul.nav.nav-list
 					li.nav-header Browse by Style
-					li <a href='photos-cont'>Contemporary</a>
-					li <a href='photos-ecce'>Eccentric</a>
-					li <a href='photos-indu'>Industrial</a>
-					li <a href='photos-mini'>Minimalist</a>
-					li <a href='photos-rust'>Rustic</a>
-					li <a href='photos-trad'>Traditional</a>
+					li <a href='/photos-cont'>Contemporary</a>
+					li <a href='/photos-ecce'>Eccentric</a>
+					li <a href='/photos-indu'>Industrial</a>
+					li <a href='/photos-mini'>Minimalist</a>
+					li <a href='/photos-rust'>Rustic</a>
+					li <a href='/photos-trad'>Traditional</a>
 				ul.nav.nav-list
 					li.nav-header Browse by Type
-					li <a href='photos-disp'>Displays</a>
-					li <a href='photos-diy'>DIY</a>
-					li <a href='photos-full'>Full Store</a>
-					li <a href='photos-ligh'>Lighting</a>
-					li <a href='photos-merc'>Merchandising</a>
-					li <a href='photos-mann'>Mannequin</a>
-					li <a href='photos-shac'>Shoes & Accessories</a>
-					li <a href='photos-fron'>Store Front</a>
+					li <a href='/photos-disp'>Displays</a>
+					li <a href='/photos-diy'>DIY</a>
+					li <a href='/photos-full'>Full Store</a>
+					li <a href='/photos-ligh'>Lighting</a>
+					li <a href='/photos-merc'>Merchandising</a>
+					li <a href='/photos-mann'>Mannequin</a>
+					li <a href='/photos-shac'>Shoes & Accessories</a>
+					li <a href='/photos-fron'>Store Front</a>
 			div.pull-right.photo-page-container
 	div#signup-cta-modal-2.modal(tabindex="-1", role="dialog", aria-labelledby="signupCtaModal", aria-hidden="true")
 		div#signup-cta-modal-container-2
 			p#signup-cta-modal-sub-2 Sign up. It's free.
 			div#signup-cta-btn-container-2
-				a(href="signup")
+				a(href="/signup")
 					button.btn-large.btn-primary#signup-cta-btn-2 Sign up
 	div#signup-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="signupModal", aria-hidden="true")
 		div.modal-body#signup-modal-container
@@ -37,10 +37,10 @@ block content
 				p#landing-sub-header Find ideas and inspiration for your store
 			div#landing-content
 				h3#signup-free-sub Sign up for your free account
-				a(href="signup")
+				a(href="/signup")
 					button.btn-large.btn-primary#signup-modal-btn Sign up
 				div.signup-modal-footer
-					p Already have an account? <a href="login">Log in now</a>
+					p Already have an account? <a href="/login">Log in now</a>
 	div.modal#photo-modal.hide(tabindex="-1", role="dialog", aria-labelledby="photoModal", aria-hidden="true")
 		div#pm-left-ctn
 			img#pm-photo(src="#", finder="#")
@@ -83,7 +83,7 @@ block content
 					div.span4.ap-modal-input-ctn
 						label.ap-modal-label Add Comment:
 					div.span8.ap-modal-input-ctn
-						textarea.ap-modal-textarea(rows="4", name="comment")
+						textarea.ap-modal-textarea(rows="4", name="comment", placeholder="Comment on the photo...")
 				div.modal-footer#nb-photos-modal-footer
 					input.btn.btn-primary(type="submit", value="Submit")
 			div.modal#select-notebook-ctn.hide(tabindex="-1", role="dialog", aria-labelledby="selectNotbook", aria-hidden="true", data-backdrop="false")
@@ -91,7 +91,7 @@ block content
 					input#create-notebook-input(type="text", name="name", placeholder="Create New Notebook")
 					btn.btn.btn-primary.btn-small#create-notebook-btn Create
 					select#select-notebook-options-ctn(multiple="multiple", size="5")
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

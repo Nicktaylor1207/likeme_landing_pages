@@ -7,7 +7,7 @@ block content
 			form#create-nb-form(method="POST", action="/create-notebook", enctype="multipart/form-data")
 				div
 					label.create-nb-label(for="name") Notebook Name
-					input.create-nb-input(name="name", type="text", placeholder="Choose Notebook Name")
+					input.create-nb-input#create-nb-notebook-name(name="name", type="text", placeholder="Choose Notebook Name")
 				h3 Add Photos
 				div#create-nb-add-photos-container
 					a(href="#create-nb-add-photos-modal", role="button", data-toggle="modal")
@@ -35,7 +35,7 @@ block content
 						input#photo-link(type="text", placeholder="Paste the link here...", name="url")
 				div.modal-footer#nb-photos-modal-footer
 					input.btn.btn-primary(type="submit", value="Submit")
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")

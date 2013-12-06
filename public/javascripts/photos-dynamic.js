@@ -8,12 +8,12 @@ $(function(){
 		var photoStyle = photo.style;
 		if (photoStyle != "") {
 			if (photoStyle.length > 1) {
-				var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+				var styleTagString = "<a href='/photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 				for (var i = 1; i < photoStyle.length; i++) {
-					styleTagString += ", <a href='photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
+					styleTagString += ", <a href='/photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
 				}
 			} else {
-				styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+				styleTagString = "<a href='/photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 			}
 			var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
 		} else var styleTag = "<p class='photo-right-content'>Style: no tag</p>";
@@ -22,12 +22,12 @@ $(function(){
 		var photoType = photo.type;
 		if (photoType != "") {
 			if (photoType.length > 1) {
-				var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+				var typeTagString = "<a href='/photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 				for (var i = 1; i < photoType.length; i++) {
-					typeTagString += ", <a href='photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
+					typeTagString += ", <a href='/photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
 				}
 			} else {
-				typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+				typeTagString = "<a href='/photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 			}
 			var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
 		} else var typeTag = "<p class='photo-right-content'>Type: no tag</p>";

@@ -14,7 +14,7 @@ var PhotoSchema = new mongoose.Schema({
 	diy: Boolean,
 	used: Boolean,
 	date: { 
-		type: String, 
+		type: String,
 		default: (new Date()).getTime()
 	},
 	comments: [],

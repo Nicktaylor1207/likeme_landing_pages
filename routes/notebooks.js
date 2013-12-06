@@ -47,18 +47,22 @@ module.exports = function(app) {
             function addPhotos(photoUrls, callback){
               var count = photoUrls.length;
               var photoObjects = [];
-              photoUrls.forEach(function(url){
-                Photo.findOne({'url': url}, function(err, photoObj){
-                  if (err) {
-                    throw err;
-                  }
-                  photoObjects.push(photoObj); 
-                  count--;
-                  if (count == 0) {
-                    callback(err, photoObjects);
-                  }
-                })
-              })
+              if (count > 0) {
+	              photoUrls.forEach(function(url){
+	                Photo.findOne({'url': url}, function(err, photoObj){
+	                  if (err) {
+	                    throw err;
+	                  }
+	                  photoObjects.push(photoObj); 
+	                  count--;
+	                  if (count == 0) {
+	                    callback(err, photoObjects);
+	                  }
+	                })
+	              })
+	            } else {
+	            	callback(err, photoObjects);
+	            }
             }
 
             function addNotebooks(notebooks, callback){
