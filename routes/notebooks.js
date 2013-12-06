@@ -4,14 +4,14 @@ var Notebook = require('../data/models/notebooks');
 var Comment = require('../data/models/comments');
 var selectNav = require('./middleware/select_nav');
 
-function sortByKey(array, key) {
-  return array.sort(function(a, b) {
-    var x = a[key]; var y = b[key];
-    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-  });
-}
-
 module.exports = function(app) {
+
+	function sortByKey(array, key) {
+	  return array.sort(function(a, b) {
+	    var x = a[key]; var y = b[key];
+	    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+	  });
+	}
 
 	app.get('/notebook', selectNav, function(req, res) {
   	res.render('notebook', {photos: sessionUser.photos, navLogin: req.body.navLogin, user: sessionUser, id: sessionUser});

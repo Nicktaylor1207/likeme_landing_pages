@@ -24,9 +24,13 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 				div.navbar-container
 					a.brand(href="/") Seven Albums
 					ul.nav
+						li
+							a.nav-link(href="/about") About us
 						li.dropdown
-							a.nav-link(href="#") Browse Stores <b class="caret"></b>
+							a.nav-link(href="/albums") Browse Stores <b class="caret"></b>
 							ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu")
+								li
+									a(href="/albums") All Photos
 								li.dropdown-submenu
 									a(tabindex="-1", href="#") By Style
 									ul.dropdown-menu
