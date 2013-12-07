@@ -1083,7 +1083,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 #login-alt-container {
-	margin: 30px 30px 0px 30px;
+	margin: -20px 30px 0px 30px;
 }
 
 /* Photo modal */

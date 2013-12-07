@@ -4,24 +4,27 @@ block content
 	div.body-inner-container
 		div#login-failed-container
 			p#login-error Please enter a valid email address and password.
-			form#loginForm(method="POST", action="/session")
+			form#login-form(method="POST", action="/session")
 				fieldset.login-failed-input
 					label.login-label(for="email") Email Address
-					input.login-input(type="text", name="email", placeholder="Your email")
+					input.login-input#signup-email-input(type="text", name="email", placeholder="Your email")
 				fieldset.login-failed-input
 					label.login-label(for="password") Password
-					input.login-input(type="password", name="password", placeholder="Your password")
+					input.login-input#signup-password-input(type="password", name="password", placeholder="Your password")
 				button.btn.btn-large.btn-primary#login-failed-btn(type="submit") Log in
 				p#login-failed-or not a user?
 				a#login-failed-signup(href="/signup")
 					button.btn.btn-large.btn-success#login-failed-btn Sign up
 				div#forgot-password
 					a#forgot-password-link(href="/forgot-password") Forgot your password?
+			div#still-trouble
+						p Still having trouble logging in? <a href="/contact">Contact us</a>
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
+	script(type="text/javascript", src="/javascripts/login.js")
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.
