@@ -12,11 +12,11 @@ var express = require('express')
 
 var app = express();
 
-var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
-mongoose.connect(uri);
+// var uri = 'mongodb://heroku_app17359789:omvg0j2mnvsq7dslc20dim3lk6@ds037478.mongolab.com:37478/heroku_app17359789'
+// mongoose.connect(uri);
 
-// var dbURL = 'mongodb://localhost/foobar';
-// var db = mongoose.connect(dbURL);
+var dbURL = 'mongodb://localhost/foobar';
+var db = mongoose.connect(dbURL);
 
 // all environments
 app.configure(function(){
@@ -62,6 +62,7 @@ require('./routes/photos-dynamic')(app);
 require('./routes/comments')(app);
 require('./routes/profiles')(app);
 require('./routes/users')(app);
+require('./routes/sportsvids')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
