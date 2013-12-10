@@ -20,6 +20,10 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/fb-login', function(req, res){
+		res.render('fb-login');
+	});
+
 	app.get('/sportsvids/:id', function(req, res){
 		Vid.find(function(err, vids){
 			var vidsByDate = sortByKey(vids, 'date');
