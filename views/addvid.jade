@@ -17,7 +17,7 @@ html
 		div.body-container
 			div.body-container-inner
 				h2 Add Video
-				form(method="POST", action="/addvid")
+				form#av-form(method="POST", action="/addvid")
 					div
 						label(for="title") Video Name
 						input(name="title", type="text", placeholder="Choose Video Name...")
@@ -26,7 +26,9 @@ html
 						input(name="location", type="text", placeholder="Add Location...")
 					div
 						label(for="url") Video Link
-						input(name="url", type="text", placeholder="Paste Video URL...")
+						input#av-vid-url(name="url", type="text", placeholder="Paste Video URL...")
+					div
+						input#av-imgthumb.hide(name="imgthumb")
 					button#av-add-video.btn.btn-large.btn-primary(type="submit") Add Video
 				a(href="/sportsvids") View Sports Videos
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')

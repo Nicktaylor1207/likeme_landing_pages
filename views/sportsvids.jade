@@ -17,11 +17,24 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 		div.body-container
 			div.body-container-inner
 				h2 Sports Videos
-				iframe#sv-video-frame(width="640", height="360", src="", frameborder="0", allowfullscreen)
-				div#sv-add-vid-link
-					a(href="/addvid") Add Video
+				div.row-fluid
+					div.span8
+						iframe#sv-video-frame(width="640", height="360", src="", frameborder="0", allowfullscreen)
+						div#sv-location-ctn
+						div#sv-date-ctn
+						div
+							a(href="/addvid") Add Video
+					div.span4#sv-other-vids-content-ctn
+						h3#sv-other-vids-header Other Videos
+						div#sv-other-vids-ctn
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/sportsvids.js")
 	script.
+		var vid = !{JSON.stringify(vid)}
+	script.
 		var vids = !{JSON.stringify(vids)}
+
+// red: 52a68f7087d9900000000003 //www.youtube.com/embed/CSLuDSsdrb8
+// unc: 52a68b2887d9900000000002 //www.youtube.com/embed/m9WRD7UvmMw "Cobb Court, UNC"
+// nick: 52a68b0b87d9900000000001 //www.youtube.com/embed/5vAdJK2k3Ls

@@ -19,8 +19,26 @@
 
 #sv-video-frame {
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-#sv-add-vid-link {
-	margin-top: 20px;
+.sv-vid-header {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#sv-other-vids-content-ctn {
+	padding-left: 30px;
+}
+
+#sv-other-vids-header {
+	margin-top: 10px;
+}
+
+.sv-other-vid-img {
+	cursor: pointer;
+}
+
+.sv-other-img-div {
+	margin-bottom: 20px;
 }
