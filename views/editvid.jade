@@ -16,8 +16,8 @@ html
 	body
 		div.body-container
 			div.body-container-inner
-				h2 Add Video
-				form#av-form(method="POST", action="/addvid")
+				h2 Edit Video
+				form#av-form(method="POST", action="/editvid")
 					div
 						label(for="url") Video Link
 						input#av-vid-url(name="url", type="text", placeholder="Paste Video URL...")
@@ -38,7 +38,11 @@ html
 						input#av-vid-players(name="userIDs", type="text", placeholder="Add player emails seperated by a comma...")
 					div
 						input#av-imgthumb.hide(name="imgthumb")
-					button#av-add-video.btn.btn-large.btn-primary(type="submit") Add Video
+						input#av-vidID.hide(name="vidID", value=vid._id)
+					button#av-add-video.btn.btn-large.btn-primary(type="submit") Submit Changes
 				a(href="/sportsvids") View Sports Videos
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/editvids.js")
+	script.
+		var vid = !{JSON.stringify(vid)}

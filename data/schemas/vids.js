@@ -6,6 +6,7 @@ var VidSchema = new mongoose.Schema({
 	location: String,
 	league: String,
 	imgthumb: String,
+	/* Currently userIDs are user email addresses */
 	userIDs: [],
 	date: { 
 		type: String,

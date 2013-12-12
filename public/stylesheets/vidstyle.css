@@ -19,11 +19,11 @@
 
 #sv-video-frame {
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 .sv-vid-header {
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -41,4 +41,8 @@
 
 .sv-other-img-div {
 	margin-bottom: 20px;
+}
+
+.sv-edit-video {
+	margin-top: 5px;
 }

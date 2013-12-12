@@ -1,5 +1,6 @@
 var Vid = require('../data/models/vids');
 var Comment = require('../data/models/comments');
+var User = require('../data/models/users');
 
 module.exports = function(app) {
 
@@ -12,6 +13,16 @@ module.exports = function(app) {
 
 	app.get('/addvid', function(req, res){
 		res.render('addvid');
+	});
+
+	app.get('/editvid/:id', function(req, res){
+		Vid.findById(req.params.id, function(err, vid){
+			if (err) {
+				console.log("Cannot find that vid");
+				res.redirect('/addvid');
+			}
+			res.render('editvid', {vid: vid});
+		});
 	});
 
 	app.get('/sportsvids', function(req, res){
@@ -32,14 +43,22 @@ module.exports = function(app) {
 				var count = userIDs.length;
 				var players = [];
 				userIDs.forEach(function(userID){
-					User.findById(userID, function(err, player){
-						if (err) {
-						  next(err);
-						}
-						players.push(player);
-						count--;
-						if (count == 0) {
-						  callback(players);
+					var userID = userID;
+					User.findOne({email: userID}, function(err, player){
+						/* If the user is not found, add the user's email address to the players array */
+						if (err || !player) {
+							console.log("Did not find user");
+							players.push(userID);
+						  count--;
+						  if (count == 0) {
+						    callback(players);
+						  }
+						} else {
+							players.push(player);
+							count--;
+							if (count == 0) {
+							  callback(players);
+							}
 						}
 					});
 				});
@@ -59,11 +78,9 @@ module.exports = function(app) {
 						console.log("Error finding vid with that :id");
 						throw err;
 					} else {
-						if (vid.userIDs.length > 0){
-							getPlayers(vid, function(err, players){
-								if (!err) {
-									res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players});
-								}
+						if (vid.userIDs && vid.userIDs.length > 0){
+							getPlayers(vid, function(players){
+								res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players});
 							});
 						} else {
 							res.render('sportsvids', {vids: vidsByDate, vid: vid, players: false});
@@ -83,9 +100,36 @@ module.exports = function(app) {
 				var vidUrl = req.body.url;
 				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6).toString();
 				vid.imgthumb = "http://img.youtube.com/vi/" + ytId + "/hqdefault.jpg";
+				var playerString = req.body.userIDs.toString();
+				var playersArray = playerString.split(",");
+				vid.userIDs = playersArray;
 				vid.save(function(){
-					res.redirect('/sportsvids');
+					res.redirect('/sportsvids/' + req.params.vidID);
 				})
+			}
+		});
+	});
+
+	app.post('/editvid', function(req, res){
+		Vid.findById(req.body.vidID, function(err, vid){
+			if (err){
+				res.send("Error editing vid");
+				throw err;
+			} else {
+				var vidUrl = req.body.url;
+				vid.url = vidUrl;
+				vid.title = req.body.title;
+				vid.location = req.body.location;
+				vid.league = req.body.league;
+				vid.date = req.body.date;
+				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6).toString();
+				vid.imgthumb = "http://img.youtube.com/vi/" + ytId + "/hqdefault.jpg";
+				var playerString = req.body.userIDs.toString();
+				var playersArray = playerString.split(",");
+				vid.userIDs = playersArray;
+				vid.save(function(){
+					res.redirect('/sportsvids/' + req.body.vidID);
+				});
 			}
 		});
 	});

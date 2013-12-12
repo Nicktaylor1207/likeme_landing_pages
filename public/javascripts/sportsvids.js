@@ -26,8 +26,19 @@ $(function(){
 	}
 
 	/* Set main vid players */
-	if (vid && vid.players) {
-		$('#sv-league-ctn').html('<p><span class="sv-vid-header">League: </span>' + vid.league + '</p>')	
+	if (vid && vid.userIDs && vid.userIDs.length > 0) {
+		var svLeagueCtn = $('#sv-league-ctn');
+		svLeagueCtn.append('<p class="sv-vid-header">Players:</p>');
+		var players = vid.userIDs;
+		$.each(players, function(index, player){
+			if ($.type(player) === "string") {
+				var playerID = player;
+			} else {
+				var playerID = player.email;
+			}
+			var playerDiv = '<p class="sv-player-ID" playerFinder=' + index + '>' + playerID + '</p>'
+			svLeagueCtn.append(playerDiv);
+		});
 	}	
 	
 	/* Set other videos */
@@ -43,6 +54,11 @@ $(function(){
 			}
 			otherVidCtn.append(vidImg);
 		});
+	}
+
+	/* Add edit video if applicable */
+	if (vid) {
+		$('#sv-add-edit-vid-ctn').append('<p class="sv-edit-video"><a href="/editvid/' + vid._id + '">Edit Video</a></p>')
 	}
 
 });
