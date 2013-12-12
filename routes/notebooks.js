@@ -53,7 +53,7 @@ module.exports = function(app) {
 	                  if (err) {
 	                    throw err;
 	                  }
-	                  photoObjects.push(photoObj); 
+	                  photoObjects.push(photoObj);
 	                  count--;
 	                  if (count == 0) {
 	                    callback(err, photoObjects);

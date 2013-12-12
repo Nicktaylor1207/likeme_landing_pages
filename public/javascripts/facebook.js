@@ -1,6 +1,13 @@
+/* Set the appId based on dev vs env mode */
+if (document.domain == 'localhost') {
+  var dynAppId = '773135269370645';
+} else {
+  var dynAppId = '337007326441493';
+}
+
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '337007326441493',
+    appId      : dynAppId,
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -16,7 +23,7 @@ window.fbAsyncInit = function() {
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      console.log("connected");
+      console.log(response);
       window.location.replace('/sportsvids');
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call

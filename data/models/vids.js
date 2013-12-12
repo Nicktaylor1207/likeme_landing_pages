@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var VidSchema = require('../schemas/sportsvids');
+var VidSchema = require('../schemas/vids');
 
 var Vid = mongoose.model('Vid', VidSchema);
 

@@ -1,4 +1,4 @@
-var Vid = require('../data/models/sportsvids');
+var Vid = require('../data/models/vids');
 var Comment = require('../data/models/comments');
 
 module.exports = function(app) {
@@ -25,12 +25,49 @@ module.exports = function(app) {
 	});
 
 	app.get('/sportsvids/:id', function(req, res){
+		
+		function getPlayers(vid, callback){
+			if (vid.userIDs) {
+				var userIDs = vid.userIDs;
+				var count = userIDs.length;
+				var players = [];
+				userIDs.forEach(function(userID){
+					User.findById(userID, function(err, player){
+						if (err) {
+						  next(err);
+						}
+						players.push(player);
+						count--;
+						if (count == 0) {
+						  callback(players);
+						}
+					});
+				});
+			}
+		}
+
 		Vid.find(function(err, vids){
-			var vidsByDate = sortByKey(vids, 'date');
-			if(!err){
+			if (err) {
+				res.redirect('/sportsvids');
+				console.log("Error finding vids");
+				throw err;
+			} else {
+				var vidsByDate = sortByKey(vids, 'date');
 				Vid.findById(req.params.id, function(err, vid){
-					if(!err){
-						res.render('sportsvids', {vids: vidsByDate, vid: vid});	
+					if(err) {
+						res.redirect('/sportsvids');
+						console.log("Error finding vid with that :id");
+						throw err;
+					} else {
+						if (vid.userIDs.length > 0){
+							getPlayers(vid, function(err, players){
+								if (!err) {
+									res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players});
+								}
+							});
+						} else {
+							res.render('sportsvids', {vids: vidsByDate, vid: vid, players: false});
+						}
 					}
 				})
 			}

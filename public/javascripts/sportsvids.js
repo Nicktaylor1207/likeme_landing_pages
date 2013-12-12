@@ -19,13 +19,22 @@ $(function(){
 		var date = new Date(time);
 		$('#sv-date-ctn').html('<p><span class="sv-vid-header">Date: </span>' + date.toString() + '</p>')
 	}
+
+	/* Set main vid location */
+	if (vid && vid.league) {
+		$('#sv-league-ctn').html('<p><span class="sv-vid-header">League: </span>' + vid.league + '</p>')	
+	}
+
+	/* Set main vid players */
+	if (vid && vid.players) {
+		$('#sv-league-ctn').html('<p><span class="sv-vid-header">League: </span>' + vid.league + '</p>')	
+	}	
 	
 	/* Set other videos */
 	if (vids.length > 1) {
 		var otherVidCtn = $('#sv-other-vids-ctn');
 		$.each(vids, function(index, video){
 			if (vid) {
-				console.log("imgthumb: " + video.imgthumb);
 				if (video.imgthumb != vid.imgthumb) {
 					var vidImg = '<div class="sv-other-img-div"><a class="sv-other-img-link" href="/sportsvids/' + video._id + '" vidFinder=' + index + '><img class="sv-other-vid-img" src=' + video.imgthumb + ' vidFinder=' + index + '></img></a></div>';
 				}
