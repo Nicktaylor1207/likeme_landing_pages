@@ -8,6 +8,11 @@ $(function(){
 		vidFrame.attr('src', vids[vids.length - 1].url);
 	}
 
+	/* Set main vid title */
+	if (vid && vid.title != "") {
+		$('#sv-title-ctn').html('<p><span class="sv-vid-header">Title: </span>' + vid.title + '</p>')	
+	}
+
 	/* Set main vid location */
 	if (vid && vid.location) {
 		$('#sv-location-ctn').html('<p><span class="sv-vid-header">Location: </span>' + vid.location + '</p>')	
@@ -25,21 +30,21 @@ $(function(){
 		$('#sv-league-ctn').html('<p><span class="sv-vid-header">League: </span>' + vid.league + '</p>')	
 	}
 
-	/* Set main vid players */
-	if (vid && vid.userIDs && vid.userIDs.length > 0) {
-		var svLeagueCtn = $('#sv-league-ctn');
-		svLeagueCtn.append('<p class="sv-vid-header">Players:</p>');
-		var players = vid.userIDs;
-		$.each(players, function(index, player){
-			if ($.type(player) === "string") {
-				var playerID = player;
-			} else {
-				var playerID = player.email;
-			}
-			var playerDiv = '<p class="sv-player-ID" playerFinder=' + index + '>' + playerID + '</p>'
-			svLeagueCtn.append(playerDiv);
-		});
-	}	
+	// /* Set main vid players */
+	// if (vid && vid.userIDs && vid.userIDs.length > 0) {
+	// 	var svLeagueCtn = $('#sv-league-ctn');
+	// 	svLeagueCtn.append('<p class="sv-vid-header">Players:</p>');
+	// 	var players = vid.userIDs;
+	// 	$.each(players, function(index, player){
+	// 		if ($.type(player) === "string") {
+	// 			var playerID = player;
+	// 		} else {
+	// 			var playerID = player.email;
+	// 		}
+	// 		var playerDiv = '<p class="sv-player-ID" playerFinder=' + index + '>' + playerID + '</p>'
+	// 		svLeagueCtn.append(playerDiv);
+	// 	});
+	// }	
 	
 	/* Set other videos */
 	if (vids.length > 1) {
@@ -57,8 +62,11 @@ $(function(){
 	}
 
 	/* Add edit video if applicable */
-	if (vid) {
-		$('#sv-add-edit-vid-ctn').append('<p class="sv-edit-video"><a href="/editvid/' + vid._id + '">Edit Video</a></p>')
-	}
+	// if (vid) {
+	// 	$('#sv-add-edit-vid-ctn').append('<p class="sv-edit-video"><a href="/editvid/' + vid._id + '">Edit Video</a></p>')
+	// }
+
+	/* Validation: confirm url and no duplicates for addvid */
+
 
 });

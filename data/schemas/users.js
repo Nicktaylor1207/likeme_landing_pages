@@ -6,6 +6,8 @@ var UserSchema = new mongoose.Schema({
 		unique: true,
 		lowercase: true
 	},
+	password: String,
+	userName: String,
 	vids: [],
 	fbUserID: String
 });

@@ -27,7 +27,7 @@ module.exports = function(app) {
 
 	app.get('/sportsvids', function(req, res){
 		Vid.find(function(err, vids){
-			res.render('sportsvids', {vids: vids, vid: false});
+			res.render('sportsvids', {vids: vids, vid: false, players: false});
 		});
 	});
 
@@ -73,10 +73,10 @@ module.exports = function(app) {
 			} else {
 				var vidsByDate = sortByKey(vids, 'date');
 				Vid.findById(req.params.id, function(err, vid){
-					if(err) {
+					if(err || !vid) {
 						res.redirect('/sportsvids');
 						console.log("Error finding vid with that :id");
-						throw err;
+						console.log(err);
 					} else {
 						if (vid.userIDs && vid.userIDs.length > 0){
 							getPlayers(vid, function(players){
@@ -104,7 +104,7 @@ module.exports = function(app) {
 				var playersArray = playerString.split(",");
 				vid.userIDs = playersArray;
 				vid.save(function(){
-					res.redirect('/sportsvids/' + req.params.vidID);
+					res.redirect('/sportsvids/' + req.body.vidID);
 				})
 			}
 		});

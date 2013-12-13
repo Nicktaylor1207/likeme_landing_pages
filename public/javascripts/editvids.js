@@ -16,8 +16,8 @@ $(function(){
 	if (vid.date) {
 		$('#av-vid-date').attr('value', vid.date);
 	}
-	if (vid.players) {
-		$('#av-vid-players').attr('value', vid.players);
+	if (vid.userIDs) {
+		$('#av-vid-players').attr('value', vid.userIDs);
 	}
 
 });
