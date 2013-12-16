@@ -98,7 +98,8 @@ module.exports = function(app) {
 				return;
 			} else {
 				var vidUrl = req.body.url;
-				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6).toString();
+				vid.url = vidUrl + "?vq=hd1080&autoplay=1";
+				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6);
 				vid.imgthumb = "http://img.youtube.com/vi/" + ytId + "/hqdefault.jpg";
 				var playerString = req.body.userIDs.toString();
 				var playersArray = playerString.split(",");
@@ -117,12 +118,12 @@ module.exports = function(app) {
 				throw err;
 			} else {
 				var vidUrl = req.body.url;
-				vid.url = vidUrl;
+				vid.url = vidUrl + "?vq=hd1080&autoplay=1";
 				vid.title = req.body.title;
 				vid.location = req.body.location;
 				vid.league = req.body.league;
 				vid.date = req.body.date;
-				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6).toString();
+				var ytId = vidUrl.slice(vidUrl.indexOf('embed') + 6);
 				vid.imgthumb = "http://img.youtube.com/vi/" + ytId + "/hqdefault.jpg";
 				var playerString = req.body.userIDs.toString();
 				var playersArray = playerString.split(",");

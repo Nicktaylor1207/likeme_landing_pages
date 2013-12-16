@@ -41,6 +41,28 @@
 
 .sv-other-img-div {
 	margin-bottom: 20px;
+	height: 200px;
+	width: 266px;
+	background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.sv-other-vid-label-ctn {
+	position: absolute;
+	top: 80px;
+	left: 30px;
+	width: 206px;
+	padding: 0px;
+	text-align: center;
+}
+
+.sv-other-vid-label {
+	font-size: 20px;
+	font-weight: 500;
+	color: white !important;
+	text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
 }
 
 .sv-edit-video {
@@ -50,3 +72,4 @@
 .sv-player-ID {
 	margin-bottom: 3px;
 }
+
