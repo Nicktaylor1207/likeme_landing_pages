@@ -8,12 +8,12 @@ $(function(){
 		var photoStyle = photo.style;
 		if (photoStyle != "") {
 			if (photoStyle.length > 1) {
-				var styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+				var styleTagString = "<a href='/photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 				for (var i = 1; i < photoStyle.length; i++) {
-					styleTagString += ", <a href='photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
+					styleTagString += ", <a href='/photos-" + photoStyle[i] + "'>" + styles[photoStyle[i]] + "</a>";
 				}
 			} else {
-				styleTagString = "<a href='photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
+				styleTagString = "<a href='/photos-" + photoStyle[0] + "'>" + styles[photoStyle[0]] + "</a>";
 			}
 			var styleTag = "<p class='photo-right-content'>Style: " + styleTagString + "</p>";
 		} else var styleTag = "<p class='photo-right-content'>Style: no tag</p>";
@@ -22,12 +22,12 @@ $(function(){
 		var photoType = photo.type;
 		if (photoType != "") {
 			if (photoType.length > 1) {
-				var typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+				var typeTagString = "<a href='/photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 				for (var i = 1; i < photoType.length; i++) {
-					typeTagString += ", <a href='photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
+					typeTagString += ", <a href='/photos-" + photoType[i] + "'>" + types[photoType[i]] + "</a>";
 				}
 			} else {
-				typeTagString = "<a href='photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
+				typeTagString = "<a href='/photos-" + photoType[0] + "'>" + types[photoType[0]] + "</a>";
 			}
 			var typeTag = "<p class='photo-right-content'>Type: " + typeTagString + "</p>";
 		} else var typeTag = "<p class='photo-right-content'>Type: no tag</p>";
@@ -50,7 +50,7 @@ $(function(){
 			commentsDynamic += "<div class='comment-text-container'>" + linkCommentor + "<p class='comments-text'>" + comment.text.replace(/\n/g,'<p>') + "</p></div>";
 		}
 
-		var commentsContent = "<div class='comment-container'><p class='add-comment-header'><a>Add Comment</a></p><form class='add-comment-form hide' method='POST' action='/comment'><input class='hide' name='user' value=" + user.email + "><input class='hide' name='firstName' value=" + user.firstName + "><input class='hide' name='lastName' value=" + user.lastName + "><input class='hide' name='photo_url' value=" + photoUrl + "><textarea class='comments-box' rows='4' name='text'></textarea><input class='btn btn-primary add-comment-btn' type='submit' value='Submit'></form><div class='comments-content-container'>" + commentsDynamic + "</div></div>";
+		var commentsContent = "<div class='comment-container'><p class='add-comment-header'><a>Add Comment</a></p><form class='add-comment-form hide' method='POST' action='/comment'><input class='hide' name='user' value=" + user.email + "><input class='hide' name='firstName' value=" + user.firstName + "><input class='hide' name='lastName' value='" + user.lastName + "'><input class='hide' name='photo_url' value=" + photoUrl + "><textarea class='comments-box' rows='4' name='text'></textarea><input class='btn btn-primary add-comment-btn' type='submit' value='Submit'></form><div class='comments-content-container'>" + commentsDynamic + "</div></div>";
 		var contentRight = styleTag + typeTag + commentsContent;
 		
 		var photosHtml = "<div class='row-fluid photo-display-container' id=" + index + "><div class='photo-img-container span9'><button class='btn-large btn-primary save-btn hide'>Save</button><form class='add-notebook-form' method='POST' action='/notebook1'><input id='img-url' class='hide' name='image_url' finder=" + index + " value=" + photoUrl + "><input class='btn add-to-nb-btn' type='submit' value='Add to Notebook' href='#photos-add-photos-modal' data-toggle='modal'></form><div><a href='#photo-modal' data-toggle='modal'><div class='center-cropped' style='background-image: url(" + photoUrl + ")'><img class='photo-img' src=" + photoUrl + " finder=" + index + "></img></div></a></div></div><div class='photo-content-container span3'>" + contentRight + "</div></div>";

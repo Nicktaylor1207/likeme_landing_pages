@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 
 var MessageSchema = new mongoose.Schema({
-	name: String,
-	message: String,
-	email: String
+	email: String,
+	message: String
 });
 
 module.exports = MessageSchema;

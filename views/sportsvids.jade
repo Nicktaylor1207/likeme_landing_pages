@@ -1,0 +1,45 @@
+doctype 5
+html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
+	head
+		link(rel='stylesheet', href='/stylesheets/vidstyle.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-38419802-3', 'herokuapp.com');
+			ga('send', 'pageview');
+	body
+		div.body-container
+			div.body-container-inner
+				h2 Sports Videos
+				div.row-fluid
+					div.span8
+						iframe#sv-video-frame(width="640", height="360", src="", frameborder="0", allowfullscreen)
+						div#sv-title-ctn
+						div#sv-location-ctn
+						div#sv-date-ctn
+						div#sv-league-ctn
+						div#sv-players-ctn
+						div#sv-add-edit-vid-ctn
+							a(href="/addvid") Add Video
+					div.span4#sv-other-vids-content-ctn
+						h3#sv-other-vids-header Other Videos
+						div#sv-other-vids-ctn
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
+	script(type="text/javascript", src="/javascripts/sportsvids.js")
+	script.
+		var vid = !{JSON.stringify(vid)}
+	script.
+		var vids = !{JSON.stringify(vids)}
+	script.
+		var players = !{JSON.stringify(players)}
+
+// red: 52a68f7087d9900000000003 //www.youtube.com/embed/CSLuDSsdrb8
+// unc: 52a68b2887d9900000000002 //www.youtube.com/embed/m9WRD7UvmMw "Cobb Court, UNC"
+// nick: 52a68b0b87d9900000000001 //www.youtube.com/embed/5vAdJK2k3Ls

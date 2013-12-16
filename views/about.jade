@@ -20,19 +20,18 @@ block content
 						h3 Send us a Message
 						p We are constantly improving the site, always with our users' input in mind. Please send us a message below and tell us how we can improve the site for you. Rather talk on the phone? Call me: 781-307-7432
 						form#about-contact-form(method="POST", action="/message")
+							p.pull-left#about-msg-from From:
 							input#email(name="email", type="text", placeholder="Your email address")
-							textarea#message(rows="10", type="textarea", placeholder="Send us a message...", name="message")
-							button#message-post-btn.btn.btn-medium(type="submit") Send
+							textarea#message(rows="8", type="textarea", placeholder="Send us a message...", name="message")
+							button#message-post-btn.btn.btn-medium.btn-primary(type="submit") Send
 					div#message-sent-thanks.hide()
 						h4 Thanks for your insight!
-	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/script.js")
 	script(type="text/javascript", src="jquery-cookie-master/jquery.cookie.js")
 	script(type='text/javascript', src='jquery.html5-placeholder-shim.js')
 	script(type="text/javascript", src="/javascripts/about.js")
-	script.
-		var hide = !{JSON.stringify(hide)}
 	script.
 		var navLogin = !{JSON.stringify(navLogin)}
 	script.

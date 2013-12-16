@@ -31,6 +31,18 @@ $(function(){
 
 });
 
+$(function(){
+
+	/* Add validation for notebook name */
+	$('#create-nb-form').on('submit', function(){
+		if ($('#create-nb-notebook-name').val() == "") {
+			alert("Please add a name for the notebook.");
+			return false;
+		}	
+	});
+
+})
+
 /* Front-end photo validation */
 // $(function(){
 // 	$('#nb-notebooks-modal-form').submit(function(){

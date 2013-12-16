@@ -1,11 +1,13 @@
 var Email = require('../data/models/emails');
+var selectNav = require('./middleware/select_nav');
 
 module.exports = function(app) {
 
-  app.get('/forgot-password', function(req, res){
+  app.get('/forgot-password', selectNav, function(req, res) {
     Email.find(function(err, users){
-      res.render('forgot-password', {users: users});
+      res.render('forgot-password', {users: users, user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
     })
+
   });
 
   app.post('/email', function (req, res, next) {

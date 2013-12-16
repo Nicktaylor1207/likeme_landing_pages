@@ -24,6 +24,15 @@ $(function(){
 		$('#user-description').readmore({maxHeight: 120, moreLink: '<a id="profile-more" href="#">More</a>', lessLink: '<a id="profile-less" href="#">Less</a>'})	
 	}
 
+	/* Set profile images if the user/id has a profile pic */
+	if (id.profilePic && id.profilePic != "") {
+		$('.profile-photo-container').attr('style', 'background-image: url(/' + id.profilePic + ')');
+	}
+
+	if (user.profilePic && user.profilePic != "") {
+		$('#create-profile-photo-container').attr('style', 'background-image: url(/' + user.profilePic + ')');
+	}	
+
 });
 
 /* Create pro profile */
@@ -36,7 +45,7 @@ $(function(){
 	}
 
 	/* Set header */
-	if (user.profilePic != "" || user.title != "" || user.website != "" || user.description != "" || user.number != "" || user.address != "") {
+	if (user.profilePic || user.title || user.website || user.description || user.number || user.address) {
 		$('#create-profile-header').html("Edit Profile");
 	}
 

@@ -15,6 +15,10 @@ module.exports = function(app) {
 		res.render('loginAlt2', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
 	});	
 
+	app.get('/loginAlt3', selectNav, function(req, res){
+		res.render('loginAlt3', {user: sessionUser, id: sessionUser, navLogin: req.body.navLogin});
+	});	
+
 	app.get('/logout', function(req, res) {
 		req.session = null;
 		res.redirect('/');
@@ -34,14 +38,22 @@ module.exports = function(app) {
 				return next (err);
 			}
 			if (user) {
-				req.session.email = user;
-				res.redirect('/albums');
+				if (user.firstName == " ") {
+					req.session.email = user;
+					res.redirect('/loginAlt3');
+				} else {
+					req.session.email = user;
+					res.redirect('/albums');
+				}
 			} else {
 				Email.findOne({email: req.body.email.toLowerCase()}, function(err, user){
 					if (err) {
 						return next (err);
 					}
 					if (user && user.password == "password") {
+						req.session.email = user;
+						res.redirect('/loginAlt');
+					} else if (user && user.firstName == " ") {
 						req.session.email = user;
 						res.redirect('/loginAlt');
 					} else {
@@ -82,7 +94,7 @@ module.exports = function(app) {
 			user.password = req.body.password;
 			user.save(function(){
 				req.session.email.password = req.body.password;
-				res.redirect('/introAlt')
+				res.redirect('/intro');
 			})
 		});
 	});

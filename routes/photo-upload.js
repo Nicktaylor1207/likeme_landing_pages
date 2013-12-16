@@ -5,33 +5,44 @@ var selectNav = require('./middleware/select_nav');
 var fs = require('fs');
 var path = require('path');
 
-function checkNotebookDup(notebook){
-  if (notebook == req.body.name) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 module.exports = function(app) {
 
   app.post('/create-notebook', selectNav, function(req, res){
 
+    function checkNotebookDup(notebook){
+      if (notebook == req.body.name) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     /* Add photo to photos if there are photo inputs */
     if (req.body.photoCounter > 0) {
-      
-      Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
-        if (err) {
-          throw err;
-        } else {
-          /* Add the notebook name to the user's notebooks array */
-          sessionUser.notebooks.push(name.name);
-          sessionUser.save()
-          /* Add the photoUrls to the notebook photoArray */
+
+      if (sessionUser.notebooks.some(checkNotebookDup) == false) {
+
+        Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
+          if (err) {
+            throw err;
+          } else {
+            /* Add the notebook name to the user's notebooks array */
+            sessionUser.notebooks.push(name.name);
+            sessionUser.save()
+            /* Add the photoUrls to the notebook photoArray */
+            var notebook = name;
+            addPhotos(notebook);
+          }
+        });
+
+      } else {
+
+        Notebook.findOne({name: req.body.name, user: sessionUser.email}, function(err, name){
           var notebook = name;
           addPhotos(notebook);
-        }
-      });
+        });
+
+      }
 
       function addPhotos(notebook){
         /* counts how many photos are being added */
@@ -79,14 +90,24 @@ module.exports = function(app) {
       };
 
     } else {
-      /* Create notebook without photos here */
+      Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){
+        if (err) {
+          throw err;
+        } else {
+          /* Add the notebook name to the user's notebooks array */
+          sessionUser.notebooks.push(name.name);
+          sessionUser.save(function(){
+            res.redirect('/notebooks');
+          })
+        }
+      });
     }
 
   });
 
 };
 
-// if (sessionUser.notebooks.some(checkNotebookDup) == false) {
+
 
 //   /* Create a new notebook */
 //   Notebook.create({name: req.body.name, user: sessionUser.email}, function(err, name){

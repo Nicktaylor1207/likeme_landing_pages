@@ -64,19 +64,25 @@ module.exports = function(app) {
 	}
 
 	app.get('/albums', selectNav, function(req, res) {
+	  if (sessionUser.password == "password") {
+	  	res.redirect('/loginAlt');
+	  } else if (sessionUser.firstName == " ") {
+	  	res.redirect('loginAlt3');
+	  } else {
 	  req.session.tag = 'albums';
-	  Photo.find({ used: true}, function(err, results){
-    	var sorted = sortByKey(results, 'date');
-    	if (req.session.email) {
-				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: sessionUser, id: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});
-				});
-			} else {
-				Comment.find(function(err, results){
-					res.render('photos-dyn', {user: false, id: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
-				});
-			}
-		});
+		  Photo.find({ used: true}, function(err, results){
+	    	var sorted = sortByKey(results, 'date');
+	    	if (req.session.email) {
+					Comment.find(function(err, results){
+						res.render('photos-dyn', {user: sessionUser, id: sessionUser, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					});
+				} else {
+					Comment.find(function(err, results){
+						res.render('photos-dyn', {user: false, id: false, photos: sorted, comments: results, navLogin: req.body.navLogin});
+					});
+				}
+			});
+		}
 	});
 
 };
