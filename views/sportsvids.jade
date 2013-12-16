@@ -14,6 +14,12 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 			ga('create', 'UA-38419802-3', 'herokuapp.com');
 			ga('send', 'pageview');
 	body
+		div#fb-root
+			script(type="text/javascript", src="/javascripts/facebook.js")
+
+		div#fb-login-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="fb-login", aria-hidden="true", data-keyboard="false", data-backdrop="static")
+			div.modal-body
+				fb:login-button#fb-login-btn(show-faces="true", width="200", max-rows="1")
 		div.body-container
 			div.body-container-inner
 				h2 Sports Videos
@@ -33,6 +39,7 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 	script(src='/bootstrap/js/bootstrap.min.js')
 	script(type="text/javascript", src="/javascripts/sportsvids.js")
+	script(type="text/javascript", src="/javascripts/facebook.js")
 	script.
 		var vid = !{JSON.stringify(vid)}
 	script.

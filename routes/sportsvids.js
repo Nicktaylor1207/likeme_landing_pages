@@ -31,10 +31,6 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get('/fb-login', function(req, res){
-		res.render('fb-login');
-	});
-
 	app.get('/sportsvids/:id', function(req, res){
 		
 		function getPlayers(vid, callback){
