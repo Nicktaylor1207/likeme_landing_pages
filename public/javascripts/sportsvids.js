@@ -69,9 +69,9 @@ $(function(){
 	}
 
 	/* Add edit video if applicable */
-	if (vid) {
-		$('#sv-add-edit-vid-ctn').append('<p class="sv-edit-video"><a href="/editvid/' + vid._id + '">Edit Video</a></p>')
-	}
+	// if (vid) {
+	// 	$('#sv-add-edit-vid-ctn').append('<p class="sv-edit-video"><a href="/editvid/' + vid._id + '">Edit Video</a></p>')
+	// }
 
 	/* Validation: confirm url and no duplicates for addvid */
 
