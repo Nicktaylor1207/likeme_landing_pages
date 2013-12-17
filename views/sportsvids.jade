@@ -30,7 +30,9 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 						div#sv-league-ctn
 						div#sv-players-ctn
 						div#sv-add-edit-vid-ctn
-							a(href="/addvid") Add Video
+							// a(href="/addvid") Add Video
+						h3 Activity Feed
+						div#sv-activity-feed
 					div.span4#sv-other-vids-content-ctn
 						h3#sv-other-vids-header Other Videos
 						div#sv-other-vids-ctn
@@ -43,7 +45,7 @@ html(lang="en", xml:lang="en", xmlns= "http://www.w3.org/1999/xhtml")
 	script.
 		var vids = !{JSON.stringify(vids)}
 	script.
-		var players = !{JSON.stringify(players)}
+		var users = !{JSON.stringify(users)}
 
 // red: 52a68f7087d9900000000003 //www.youtube.com/embed/CSLuDSsdrb8
 // unc: 52a68b2887d9900000000002 //www.youtube.com/embed/m9WRD7UvmMw "Cobb Court, UNC"

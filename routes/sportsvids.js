@@ -27,7 +27,13 @@ module.exports = function(app) {
 
 	app.get('/sportsvids', function(req, res){
 		Vid.find(function(err, vids){
-			res.render('sportsvids', {vids: vids, vid: false, players: false});
+			User.find(function(err, users){
+				if (err || users.length == 0) {
+					res.render('sportsvids', {vids: vids, vid: false, users: false});
+				} else {
+					res.render('sportsvids', {vids: vids, vid: false, users: users});
+				}
+			});
 		});
 	});
 
@@ -76,10 +82,22 @@ module.exports = function(app) {
 					} else {
 						if (vid.userIDs && vid.userIDs.length > 0){
 							getPlayers(vid, function(players){
-								res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players});
+								User.find(function(err, users){
+									if (err || users.length == 0) {
+										res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players, users: false});
+									} else {
+										res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players, users: users});
+									}
+								});
 							});
 						} else {
-							res.render('sportsvids', {vids: vidsByDate, vid: vid, players: false});
+							User.find(function(err, users){
+								if (err || users.length == 0) {
+									res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players, users: false});
+								} else {
+									res.render('sportsvids', {vids: vidsByDate, vid: vid, players: players, users: users});
+								}
+							});
 						}
 					}
 				})

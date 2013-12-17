@@ -45,6 +45,7 @@ $(function(){
         // login status of the person. In this case, we're handling the situation where they 
         // have logged in to the app.
         // window.location.replace('/sportsvids');
+        findFriends();
       } else if (response.status === 'not_authorized') {
         // In this case, the person is logged into Facebook, but not into the app, so we call
         // FB.login() to prompt them to do so. 
@@ -78,11 +79,59 @@ $(function(){
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
-  // function testAPI() {
-  //   console.log('Welcome!  Fetching your information.... ');
-  //   FB.api('/me', function(response) {
-  //     console.log('Good to see you, ' + response.name + '.');
-  //   });
-  // }
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me/friends?', function(response) {
+      console.log(response.data[0]);
+    });
+  }
+
+  function findFriends(){
+    FB.api('/me/friends?', function(response){
+      var friendList = response.data;
+      var userIds = []
+      $.each(users, function(index, user){
+        userIds.push(user.fbUserID);
+      });
+      var userFriends = [];
+      $.each(userIds, function(i, userId){
+        $.grep(friendList, function(friend, index){
+          if (friend.id == userId) {
+            userFriends.push(friend);
+          }
+        });
+      });
+      activityFeed(userFriends);
+    });
+  }
+
+  /* Activity Feed */
+  function activityFeed(userFriends){
+    if (userFriends.length) {
+      var userFriendList = ""
+      $.each(userFriends, function(index, userFriend){
+        if (userFriends[index + 1]) {
+          userFriendList += userFriend.name + ", "  
+        } else {
+          userFriendList += "and " + userFriend.name
+        }
+      });
+      $('#sv-activity-feed').append('<p id="sv-user-friend-list">Your friends ' + userFriendList + ' use this app.</p>');
+    }
+  }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
