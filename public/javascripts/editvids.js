@@ -2,7 +2,7 @@ $(function(){
 
 	/* Fill in existing vid attributes */
 	if (vid.url) {
-		$('#av-vid-url').attr('value', vid.url);
+		$('#av-vid-url').attr('value', vid.url.slice(0,-21));
 	}
 	if (vid.title) {
 		$('#av-vid-title').attr('value', vid.title);
