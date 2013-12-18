@@ -7,14 +7,13 @@ $(function(){
   }
 
   function postNewUser(response) {
-
+    console.log("postNewUser called to server")
     $.ajax({
       type: "POST",
       url: '/fb-login',
       data: { fbUserID: response.authResponse.userID },
       datatype: 'json'
     });
-
     return false;
   }
 
@@ -26,26 +25,32 @@ $(function(){
       xfbml      : true  // parse XFBML
     });
 
+    FB.getLoginStatus(function(response) {
+      if (response.status != 'connected') {
+        $('#fb-login-modal').modal('show');
+      } else {
+        findFriends();
+      }
+    });
+
+    FB.Event.subscribe('auth.login', function(response) {
+      postNewUser(response);
+      findFriends();
+    });
+
     // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
     // for any authentication related change, such as login, logout or session refresh. This means that
     // whenever someone who was previously logged out tries to log in again, the correct case below 
     // will be handled. 
-    FB.getLoginStatus(function(response) {
-      if (response.status != 'connected') {
-        $('#fb-login-modal').modal('show');
-      }
-    });
-
     FB.Event.subscribe('auth.authResponseChange', function(response) {
       // Here we specify what we do with the response anytime this event occurs. 
       if (response.status === 'connected') {
-        postNewUser(response);
         $('#fb-login-modal').modal('hide');
         // The response object is returned with a status field that lets the app know the current
         // login status of the person. In this case, we're handling the situation where they 
         // have logged in to the app.
         // window.location.replace('/sportsvids');
-        findFriends();
+        // findFriends();
       } else if (response.status === 'not_authorized') {
         // In this case, the person is logged into Facebook, but not into the app, so we call
         // FB.login() to prompt them to do so. 
@@ -79,12 +84,12 @@ $(function(){
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me/friends?', function(response) {
-      console.log(response.data[0]);
-    });
-  }
+  // function testAPI() {
+  //   console.log('Welcome!  Fetching your information.... ');
+  //   FB.api('/me/friends?', function(response) {
+  //     console.log(response.data[0]);
+  //   });
+  // }
 
   function findFriends(){
     FB.api('/me/friends?', function(response){
@@ -94,6 +99,8 @@ $(function(){
         userIds.push(user.fbUserID);
       });
       var userFriends = [];
+      /* Switch from checking users in facebook friends to facebook friends */
+      /*  in users once signups exceed 1,000 */
       $.each(userIds, function(i, userId){
         $.grep(friendList, function(friend, index){
           if (friend.id == userId) {

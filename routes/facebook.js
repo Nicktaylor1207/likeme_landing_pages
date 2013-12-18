@@ -2,15 +2,12 @@ var User = require('../data/models/users');
 
 module.exports = function(app) {
 
-	app.get('/fb-login', function(req, res){
-		res.render('fb-login');
-	});
-
 	app.get('/fb-register', function(req, res){
 		res.render('fb-register');
 	});
 
 	app.post('/fb-login', function(req, res){
+		console.log("Posting to /fb-login");
 		fbUserID = req.body.fbUserID;
 		User.find({fbUserID: fbUserID}, function(err, users){
 			if (err) {
@@ -29,6 +26,7 @@ module.exports = function(app) {
 				});
 			}
 		});
+		res.redirect('/sportsvids');
 	});
 
 };
