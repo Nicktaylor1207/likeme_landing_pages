@@ -114,7 +114,7 @@ $(function(){
 
   /* Activity Feed */
   function activityFeed(userFriends){
-    if (userFriends.length) {
+    if (userFriends.length && $('sv-user-friend-list').html != "") {
       var userFriendList = ""
       $.each(userFriends, function(index, userFriend){
         if (userFriends[index + 1]) {
