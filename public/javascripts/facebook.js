@@ -123,7 +123,7 @@ $(function(){
           userFriendList += "and " + userFriend.name
         }
       });
-      $('#sv-activity-feed').append('<p id="sv-user-friend-list">Your friends ' + userFriendList + ' use this app.</p>');
+      $('#sv-activity-feed').html('<p id="sv-user-friend-list">Your friends ' + userFriendList + ' use this app.</p>');
     }
   }
 
