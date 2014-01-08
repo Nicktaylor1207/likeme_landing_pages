@@ -14,18 +14,18 @@ $(function(){
 	}
 
 	/* Set main vid location */
-	if (vid && vid.location) {
-		$('#sv-location-ctn').html('<p><span class="sv-vid-header">Location: </span>' + vid.location + '</p>')	
-	}
+	// if (vid && vid.location) {
+	// 	$('#sv-location-ctn').html('<p><span class="sv-vid-header">Location: </span>' + vid.location + '</p>')	
+	// }
 
 	/* Set main vid date */
-	if (vid) {
-		var time = parseInt(vid.date);
-		var date = new Date(time);
-		$('#sv-date-ctn').html('<p><span class="sv-vid-header">Date: </span>' + date.toString() + '</p>')
-	}
+	// if (vid) {
+	// 	var time = parseInt(vid.date);
+	// 	var date = new Date(time);
+	// 	$('#sv-date-ctn').html('<p><span class="sv-vid-header">Date: </span>' + date.toString() + '</p>')
+	// }
 
-	/* Set main vid location */
+	/* Set main vid league */
 	if (vid && vid.league) {
 		$('#sv-league-ctn').html('<p><span class="sv-vid-header">League: </span>' + vid.league + '</p>')	
 	}
