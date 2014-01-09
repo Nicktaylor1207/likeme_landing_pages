@@ -3,7 +3,7 @@ $(function(){
 	/* Set main video */
 	var vidFrame = $('#sv-video-frame');
 	if (vid) {
-		vidFrame.attr('src', vid.url);		
+		vidFrame.attr('src', vid.url);
 	} else if (vids && vids.length > 0) {
 		vidFrame.attr('src', vids[vids.length - 1].url);
 	}
