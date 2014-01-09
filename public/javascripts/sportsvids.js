@@ -2,7 +2,9 @@ $(function(){
 
 	/* Set url */
 	if (vid) {
+		console.log(vid);
 		window.history.pushState({stateObj: 'vid'}, '', '/sportsvids/' + vid._id);
+		console.log('/sportsvids/' + vid._id);
 	}
 
 	/* Set main video */
