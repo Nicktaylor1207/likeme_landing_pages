@@ -1,15 +1,36 @@
-// $(function(){
+$(function(){
 
-// 	top.location.href = document.location.href;
-// 	if (
-// 		(document.location.href.indexOf("#ibrokeout") == -1) &&
-// 		(top.location != location)
-// 	) {
-// 		// Break out of the frame
-// 		top.location.href = document.location.href + "#ibrokeout";
-// 	}
+	// if (document.location.href.indexOf('sportsvids/') != -1) {
+	// 	var locator = document.location.href.indexOf('sportsvids/');
+	// 	var urlId = document.location.href.slice(locator + 11);
+	// 	top.location.href +=  urlId + "#br";
+	// 	console.log(urlId);
+	// }
+		
+	if (
+		(top.location.href.indexOf("#br") == -1) &&
+		(top.location != location) &&
+		(document.location.href.indexOf('sportsvids/') != -1)
+	) {
+		// Break out of the frame
+		var locator = document.location.href.indexOf('sportsvids/');
+		var urlId = document.location.href.slice(locator + 11);
+		top.location.href +=  urlId + "#br";
+	}
+		
+	
 
-// });
+	// top.location.href = document.location.href;
+
+	// if (
+	// 	(document.location.href.indexOf("#ibrokeout") == -1) &&
+	// 	(top.location != location)
+	// ) {
+	// 	// Break out of the frame
+	// 	top.location.href = document.location.href + "#ibrokeout";
+	// }
+
+});
 
 
 $(function(){
