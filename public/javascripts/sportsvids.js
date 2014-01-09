@@ -8,14 +8,19 @@ $(function(){
 	// }
 		
 	if (
-		(document.location.href.indexOf("#ibrokeout") == -1) &&
+		(document.location.href.indexOf("#br") == -1) &&
 		(top.location != location)
 		// (document.location.href.indexOf('sportsvids/') != -1)
 	) {
 		// var locator = document.location.href.indexOf('sportsvids/');
 		// var urlId = document.location.href.slice(locator + 11);
 		// top.location.href += urlId + "#br";
-		top.location.href = document.location.href + "#ibrokeout";
+		if (vid) {
+			top.location.href = document.location.href + vid._id + "#br";
+		} else {
+			top.location.href = document.location.href + "#br";
+		}
+		
 	}
 		
 	
