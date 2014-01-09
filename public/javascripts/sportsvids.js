@@ -7,23 +7,23 @@ $(function(){
 	// 	console.log(urlId);
 	// }
 		
-	if (
-		(document.location.href.indexOf("#br") == -1)
-		// (top.location != location)
-		// (document.location.href.indexOf('sportsvids/') != -1)
-	) {
-		// var locator = document.location.href.indexOf('sportsvids/');
-		// var urlId = document.location.href.slice(locator + 11);
-		// top.location.href += urlId + "#br";
-		if (vid) {
-			alert(vid._id);
-			top.location.href = top.location.href + vid._id + "#br";
-		} else {
-			alert("novid");
-			top.location.href = top.location.href + "#br";
-		}
+	// if (
+	// 	(document.location.href.indexOf("#br") == -1)
+	// 	// (top.location != location)
+	// 	// (document.location.href.indexOf('sportsvids/') != -1)
+	// ) {
+	// 	// var locator = document.location.href.indexOf('sportsvids/');
+	// 	// var urlId = document.location.href.slice(locator + 11);
+	// 	// top.location.href += urlId + "#br";
+	// 	if (vid) {
+	// 		alert(vid._id);
+	// 		top.location.href = top.location.href + vid._id + "#br";
+	// 	} else {
+	// 		alert("novid");
+	// 		top.location.href = top.location.href + "#br";
+	// 	}
 		
-	}
+	// }
 		
 	
 
