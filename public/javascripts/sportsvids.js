@@ -1,5 +1,10 @@
 $(function(){
 
+	/* Set url */
+	if (vid) {
+		window.history.pushState({stateObj: 'vid'}, '', '/sportsvids/' + vid._id);
+	}
+
 	/* Set main video */
 	var vidFrame = $('#sv-video-frame');
 	if (vid) {
