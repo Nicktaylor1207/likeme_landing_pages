@@ -34,17 +34,17 @@ app.configure(function(){
 });
 
 // development only
-// if ('development' == app.get('env')) {
-//   app.use(express.errorHandler());
-// }
+if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}
 
-// app.get('/*', function(req, res, next) {
-//   if (req.headers.host.match(/^www/) !== null ) {
-//     res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
-//   } else {
-//     next();     
-//   }
-// });
+app.get('/*', function(req, res, next) {
+  if (req.headers.host.match(/^www/) !== null ) {
+    res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
+  } else {
+    next();     
+  }
+});
 
 require('./routes/index')(app);
 require('./routes/about')(app);
