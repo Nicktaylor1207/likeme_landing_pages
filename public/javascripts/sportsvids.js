@@ -13,9 +13,10 @@ $(function(){
 		(document.location.href.indexOf('sportsvids/') != -1)
 	) {
 		// Break out of the frame
-		var locator = document.location.href.indexOf('sportsvids/');
-		var urlId = document.location.href.slice(locator + 11);
-		top.location.href +=  urlId + "#br";
+		// var locator = document.location.href.indexOf('sportsvids/');
+		// var urlId = document.location.href.slice(locator + 11);
+		// top.location.href += urlId + "#br";
+		top.location.href = document.location.href + "#br";
 	}
 		
 	
