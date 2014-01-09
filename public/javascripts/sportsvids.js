@@ -1,13 +1,15 @@
 $(function(){
 
-	top.location.href = document.location.href;
-	if (
-		(document.location.href.indexOf("#ibrokeout") == -1) &&
-		(top.location != location) 
-	) {
-		// Break out of the frame
-		top.location.href = document.location.href + "#ibrokeout";
-	}
+	alert("doc" + document.location.href);
+	alert("top" + top.location.href);
+	// top.location.href = document.location.href;
+	// if (
+	// 	(document.location.href.indexOf("#ibrokeout") == -1) &&
+	// 	(top.location != location)
+	// ) {
+	// 	// Break out of the frame
+	// 	top.location.href = document.location.href + "#ibrokeout";
+	// }
 
 });
 
@@ -72,11 +74,11 @@ $(function(){
 			if (vid) {
 				/* Exclude the video that's playing */
 				if (video.imgthumb != vid.imgthumb) {
-					var vidImg = '<a class="sv-other-img-link" href="/sportsvids/' + video._id + '" vidFinder=' + index + '><div class="sv-other-img-div" style="background-image: url(' + video.imgthumb + ')"><div class="sv-other-vid-label-ctn"><p class="sv-other-vid-label">' + vidLabel + '</p></div><img class="sv-other-vid-img hide" src=' + video.imgthumb + ' vidFinder=' + index + '></img></div></a>';
+					var vidImg = '<a class="sv-other-img-link" href="/sportsvids/' + video._id + '" vidFinder=' + index + ' target="_top"><div class="sv-other-img-div" style="background-image: url(' + video.imgthumb + ')"><div class="sv-other-vid-label-ctn"><p class="sv-other-vid-label">' + vidLabel + '</p></div><img class="sv-other-vid-img hide" src=' + video.imgthumb + ' vidFinder=' + index + '></img></div></a>';
 				}
 			/* Conditional for sportsvids page without :id */
 			} else if (vids[index + 1]) {
-				var vidImg =   '<a class="sv-other-img-link" href="/sportsvids/' + video._id + '" vidFinder=' + index + '><div class="sv-other-img-div" style="background-image: url(' + video.imgthumb + ')"><div class="sv-other-vid-label-ctn"><p class="sv-other-vid-label">' + vidLabel + '</p></div><img class="sv-other-vid-img hide" src=' + video.imgthumb + ' vidFinder=' + index + '></img></div></a>';
+				var vidImg =   '<a class="sv-other-img-link" href="/sportsvids/' + video._id + '" vidFinder=' + index + ' target="_top"><div class="sv-other-img-div" style="background-image: url(' + video.imgthumb + ')"><div class="sv-other-vid-label-ctn"><p class="sv-other-vid-label">' + vidLabel + '</p></div><img class="sv-other-vid-img hide" src=' + video.imgthumb + ' vidFinder=' + index + '></img></div></a>';
 			}
 			otherVidCtn.append(vidImg);
 		});
