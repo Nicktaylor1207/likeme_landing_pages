@@ -1,17 +1,5 @@
 $(function(){
 
-	alert("Firing!");
-
-	/* Set url */
-	if (vid) {
-		alert("vid");
-		window.history.replaceState({stateObj: 'vid'}, '', '/cat');
-	}
-
-});
-
-$(function(){
-
 	/* Set main video */
 	var vidFrame = $('#sv-video-frame');
 	if (vid) {
@@ -89,3 +77,14 @@ $(function(){
 
 });
 
+// $(function(){
+
+// 	alert("Firing!");
+
+// 	/* Set url */
+// 	if (vid) {
+// 		alert("vid");
+// 		window.history.replaceState({stateObj: 'vid'}, '', '/cat');
+// 	}
+
+// });
