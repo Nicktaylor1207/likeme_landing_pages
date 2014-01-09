@@ -1,9 +1,16 @@
 $(function(){
 
+	alert("Firing!");
+
 	/* Set url */
 	if (vid) {
+		alert("vid");
 		window.history.replaceState({stateObj: 'vid'}, '', '/sportsvids/cat');
 	}
+
+});
+
+$(function(){
 
 	/* Set main video */
 	var vidFrame = $('#sv-video-frame');
