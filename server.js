@@ -25,7 +25,8 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
-	app.use(express.bodyParser({uploadDir: __dirname + '/tmp_files'}));
+	app.use(express.bodyParser());
+  // app.use(express.bodyParser({uploadDir: __dirname + '/tmp_files'}));
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('I love Red'));
   app.use(express.cookieSession({ cookie: {maxAge: 60 * 60 * 1000}}));
@@ -38,13 +39,13 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/*', function(req, res, next) {
-  if (req.headers.host.match(/^www/) !== null ) {
-    res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
-  } else {
-    next();     
-  }
-});
+// app.get('/*', function(req, res, next) {
+//   if (req.headers.host.match(/^www/) !== null ) {
+//     res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
+//   } else {
+//     next();     
+//   }
+// });
 
 require('./routes/index')(app);
 require('./routes/about')(app);
