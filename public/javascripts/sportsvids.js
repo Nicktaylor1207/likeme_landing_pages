@@ -1,5 +1,19 @@
 $(function(){
 
+	top.location.href = document.location.href;
+	if (
+		(document.location.href.indexOf("#ibrokeout") == -1) &&
+		(top.location != location) 
+	) {
+		// Break out of the frame
+		top.location.href = document.location.href + "#ibrokeout";
+	}
+
+});
+
+
+$(function(){
+
 	/* Set main video */
 	var vidFrame = $('#sv-video-frame');
 	if (vid) {
