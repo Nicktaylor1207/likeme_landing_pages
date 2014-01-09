@@ -5,7 +5,7 @@ $(function(){
 	/* Set url */
 	if (vid) {
 		alert("vid");
-		window.history.replaceState({stateObj: 'vid'}, '', '/sportsvids/cat');
+		window.history.replaceState({stateObj: 'vid'}, '', '/cat');
 	}
 
 });
