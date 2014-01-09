@@ -9,7 +9,7 @@ $(function(){
 		
 	if (
 		(document.location.href.indexOf("#ibrokeout") == -1) &&
-		(top.location != location) &&
+		(top.location != location)
 		// (document.location.href.indexOf('sportsvids/') != -1)
 	) {
 		// var locator = document.location.href.indexOf('sportsvids/');
