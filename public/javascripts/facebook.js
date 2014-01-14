@@ -7,15 +7,30 @@ $(function(){
   }
 
   function postNewUser(response) {
-    console.log("postNewUser called to server")
-    $.ajax({
-      type: "POST",
-      url: '/fb-login',
-      data: { fbUserID: response.authResponse.userID },
-      datatype: 'json'
+    FB.api('/me', function(res){
+      if (res && !res.error) {
+        $.ajax({
+          type: "POST",
+          url: '/fb-login',
+          data: { fbUserID: response.authResponse.userID, userName: res.name },
+          datatype: 'json'
+        });
+        return false;
+      }
     });
-    return false;
+
   }
+
+  // function postNewUser(response) {
+  //   console.log("postNewUser called to server")
+  //   $.ajax({
+  //     type: "POST",
+  //     url: '/fb-login',
+  //     data: { fbUserID: response.authResponse.userID },
+  //     datatype: 'json'
+  //   });
+  //   return false;
+  // }
 
   window.fbAsyncInit = function() {
     FB.init({

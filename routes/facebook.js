@@ -16,7 +16,8 @@ module.exports = function(app) {
 			} else if (users.length) {
 				console.log("User already exists");
 			} else {
-				User.create({fbUserID: fbUserID}, function(err, user){
+				User.create({fbUserID: fbUserID, userName: req.body.userName}, function(err, user){
+					console.log(user);
 					if (err) {
 						console.log(err);
 						next();

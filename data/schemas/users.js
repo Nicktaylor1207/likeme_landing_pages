@@ -5,7 +5,11 @@ var UserSchema = new mongoose.Schema({
 	password: String,
 	userName: String,
 	vids: [],
-	fbUserID: String
+	fbUserID: String,
+	date: { 
+		type: String,
+		default: (new Date()).getTime()
+	}
 });
 
 module.exports = UserSchema;
