@@ -825,10 +825,11 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
  * Carousel Fade Plugin
  */
 .carousel-fade .item {
-  -webkit-transition: opacity ease-in-out 1s !important;
-  	 -moz-transition: opacity ease-in-out 1s !important;
-  		 -o-transition: opacity ease-in-out 1s !important;
-  				transition: opacity ease-in-out 1s !important;
+  -webkit-transition: opacity ease-in-out 2s !important;
+  	 -moz-transition: opacity ease-in-out 2s !important;
+  		-ms-transition: opacity ease-in-out 2s !important;
+  		 -o-transition: opacity ease-in-out 2s !important;
+  				transition: opacity ease-in-out 2s !important;
 }
 
 .carousel-fade .active.left,
@@ -836,7 +837,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   left: 0 !important;
   z-index: 2 !important;
   opacity: 0 !important;
-   filter: alpha(opacity=0) !important;
+  filter: alpha(opacity=0) !important;
 }
 
 #photos-pagination {
