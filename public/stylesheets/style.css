@@ -825,12 +825,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
  * Carousel Fade Plugin
  */
 .carousel-fade .item {
-  -webkit-transition: opacity ease-in-out 2s !important;
-  	 -moz-transition: opacity ease-in-out 2s !important;
-  		-ms-transition: opacity ease-in-out 2s !important;
-  		 -o-transition: opacity ease-in-out 2s !important;
-  				transition: opacity ease-in-out 2s !important;
+  -webkit-transition: opacity 2s !important;
+  	 -moz-transition: opacity 2s !important;
+  		-ms-transition: opacity 2s !important;
+  		 -o-transition: opacity 2s !important;
+  				transition: opacity 2s !important;
 }
+
+.carousel .next {left:0;opacity:1;z-index:1;}
 
 .carousel-fade .active.left,
 .carousel-fade .active.right {
